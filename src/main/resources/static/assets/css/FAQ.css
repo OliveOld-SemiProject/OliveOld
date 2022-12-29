@@ -1,0 +1,518 @@
+@charset "UTF-8";
+
+body,
+html {
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    word-spacing: -1px;
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Montserrat, -apple-system, NotoSansCJKkr, AppleSDGothicNeo, Roboto, dotum, "돋움", sans-serif;
+    letter-spacing: -.04em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
+a,
+address,
+blockquote,
+body,
+dd,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+input,
+label,
+li,
+ol,
+p,
+pre,
+select,
+span,
+strong,
+textarea,
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+button,
+img,
+input,
+select,
+textarea {
+    border: 0;
+    vertical-align: top;
+    color: #666
+}
+
+legend {
+    position: absolute;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+    z-index: -1
+}
+
+a {
+    color: #666;
+    text-decoration: none
+}
+
+button,
+input.button,
+input.image,
+input.submit,
+label {
+    cursor: pointer
+}
+
+#Container,
+#Footer,
+#Header,
+#Wrapper {
+    width: 100%;
+    min-width: 1020px
+}
+
+#Container {
+    overflow: hidden
+}
+
+#Contents {
+    width: 1020px;
+    height: 100%;
+    margin: 0 auto
+}
+
+button,
+input[type=submit] {
+    font-family: Montserrat, -apple-system, NotoSansCJKkr, AppleSDGothicNeo, Roboto, sans-serif;
+    font-weight: 700
+}
+
+.pdzero {
+    padding: 0 !important
+}
+
+input {
+    width: 100%;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #d0d0d0;
+    color: #888;
+    background: 0 0;
+    border-radius: 5px;
+    -ms-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    letter-spacing: .5px;
+    vertical-align: top
+}
+
+input[type=password],
+input[type=tel],
+input[type=text] {
+    padding: 0 10px;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    color: #888
+}
+
+button,
+input[type=submit] {
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer
+}
+
+input:disabled,
+input:read-only,
+select:disabled {
+    background-color: #f8f8f8;
+    color: #888
+}
+
+button {
+    text-align: center;
+    color: #fff
+}
+
+.TabsConts {
+    display: none
+}
+
+.TabsConts.on {
+    display: block
+}
+
+.comm1sTabs {
+    overflow: hidden;
+    width: 100%;
+    margin: 15px 0 0
+}
+
+.comm1sTabs.threeSet li {
+    width: 33.5%
+}
+
+.comm1sTabs.threeSet li:first-child {
+    width: 33%
+}
+
+.comm1sTabs>li {
+    float: left;
+    width: 50%;
+    border-left: 1px solid #e3e3e3;
+    border-bottom: 2px solid #9bce26;
+    text-align: center;
+    background: #f6f6f6
+}
+
+.comm1sTabs>li:first-child {
+    border-left: 0
+}
+
+.comm1sTabs>li>a {
+    display: block;
+    height: 50px;
+    padding-top: 15px;
+    color: #333;
+    font-size: 18px
+}
+
+.comm1sTabs>li.on {
+    border-left: 2px solid #9bce26;
+    border-top: 2px solid #9bce26;
+    border-right: 2px solid #9bce26;
+    border-bottom: 0;
+    background: #fff
+}
+
+.comm1sTabs>li.on>a {
+    padding-top: 13px
+}
+
+.comm1sTabs>li.on+li {
+    border-left: 0
+}
+
+.pageing {
+    padding: 30px 0 0;
+    font-size: 0;
+    text-align: center;
+    line-height: 0
+}
+
+.pageing a,
+.pageing strong {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    border: 1px solid #e5e5e5;
+    color: #888;
+    font-size: 14px;
+    line-height: 28px;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-weight: 700
+}
+
+.pageing a:active,
+.pageing a:focus,
+.pageing a:hover,
+.pageing strong,
+.pageing strong:active,
+.pageing strong:focus,
+.pageing strong:hover {
+    border: 1px solid #666;
+    color: #333;
+    font-weight: 700
+}
+
+.sub_title_area {
+    width: 100%;
+    height: 120px
+}
+
+.sub_title_area h1 {
+    padding: 38px 0 0;
+    font-size: 40px;
+    color: #000;
+    line-height: 44px
+}
+
+.sub_title_area h1>span {
+    color: #333;
+    font-size: 18px;
+    margin-left: 5px;
+    font-weight: 400
+}
+
+.sub_title_area:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+    height: 120px;
+    z-index: -1
+}
+
+.sub_title_area.customer {
+    height: 100px;
+    background: url(/pc-static-root/image/top/bg_customer_top.png) 50% 0 no-repeat #faeee1
+}
+
+.sub_title_area.customer:before {
+    height: 100px;
+    background: #faeee1
+}
+
+.sub_title_area.customer:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.sub_title_area.customer h1 {
+    float: left;
+    padding: 28px 0 0
+}
+
+.comm1sTabs.customer {
+    overflow: hidden;
+    height: 55px;
+    margin: 30px 0 0;
+    padding-bottom: 5px
+}
+
+.comm1sTabs.customer>li {
+    position: relative;
+    float: left;
+    width: 340px;
+    text-align: center;
+    border: 0
+}
+
+.comm1sTabs.customer>li+li {
+    width: 341px;
+    margin-left: -1px
+}
+
+.comm1sTabs.customer>li>a {
+    display: block;
+    height: 50px;
+    padding: 0;
+    line-height: 50px;
+    background: #f6f6f6;
+    font-size: 18px;
+    color: #666;
+    font-weight: 400;
+    border-left: 1px solid #e6e6e6
+}
+
+.comm1sTabs.customer>li:first-child>a {
+    border: 0
+}
+
+.comm1sTabs.customer>li.on>a {
+    background: #555 !important;
+    color: #fff;
+    border: 0
+}
+
+.comm1sTabs.customer>li.on:before {
+    position: absolute;
+    content: "";
+    bottom: -5px;
+    left: 50%;
+    width: 12px;
+    height: 5px;
+    margin-left: -6px;
+    background: url(/pc-static-root/image/comm/bg_tab_arrow.png) no-repeat
+}
+
+.search-faq {
+    overflow: hidden;
+    width: 100%;
+    height: 110px;
+    margin: 35px 0 0;
+    padding: 30px 0 0;
+    background: #f6f6f6;
+    text-align: center
+}
+
+.search-faq .input {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 420px;
+    height: 48px;
+    border-radius: 30px;
+    border: 1px solid #979797;
+    background: #fff;
+    vertical-align: middle
+}
+
+.search-faq .input input[type=text] {
+    float: left;
+    width: 75%;
+    height: 100%;
+    padding: 8px 10px 8px 18px;
+    border: 0;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.search-faq .input input[type=submit] {
+    float: right;
+    width: 25px;
+    height: 27px;
+    margin: 10px 19px 0 0;
+    font-size: 0;
+    text-indent: -99999px;
+    line-height: 0
+}
+
+.search-faq .btn_sch_del {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    background: url(https://qa.oliveyoung.co.kr/pc-static-root/image/comm/ico_inp_del.png) center/20px auto no-repeat;
+    text-indent: -999em;
+    display: none
+}
+
+.faq_txt_good {
+    margin-top: 20px;
+    margin-bottom: -8px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -1px
+}
+
+.faq_txt_good .btn_faq_good {
+    margin-left: 8px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    background-image: url(/pc-static-root/image/comm/icon_good.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 32px auto;
+    background-color: transparent;
+    vertical-align: middle
+}
+
+.faq_txt_good .btn_faq_good span {
+    position: absolute;
+    left: -999em
+}
+
+.list-customer {
+    width: 1020px;
+    margin: 0 auto
+}
+
+.list-customer ul {
+    overflow: hidden;
+    width: 100%;
+    border-top: 2px solid #888
+}
+
+.list-customer ul li {
+    padding: 0;
+    background: url(/pc-static-root/image/comm/ico_arrow21x12_off.png) 98% 24px no-repeat;
+    border-bottom: 1px solid #e6e6e6
+}
+
+.list-customer ul li .stit,
+.list-customer ul li .tit {
+    display: block;
+    margin-left: 0;
+    padding: 20px 0 20px 62px;
+    background: url(/pc-static-root/image/comm/ico_faq14x15.png) 20px 23px no-repeat;
+    color: #222;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer
+}
+
+.list-customer ul li .tit strong {
+    display: inline-block;
+    width: 140px;
+    margin-right: 11px;
+    vertical-align: middle
+}
+
+.list-customer ul li .conts {
+    display: none;
+    background: #fafafa;
+    border: 0;
+    color: #222;
+    font-size: 0;
+    line-height: 0
+}
+
+.list-customer ul li .conts li {
+    padding: 28px 30px 25px;
+    background: 0 0;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 0
+}
+
+.list-customer ul li .conts li div,
+.list-customer ul li .conts li p {
+    padding: 0;
+    color: #222;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.list-customer ul li .conts li.question {
+    padding: 28px 30px 25px 62px
+}
+
+.search-faq .input input[type=submit] {
+    background: url(https://mqa.oliveyoung.co.kr/pc-static-root/image/comm/search-28x28.png) 0 0/28px auto no-repeat
+}

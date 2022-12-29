@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>OLIVE OLD</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png" />
+
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/footer.css " />
+    <link rel="stylesheet" href="assets/css/One-on-one-Inquiry.css " />
+    <link rel="stylesheet" type="text/css" href="assets/css/commonV18.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/mainV18.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/default.css">
+
+</head>
+
+<body>
+    <!-- start header-->
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
+                <ul>
+                    <li class="util-join">
+                        <a href="login.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                        / <a href="signup.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+                    </li>
+
+
+                    </button>
+                    <li class="util-order"><a href="order-delivery.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                    </li>
+                    <li class="util-cart">
+                        <a href="shoppingCart.html"
+                            onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span
+                                class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span
+                                class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
+
+                        <div class="util-layer" id="lyrHdCartList"></div>
+                    </li>
+                    <li class="util-cs"><a href="Notice.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+
+        <!-- Start Header Middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
+                        <!-- Start Header Logo -->
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                        </a>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 d-xs-none">
+                        <!-- Start Main Menu Search -->
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+                                <div class="search-select">
+                                    <div class="select-position">
+                                        <select id="select1">
+                                            <option selected="">All</option>
+                                            <option value="1">option 01</option>
+                                            <option value="2">option 02</option>
+                                            <option value="3">option 03</option>
+                                            <option value="4">option 04</option>
+                                            <option value="5">option 05</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-input">
+                                    <input type="text" placeholder="Search">
+                                </div>
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt"></i></button>
+                                </div>
+                            </div>
+                            <!-- navbar search Ends -->
+                        </div>
+                        <!-- End Main Menu Search -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Header Middle -->
+        <div class="header-wrap">
+
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
+
+                <script>
+                    $(function () {
+                        $('.head-util ul li').mouseover(function () {
+                            $(this).children('.util-layer').show();
+                        });
+                        $('.head-util ul li').mouseleave(function () {
+                            $(this).children('.util-layer').hide();
+                        });
+                        //GNB Control
+                        $('.gnbV18 li').mouseover(function () {
+                            if (IE7Under) return;
+
+                            $('.gnbV18 li').removeClass('on');
+                            $(this).addClass('on');
+                            $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () { $(this).show(); })
+                                .mouseleave(function () { $(this).hide(); });
+                            $('.gnb-sub').hide();
+                            var subGnbId = $(this).attr('name');
+
+                            try {
+                                var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
+                            } catch (e) {
+                                return;
+                            }
+
+                            //추가
+                            if (ictVar != "") {
+                                $(".gnb-sub-wrap").append(ictVar);
+                                eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
+                                // HOT
+                                jsHotCateShow(subGnbId.substring(3, 6));
+
+                                if (IE8Under) {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                        });
+                                } else {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                            $('.gnbV18').children('span').show();
+                                            //if ($(this).children('.subGroupWrapV15').length > 0){
+                                            //	$(this).children('.subGroupWrapV15').show();
+                                            //	$('.gnbBnrV15').children('span').show();
+                                            //} else {
+                                            //	$(this).children('.subGroupWrapV15').hide();
+                                            //	$('.gnbBnrV15').children('span').hide();
+                                            //}
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                            //$(this).children('.subGroupWrapV15').hide();
+                                            $('.gnbV18').children('span').hide();
+                                        });
+                                }
+                            }
+
+                            $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () {
+                                    $(this).show();
+                                    $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
+                                })
+                                .mouseleave(function () {
+                                    $(this).hide();
+                                    $('.gnbV18 li').removeClass('on');
+                                });
+                        });
+
+                        $('.gnbV18 li').mouseleave(function () {
+                            if (IE7Under) return;
+
+                            $(this).removeClass('on');
+                            $('.gnb-sub-wrap').hide();
+                        });
+                    });
+                </script>
+                <script type="text/javascript"
+                    src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+                <div class="gnbV18">
+                    <ul>
+
+                        <li name="gnb101" onclick="top.location.href='/shopping/category_list.asp?disp=101';" class="">
+                            <p>스킨케어</p>
+                        </li>
+                        <li class="line" name="gnb102"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=102';">
+                            <p>바디케어</p>
+                        </li>
+                        <li class="line" name="gnb124"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=124';">
+                            <p>선케어</p>
+                        </li>
+                        <li class="line" name="gnb121"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <p>메이크업</p>
+                        </li>
+                        <li class="line" name="gnb120"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <p>헤어케어</p>
+                        </li>
+                        <li class="line" name="gnb122"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=122';">
+                            <p>건강용품</p>
+                        </li>
+                        <li class="line" name="gnb112"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <p>건강식품</p>
+                        </li>
+                        <li class="line gnb-hot" name="gnb119"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=119';">
+                            <p>위생용품</p>
+                        </li>
+                        <li class="line gnb-hot" name="gnb117"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=117';">
+                            <p>생활안전용품</p>
+                        </li>
+                        <li class="line" name="gnb116"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <p>보행보조용품</p>
+                        </li>
+                        <li class="line" name="gnb118"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                            <p>푸드</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- #Container -->
+    <div id="Container">
+        <!-- #Contents -->
+        <div id="Contents">
+            <div class="sub_title_area customer">
+                <h1>고객센터 <span>무엇을 도와드릴까요?</span></h1>
+                <button type="button" class="btn_inquiry" id="regForm1on1"
+                    onclick="javascript:location.href='https://www.oliveyoung.co.kr/store/counsel/getQnaForm.do';">1<em>:</em>1
+                    문의하기</button>
+            </div>
+
+
+            <div class="info_area">
+
+            </div>
+
+
+
+            <ul class="comm1sTabs threeSet customer">
+                <li id="tabFaq"><a href="FAQ.html">FAQ</a></li>
+                <li id="tab1on1" class="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
+                <li id="tabNotice"><a href="Notice.html">공지사항</a></li>
+            </ul>
+
+            <!-- 기간조회 -->
+
+            <fieldset class="search-period mgT30">
+                <legend></legend>
+                <!-- 2019.10.20 오프라인리뷰관련 추가 -->
+
+
+                <div class="select_con">
+                    <p>구매기간</p>
+                    <ul class="select-month">
+                        <!-- 			[3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 -->
+                        <li class="on"><button type="button" data-month="-1">1개월</button></li>
+                        <li><button type="button" data-month="-3">3개월</button></li>
+                        <li><button type="button" data-month="-6">6개월</button></li>
+                        <li><button type="button" data-month="-12">12개월</button></li>
+
+
+                    </ul>
+                    <div class="select-range">
+                        <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;">
+                        </select>
+                        <label for="cal-start-year">년</label>
+                        <select id="cal-start-month" title="달월을 선택하세요" style="width:60px;">
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <label for="cal-start-month">월</label>
+                        <select id="cal-start-day" title="날일을 선택하세요" style="width:60px;">
+                        </select>
+                        <label for="cal-start-day">일</label>
+                        <span class="des">~</span>
+                        <select id="cal-end-year" title="년도를 선택하세요" style="width:76px;">
+                        </select>
+                        <label for="cal-end-year">년</label>
+                        <select id="cal-end-month" title="달월을 선택하세요" style="width:60px;">
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <label for="cal-end-month">월</label>
+                        <select id="cal-end-day" title="날일을 선택하세요" style="width:60px;">
+                        </select>
+                        <label for="cal-end-day">일</label>
+                    </div>
+                </div>
+                <!-- //오프라인 리뷰 -->
+                <!-- 2016-12-23 수정 -->
+                <button type="button" class="btnLookup" id="do-search-period">조회</button>
+            </fieldset>
+            <script type="text/javascript"
+                src="https://static.oliveyoung.co.kr/pc-static-root/js/common/searchPeriod.js?dumm=20221208001"></script>
+            <script>
+                //[3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 되어 START_DATE, END_DATE 변경
+                START_DATE = '';
+                END_DATE = '';
+                ollyoungYn = '';
+
+                $(document).ready(function () {
+                    var cnslChk = "Y";
+                    var startYear = 2012
+                    var thisYear = new Date().getFullYear();
+
+                    if (!common.isEmpty(cnslChk)) startYear = 2014;
+                    $("#cal-start-year,#cal-end-year").empty();
+                    while (startYear <= thisYear) {
+                        $("#cal-start-year,#cal-end-year").append("<option value='" + startYear + "'>" + startYear + "</option>");
+                        startYear++
+                    }
+
+                    setTimeout(function () {
+                        SearchPeriod.init();
+                    }, 500);
+                });
+            </script>
+            <!-- //기간조회 -->
+
+            <div class="list-customer onenone m2105">
+                <ul>
+
+
+                    <li class="nodata">등록하신 1:1 문의가 없습니다.</li>
+
+                </ul>
+            </div>
+
+            <!-- pageing star -->
+
+
+
+            <div class="pageing">
+
+
+
+            </div>
+
+            <!-- //pageing end -->
+
+            <div class="area1sButton pdT30">
+                <a href="javascript:common.link.moveQnaForm();" class="btnGreen" data-attr="고객센터^FAQ^1:1문의">1:1문의하기</a>
+            </div>
+
+        </div>
+        <!-- //#Contents -->
+    </div>
+    <!-- //#Container -->
+    <script src="https://static.oliveyoung.co.kr/pc-static-root/js/counsel/counsel.js?dumm=20221208001"
+        charset="utf-8"></script>
+    <script type="text/javascript">
+        var _cnslSeq = "";
+        $(function () {
+            counsel.list.init();
+        })
+
+    </script>
+
+
+    <!-- #Footer -->
+    <div id="Footer" class="m2105">
+        <div class="oneConts">
+            <div class="conts">
+                <ul class="list-menu">
+                    <li><a class="brandstory" href="">회사소개</a></li>
+                    <li><a class="alliance" href="" target="_blank">상품입점</a></li>
+                    <li><a class="faqList" href="">고객센터</a></li>
+                    <li><a class="employee" href="">직원전용</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="twoConts">
+            <div class="conts">
+                <ul class="list-area">
+                    <li>
+                        <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
+                        <p class="logo"><a href=""><img src="assets/images/logo/oliveLogo.png" width="170" height="60"
+                                    alt="OLIVEOLD"></a></p>
+                        <h2>올리브올드 주식회사</h2>
+                        <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
+                        <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
+                        <p>호스팅사업자 : 올리브올드</p>
+                        <p>통신판매업신고번호 : 2022-서울종로-0000</p>
+                        <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a></p>
+                        <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자 정보확인
+                                &gt;</a></p>
+                    </li>
+                    <li>
+                        <ul class="list-link">
+                            <li>
+                                <a href="javascript:common.link.moveTermsPage();">이용약관</a>
+                                <a href="javascript:common.link.moveLegalPage();">법적고지</a>
+                            </li>
+                            <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
+                            <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
+                            <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a></li>
+                            <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- //#Footer -->
+    </div>
+</body>
+
+</html>
