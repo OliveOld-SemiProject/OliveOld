@@ -8,6 +8,8 @@ public class SemiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SemiApplication.class, args);
+
+		System.out.println();
 	}
 
 }
