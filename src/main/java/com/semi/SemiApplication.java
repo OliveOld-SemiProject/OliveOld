@@ -12,5 +12,4 @@ public class SemiApplication {
 		System.out.println();
 		System.out.println();
 	}
-
 }
