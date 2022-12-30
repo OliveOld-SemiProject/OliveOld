@@ -1,5 +1,6 @@
-package com.semi.dto;
+package com.semi.dto.Board;
 
+import com.semi.dto.MemberDTO;
 import lombok.*;
 
 import java.sql.Date;
