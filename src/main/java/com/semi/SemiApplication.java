@@ -10,6 +10,7 @@ public class SemiApplication {
 
 
 		System.out.println("Test");
+		System.out.println("Test2");
 
 		SpringApplication.run(SemiApplication.class, args);
 	}
