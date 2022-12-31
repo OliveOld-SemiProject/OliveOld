@@ -1,10 +1,10 @@
-package com.semi.controller.faq;
+package com.semi.faq.controller;
 
 
-import com.semi.dto.Board.BoardDTO;
-import com.semi.dto.Board.Pagenation;
-import com.semi.dto.Board.SelectCriteriaDTO;
-import com.semi.service.faq.FaqService;
+import com.semi.faq.dto.BoardDTO;
+import com.semi.faq.dto.Pagenation;
+import com.semi.faq.dto.SelectCriteriaDTO;
+import com.semi.faq.service.FaqService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

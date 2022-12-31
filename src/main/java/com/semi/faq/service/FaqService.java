@@ -1,8 +1,8 @@
-package com.semi.service.faq;
+package com.semi.faq.service;
 
-import com.semi.dao.faq.FaqBoardMapper;
-import com.semi.dto.Board.BoardDTO;
-import com.semi.dto.Board.SelectCriteriaDTO;
+import com.semi.faq.repository.FaqBoardMapper;
+import com.semi.faq.dto.BoardDTO;
+import com.semi.faq.dto.SelectCriteriaDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

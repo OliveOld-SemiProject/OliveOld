@@ -1,4 +1,4 @@
-package com.semi.dto;
+package com.semi.member.dto;
 
 import lombok.*;
 

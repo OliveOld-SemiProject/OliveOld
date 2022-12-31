@@ -1,7 +1,7 @@
-package com.semi.dao.faq;
+package com.semi.faq.repository;
 
-import com.semi.dto.Board.BoardDTO;
-import com.semi.dto.Board.SelectCriteriaDTO;
+import com.semi.faq.dto.BoardDTO;
+import com.semi.faq.dto.SelectCriteriaDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

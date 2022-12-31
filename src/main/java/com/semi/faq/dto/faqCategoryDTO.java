@@ -1,4 +1,4 @@
-package com.semi.dto.Board;
+package com.semi.faq.dto;
 
 import lombok.*;
 
