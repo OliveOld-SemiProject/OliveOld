@@ -32,4 +32,5 @@ public class FaqService {
 
         return faqBoardList;
     }
+
 }
