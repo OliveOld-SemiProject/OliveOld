@@ -21,7 +21,7 @@ public class BoardDTO {
     private Long writerMemberNo;
     private MemberDTO writer;
     private int count;
-    private Date createDate;
+    private Date createdDate;
     private Date modifiedDate;
     private String status;
     private List<AttachmentDTO> attachmentList;

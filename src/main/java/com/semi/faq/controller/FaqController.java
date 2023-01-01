@@ -37,47 +37,11 @@ public class FaqController {
         log.info("");
         log.info("faqController start");
 
-        String currentPage = request.getParameter("currentPage");
-        int pageNo = 1;
-
-        if(currentPage != null && !"".equals(currentPage)){
-            pageNo = Integer.parseInt(currentPage);
-        }
-
-        String searchCondition = request.getParameter("searchCondition");
-        String searchValue = request.getParameter("searchValue");
-
-        Map<String, String> searchMap = new HashMap<>();
-        searchMap.put("searchCondition",searchCondition);
-        searchMap.put("searchValue",searchValue);
-
-        log.info("FaqController 컨트롤러에서 검색조건 확인하기 : " + searchMap);
-
-        int totalCount = faqService.selectTotalCount(searchMap);
-        log.info("faqBoardController totalBoardCount :" +totalCount);
-
-        int limit = 10;
-
-        int buttonAmount = 5;
-
-        SelectCriteriaDTO selectCriteria = null;
-
-        if (searchCondition != null && !"".equals(searchCondition)){
-            selectCriteria = Pagenation.getSelectCriteria(pageNo,totalCount,limit,buttonAmount,searchCondition,searchValue);
-        } else {
-            selectCriteria = Pagenation.getSelectCriteria(pageNo, totalCount, limit , buttonAmount);
-        }
-
-        log.info("faqController selectCriteria : " + selectCriteria);
-
-        List<BoardDTO> faqBoardList = faqService.selectFaqBoardList(selectCriteria);
+        List<BoardDTO> faqBoardList = faqService.selectFaqBoardList();
 
         log.info("faqController faqBoardList : " + faqBoardList);
 
         mv.addObject("faqBoardList", faqBoardList);
-        mv.addObject("selectCriteria", selectCriteria);
-
-        log.info("FaqBoardController selectCriteria : " + selectCriteria);
 
         mv.setViewName("/FAQ");
 

@@ -12,5 +12,5 @@ public interface FaqBoardMapper {
 
     int selectTotalCount(Map<String, String> searchMap);
 
-    List<BoardDTO> selectFaqBoardList(SelectCriteriaDTO selectCriteria);
+    List<BoardDTO> selectFaqBoardList();
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.semi.dao.faq.FaqBoardMapper">
+<mapper namespace="com.semi.faq.repository.FaqBoardMapper">
+
 
     <resultMap type="BoardDTO" id="BoardResultMap">
         <id property="no" column="BOARD_NO"/>
@@ -16,8 +17,8 @@
         <association property="writer" resultMap="memberResultMap"/>
     </resultMap>
 
-    <resultMap  type="MemberDTO" id="memberResultMap">
-        <id property="memberNO" column="MEMBER_NO"/>
+    <resultMap type="MemberDTO" id="memberResultMap">
+        <id property="memberNo" column="MEMBER_NO"/>
         <result property="memberName" column="MEMBER_NAME"/>
 
     </resultMap>

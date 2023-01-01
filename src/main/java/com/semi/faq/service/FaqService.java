@@ -14,6 +14,7 @@ public class FaqService {
     private final FaqBoardMapper mapper;
 
     public FaqService(FaqBoardMapper mapper){
+
         this.mapper = mapper;
     }
 
@@ -26,9 +27,9 @@ public class FaqService {
     }
 
     //게시글 전체 조회용//
-    public List<BoardDTO> selectFaqBoardList(SelectCriteriaDTO selectCriteria) {
+    public List<BoardDTO> selectFaqBoardList() {
 
-        List<BoardDTO> faqBoardList = mapper.selectFaqBoardList(selectCriteria);
+        List<BoardDTO> faqBoardList = mapper.selectFaqBoardList();
 
         return faqBoardList;
     }

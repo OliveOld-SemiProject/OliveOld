@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 public class MemberDTO {
 
-    public Long memberNO;
+    public Long memberNo;
     public String memberId;
     public String memberPwd;
     public String memberName;
