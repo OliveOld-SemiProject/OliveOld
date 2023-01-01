@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<!-- <html class="no-js" lang="zxx"> -->
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -111,87 +112,87 @@
         <div class="gnb-wrap">
             <script>var IE8Under = false; var IE7Under = false;</script>
 
-            <script>
-                $(function () {
-                    $('.head-util ul li').mouseover(function () {
-                        $(this).children('.util-layer').show();
-                    });
-                    $('.head-util ul li').mouseleave(function () {
-                        $(this).children('.util-layer').hide();
-                    });
-                    //GNB Control
-                    $('.gnbV18 li').mouseover(function () {
-                        if (IE7Under) return;
+<!--            <script>-->
+<!--                $(function () {-->
+<!--                    $('.head-util ul li').mouseover(function () {-->
+<!--                        $(this).children('.util-layer').show();-->
+<!--                    });-->
+<!--                    $('.head-util ul li').mouseleave(function () {-->
+<!--                        $(this).children('.util-layer').hide();-->
+<!--                    });-->
+<!--                    //GNB Control-->
+<!--                    $('.gnbV18 li').mouseover(function () {-->
+<!--                        if (IE7Under) return;-->
 
-                        $('.gnbV18 li').removeClass('on');
-                        $(this).addClass('on');
-                        $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () { $(this).show(); })
-                            .mouseleave(function () { $(this).hide(); });
-                        $('.gnb-sub').hide();
-                        var subGnbId = $(this).attr('name');
+<!--                        $('.gnbV18 li').removeClass('on');-->
+<!--                        $(this).addClass('on');-->
+<!--                        $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')-->
+<!--                            .mouseover(function () { $(this).show(); })-->
+<!--                            .mouseleave(function () { $(this).hide(); });-->
+<!--                        $('.gnb-sub').hide();-->
+<!--                        var subGnbId = $(this).attr('name');-->
 
-                        try {
-                            var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
-                        } catch (e) {
-                            return;
-                        }
+<!--                        try {-->
+<!--                            var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));-->
+<!--                        } catch (e) {-->
+<!--                            return;-->
+<!--                        }-->
 
-                        //추가
-                        if (ictVar != "") {
-                            $(".gnb-sub-wrap").append(ictVar);
-                            eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
-                            // HOT
-                            jsHotCateShow(subGnbId.substring(3, 6));
+<!--                        //추가-->
+<!--                        if (ictVar != "") {-->
+<!--                            $(".gnb-sub-wrap").append(ictVar);-->
+<!--                            eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");-->
+<!--                            // HOT-->
+<!--                            jsHotCateShow(subGnbId.substring(3, 6));-->
 
-                            if (IE8Under) {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                    });
-                            } else {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                        $('.gnbV18').children('span').show();
-                                        //if ($(this).children('.subGroupWrapV15').length > 0){
-                                        //	$(this).children('.subGroupWrapV15').show();
-                                        //	$('.gnbBnrV15').children('span').show();
-                                        //} else {
-                                        //	$(this).children('.subGroupWrapV15').hide();
-                                        //	$('.gnbBnrV15').children('span').hide();
-                                        //}
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                        //$(this).children('.subGroupWrapV15').hide();
-                                        $('.gnbV18').children('span').hide();
-                                    });
-                            }
-                        }
+<!--                            if (IE8Under) {-->
+<!--                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')-->
+<!--                                    .mouseover(function () {-->
+<!--                                        $(this).addClass('current');-->
+<!--                                    })-->
+<!--                                    .mouseleave(function () {-->
+<!--                                        $(this).removeClass('current');-->
+<!--                                    });-->
+<!--                            } else {-->
+<!--                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')-->
+<!--                                    .mouseover(function () {-->
+<!--                                        $(this).addClass('current');-->
+<!--                                        $('.gnbV18').children('span').show();-->
+<!--                                        //if ($(this).children('.subGroupWrapV15').length > 0){-->
+<!--                                        //	$(this).children('.subGroupWrapV15').show();-->
+<!--                                        //	$('.gnbBnrV15').children('span').show();-->
+<!--                                        //} else {-->
+<!--                                        //	$(this).children('.subGroupWrapV15').hide();-->
+<!--                                        //	$('.gnbBnrV15').children('span').hide();-->
+<!--                                        //}-->
+<!--                                    })-->
+<!--                                    .mouseleave(function () {-->
+<!--                                        $(this).removeClass('current');-->
+<!--                                        //$(this).children('.subGroupWrapV15').hide();-->
+<!--                                        $('.gnbV18').children('span').hide();-->
+<!--                                    });-->
+<!--                            }-->
+<!--                        }-->
 
-                        $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () {
-                                $(this).show();
-                                $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
-                            })
-                            .mouseleave(function () {
-                                $(this).hide();
-                                $('.gnbV18 li').removeClass('on');
-                            });
-                    });
+<!--                        $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')-->
+<!--                            .mouseover(function () {-->
+<!--                                $(this).show();-->
+<!--                                $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');-->
+<!--                            })-->
+<!--                            .mouseleave(function () {-->
+<!--                                $(this).hide();-->
+<!--                                $('.gnbV18 li').removeClass('on');-->
+<!--                            });-->
+<!--                    });-->
 
-                    $('.gnbV18 li').mouseleave(function () {
-                        if (IE7Under) return;
+<!--                    $('.gnbV18 li').mouseleave(function () {-->
+<!--                        if (IE7Under) return;-->
 
-                        $(this).removeClass('on');
-                        $('.gnb-sub-wrap').hide();
-                    });
-                });
-            </script>
+<!--                        $(this).removeClass('on');-->
+<!--                        $('.gnb-sub-wrap').hide();-->
+<!--                    });-->
+<!--                });-->
+<!--            </script>-->
             <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
             <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
@@ -313,13 +314,13 @@
                 </tr>
 
                 <tr
-                    th:each="notice : ${ faqBoardList }"
+                    th:each="faqnotice : ${ faqBoardList }"
                 >
-                    <td th:text="${ faqBoardList.no }"></td>
-                    <td th:text="${ faqBoardList.title }"></td>
+                    <td th:text="${ faqnotice.no }"></td>
+                    <td th:text="${ faqnotice.title }"></td>
 <!--                    <td th:text="${ faqBoardList.writer.nickname }"></td>-->
-                    <td th:text="${ faqBoardList.count }"></td>
-                    <td th:text="${ faqBoardList.createdDate }"></td>
+                    <td th:text="${ faqnotice.count }"></td>
+                    <td th:text="${ faqnotice.createdDate }"></td>
                 </tr>
 
 

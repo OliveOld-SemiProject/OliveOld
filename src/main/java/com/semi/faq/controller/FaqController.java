@@ -79,7 +79,7 @@ public class FaqController {
 
         log.info("FaqBoardController selectCriteria : " + selectCriteria);
 
-        mv.setViewName("resources/static/FAQ");
+        mv.setViewName("/FAQ");
 
         log.info("FaqController over");
 
