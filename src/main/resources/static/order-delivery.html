@@ -1,5 +1,6 @@
-
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<!--<html class="no-js" lang="zxx">-->
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -7,21 +8,20 @@
     <title>OLIVE OLD</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png">
 
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png">
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
-    <link rel="stylesheet" href="assets/css/tiny-slider.css">
-    <link rel="stylesheet" href="assets/css/glightbox.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/footer.css ">
-    <link rel="stylesheet" href="assets/css/order-delivery.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/commonV18.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/mainV18.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="/assets/css/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/css/glightbox.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/footer.css ">
+    <link rel="stylesheet" href="/assets/css/order-delivery.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/commonV18.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/mainV18.css">
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/default.css"> -->
-
     <style></style>
 </head>
 
@@ -71,7 +71,7 @@
                     <div class="col-lg-3 col-md-3 col-7">
                         <!-- Start Header Logo -->
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                            <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
                         </a>
                         <!-- End Header Logo -->
                     </div>
@@ -199,7 +199,6 @@
                 <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
                 <div class="gnbV18">
                     <ul>
-
                         <li name="gnb101" onclick="top.location.href='/shopping/category_list.asp?disp=101';" class="">
                             <p>스킨케어</p>
                         </li>
@@ -251,86 +250,50 @@
     <!-- End Header Area -->
 
     <!-- 내부 바디 -->
-
     <div id="Container">
-		
 		<div class="mypage-conts">
             <script src="https://static.oliveyoung.co.kr/pc-static-root/js/mypage/mypage.header.js?dumm=20221208001"></script>
             <script>
                 $(window).ready(function(){
                     mypage.header.init();
                 });
-            </script>				
-                            
-            
+            </script>
                 <div class="title-area2">
                     <h2 class="tit">주문/배송 조회</h2>
                 </div>
                 <div class="layer_pop_wrap" id="service_survey" style=""></div>
-            
-            
-            
                 <ul class="mypage-step">
-            
-                
                 
                     <li><em>0</em>
-                
-            
                         <span>주문접수</span>
                     </li>
-            
-                
-                
+
                     <li><em>0</em>
-                
-            
                         <span>결제완료</span>
                     </li>
-            
-                
-                
+
                     <li><em>0</em>
-                
-            
                         <span>배송준비중</span>
                     </li>
-            
-                
-                
+
                     <li><em>0</em>
-                
-            
                         <span>배송중</span>
                     </li>
-            
-            
-                
-                
-                
-                
+
                     <li><em>0</em>
-                
-            
                         <span>배송완료</span>
                     </li>
                 </ul>
-            
-            
-                
+
                 <fieldset class="search-period mgT30">
                     <legend></legend>
-                    <!-- 2019.10.20 오프라인리뷰관련 추가 -->
                     
                         <div class="select_con" id="_selectOrderTypeZone">
                             <p>구매 유형</p>
                             <ul class="select-type">
                                 <li class="on"><button type="button" data-order_type="">전체</button></li>
-                                
-                                   
                             </ul>
                         </div>
-                    
             
                     <div class="select_con">
                     <p>구매기간</p>
@@ -340,8 +303,6 @@
                             <li><button type="button" data-month="-3">3개월</button></li>
                             <li><button type="button" data-month="-6">6개월</button></li>
                             <li><button type="button" data-month="-12">12개월</button></li>
-            
-                            
                         </ul>
                         <div class="select-range">
                             <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022" selected="selected">2022</option></select>
@@ -415,18 +376,12 @@
                 },500);
             });
             </script>
-                
-                
-<!--                 
-                <p class="board-guide-text">
-                    <span class="txt">2017년 4월 1일 이후 내역만 조회가 가능하며, 이전의 주문내역은  주문내역에서 확인하실 수 있습니다.</span>
-                    <span class="txt">매장 구매는 CJ ONE 포인트 적립을 한 경우, 최근 1년 내역만 조회가 가능합니다. (2019년 9월 27일 이후 내역만 조회 가능)</span>// 오프라인리뷰관련추가 2019-11-01 문구 추가 //
-                </p> -->
-                
-                
+
                 <table class="board-list-2s mgT20">
                     <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
                     <colgroup>
+
+                        <col style="width:17%;">
                         <col style="width:17%;">
                         <col style="width:%;">
                         <col style="width:8%;">
@@ -434,32 +389,38 @@
                         <col style="width:110px;">
                     </colgroup>
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
+                            <th scope="col">주문번호</th>
                             <th scope="col">주문일자</th>
                             <th scope="col">상품</th>
                             <th scope="col">수량</th>
                             <th scope="col">주문금액</th>
                             <th scope="col">상태</th>
                         </tr>
+
+
+                        <tr
+                            th:each="order : ${ orderList }"
+                        >
+                            <td th:text="${ order.no }"></td>
+                            <td th:text="${ order.date }"></td>
+                            <td th:text="${ order.productName }"></td>
+                            <td th:text="${ order.productQuan }"></td>
+                            <td th:text="${ order.price}"></td>
+                            <td th:text="${ order.delivery}"></td>
+
+
+                        </tr>
+
                     </thead>
-            
-            
-                
-                
+
                 <tbody class="history">
                     <tr>
                         <td colspan="5" class="nodata">기간 내 주문내역이 없습니다</td>
                     </tr>
                 </tbody>
-                
-            
                 </table>
-                
-                
-            
-                        
-            
-                
+
             <script type="text/javascript" src="https://static.oliveyoung.co.kr/pc-static-root/js/mypage/myorder.js?dumm=20221208001"></script>	
             <script type="text/javascript" src="https://static.oliveyoung.co.kr/pc-static-root/js/mypage/gdas.js?dumm=20221208001"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.12.1/underscore-min.js"></script>
@@ -479,11 +440,6 @@
                 });
             }
             </script>
-            
-            
-            
-            
-            
         </div>            
     </div>
 </body>
@@ -506,7 +462,7 @@
                 <ul class="list-area">
                     <li>
                         <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
-                        <p class="logo"><a href=""><img src="assets/images/logo/oliveLogo.png" width="170" height="60"
+                        <p class="logo"><a href=""><img src="/assets/images/logo/oliveLogo.png" width="170" height="60"
                                     alt="OLIVEOLD"></a></p>
                         <h2>올리브올드 주식회사</h2>
                         <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
@@ -534,8 +490,6 @@
         </div>
     </div>
     <!-- //#Footer -->
-
-
 
 </body>
 
