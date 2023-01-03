@@ -11,7 +11,9 @@ import java.util.Date;
 @ToString
 public class MemberDTO {
 
-    public Long memberNo;
+    /* primary key = memberId
+     * memberMileage = 적립금
+     * */
     public String memberId;
     public String memberPwd;
     public String memberName;
@@ -24,6 +26,6 @@ public class MemberDTO {
     public String memberISAD;
     public String memberLevel;
     public String memberType;
-
+    public int memberMileage;
 
 }
