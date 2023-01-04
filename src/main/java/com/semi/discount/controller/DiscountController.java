@@ -21,6 +21,7 @@ public class DiscountController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     private final DiscountService discountService;
 
+
     public DiscountController(DiscountService discountService) { this.discountService = discountService; }
 
 
