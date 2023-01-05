@@ -14,18 +14,18 @@ public class MemberDTO {
     /* primary key = memberId
      * memberMileage = 적립금
      * */
-    public String memberId;
-    public String memberPwd;
-    public String memberName;
-    public String memberGender;
-    public String memberIdentifier;
-    public String memberPhone;
-    public String memberAddress;
-    public String memberEmail;
-    public Date memberRegistDate;
-    public String memberISAD;
-    public String memberLevel;
-    public String memberType;
-    public int memberMileage;
+    private String memberId;
+    private String memberPwd;
+    private String memberName;
+    private String memberGender;
+    private String memberIdentifier;
+    private String memberPhone;
+    private String memberAddress;
+    private String memberEmail;
+    private Date memberRegistDate;
+    private String memberISAD;
+    private String memberLevel;
+    private String memberType;
+    private int memberMileage;
 
 }
