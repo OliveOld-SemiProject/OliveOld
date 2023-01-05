@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -57,7 +57,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3 col-7">
                             <!-- Start Header Logo -->
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" th:href="@{/}">
                                 <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
                             </a>
                             <!-- End Header Logo -->
@@ -206,8 +206,8 @@
             </div>
 
             <ul class="comm1sTabs threeSet customer">
-                <li id="tabFaq"><a href="FAQ.html">FAQ</a></li>
-                <li id="tab1on1"><a href="One-on-one-Inquiry.html">1:1문의</a></li>
+                <li id="tabFaq"><a href="/faqBoard/list">FAQ</a></li>
+                <li id="tab1on1"><a href="/OneOnOneBoard/list">1:1문의</a></li>
                 <li id="tabNotice" class="on"><a href="javascript:counsel.NoticeDetail.goList();" title="선택됨">공지사항</a>
                 </li>
             </ul>

@@ -115,4 +115,46 @@ public class OneOnOneController {
 
 
 
+
+
+
+    //상단바 페이지 이동부분
+
+    //로고
+    @GetMapping("/index.html")
+    public String goindex(){
+        return "redirect:/index.html";
+    }
+
+    //로그인
+    @GetMapping("/login.html")
+    public String goLogin(){
+        return "redirect:/login.html";
+    }
+
+    //회원가입
+    @GetMapping("/signup.html")
+    public String goSignUp(){
+        return "redirect:/signup.html";
+    }
+
+    //주문배송
+    @GetMapping("/order-delivery.html")
+    public String goOrderList(){
+        return "redirect:/order/list";
+    }
+
+    //쇼핑카드
+    @GetMapping("/shoppingCart.html")
+    public String goShoppingCart(){
+        return "redirect:/cartList";
+    }
+
+    //공지사항
+    @GetMapping("/Notice.html")
+    public String goNotice(){
+        return "redirect:/Notice.html";
+    }
+
+
 }
