@@ -376,21 +376,35 @@
                     <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
                     <colgroup>
                         <col style="width:17%;">
+                        <col style="width:17%;">
                         <col style="width:%;">
                         <col style="width:8%;">
                         <col style="width:130px;">
                         <col style="width:110px;">
                     </colgroup>
                     <thead>
-                        <tr>
-                            <th scope="col">주문일자</th>
-                            <th scope="col">상품</th>
-                            <th scope="col">수량</th>
-                            <th scope="col">주문금액</th>
-                            <th scope="col">상태</th>
-                        </tr>
-                    </thead>
-            
+                    <tr style="text-align: center;">
+                        <th scope="col">주문번호</th>
+                        <th scope="col">주문일자</th>
+                        <th scope="col">상품</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">주문금액</th>
+                        <th scope="col">상태</th>
+                    </tr>
+
+
+                    <tr
+                            th:each="order : ${ orderList }"
+                    >
+                        <td th:text="${ order.no }"></td>
+                        <td th:text="${ #dates.format(order.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                        <td th:text="${ order.productName }"></td>
+                        <td th:text="${ order.productQuan }"></td>
+                        <td th:text="${ order.price}"></td>
+                        <td th:text="${ order.delivery}"></td>
+
+
+                    </tr>
             
                 
                 
