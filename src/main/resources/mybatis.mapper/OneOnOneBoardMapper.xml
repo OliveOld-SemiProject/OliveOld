@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semi.oliveold.oneonone.repository.OneOnOneBoardMapper">
+
+
+    <resultMap type="OneOnOneBoardDTO" id="OneOnOneBoardResultMap">
+        <id property="type" column="OneOnOne_BOARD_TYPE"/>
+        <result property="CategoryCode" column="OneOnOne_CATEGORY_CODE"/>
+        <result property="title" column="OneOnOne_BOARD_TITLE"/>
+        <result property="body" column="OneOnOne_BOARD_BODY"/>
+        <result property="writerMemberNo" column="OneOnOne_BOARD_WRITER_MEMBER_NO"/>
+        <result property="count" column="OneOnOne_BOARD_COUNT"/>
+        <result property="createdDate" column="OneOnOne_CREATED_DATE"/>
+        <result property="modifiedDate" column="OneOnOne_MODIFIED_DATE"/>
+        <result property="status" column="OneOnOne_BOARD_STATUS"/>
+
+        <association property="writer" resultMap="memberResultMap"/>
+        <association property="oneOnOneCategory" resultMap="oneOnOneCategoryResultMap"/>
+
+    </resultMap>
+
+    <resultMap type="MemberDTO" id="memberResultMap">
+        <id property="memberNo" column="MEMBER_NO"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberAddress" column="MEMBER_ADDRESS"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberRegistDate" column="MEMBER_REGISTDATE"/>
+        <result property="memberISAD" column="MEMBER_ISAD"/>
+
+    </resultMap>
+
+    <resultMap type="OneOnOneCategoryDTO" id="oneOnOneCategoryResultMap">
+        <id property="oneOnOneCode" column="CATEGORY_CODE"/>
+        <result property="oneOnOneName" column="CATEGORY_NAME"/>
+    </resultMap>
+
+
+    <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT
+        COUNT(*)
+        FROM TBL_OneOnOne_BOARD A
+        <if test="searchCondition == 'category'">
+            JOIN TBL_OneOnOne_CATEGORY B ON(A.OneOnOne_CATEGORY_CODE = B.CATEGORY_CODE)
+        </if>
+        <if test="searchCondition == 'writer'">
+            JOIN Member B ON(A.OneOnOne_BOARD_WRITER_MEMBER_ID = B.MEMBER_NO)
+        </if>
+        <where>
+            <if test="searchCondition == 'category'">
+                B.CATEGORY_NAME = #{ searchValue }
+            </if>
+            <if test="searchCondition == 'writer'">
+                B.MEMBER_NAME LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'title'">
+                A.OneOnOne_BOARD_TITLE LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'content'">
+                A.OneOnOne_BOARD_BODY LIKE '%' || #{ searchValue } || '%'
+            </if>
+            AND A.OneOnOne_BOARD_STATUS = 'Y'
+        </where>
+    </select>
+
+
+
+
+
+    <select id="selectOneOnOneBoardList" resultMap="OneOnOneBoardResultMap">
+        SELECT
+              A.OneOnOne_BOARD_NO
+            , A.OneOnOne_BOARD_NO
+            , A.OneOnOne_CATEGORY_CODE
+            , B.CATEGORY_NAME
+            , A.OneOnOne_BOARD_TITLE
+            , A.OneOnOne_BOARD_BODY
+            , A.OneOnOne_BOARD_WRITER_MEMBER_ID
+            , C.MEMBER_NAME
+            , A.OneOnOne_BOARD_COUNT
+            , A.OneOnOne_CREATED_DATE
+            , A.OneOnOne_BOARD_STATUS
+        FROM TBL_OneOnOne_BOARD A
+        JOIN TBL_OneOnOne_CATEGORY B ON(B.CATEGORY_CODE = A.OneOnOne_CATEGORY_CODE)
+        JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)
+
+        <where>
+            <if test="searchCondition == -1">
+                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
+            </if>
+
+             <if test="searchCondition == -3">
+                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
+            </if>
+
+             <if test="searchCondition == -6">
+                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
+            </if>
+
+            <if test="searchCondition == -12">
+                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>
+            </if>
+
+        </where>
+
+    </select>
+
+
+
+    <insert id="registOneOnOneBoard" parameterType="OneOnOneBoardDTO">
+
+        INSERT
+        INTO TBL_OneOnOne_BOARD
+        (
+        OneOnOne_BOARD_NO
+        ,OneOnOne_CATEGORY_CODE
+        ,OneOnOne_BOARD_TITLE
+        ,OneOnOne_BOARD_BODY
+        ,OneOnOne_BOARD_WRITER_MEMBER_ID
+        ,OneOnOne_CREATED_DATE
+        )
+        VALUES
+        (
+        NULL
+        , #{ categoryCode }
+        , #{ title }
+        , #{ body }
+        , 'user01'    <!--  테스트용 이거 바꿔야 합니다-->
+        ,  now()
+        )
+
+    </insert>
+
+
+
+
+</mapper>

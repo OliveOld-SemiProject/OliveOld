@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semi.oliveold.config.cart.repository.CartMapper">
+
+    <resultMap type="CartDTO" id="CartResultMap">
+        <id property="cart_No" column="Cart_no"/>
+        <result property="cart_amount" column="Cart_amount"/>
+        <result property="member_id" column="Member_id"/>
+        <result property="product_no" column="Product_no"/>
+        <result property="cart_insertDate" column="Cart_insertDate"/>
+    </resultMap>
+
+    <select id="findByAll" resultMap="CartResultMap">
+        SELECT *
+        FROM SemiDB.Cart
+    </select>
+
+</mapper>

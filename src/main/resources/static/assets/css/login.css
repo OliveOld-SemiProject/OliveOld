@@ -1,14 +1,13 @@
   
   .loginContainers {  display: grid;
-    grid-template-columns: 0.35fr 1.19fr 0.02fr 1.19fr 0.35fr;
-    grid-template-rows: 0.5fr 3fr 5fr 0.5fr 1fr;
+    grid-template-columns: 0.5fr 1.19fr 0.02fr 1.19fr 0.5fr;
+    grid-template-rows: 0.1fr 0.5fr 2fr 0.1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
       " . . . . ."
       ". LogoLogin LogoLogin LogoLogin ."
-      ". memberLogin . NonMemLogin ."
-      " . login-hr login-hr login-hr ."
+      ". memberLogin memberLogin memberLogin ."
       " . SignUpButton SignUpButton SignUpButton .";
   }
   
@@ -17,9 +16,17 @@
   .LogoLogin { grid-area: LogoLogin; }
   .SignUpButton { grid-area: SignUpButton; }
   .login-hr { grid-area: login-hr;}
-  
+ 
+.memberLogin {
+    height: fit-content;
+}  
+
+.LogoLogin {
+    height: fit-content;
+}
+
 .LogoLogin-top {
-    width: 30%
+    width: 30%;
 }
 
 .Login-bottom {
