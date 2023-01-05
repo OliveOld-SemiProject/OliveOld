@@ -36,14 +36,14 @@
                             <a href="login.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
                             / <a href="signup.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
                         </li>
-    
-    
-                        
+
+
+
                         <li class="util-order"><a href="order-delivery.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
                         </li>
                         <li class="util-cart">
                             <a href="shoppingCart.html" onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
-    
+
                             <div class="util-layer" id="lyrHdCartList"></div>
                         </li>
                         <li class="util-cs"><a href="Notice.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
@@ -52,10 +52,10 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Start Header Area -->
         <header class="header navbar-area">
-    
+
             <!-- Start Header Middle -->
             <div class="header-middle">
                 <div class="container">
@@ -72,7 +72,7 @@
                             <div class="main-menu-search">
                                 <!-- navbar search start -->
                                 <div class="navbar-search search-style-5">
-                                    
+
                                     <div class="search-input">
                                         <input type="text" placeholder="Search">
                                     </div>
@@ -84,16 +84,16 @@
                             </div>
                             <!-- End Main Menu Search -->
                         </div>
-    
+
                     </div>
                 </div>
             </div>
             <!-- End Header Middle -->
             <div class="header-wrap">
-    
+
                 <div class="gnb-wrap">
                     <script>var IE8Under = false; var IE7Under = false;</script>
-    
+
                     <script>
                         $(function () {
                             $('.head-util ul li').mouseover(function () {
@@ -105,7 +105,7 @@
                             //GNB Control
                             $('.gnbV18 li').mouseover(function () {
                                 if (IE7Under) return;
-    
+
                                 $('.gnbV18 li').removeClass('on');
                                 $(this).addClass('on');
                                 $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
@@ -113,20 +113,20 @@
                                     .mouseleave(function () { $(this).hide(); });
                                 $('.gnb-sub').hide();
                                 var subGnbId = $(this).attr('name');
-    
+
                                 try {
                                     var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
                                 } catch (e) {
                                     return;
                                 }
-    
+
                                 //추가
                                 if (ictVar != "") {
                                     $(".gnb-sub-wrap").append(ictVar);
                                     eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
                                     // HOT
                                     jsHotCateShow(subGnbId.substring(3, 6));
-    
+
                                     if (IE8Under) {
                                         $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
                                             .mouseover(function () {
@@ -155,7 +155,7 @@
                                             });
                                     }
                                 }
-    
+
                                 $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
                                     .mouseover(function () {
                                         $(this).show();
@@ -166,10 +166,10 @@
                                         $('.gnbV18 li').removeClass('on');
                                     });
                             });
-    
+
                             $('.gnbV18 li').mouseleave(function () {
                                 if (IE7Under) return;
-    
+
                                 $(this).removeClass('on');
                                 $('.gnb-sub-wrap').hide();
                             });
