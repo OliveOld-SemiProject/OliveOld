@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>OLIVE OLD</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png" />
+
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css " />
+    <link rel="stylesheet" href="assets/css/product_detail.css">
+
+
+</head>
+
+<body>
+
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
+                <ul>
+                    <li class="util-join">
+                        <a href="login.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                        / <a href="signup.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+                    </li>
+
+
+                    </button>
+                    <li class="util-order"><a href="order-delivery.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                    </li>
+                    <li class="util-cart">
+                        <a href="shoppingCart.html"
+                            onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span
+                                class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span
+                                class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
+
+                        <div class="util-layer" id="lyrHdCartList"></div>
+                    </li>
+                    <li class="util-cs"><a href="Notice.html"
+                            onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+
+        <!-- Start Header Middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
+                        <!-- Start Header Logo -->
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                        </a>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 d-xs-none">
+                        <!-- Start Main Menu Search -->
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+                                <div class="search-select">
+                                    <div class="select-position">
+                                        <select id="select1">
+                                            <option selected="">All</option>
+                                            <option value="1">option 01</option>
+                                            <option value="2">option 02</option>
+                                            <option value="3">option 03</option>
+                                            <option value="4">option 04</option>
+                                            <option value="5">option 05</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-input">
+                                    <input type="text" placeholder="Search">
+                                </div>
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt"></i></button>
+                                </div>
+                            </div>
+                            <!-- navbar search Ends -->
+                        </div>
+                        <!-- End Main Menu Search -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Header Middle -->
+        <div class="header-wrap">
+
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
+
+                <script>
+                    $(function () {
+                        $('.head-util ul li').mouseover(function () {
+                            $(this).children('.util-layer').show();
+                        });
+                        $('.head-util ul li').mouseleave(function () {
+                            $(this).children('.util-layer').hide();
+                        });
+                        //GNB Control
+                        $('.gnbV18 li').mouseover(function () {
+                            if (IE7Under) return;
+
+                            $('.gnbV18 li').removeClass('on');
+                            $(this).addClass('on');
+                            $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () { $(this).show(); })
+                                .mouseleave(function () { $(this).hide(); });
+                            $('.gnb-sub').hide();
+                            var subGnbId = $(this).attr('name');
+
+                            try {
+                                var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
+                            } catch (e) {
+                                return;
+                            }
+
+                            //추가
+                            if (ictVar != "") {
+                                $(".gnb-sub-wrap").append(ictVar);
+                                eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
+                                // HOT
+                                jsHotCateShow(subGnbId.substring(3, 6));
+
+                                if (IE8Under) {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                        });
+                                } else {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                            $('.gnbV18').children('span').show();
+                                            //if ($(this).children('.subGroupWrapV15').length > 0){
+                                            //	$(this).children('.subGroupWrapV15').show();
+                                            //	$('.gnbBnrV15').children('span').show();
+                                            //} else {
+                                            //	$(this).children('.subGroupWrapV15').hide();
+                                            //	$('.gnbBnrV15').children('span').hide();
+                                            //}
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                            //$(this).children('.subGroupWrapV15').hide();
+                                            $('.gnbV18').children('span').hide();
+                                        });
+                                }
+                            }
+
+                            $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () {
+                                    $(this).show();
+                                    $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
+                                })
+                                .mouseleave(function () {
+                                    $(this).hide();
+                                    $('.gnbV18 li').removeClass('on');
+                                });
+                        });
+
+                        $('.gnbV18 li').mouseleave(function () {
+                            if (IE7Under) return;
+
+                            $(this).removeClass('on');
+                            $('.gnb-sub-wrap').hide();
+                        });
+                    });
+                </script>
+                <script type="text/javascript"
+                    src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+                <div class="gnbV18">
+                    <ul>
+                        <li name="gnb101" onclick="top.location.href='/shopping/category_list.asp?disp=101';" class="">
+                            <p>스킨케어</p>
+                        </li>
+                        <li class="line" name="gnb121"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <p>메이크업</p>
+                        </li>
+                        <li class="line" name="gnb120"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <p>헤어케어</p>
+                        </li>
+                        <li class="line" name="gnb112"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <p>건강식품</p>
+                        </li>
+                        <li class="line" name="gnb116"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <p>보행보조용품</p>
+                        </li>
+                        <li class="line" name="gnb118"
+                            onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                            <p>이벤트</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- Start Header Bottom -->
+        <!-- Start Header Bottom -->
+    </header>
+
+    <body>
+        <div id="Wrapper">
+            <div id="Container">
+                <div id="Contents">
+                    <div class="prd_detail_box renew">
+                        <div class="left_area">
+                            <div class="prd_img">
+                                <span class="thumb_flag best">베스트</span>
+                                <img id="mainImg"
+                                    src="assets/images/product-details/product/physiogel_pink_main1.jpeg"
+                                    alt="상품명 이미지" onerror="common.errorImg(this);">
+                                <input type="hidden" id="mainImgSize" value="550">
+                            </div>
+                            <ul class="prd_thumb_list" id="prd_thumb_list">
+                                <input type="hidden" id="snsImgUrl"
+                                    value="assets/images/product-details/product/physiogel_pink_main1.jpeg">
+                                <li class="sel"><a href="javascript:;"
+                                        data-img="assets/images/product-details/product/physiogel_pink_main1.jpeg"><img
+                                            src="assets/images/product-details/product/physiogel_pink_main2.jpeg"
+                                            alt="썸네일이미지" onerror="common.errorImg(this);"></a></li>
+                                <li class=""><a href="javascript:;"
+                                        data-img="assets/images/product-details/product/physiogel_pink_main3.jpeg"><img
+                                            src="assets/images/product-details/product/physiogel_pink_main4.jpeg"
+                                            alt="썸네일이미지" onerror="common.errorImg(this);"></a></li>
+                            </ul>
+                        </div>
+                        <div class="right_area">
+                            <div class="prd_info">
+                                <p class="prd_name">[한정기획] 피지오겔 레드수딩 AI 진정보습 크림 100ml 기획(+50ml 증정)</p>
+                                <div class="price">
+                                    <span class="price-1">
+                                        <strike>58,500</strike>
+                                        <span>원</span>
+                                    </span>
+                                    <span class="price-2">
+                                        <strong>31,410</strong>
+                                        <span>원</span>
+                                    </span>
+                                </div>
+                                <div class="prd_more_info">
+                                    <div class="row">
+                                        <p class="tit">배송정보<a href="javascript:goods.detail.openDlexFullPop('20','1');"
+                                                class="ico_info" style="margin:5px 0 0 7px">배송정보 레이어 열기</a></p>
+                                        <p></p>
+                                        <ul class="bl_list">
+                                            <li>
+                                                <span>일반배송</span>
+                                                <div>
+                                                    2,500원
+                                                    ( 20,000 원 이상 무료배송 )
+                                                    <br><em>올리브올드 배송 </em>
+                                                    <em>평균 9일 이내 배송</em>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="prd_btn_area new-style type1">
+                                    <button class="btnBasket  goods_cart"
+                                        onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.cart');"
+                                        data-attr="상품상세^주문유형^장바구니">장바구니</button>
+                                    <button class="btnBuy goods_buy" id="cartBtn"
+                                        onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.order');"
+                                        data-attr="상품상세^주문유형^바로구매">바로구매</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="prd_detail_tab" id="tabList">
+                        <li class="on" id="productInfo"><a href="javascript:;" class="goods_detailinfo"
+                                data-attr="상품상세^상품상세_SortingTab^상품설명">상품설명</a></li>
+                        <li id="buyInfo"><a href="javascript:;" class="goods_buyinfo"
+                                data-attr="상품상세^상품상세_SortingTab^구매정보">구매정보</a></li>
+                        <li id="reviewInfo"><a href="javascript:;" class="goods_reputation"
+                                data-attr="상품상세^상품상세_SortingTab^리뷰">리뷰<span>(3,628)</span></a></li>
+                        <li id="qnaInfo"><a href="javascript:;" class="goods_qna"
+                                data-attr="상품상세^상품상세_SortingTab^Q&amp;A">Q&amp;A<span>(2)</span></a></li>
+                    </ul>
+                    <div class="tabConts prd_detail_cont show">
+                        <div class="detail_area">
+                            <div class="contEditor">
+                                <script>
+                                    $(window).load(function () {
+                                        // 2017-02-18 : txs : 상품 상세 레이아웃 크기 재조정
+                                        goods.detail.tagHandler.inittGoodsDetailObjects();
+                                        $("#tempHtml").html("");
+                                    });
+                                </script>
+                                <img alt=""
+                                    src="assets/images/product-details/product/physiogel_pink_container.jpeg">
+
+                            </div>
+                            <div style="text-align:center;padding:20px 0px 0px 0px;">
+                                <p
+                                    style="display:inline-block;font-size:14px;border:1px solid #ddd;padding:10px 40px 10px 40px;text-align:center;">
+                                    본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabConts prd_detail_cont">
+                        <h3 class="detail_tit">상품정보 제공고시</h3>
+                        <div id="kcInfo">
+                        </div>
+                        <div id="artcInfo">
+                        </div>
+                        <h3 class="detail_tit mgT40">배송안내</h3>
+                        <dl class="detail_info_list" id="dlexAjaxInfo">
+                            <dt>배송비/배송가능일</dt>
+                            <dd>
+                                <div>
+                                    <p><strong>[일반 배송]</strong></p>
+                                    <p><strong>배송지역 : </strong>전국</p>
+                                    <p><strong>배송비 : </strong>
+                                        <!-- 그외 표기 -->
+                                        <span>2,500원</span>
+                                    </p>
+                                    <p>올리브영 배송 상품의 총 결제금액 <span>20,000</span>원 이상일 경우 <span>무료배송</span> 됩니다.</p>
+                                    <p>도서, 산간, 오지 일부 지역은 배송비가 추가될 수 있습니다.</p>
+                                    <p><strong>배송가능일 : </strong><span>9</span>일</p>
+                                    <p>배송가능일이란 본 상품을 주문하신 고객님들께 상품 배송이 가능한 기간을 의미합니다. 단, 연휴 및 공휴일은 기간 계산시 제외하며 현금 주문일 경우
+                                        입금일 기준 입니다.</p>
+                                    <p>예약 상품의 경우 예약된 날짜에 출고되며, 상품의 입고가 빠르게 진행된 경우 예약일 보다 일찍 배송될 수 있습니다.</p>
+                                </div>
+                                <br>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!--// 구매정보 컨텐츠 영역 -->
+                    <div class="tabConts prd_detail_cont" id="gdasContentsArea">
+                        <div class="review_wrap renew review-reward-notice"><!-- ## 리뷰 고도화 1차 : 영역 부모 div 추가 ## -->
+                        </div>
+                    </div>
+                    <div class="tabConts prd_detail_cont" id="qnaContentsArea">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+   <!-- #Footer -->
+   <div id="Footer" class="m2105">
+    <div class="oneConts">
+        <div class="conts">
+            <ul class="list-menu">
+                <li><a class="brandstory" href="">회사소개</a></li>
+                <li><a class="faqList" href="Notice.html">고객센터</a></li>
+                <li><a class="employee" href="">직원전용</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="twoConts">
+        <div class="conts">
+            <ul class="list-area">
+                <li>
+                    <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
+                    <p class="logo"><a href=""><img src="assets/images/logo/oliveLogo.png" width="170"
+                                height="60" alt="OLIVEOLD"></a></p>
+                    <h2>올리브올드 주식회사</h2>
+                    <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
+                    <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
+                    <p>호스팅사업자 : 올리브올드</p>
+                    <p>통신판매업신고번호 : 2022-서울종로-0000</p>
+                    <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
+                    </p>
+                    <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
+                            정보확인
+                            &gt;</a></p>
+                </li>
+                <li>
+                    <ul class="list-link">
+                        <li>
+                            <a href="javascript:common.link.moveTermsPage();">이용약관</a>
+                            <a href="javascript:common.link.moveLegalPage();">법적고지</a>
+                        </li>
+                        <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
+                        <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
+                        <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a>
+                        </li>
+                        <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //#Footer -->
+</body>
+
+</html>

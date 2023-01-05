@@ -1,0 +1,197 @@
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OLIVE OLD</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png">
+
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+
+</head>
+
+<body>
+    <header>
+    <!-- start header -->
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
+                <ul>
+                    <li class="util-join">
+                        <a href="login.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                        / <a href="signup.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+                    </li>
+
+
+                    
+                    <li class="util-order"><a href="order-delivery.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                    </li>
+                    <li class="util-cart">
+                        <a href="shoppingCart.html" onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
+
+                        <div class="util-layer" id="lyrHdCartList"></div>
+                    </li>
+                    <li class="util-cs"><a href="Notice.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+
+        <!-- Start Header Middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
+                        <!-- Start Header Logo -->
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                        </a>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 d-xs-none">
+                        <!-- Start Main Menu Search -->
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+                                
+                                <div class="search-input">
+                                    <input type="text" placeholder="Search">
+                                </div>
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt"></i></button>
+                                </div>
+                            </div>
+                            <!-- navbar search Ends -->
+                        </div>
+                        <!-- End Main Menu Search -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Header Middle -->
+        <div class="header-wrap">
+
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
+
+                <script>
+                    $(function () {
+                        $('.head-util ul li').mouseover(function () {
+                            $(this).children('.util-layer').show();
+                        });
+                        $('.head-util ul li').mouseleave(function () {
+                            $(this).children('.util-layer').hide();
+                        });
+                        //GNB Control
+                        $('.gnbV18 li').mouseover(function () {
+                            if (IE7Under) return;
+
+                            $('.gnbV18 li').removeClass('on');
+                            $(this).addClass('on');
+                            $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () { $(this).show(); })
+                                .mouseleave(function () { $(this).hide(); });
+                            $('.gnb-sub').hide();
+                            var subGnbId = $(this).attr('name');
+
+                            try {
+                                var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
+                            } catch (e) {
+                                return;
+                            }
+
+                            //추가
+                            if (ictVar != "") {
+                                $(".gnb-sub-wrap").append(ictVar);
+                                eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
+                                // HOT
+                                jsHotCateShow(subGnbId.substring(3, 6));
+
+                                if (IE8Under) {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                        });
+                                } else {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                            $('.gnbV18').children('span').show();
+                                            //if ($(this).children('.subGroupWrapV15').length > 0){
+                                            //	$(this).children('.subGroupWrapV15').show();
+                                            //	$('.gnbBnrV15').children('span').show();
+                                            //} else {
+                                            //	$(this).children('.subGroupWrapV15').hide();
+                                            //	$('.gnbBnrV15').children('span').hide();
+                                            //}
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                            //$(this).children('.subGroupWrapV15').hide();
+                                            $('.gnbV18').children('span').hide();
+                                        });
+                                }
+                            }
+
+                            $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () {
+                                    $(this).show();
+                                    $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
+                                })
+                                .mouseleave(function () {
+                                    $(this).hide();
+                                    $('.gnbV18 li').removeClass('on');
+                                });
+                        });
+
+                        $('.gnbV18 li').mouseleave(function () {
+                            if (IE7Under) return;
+
+                            $(this).removeClass('on');
+                            $('.gnb-sub-wrap').hide();
+                        });
+                    });
+                </script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+                <div class="gnbV18">
+                    <ul>
+                        <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                            <p>스킨케어</p>
+                        </li>
+                        <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <p>메이크업</p>
+                        </li>
+                        <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <p>헤어케어</p>
+                        </li>
+                        <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <p>건강식품</p>
+                        </li>
+                        <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <p>보행보조용품</p>
+                        </li>
+                        <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                            <p>이벤트</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- Start Header Bottom -->
+        <!-- Start Header Bottom -->
+    </header>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>OLIVE OLD</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png" />
+
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css " />
+    <link rel="stylesheet" href="assets/css/FAQ.css " />
+
+</head>
+
+<header>
+    <!-- start header -->
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
+                <ul>
+                    <li class="util-join">
+                        <a href="login.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                        / <a href="signup.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+                    </li>
+
+
+                    
+                    <li class="util-order"><a href="order-delivery.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                    </li>
+                    <li class="util-cart">
+                        <a href="shoppingCart.html" onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
+
+                        <div class="util-layer" id="lyrHdCartList"></div>
+                    </li>
+                    <li class="util-cs"><a href="Notice.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+
+        <!-- Start Header Middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
+                        <!-- Start Header Logo -->
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                        </a>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 d-xs-none">
+                        <!-- Start Main Menu Search -->
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+                                
+                                <div class="search-input">
+                                    <input type="text" placeholder="Search">
+                                </div>
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt"></i></button>
+                                </div>
+                            </div>
+                            <!-- navbar search Ends -->
+                        </div>
+                        <!-- End Main Menu Search -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Header Middle -->
+        <div class="header-wrap">
+
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
+
+                <script>
+                    $(function () {
+                        $('.head-util ul li').mouseover(function () {
+                            $(this).children('.util-layer').show();
+                        });
+                        $('.head-util ul li').mouseleave(function () {
+                            $(this).children('.util-layer').hide();
+                        });
+                        //GNB Control
+                        $('.gnbV18 li').mouseover(function () {
+                            if (IE7Under) return;
+
+                            $('.gnbV18 li').removeClass('on');
+                            $(this).addClass('on');
+                            $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () { $(this).show(); })
+                                .mouseleave(function () { $(this).hide(); });
+                            $('.gnb-sub').hide();
+                            var subGnbId = $(this).attr('name');
+
+                            try {
+                                var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
+                            } catch (e) {
+                                return;
+                            }
+
+                            //추가
+                            if (ictVar != "") {
+                                $(".gnb-sub-wrap").append(ictVar);
+                                eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
+                                // HOT
+                                jsHotCateShow(subGnbId.substring(3, 6));
+
+                                if (IE8Under) {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                        });
+                                } else {
+                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                        .mouseover(function () {
+                                            $(this).addClass('current');
+                                            $('.gnbV18').children('span').show();
+                                            //if ($(this).children('.subGroupWrapV15').length > 0){
+                                            //	$(this).children('.subGroupWrapV15').show();
+                                            //	$('.gnbBnrV15').children('span').show();
+                                            //} else {
+                                            //	$(this).children('.subGroupWrapV15').hide();
+                                            //	$('.gnbBnrV15').children('span').hide();
+                                            //}
+                                        })
+                                        .mouseleave(function () {
+                                            $(this).removeClass('current');
+                                            //$(this).children('.subGroupWrapV15').hide();
+                                            $('.gnbV18').children('span').hide();
+                                        });
+                                }
+                            }
+
+                            $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
+                                .mouseover(function () {
+                                    $(this).show();
+                                    $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
+                                })
+                                .mouseleave(function () {
+                                    $(this).hide();
+                                    $('.gnbV18 li').removeClass('on');
+                                });
+                        });
+
+                        $('.gnbV18 li').mouseleave(function () {
+                            if (IE7Under) return;
+
+                            $(this).removeClass('on');
+                            $('.gnb-sub-wrap').hide();
+                        });
+                    });
+                </script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+                <div class="gnbV18">
+                    <ul>
+                        <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                            <p>스킨케어</p>
+                        </li>
+                        <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <p>메이크업</p>
+                        </li>
+                        <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <p>헤어케어</p>
+                        </li>
+                        <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <p>건강식품</p>
+                        </li>
+                        <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <p>보행보조용품</p>
+                        </li>
+                        <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                            <p>이벤트</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- Start Header Bottom -->
+        <!-- Start Header Bottom -->
+    </header>
+
+    <div id="Container">
+
+        <div id="Contents" class="m2105">
+            <div class="sub_title_area customer">
+                <h1>고객센터 <span>무엇을 도와드릴까요?</span></h1>
+            </div>
+
+
+
+
+
+
+
+            <ul class="comm1sTabs threeSet customer">
+                <li id="tabFaq" class="on"><a href="javascript:common.faq.getFaqList('99');" title="선택됨">FAQ</a></li>
+                <li id="tab1on1"><a href="One-on-one-Inquiry.html">1:1문의</a></li>
+                <li id="tabNotice"><a href="Notice.html">공지사항</a></li>
+            </ul>
+            <form id="sForm" name="sForm">
+
+                <fieldset class="search-faq">
+                    <legend>FAQ 검색</legend>
+                    <!-- 					<label for="inqTitNm">FAQ 검색</label> -->
+                    <div class="input" id="sch_field2">
+                        <input type="text" id="inqTitNm" name="inqTitNm" title="질문 키워드를 입력해주세요."
+                            placeholder="질문 키워드를 입력해주세요." value="">
+                        <a href="javascript:;" class="btn_sch_del"><span class="blind">검색어 삭제</span></a>
+                        <input type="submit" id="searchFaq" value="검색">
+                    </div>
+                </fieldset>
+                <input type="hidden" id="faqLrclCd" name="faqLrclCd" value="99" />
+                <input type="hidden" id="faqMdclCd" name="faqMdclCd" value="" />
+
+                <input type="hidden" id="tagYn" name="tagYn" value="" />
+            </form>
+
+
+
+
+
+
+
+            <div id="TabsOpenArea">
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="TabsConts tote on">
+
+                <div class="list-customer">
+                    <ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="topThree">
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[오늘드림] 교환&반품도 매장에서 하면되나요?"><strong>TOP10</strong>교환&반품도
+                                매장에서 하면되나요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        매장에서 교환은 어려우며, 온라인몰을 통한 교환/반품 신청이 필요합니다.<br />
+                                        <br />
+                                        [마이페이지-주문내역] 교환/반품 신청을 통해 아래 방법으로 처리해주세요.<br />
+                                        교환 : 회수 택배 기사님을 통해 물류센터로 교환&nbsp;<br />
+                                        반품 : 회수 택배 기사님을 통해 물류센터로 반품 / 오프라인 매장에 방문하여 직접 반품<br />
+                                        단, 매장 반품의 경우 일부 매장에 한해 가능하므로 반품접수 페이지에서<br />
+                                        &quot;가능매장찾기&quot;를 이용하시어 확인 후 반품접수 부탁드립니다. &nbsp; &nbsp;
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_241"
+                                            onclick="faq.list.setFaqTagList('241'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType241" name="faqTagType241" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="topThree">
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[오늘드림] 오늘드림 서비스는 연락없이 비대면으로 진행 되나요?"><strong>TOP10</strong>
+                                서비스는 연락없이 비대면으로 진행 되나요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        오늘드림&nbsp;서비스는 비대면 배송으로 진행됩니다.<br />
+                                        <br />
+                                        비대면 서비스의 경우 주문시 기재해주신 공동현관 출입 방법이 정확하지 않을 경우<br />
+                                        부득이 상품은 반송 처리 될 수 있는점 양해 부탁드립니다.&nbsp;<br />
+                                        &nbsp;
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_234"
+                                            onclick="faq.list.setFaqTagList('234'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType234" name="faqTagType234" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[오늘드림] 오늘 드림 서비스는 배송비가 얼마 인가요?"><strong>TOP10</strong>배송비가
+                                얼마 인가요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        <p>오늘드림&nbsp;서비스의 배송비는 실결제금액 기준 3만원 이상 결제 시 무료이며, 3만원 이하 결제의 경우 각 배송 옵션별 상이하게
+                                            적용됩니다.<br />
+                                            <br />
+                                            주문 후 +3시간(빠름 배송) : 5,000원<br />
+                                            낮 3~4시(3!4! 배송) : 2,500원<br />
+                                            밤 10시~12시(미드나잇 배송) : 2,500원
+                                        </p>
+
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_140"
+                                            onclick="faq.list.setFaqTagList('140'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType140" name="faqTagType140" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[올영체험단] 올영체험단 후기는 어디에서 작성하나요?"><strong>TOP10</strong>후기는
+                                어디에서 작성하나요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        <strong>[PC 사이트로 접속하신 경우]</strong><br />
+                                        마이페이지 &gt; 마이 활동 &gt; 올영체험단 리뷰 에서 작성할 수 있습니다.<br />
+                                        <a
+                                            href="https://www.oliveyoung.co.kr/store/mypage/getMyOllyoungList.do">(바로가기)</a><br />
+                                        <br />
+                                        <strong>[모바일로 접속하신 경우]</strong><br />
+                                        마이페이지 &gt; 리뷰 &gt; 올영체험단 에서 작성할 수 있습니다.<br />
+                                        <a
+                                            href="https://m.oliveyoung.co.kr/m/mypage/getMyOllyoungList.do">(바로가기)</a><br />
+                                        올영체험단 신청 후 올영체험단 리뷰 작성 기간(초대일로부터 약 4주)내 리뷰 미작성 시 다음 탑리뷰어 선정에서 제외됩니다.
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_132"
+                                            onclick="faq.list.setFaqTagList('132'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType132" name="faqTagType132" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[배송] 배송비는 얼마인가요?"><strong>TOP10</strong>배송비는 얼마인가요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        배송비는 실결제금액 기준 2만원 이상 결제 시 무료이며, 2만원 이하 결제의 경우 기본적으로 배송비는 2,500원입니다.<br />
+                                        <br />
+                                        ※ 추가 배송비가&nbsp;발생하는 경우<br />
+                                        &nbsp;- 도서산간:&nbsp;+2,500원 (5,000원)<br />
+                                        &nbsp;- 제주도:&nbsp;&nbsp;+2,500원 (5,000원)<br />
+                                        &nbsp;- 제주도의 도서산간 지역:&nbsp;&nbsp;+7,000원 (9,500원)<br />
+                                        &nbsp; ※ 업체배송 상품의 경우 업체의 규정에 따라 비용이 상이할 수 있습니다.<br />
+                                        <br />
+                                        ※ 오늘드림 서비스 이용 배송비는 3만원 이상 구매 시 무료입니다.<br />
+                                        &nbsp; &nbsp; 3만원 이하 구매 시, 3!4! 및 미드나잇 배송비는 2,500원이며<br />
+                                        &nbsp; &nbsp; 빠름배송 배송비는 5.000원입니다.
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_130"
+                                            onclick="faq.list.setFaqTagList('130'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType130" name="faqTagType130" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[반품] 반품할 때 비용이 드나요?"><strong>TOP10</strong> 반품할 때 비용이
+                                드나요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        반품 시 지불하셔야 하는 반품비용은 회수비 2,500원입니다.<br />
+                                        단, 매장반품의 경우 별도 회수비용 없이 반품가능합니다.<br />
+                                        <br />
+                                        ※ 추가비용이 발생하는 경우<br />
+                                        &nbsp;- 도서산간: +2,500원 (5,000원)<br />
+                                        &nbsp;- 제주도: &nbsp;+2,500원 (5,000원)<br />
+                                        &nbsp;- 제주도의 도서산간 지역: &nbsp;+7,000원 (9,500원)<br />
+                                        &nbsp;- 무료배송이었으나 부분적인 반품으로 인해 무료배송 조건(결제금액 2만원 이상)이 깨진 경우<br />
+                                        &nbsp; &nbsp;: &nbsp;면제받으셨던 초기 배송비 2,500원 추가 발생<br />
+                                        &nbsp; &nbsp;*&nbsp; 오늘드림 배송 옵션 별 상이 발생&nbsp;<br />
+                                        <br />
+                                        ※ 반품비는 환불금액에서 차감처리 됩니다.<br />
+                                        ※ 업체배송 상품의 경우 업체의 규정에 따라 비용이 상이할 수 있습니다.<br />
+                                        ※ 상품의 불량, 배송 오류 등 당사의 실수로 인한 반품의 경우, 반품에 필요한 비용은 당사가 부담합니다.
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_126"
+                                            onclick="faq.list.setFaqTagList('126'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType126" name="faqTagType126" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[반품] 반품은 언제까지 가능한가요?"><strong>TOP10</strong>반품은 언제까지
+                                가능한가요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        반품은 상품을 수령하신 날짜를 기준으로 15일 이내에 가능합니다.<br />
+                                        다만 상품의 불량, 배송 오류 등 당사의 실수로 인한 반품인 경우, 30일 이내 신청이 가능합니다.
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_123"
+                                            onclick="faq.list.setFaqTagList('123'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType123" name="faqTagType123" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <!-- faq.faqLrclCd로 -->
+                            <a href="#n" role="button" class="tit" title="답변 내용보기"
+                                data-attr="고객센터^FAQ_TOP10_TOP10^[배송] 주문한 상품은 언제 배송되나요?"><strong>TOP10</strong>주문한 상품은 언제
+                                배송되나요?</a>
+                            <ul class="conts">
+                                <li class="question">
+                                    <div class="pdzero">
+                                        <p>온라인몰에서 주문하신 상품은 주문일 기준 3일~5일 이내(주말 및 공휴일 제외)로 배송됩니다.<br />
+                                            <br />
+                                            ※ 도서산간, 제주도 지역의 경우 5~7일 이내 배송됩니다.<br />
+                                            ※ 브랜드 세일 기간에는 주문량 폭주로 인해 주문일로부터 5~7일 이내 배송됩니다.<br />
+                                            ※ 예약배송 상품의 경우, 지정된 배송일에 배송됩니다.<br />
+                                            &nbsp;
+                                        </p>
+                                        <br />
+                                        &nbsp;
+                                    </div>
+
+                                    <p class="faq_txt_good">답변이 도움이 되었나요? <button class="btn_faq_good"
+                                            id="btn_faq_good_121"
+                                            onclick="faq.list.setFaqTagList('121'); return false;"><span>도움이
+                                                되었어요</span></button></p>
+                                    <input type="hidden" id="faqTagType121" name="faqTagType121" value="" />
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="pageing">
+
+
+
+
+                <strong title="현재 페이지">1</strong>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- End QnA part -->
+
+
+
+    <!-- #Footer -->
+    <div id="Footer" class="m2105">
+        <div class="oneConts">
+            <div class="conts">
+                <ul class="list-menu">
+                    <li><a class="brandstory" href="">회사소개</a></li>
+                    <li><a class="faqList" href="Notice.html">고객센터</a></li>
+                    <li><a class="employee" href="">직원전용</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="twoConts">
+            <div class="conts">
+                <ul class="list-area">
+                    <li>
+                        <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
+                        <p class="logo"><a href=""><img src="assets/images/logo/oliveLogo.png" width="170"
+                                    height="60" alt="OLIVEOLD"></a></p>
+                        <h2>올리브올드 주식회사</h2>
+                        <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
+                        <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
+                        <p>호스팅사업자 : 올리브올드</p>
+                        <p>통신판매업신고번호 : 2022-서울종로-0000</p>
+                        <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
+                        </p>
+                        <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
+                                정보확인
+                                &gt;</a></p>
+                    </li>
+                    <li>
+                        <ul class="list-link">
+                            <li>
+                                <a href="javascript:common.link.moveTermsPage();">이용약관</a>
+                                <a href="javascript:common.link.moveLegalPage();">법적고지</a>
+                            </li>
+                            <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
+                            <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
+                            <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a>
+                            </li>
+                            <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- //#Footer -->
+</body>
+
+</html>
