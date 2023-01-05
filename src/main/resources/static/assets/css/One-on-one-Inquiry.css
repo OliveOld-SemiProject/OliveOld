@@ -256,15 +256,14 @@ td.nodata {
 
 .sub_title_area.customer button.btn_inquiry {
     float: right;
-    width: 190px;
+    width: 150px;
     height: 48px;
     margin-top: 26px;
-    padding-left: 30px;
     color: #fff;
     font-size: 16px;
     line-height: 46px;
-    background: url(/pc-static-root/image/comm/ico_inquiry2.png) 37px 13px no-repeat #f27370;
-    border-radius: 24px
+    background: url(/pc-static-root/image/comm/ico_inquiry2.png) 37px 13px no-repeat #560050;
+    border-radius: 24px;
 }
 
 .sub_title_area.customer button.btn_inquiry>em {
