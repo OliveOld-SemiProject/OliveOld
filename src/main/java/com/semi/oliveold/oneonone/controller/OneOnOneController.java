@@ -41,6 +41,7 @@ public class OneOnOneController {
         log.info("");
         log.info("");
         log.info("OneOnOneController start");
+        log.info("type ======================== " + request.getParameter("type"));
 
         String currentPage = request.getParameter("currentPage");
         int pageNo = 1;
@@ -51,10 +52,13 @@ public class OneOnOneController {
 
         String searchCondition = request.getParameter("searchCondition");
         String searchValue = request.getParameter("searchValue");
+        
+
 
         Map<String, String> searchMap = new HashMap<>();
         searchMap.put("searchCondition", searchCondition);
         searchMap.put("searchValue", searchValue);
+
 
         log.info("[OneOnOneController] 컨트롤에서 검색 조건 확인하기" + searchMap);
 
@@ -80,6 +84,7 @@ public class OneOnOneController {
 
         mv.addObject("oneOnOneBoardList", oneOnOneBoardList);
         mv.addObject("oneOnOneSelectCriteria", oneOnOneSelectCriteria);
+
         mv.setViewName("oneonone/One-on-one-Inquiry");
 
         log.info("OneOnOneController over");

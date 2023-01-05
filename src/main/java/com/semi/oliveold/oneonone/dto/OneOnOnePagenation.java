@@ -31,7 +31,7 @@ public class OneOnOnePagenation {
         startRow = (pageNo - 1) * limit + 1;
         endRow = startRow + limit - 1;
 
-        OneOnOneSelectCriteriaDTO oneOnOneselectCriteria = new OneOnOneSelectCriteriaDTO(pageNo , totalCount, limit, buttonAmount, maxPage, startPage ,endPage,startRow,endRow, searchCondition ,searchValue);
+        OneOnOneSelectCriteriaDTO oneOnOneselectCriteria = new OneOnOneSelectCriteriaDTO(pageNo,totalCount,limit,buttonAmount,maxPage,startPage,endPage,startRow,endRow,searchCondition,searchValue);
 
         System.out.println(oneOnOneselectCriteria);
 
