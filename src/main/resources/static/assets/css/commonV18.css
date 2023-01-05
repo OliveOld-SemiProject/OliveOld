@@ -111,7 +111,6 @@ textarea {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url();
     background-position: 50% 50%;
     background-repeat: repeat;
     cursor: pointer;
@@ -166,7 +165,6 @@ textarea {
 }
 
 .paging a.arrow span {
-    background-image: url();
     background-repeat: no-repeat;
     text-indent: -9999px;
     width: 23px;
@@ -262,7 +260,6 @@ textarea {
     margin: 0;
     padding: 0;
     line-height: 9px;
-    background: url() 0 0 no-repeat;
 }
 
 .spinner .buttons .down {
@@ -274,7 +271,6 @@ textarea {
     margin: 0;
     padding: 0;
     line-height: 9px;
-    background: url() 0 0 no-repeat;
 }
 
 
@@ -308,12 +304,10 @@ textarea {
 
 .whiteArr03 {
     padding-right: 6px;
-    background: url() 100% 4px no-repeat;
 }
 
 .download {
     padding-right: 15px;
-    background: url() 100% 0 no-repeat;
 }
 
 /* icon */
@@ -337,7 +331,6 @@ textarea {
     min-height: 17px;
     padding-left: 22px;
     line-height: 16px;
-    background: url() 0 0 no-repeat;
 }
 
 
@@ -394,7 +387,6 @@ strong.memSTAFF {
     overflow: hidden;
     float: left;
     text-indent: -999em;
-    background: url() no-repeat;
 }
 
 
@@ -664,7 +656,6 @@ strong.memSTAFF {
 
 .almTodayV15 {
     padding: 15px 0;
-    background: url() 0 100% repeat-x;
 }
 
 .almTodayV15 .boxRd0V15 {
@@ -677,7 +668,6 @@ strong.memSTAFF {
     font-size: 12px;
     line-height: 22px;
     vertical-align: middle;
-    background: url() 50% 50% no-repeat;
 }
 
 .alarmListV15 ul.alarmUnitV15 {
@@ -690,7 +680,6 @@ strong.memSTAFF {
     float: none;
     padding: 12px 8px 13px 85px;
     vertical-align: middle;
-    background: url() 0 100% repeat-x;
 }
 
 .alarmUnitV15 li a {
@@ -709,7 +698,6 @@ strong.memSTAFF {
     margin-top: -32px;
     width: 66px;
     height: 66px;
-    background-image: url();
     background-repeat: no-repeat;
 }
 
@@ -879,7 +867,6 @@ li.winPartV15 span.alarmIcoV15 {
     width: 18px;
     height: 16px;
     text-indent: -999em;
-    background: url() no-repeat 0 -35px;
 }
 
 .uCartV15 dfn {
@@ -940,7 +927,6 @@ li.winPartV15 span.alarmIcoV15 {
     width: 11px;
     height: 11px;
     padding: 0;
-    background: url() no-repeat -4px -104px;
     text-indent: -999em;
     cursor: pointer;
 }
@@ -3560,9 +3546,6 @@ div.schExample ul li {
     font-size: 36px;
 }
 
-.tenBiz.mainV18 .main-banner .subcopy {b
-    opacity: 0.5;
-}
 
 .tenBiz.mainV18 .main-banner .slidesjs-navigation {
     top: auto;
@@ -3792,7 +3775,6 @@ div.schExample ul li {
     line-height: 29px;
     color: #fff;
     opacity: 1;
-    background: url() no-repeat;
     background-size: 100%;
 }
 

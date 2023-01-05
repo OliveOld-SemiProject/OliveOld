@@ -341,7 +341,6 @@
 }
 
 #myshopMain .shopMain.deposits {
-    background-image: url("../images/myPage/bg_deposits.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-transition: .5s;
@@ -354,7 +353,6 @@
 }
 
 #myshopMain .shopMain.consult {
-    background-image: url("../images/myPage/bg_consult.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-transition: .5s;
@@ -406,7 +404,6 @@
 }
 
 #myshopMain .shopMain.favorite {
-    background-image: url("../images/myPage/bg_favorite.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-transition: .5s;
@@ -429,30 +426,6 @@
 
 #myshopMain .shopMain.like p {
     margin-top: 43px;
-}
-
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/han/font/NanumGothic-Regular.eot);
-    src: url(/han/font/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'), url(/han/font/NanumGothic-Regular.woff2) format('woff2'), url(/han/font/NanumGothic-Regular.woff) format('woff'), url(/han/font/NanumGothic-Regular.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 700;
-    src: url(/han/font/NanumGothic-Bold.eot);
-    src: url(/han/font/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'), url(/han/font/NanumGothic-Bold.woff2) format('woff2'), url(/han/font/NanumGothic-Bold.woff) format('woff'), url(/han/font/NanumGothic-Bold.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 800;
-    src: url(/han/font/NanumGothic-ExtraBold.eot);
-    src: url(/han/font/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'), url(/han/font/NanumGothic-ExtraBold.woff2) format('woff2'), url(/han/font/NanumGothic-ExtraBold.woff) format('woff'), url(/han/font/NanumGothic-ExtraBold.ttf) format('truetype');
 }
 
 html,
@@ -1748,7 +1721,6 @@ h2.hanstyleh2 span {
     height: 32px;
     overflow: hidden;
     display: inline-block;
-    block;
     margin: -9px 8px 0 8px;
     opacity: .5;
 }
@@ -1988,14 +1960,6 @@ h2.hanstyleh2 span {
     padding: 10px 20px;
     border: 0px solid #e5e5e5;
     background: #fff;
-}
-
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('/han/font/fontawesome-webfont.eot');
-    src: url('/han/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('/han/font/fontawesome-webfont.woff') format('woff'), url('/han/font/fontawesome-webfont.ttf') format('truetype'), url('/han/font/fontawesome-webfont.svg#fontawesomeregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 }
 
 .fa {
@@ -5264,7 +5228,6 @@ h2.hanstyleh2 span {
     display: inline-block;
     text-align: center;
     border-radius: 10%;
-    background: url(/han/images/bg_gray.png) repeat;
     margin: -10% -20px 0;
     cursor: pointer;
     opacity: 0;
@@ -5415,7 +5378,6 @@ h2.hanstyleh2 span {
     width: 100%;
     height: 98%;
     display: block;
-    background: url(/han/images/bg/bg_00050.png);
     opacity: 0;
     -webkit-transition: .5s;
     -moz-transition: .5s;
@@ -6417,7 +6379,6 @@ ul.sidetab li a:hover {
     *zoom: 1;
     border: 1px solid #444;
     overflow: hidden;
-    background: url(/han/images/bg/bg_black2.png) repeat;
 }
 
 .xans-layout-footer {
@@ -6742,7 +6703,6 @@ ul.sidetab li a:hover {
     top: 0px;
     width: 250px;
     height: 100%;
-    background: url(/han/images/bg/bg_555.png) repeat;
     z-index: 1000;
 }
 
@@ -6866,7 +6826,6 @@ h2.sidemenu_h2 a {
     display: block;
     left: 5%;
     bottom: 11px;
-    background: url(/han/images/bg/bg_555.png) repeat;
     border-radius: 20px;
 }
 
@@ -6918,7 +6877,6 @@ h2.sidemenu_h2 a {
     width: 52px;
     height: 52px;
     line-height: 52px;
-    background: url(/han/images/bg/bg_00070.png) repeat;
     color: #fff;
     margin-top: 2px;
 }
@@ -6958,10 +6916,6 @@ h2.sidemenu_h2 a {
     width: 52px;
     height: 52px;
     margin-top: 2px;
-}
-
-.cd-single-point {
-    background: url(/han/images/bg/bg_555.png) repeat;
 }
 
 .cd-single-point.is-open>a {
@@ -7066,7 +7020,6 @@ h2.sidemenu_h2 a {
     padding: 0 10px;
     height: 23px;
     line-height: 23px;
-    background: url(/han/images/bg/bg_00070.png) repeat;
     color: #fff;
     border-radius: 8px;
     z-index: 1003;
@@ -8345,9 +8298,6 @@ h2.sidemenu_h2 a {
     color: #868686;
 }
 
-.xans-member-login {
-    background: #fff url(/han/images/bg_login1.png) 50px 0 no-repeat;
-}
 
 .xans-member-login h3 {
     margin: 0 0 20px 0;
