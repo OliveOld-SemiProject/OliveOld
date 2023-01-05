@@ -7,14 +7,17 @@
     <title>OLIVE OLD</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/oliveOld.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png" />
 
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css " />
-    <link rel="stylesheet" href="assets/css/One-on-one-Inquiry.css " />
+    <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css " />
+    <link rel="stylesheet" href="/assets/css/Notice.css " />
+
+
+
 </head>
 
 <body>
@@ -55,7 +58,7 @@
                         <div class="col-lg-3 col-md-3 col-7">
                             <!-- Start Header Logo -->
                             <a class="navbar-brand" href="index.html">
-                                <img src="assets/images/logo/oliveLogo.png" alt="Logo">
+                                <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
                             </a>
                             <!-- End Header Logo -->
                         </div>
@@ -196,163 +199,94 @@
             <!-- Start Header Bottom -->
         </header>
 
-    <!-- #Container -->
     <div id="Container">
-        <!-- #Contents -->
         <div id="Contents">
             <div class="sub_title_area customer">
                 <h1>고객센터 <span>무엇을 도와드릴까요?</span></h1>
-                <button type="button" class="btn_inquiry" id="regForm1on1"
-                    onclick="javascript:location.href='">1<em>:</em>1
-                    문의하기</button>
             </div>
-
-
-            <div class="info_area">
-
-            </div>
-
-
 
             <ul class="comm1sTabs threeSet customer">
                 <li id="tabFaq"><a href="FAQ.html">FAQ</a></li>
-                <li id="tab1on1" class="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
-                <li id="tabNotice"><a href="Notice.html">공지사항</a></li>
+                <li id="tab1on1"><a href="One-on-one-Inquiry.html">1:1문의</a></li>
+                <li id="tabNotice" class="on"><a href="javascript:counsel.NoticeDetail.goList();" title="선택됨">공지사항</a>
+                </li>
             </ul>
 
-            <!-- 기간조회 -->
-
-            <fieldset class="search-period mgT30">
-                <legend></legend>
-                <!-- 2019.10.20 오프라인리뷰관련 추가 -->
+            <div id="TabsOpenArea">
 
 
-                <div class="select_con">
-                    <p>구매기간</p>
-                    <ul class="select-month">
-                        <!-- 			[3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 -->
-                        <li class="on"><button type="button" data-month="-1">1개월</button></li>
-                        <li><button type="button" data-month="-3">3개월</button></li>
-                        <li><button type="button" data-month="-6">6개월</button></li>
-                        <li><button type="button" data-month="-12">12개월</button></li>
-
-
+                <div class="TabsConts on">
+                    <ul class="noticeList" id="notice-list">
                     </ul>
-                    <div class="select-range">
-                        <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;">
-                        </select>
-                        <label for="cal-start-year">년</label>
-                        <select id="cal-start-month" title="달월을 선택하세요" style="width:60px;">
-                            <option value="01">1</option>
-                            <option value="02">2</option>
-                            <option value="03">3</option>
-                            <option value="04">4</option>
-                            <option value="05">5</option>
-                            <option value="06">6</option>
-                            <option value="07">7</option>
-                            <option value="08">8</option>
-                            <option value="09">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                        <label for="cal-start-month">월</label>
-                        <select id="cal-start-day" title="날일을 선택하세요" style="width:60px;">
-                        </select>
-                        <label for="cal-start-day">일</label>
-                        <span class="des">~</span>
-                        <select id="cal-end-year" title="년도를 선택하세요" style="width:76px;">
-                        </select>
-                        <label for="cal-end-year">년</label>
-                        <select id="cal-end-month" title="달월을 선택하세요" style="width:60px;">
-                            <option value="01">1</option>
-                            <option value="02">2</option>
-                            <option value="03">3</option>
-                            <option value="04">4</option>
-                            <option value="05">5</option>
-                            <option value="06">6</option>
-                            <option value="07">7</option>
-                            <option value="08">8</option>
-                            <option value="09">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                        <label for="cal-end-month">월</label>
-                        <select id="cal-end-day" title="날일을 선택하세요" style="width:60px;">
-                        </select>
-                        <label for="cal-end-day">일</label>
-                    </div>
+                    <table class="board-list-1s">
+                        <caption>번호, 제목, 등록일/당첨자 발표일로 이루어진 공지사항 목록 표</caption>
+                        <colgroup>
+                            <col style="width:9%;">
+                            <col style="width:79%;">
+                            <col style="width:12%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">번호</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">등록일/당첨자 발표일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="notice_fix">
+                                <td>중요</td>
+                                <td class="subject">
+                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 오늘드림 서비스 제한
+                                        안내</a>
+                                </td>
+                                <td>2022.12.21</td>
+                            </tr>
+                            <tr class="notice_fix">
+                                <td>중요</td>
+                                <td class="subject">
+                                    <a href="javascript:counsel.noticeList.goDetail('38400')">올리브영 온라인몰 배송지연 및 상담지연
+                                        안내</a>
+                                </td>
+                                <td>2022.12.10</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="subject">
+                                    <a href="javascript:counsel.noticeList.goDetail('38720')">&lt;올리브올드&gt; 이벤트 당첨자
+                                        안내</a>
+                                </td>
+                                <td>2022.12.21</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="subject">
+                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 배송서비스 제한
+                                        안내</a>
+                                </td>
+                                <td>2022.12.21</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="subject">
+                                    <a href="javascript:counsel.noticeList.goDetail('38560')">[올리브올드-보행보조용품] 새로운 제품 등록
+                                        안내</a>
+                                </td>
+                                <td>2022.12.14</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- //오프라인 리뷰 -->
-                <!-- 2016-12-23 수정 -->
-                <button type="button" class="btnLookup" id="do-search-period">조회</button>
-            </fieldset>
-            <script type="text/javascript"
-                src="https://static.oliveyoung.co.kr/pc-static-root/js/common/searchPeriod.js?dumm=20221208001"></script>
-            <script>
-                //[3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 되어 START_DATE, END_DATE 변경
-                START_DATE = '';
-                END_DATE = '';
-                ollyoungYn = '';
 
-                $(document).ready(function () {
-                    var cnslChk = "Y";
-                    var startYear = 2012
-                    var thisYear = new Date().getFullYear();
-
-                    if (!common.isEmpty(cnslChk)) startYear = 2014;
-                    $("#cal-start-year,#cal-end-year").empty();
-                    while (startYear <= thisYear) {
-                        $("#cal-start-year,#cal-end-year").append("<option value='" + startYear + "'>" + startYear + "</option>");
-                        startYear++
-                    }
-
-                    setTimeout(function () {
-                        SearchPeriod.init();
-                    }, 500);
-                });
-            </script>
-            <!-- //기간조회 -->
-
-            <div class="list-customer onenone m2105">
-                <ul>
-
-
-                    <li class="nodata">등록하신 1:1 문의가 없습니다.</li>
-
-                </ul>
             </div>
-
-            <!-- pageing star -->
-
-
-
             <div class="pageing">
-
-
-
+                <strong title="현재 페이지">1</strong>
+                <a href="javascript:void(0);" data-page-no="2">2</a>
+                <a href="javascript:void(0);" data-page-no="3">3</a>
+                <a href="javascript:void(0);" data-page-no="4">4</a>
+                <a href="javascript:void(0);" data-page-no="5">5</a>
             </div>
-
-            <!-- //pageing end -->
-
-            <div class="area1sButton pdT30">
-                <a href="javascript:common.link.moveQnaForm();" class="btnGreen" data-attr="고객센터^FAQ^1:1문의">1:1문의하기</a>
-            </div>
-
         </div>
-        <!-- //#Contents -->
     </div>
-    <!-- //#Container -->
-    <script src="https://static.oliveyoung.co.kr/pc-static-root/js/counsel/counsel.js?dumm=20221208001"
-        charset="utf-8"></script>
-    <script type="text/javascript">
-        var _cnslSeq = "";
-        $(function () {
-            counsel.list.init();
-        })
-
-    </script>
 
 <!-- #Footer -->
 <div id="Footer" class="m2105">
@@ -371,7 +305,7 @@
             <ul class="list-area">
                 <li>
                     <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
-                    <p class="logo"><a href=""><img src="assets/images/logo/oliveLogo.png" width="170"
+                    <p class="logo"><a href=""><img src="/ assets/images/logo/oliveLogo.png" width="170"
                                 height="60" alt="OLIVEOLD"></a></p>
                     <h2>올리브올드 주식회사</h2>
                     <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
