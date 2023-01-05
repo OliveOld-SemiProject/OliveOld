@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer style </title>
+</head>
+<body>
+    element.style {
+    }
+    /*  */
+    #Footer {
+        margin: 40px 0 0;
+        border-top: 2px solid #aaa;
+    }
+    #Footer{
+        width: 100%;
+        min-width: 1020px;
+    }
+    #Footer .oneConts {
+        background: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+    }
+    #Footer .oneConts .conts {
+        position: relative;
+        height: 52px;
+    }
+    #Footer .conts {
+        width: 1020px;
+        margin: 0 auto;
+    }   
+    #Footer .list-menu li:first-child {
+        background: 0 0;
+    }
+    #Footer .list-menu li {
+        list-style: none;
+        padding-left: 0px;
+        float: left;
+        height: 52px;
+        padding-top: 18px;
+    }
+    #Footer .list-menu li:first-child>a {
+        padding-left: 0;
+    }
+    #Footer .list-menu li a {
+        display: block;
+        padding: 0 20px 0 21px;
+        color: #000;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    /* 상품입점 */
+    #Footer .list-menu li {
+        float: left;
+        height: 52px;
+        padding-top: 18px;
+    }
+    
+    /* 고객센터 */
+    #Footer .list-menu li {
+        float: left;
+        height: 52px;
+        padding-top: 18px;
+        background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x14.gif) 0 50% no-repeat;
+    }
+    #Footer .list-menu {
+        overflow: hidden;
+    }
+    
+    /* 직원전용으로 바꾸기 */
+    oter .list-menu li {
+        float: left;
+        height: 52px;
+        padding-top: 18px;
+        background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x14.gif) 0 50% no-repeat;
+    }
+    #Footer .conts {
+        width: 1020px;
+        margin: 0 auto;
+    }
+    #Footer .list-area {
+        overflow: hidden;
+    }
+    #Footer.m2105 .list-area>li {
+        height: 195px;
+    }
+    #Footer .list-area>li:nth-child(1) {
+        position: relative;
+        width: 509px;
+        background: 0 0;
+    }
+    #Footer .list-area>li {
+        float: left;
+        height: 175px;
+        background: url() 0 29px no-repeat;
+        font-size: 0;
+        line-height: 0;
+    }
+    #Footer .list-area li:nth-child(1) .logo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -12px;
+        padding: 0;
+        font-size: 0;
+        line-height: 0;
+    }
+    #Footer .list-area li:nth-child(1) p {
+        padding: 0 0 0 170px;
+    }
+    #Footer .list-area li p {
+        color: #777;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    #Footer .list-area li:nth-child(1) h2 {
+        padding: 28px 0 3px 170px;
+        color: #000;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    #Footer .list-area li:nth-child(1) p:nth-child(4) {
+        margin-left: 35px;
+        text-indent: -35px;
+    }
+    #Footer .list-area li:nth-child(1) .link {
+        display: inline-block;
+        margin-left: 7px;
+        color: #333;
+        border-bottom: 1px solid #333;
+        line-height: 16px;
+    }
+    #Footer * {
+        letter-spacing: 0;
+    }
+    #Footer .list-area li:nth-child(2) {
+        width: 256px;
+    }
+    #Footer .list-area li:nth-child(2) .list-link {
+        padding: 26px 0 0 20px;
+    }
+    #Footer .list-area li:nth-child(2) .list-link li {
+        font-size: 0;
+        line-height: 0;
+    }
+   
+    #Footer .list-area li:nth-child(2) .list-link li:first-child a:last-child {
+        margin: 0 0 0 8px;
+        padding: 0 0 0 13px;
+        background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/bull_4x4.gif) 0 9px no-repeat;
+    }
+    
+    #Footer .list-area li:nth-child(2) .list-link li:nth-child(2) a {
+        font-weight: 700;
+        letter-spacing: -1px;
+        color: #333;
+    }
+    #Footer .list-area li:nth-child(2) .list-link li a {
+        display: inline-block;
+        color: #777;
+        font-size: 12px;
+        line-height: 21px;
+        vertical-align: top;
+    }
+    #Footer .list-area li:nth-child(3) {
+        width: 255px;
+    }
+</body>
+</html>
