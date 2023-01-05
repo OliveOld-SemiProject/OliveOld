@@ -2,44 +2,164 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.semi.faq.repository.FaqBoardMapper">
+<mapper namespace="com.semi.oliveold.faq.repository.FaqBoardMapper">
 
 
     <resultMap type="BoardDTO" id="BoardResultMap">
         <id property="no" column="BOARD_NO"/>
+        <result property="type" column="BOARD_TYPE"/>
+        <result property="categoryCode" column="CATEGORY_CODE"/>
         <result property="title" column="BOARD_TITLE"/>
         <result property="body" column="BOARD_BODY"/>
-        <result property="writerMemberNo" column="BOARD_WRITER_MEMBER_NO"/>
+        <result property="writerMemberId" column="BOARD_WRITER_MEMBER_ID"/>
         <result property="count" column="BOARD_COUNT"/>
         <result property="createdDate" column="CREATED_DATE"/>
+        <result property="modifiedDate" column="MODIFIED_DATE"/>
         <result property="status" column="BOARD_STATUS"/>
 
         <association property="writer" resultMap="memberResultMap"/>
+        <association property="faqCategory" resultMap="faqCategoryResultMap"/>
+
     </resultMap>
 
     <resultMap type="MemberDTO" id="memberResultMap">
         <id property="memberNo" column="MEMBER_NO"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
         <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberAddress" column="MEMBER_ADDRESS"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberRegistDate" column="MEMBER_REGISTDATE"/>
+        <result property="memberISAD" column="MEMBER_ISAD"/>
 
     </resultMap>
 
-    <select id="selectFaqBoardList" resultMap="BoardResultMap">
-        SELECT
-                  A.BOARD_NO
-                , A.BOARD_TITLE
-                , A.BOARD_BODY
-                , A.BOARD_WRITER_MEMBER_NO
-                , B.MEMBER_NAME
-                , A.BOARD_COUNT
-                , A.CREATED_DATE
-        FROM TBL_BOARD A
-        JOIN Member B ON (A.BOARD_WRITER_MEMBER_NO = B.MEMBER_NO)
-        WHERE A.BOARD_STATUS = 'Y'
-        ORDER BY A.BOARD_NO DESC
+    <resultMap type="faqCategoryDTO" id="faqCategoryResultMap">
+        <id property="faqCode" column="CATEGORY_CODE"/>
+        <result property="faqName" column="CATEGORY_NAME"/>
+    </resultMap>
 
+
+    <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT
+        COUNT(*)
+        FROM TBL_BOARD A
+        <if test="searchCondition == 'category'">
+            JOIN TBL_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+        </if>
+        <if test="searchCondition == 'writer'">
+            JOIN Member B ON(A.BOARD_WRITER_MEMBER_ID = B.MEMBER_NO)
+        </if>
+        <where>
+            <if test="searchCondition == 'category'">
+                B.CATEGORY_NAME = #{ searchValue }
+            </if>
+            <if test="searchCondition == 'writer'">
+                B.MEMBER_NAME LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'title'">
+                A.BOARD_TITLE LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'content'">
+                A.BOARD_BODY LIKE '%' || #{ searchValue } || '%'
+            </if>
+            AND A.BOARD_STATUS = 'Y'
+        </where>
+    </select>
+
+    <select id="selectFaqBoardList" parameterType="SelectCriteriaDTO" resultMap="BoardResultMap">
+        SELECT
+        <!--            A.RNUM-->
+        A.BOARD_NO
+                ,A.BOARD_TYPE
+                ,A.CATEGORY_CODE
+                ,D.CATEGORY_NAME
+                ,A.BOARD_TITLE
+                ,A.BOARD_BODY
+                ,A.BOARD_WRITER_MEMBER_ID
+                ,E.MEMBER_NAME
+                ,A.BOARD_COUNT
+                ,A.CREATED_DATE
+                ,A.BOARD_STATUS
+        FROM (
+        SELECT
+        <!--        @ROWNUM:=@ROWNUM+1 AS RNUM-->
+        B.BOARD_NO
+                ,B.BOARD_TYPE
+                ,B.CATEGORY_CODE
+                ,B.BOARD_TITLE
+                ,B.BOARD_BODY
+                ,B.BOARD_WRITER_MEMBER_ID
+                ,B.BOARD_COUNT
+                ,B.CREATED_DATE
+                ,B.BOARD_STATUS
+        FROM (
+        SELECT
+        C.BOARD_NO
+                ,C.BOARD_TYPE
+                ,C.CATEGORY_CODE
+                ,C.BOARD_TITLE
+                ,C.BOARD_BODY
+                ,C.BOARD_WRITER_MEMBER_ID
+                ,C.BOARD_COUNT
+                ,C.CREATED_DATE
+                ,C.BOARD_STATUS
+        FROM TBL_BOARD C
+
+        <where>
+            <!--            <if test="searchCondition == 'faqCategory'">-->
+            <!--                D.CATEGORY_NAME = #{ searchValue }-->
+            <!--            </if>-->
+
+            <!--             <if test="searchCondition == 'writer'">-->
+            <!--                D.MEMBER_NAME LIKE '%' || #{ searchValue } || '%'-->
+            <!--            </if>-->
+
+            <!--             <if test="searchCondition == 'title'">-->
+            <!--                C.BOARD_TITLE LIKE '%' || #{ searchValue } || '%'-->
+            <!--            </if>-->
+
+            <if test="searchValue != null">
+<!--                C.BOARD_BODY LIKE '%' || #{ searchValue } || '%'-->
+                C.BOARD_BODY LIKE CONCAT('%',#{ searchValue }, '%')
+            </if>
+            AND C.BOARD_STATUS = 'Y'
+            AND C.BOARD_TYPE = 1
+        </where>
+        ORDER BY C.BOARD_NO DESC
+        ) B
+
+        <!--        <![CDATA[-->
+        <!--            WHERE @ROWNUM:=@ROWNUM+1 <= #{ endRow }-->
+        <!--        ]]>-->
+        ) A
+        JOIN TBL_CATEGORY D ON (A.CATEGORY_CODE = D.CATEGORY_CODE)
+        JOIN Member E ON (A.BOARD_WRITER_MEMBER_ID = E.MEMBER_ID)
+        ORDER BY 1 ASC
     </select>
 
 
+    <insert id="insertFaqBoard" parameterType="BoardDTO">
+            
+       INSERT     
+       INTO TBL_BOARD
+       (
+           BOARD_NO
+          ,CATEGORY_CODE
+          ,BOARD_TITLE
+          ,BOARD_BODY
+          ,BOARD_WRITER_MEMBER_ID
+       )
+       VALUES
+       (
+            NULL
+            , #{ categoryCode }
+            , #{ title }
+            , #{ body }
+            , #{ writerMemberId }
+       )
+
+    </insert>
 
 
 

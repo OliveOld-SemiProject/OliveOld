@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.semi.discount.repository.DiscountMapper">
+<mapper namespace="com.semi.oliveold.discount.repository.DiscountMapper">
 
 
     <resultMap type="MemberDTO" id="MemberResultMap">
