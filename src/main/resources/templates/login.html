@@ -42,9 +42,9 @@
                         <li class="util-order"><a href="order-delivery.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
                         </li>
                         <li class="util-cart">
-                            <a href="shoppingCart.html" onclick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span class="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span class="arrow-bottom bottom1" id="basketDropIcon"></span></a>
-
-                            <div class="util-layer" id="lyrHdCartList"></div>
+                            <form action="/cartList" type="get">
+                                <button type="submit">장바구니</button>
+                            </form>
                         </li>
                         <li class="util-cs"><a href="Notice.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
                         </li>
