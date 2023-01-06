@@ -14,6 +14,7 @@ public class MemberController {
     public String memberLoginForm() {
         log.info("");
         log.info("**MemberController.memberLoginForm**");
+        log.info("");
         return "login";
     }
 }
