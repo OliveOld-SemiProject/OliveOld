@@ -10,6 +10,7 @@ import com.semi.oliveold.oneonone.service.OneOnOneService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,6 +56,9 @@ public class OneOnOneController {
         String typeValue = request.getParameter("type");
 
 
+        log.info("String typeValue ======" + typeValue);
+
+
 
         Map<String, String> searchMap = new HashMap<>();
         searchMap.put("searchCondition", searchCondition);
@@ -67,12 +71,12 @@ public class OneOnOneController {
 
         int totalCount = oneOnOneService.selectTotalCount(searchMap);
         log.info("[oneOnOneService] totalOneOnOneBoardCount" + totalCount);
-        int limit = 10;                 //1:1문의 게시물 최대 갯수
-        int buttonAmount = 0;           //버튼 갯수
+        int limit = 5;                 //1:1문의 게시물 최대 갯수
+        int buttonAmount = 1;           //버튼 갯수
 
         OneOnOneSelectCriteriaDTO oneOnOneSelectCriteria = null;
 
-        if(searchCondition !=null && !"".equals(searchCondition)){
+        if(typeValue !=null && !"".equals(typeValue)){
             oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue,typeValue);
         } else {
             oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount);
@@ -85,9 +89,11 @@ public class OneOnOneController {
 
         log.info("OneOnOneController OneOnOneBoardList : " + oneOnOneBoardList);
 
+
+
         mv.addObject("oneOnOneBoardList", oneOnOneBoardList);
         mv.addObject("oneOnOneSelectCriteria", oneOnOneSelectCriteria);
-
+        mv.addObject("type", typeValue);
         mv.setViewName("oneonone/One-on-one-Inquiry");
 
         log.info("OneOnOneController over");
@@ -119,6 +125,24 @@ public class OneOnOneController {
         return "redirect:/OneOnOneBoard/list";
     }
 
+    
+    //게시판 상세 화면 들어가기
+    @GetMapping("/detail")
+    public String selectBoardDetail(HttpServletRequest request, Model model){
+
+        log.info("");
+        log.info("");
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+        OneOnOneBoardDTO oneOnOneDetail = OneOnOneService.selectBoardDetail(no);
+
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
+
+        model.addAttribute("OneOnOneBoard", oneOnOneDetail);
+
+    }
+    
 
 
 

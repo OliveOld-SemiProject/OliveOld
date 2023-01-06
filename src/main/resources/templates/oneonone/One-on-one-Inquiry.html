@@ -195,6 +195,7 @@
         </div><!-- Start Header Bottom -->
         <!-- Start Header Bottom -->
     </header>
+</header>
 
 <!-- #Container -->
 <div id="Container">
@@ -235,64 +236,101 @@
                     <li><button id="button2" type="button" value="-3">3개월</button></li>
                     <li><button id="button3" type="button" value="-6">6개월</button></li>
                     <li><button id="button4" type="button" value="-12">12개월</button></li>
+                    <li><button id="button5" type="button" value="-12">전체조회</button></li>
 
 
                 </ul>
 
                 <script>
 
-                    document.getElementById("button1").onclick = function(){
-                        this.style.backgroundColor ="#37003E";
-                        this.style.color ='white';
 
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
 
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
-
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
+                    document.getElementById("button1").onclick=function(){
 
                         location.href='/OneOnOneBoard/list?type=-1';
+
                     };
 
                     document.getElementById("button2").onclick = function(){
-                        this.style.backgroundColor ="#37003E";
-                        this.style.color ='white';
-
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
-
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
-
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
 
                         location.href='/OneOnOneBoard/list?type=-3';
                     };
 
-
                     document.getElementById("button3").onclick = function(){
-                        this.style.backgroundColor ="#37003E";
-                        this.style.color ='white';
-
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
-
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
-
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
 
                         location.href='/OneOnOneBoard/list?type=-6';
                     };
 
                     document.getElementById("button4").onclick = function(){
-                        this.style.backgroundColor ="#37003E";
-                        this.style.color ='white';
+
+                        location.href='/OneOnOneBoard/list?type=-12';
+                    };
+
+                    document.getElementById("button5").onclick = function(){
+
+                        location.href='/OneOnOneBoard/list';
+                    };
+
+
+
+                    const message = '[[${type}]]';
+
+                    if(message === '-1'){
+
+                        document.getElementById("button1").style.backgroundColor ="#37003E";
+                        document.getElementById("button1").style.color ='white';
+
+                        document.getElementById("button2").style.backgroundColor ="white";
+                        document.getElementById("button2").style.color='black'
+
+                        document.getElementById("button3").style.backgroundColor ="white";
+                        document.getElementById("button3").style.color='black'
+
+                        document.getElementById("button4").style.backgroundColor ="white";
+                        document.getElementById("button4").style.color='black'
+
+                        document.getElementById("button5").style.backgroundColor ="white";
+                        document.getElementById("button5").style.color='black'
+                    } else if(message === '-3') {
+
+                        document.getElementById("button2").style.backgroundColor ="#37003E";
+                        document.getElementById("button2").style.color ='white';
+
+                        document.getElementById("button3").style.backgroundColor ="white";
+                        document.getElementById("button3").style.color='black'
+
+                        document.getElementById("button4").style.backgroundColor ="white";
+                        document.getElementById("button4").style.color='black'
+
+                        document.getElementById("button5").style.backgroundColor ="white";
+                        document.getElementById("button5").style.color='black'
+
+                        document.getElementById("button1").style.backgroundColor ="white";
+                        document.getElementById("button1").style.color='black'
+                    } else if(message === '-6'){
+
+                        document.getElementById("button3").style.backgroundColor ="#37003E";
+                        document.getElementById("button3").style.color ='white';
+
+                        document.getElementById("button4").style.backgroundColor ="white";
+                        document.getElementById("button4").style.color='black'
+
+                        document.getElementById("button5").style.backgroundColor ="white";
+                        document.getElementById("button5").style.color='black'
+
+                        document.getElementById("button1").style.backgroundColor ="white";
+                        document.getElementById("button1").style.color='black'
+
+                        document.getElementById("button2").style.backgroundColor ="white";
+                        document.getElementById("button2").style.color='black'
+
+                    } else if(message === '-12'){
+
+                        document.getElementById("button4").style.backgroundColor ="#37003E";
+                        document.getElementById("button4").style.color ='white';
+
+                        document.getElementById("button5").style.backgroundColor ="white";
+                        document.getElementById("button5").style.color='black'
 
                         document.getElementById("button1").style.backgroundColor ="white";
                         document.getElementById("button1").style.color='black'
@@ -303,10 +341,24 @@
                         document.getElementById("button3").style.backgroundColor ="white";
                         document.getElementById("button3").style.color='black'
 
-                        location.href='/OneOnOneBoard/list?type=-12';
-                    };
+                    }else{
 
+                        document.getElementById("button5").style.backgroundColor ="#37003E";
+                        document.getElementById("button5").style.color ='white';
 
+                        document.getElementById("button1").style.backgroundColor ="white";
+                        document.getElementById("button1").style.color='black'
+
+                        document.getElementById("button2").style.backgroundColor ="white";
+                        document.getElementById("button2").style.color='black'
+
+                        document.getElementById("button3").style.backgroundColor ="white";
+                        document.getElementById("button3").style.color='black'
+
+                        document.getElementById("button4").style.backgroundColor ="white";
+                        document.getElementById("button4").style.color='black'
+
+                    }
 
 
 
@@ -361,9 +413,7 @@
             </div>
             <!-- //오프라인 리뷰 -->
             <!-- 2016-12-23 수정 -->
-            <form action="/OneOnOneBoard/list">
-                <button type="submit" class="btnLookup" id="do-search-period">조회</button>
-            </form>
+
         </fieldset>
         <script type="text/javascript"
                 src="https://static.oliveyoung.co.kr/pc-static-root/js/common/searchPeriod.js?dumm=20221208001"></script>
@@ -394,6 +444,8 @@
         <!--    시작=======================================================================================-->
 
         <!-- //기간조회 -->
+
+        <div class ="oneOnBoard area">
         <th:block th:each="oneonone : ${ oneOnOneBoardList }">
             <div class="list-customer">
                 <ul>
@@ -408,7 +460,48 @@
                     </li>
                 </ul>
             </div>
+
         </th:block>
+
+        <div class="pagingArea" align="center">
+<!--            &lt;!&ndash; 맨 앞으로 이동 버튼 &ndash;&gt;-->
+<!--            <button-->
+<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.startPage}} + '\''"-->
+<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
+<!--            >-->
+
+<!--            </button>-->
+<!--            &lt;!&ndash; 이전 페이지 버튼 &ndash;&gt;-->
+<!--            <button-->
+<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo - 1}} + '\''"-->
+<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
+<!--            >-->
+
+<!--            </button>-->
+            <!-- 숫자 버튼 -->
+            <th:block th:each="page : ${#numbers.sequence(oneOnOneSelectCriteria.startPage, oneOnOneSelectCriteria.endPage)}">
+                <button
+                        th:text="${ page }"
+                        th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${page}} + '\''"
+                        th:disabled="${ oneOnOneSelectCriteria.pageNo eq page }">
+                </button>
+            </th:block>
+
+<!--            &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+<!--            <button-->
+<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo + 1}} + '\''"-->
+<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
+<!--            >-->
+
+<!--            </button>-->
+<!--            &lt;!&ndash; 마지막 페이지로 이동 버튼 &ndash;&gt;-->
+<!--            <button-->
+<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.maxPage}} + '\''"-->
+<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
+<!--            >-->
+
+<!--            </button>-->
+        </div>
 
     </div>
 
@@ -491,6 +584,7 @@
         </div>
     </div>
     <!-- //#Footer -->
+
 </body>
 
 </html>

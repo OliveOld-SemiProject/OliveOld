@@ -89,14 +89,14 @@
 
         <where>
             <if test="typeValue == '-1'">
-                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
+                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
             </if>
 
-             <if test="typeValue == '-3'">
+             <if test="typeValue == -3">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
             </if>
 
-             <if test="typeValue == '-6'">
+             <if test="typeValue == -6">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
             </if>
 
