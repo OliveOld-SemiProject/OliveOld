@@ -20,7 +20,9 @@
         <result property="memberType" column="MEMBER_TYPE"/>
         <result property="memberMileage" column="MEMBER_MILEAGE"/>
 
-
+    </resultMap>
+    <resultMap type="MemberDTO" id="MemberMileageResultMap">
+        <result property="memberMileage" column="MEMBER_MILEAGE"/>
     </resultMap>
 
     <select id="selectMemberList" resultMap="MemberResultMap">
@@ -40,4 +42,20 @@
         , MEMBER_MILEAGE
         FROM SemiDB.Member
     </select>
+
+    <select id="findMileageById" resultMap="MemberResultMap">
+        SELECT
+        MEMBER_MILEAGE
+        FROM SemiDB.Member
+        WHERE MEMBER_MILEAGE = #{ memberId }
+    </select>
+
+    <select id="selectMileage" resultMap="MemberMileageResultMap">
+        SELECT
+        MEMBER_MILEAGE
+        FROM SemiDB.Member
+    </select>
+
+
+
 </mapper>
