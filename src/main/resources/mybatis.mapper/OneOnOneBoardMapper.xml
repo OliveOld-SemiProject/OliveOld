@@ -88,19 +88,19 @@
         JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)
 
         <where>
-            <if test="searchCondition == -1">
+            <if test="typeValue == '-1'">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
             </if>
 
-             <if test="searchCondition == -3">
+             <if test="typeValue == '-3'">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
             </if>
 
-             <if test="searchCondition == -6">
+             <if test="typeValue == '-6'">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
             </if>
 
-            <if test="searchCondition == -12">
+            <if test="typeValue == '-12'">
                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>
             </if>
 

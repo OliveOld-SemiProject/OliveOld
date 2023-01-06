@@ -21,7 +21,7 @@ public class OneOnOneSelectCriteriaDTO {
     private int endRow;                 // db 조회시 최신 글 부터 조회 하는 행의 마지막 수
     private String searchCondition;     //검색 조건
     private String searchValue;         //검색어
-
+    private String typeValue;
 
 }
 

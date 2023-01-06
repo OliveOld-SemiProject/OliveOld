@@ -52,12 +52,15 @@ public class OneOnOneController {
 
         String searchCondition = request.getParameter("searchCondition");
         String searchValue = request.getParameter("searchValue");
-        
+        String typeValue = request.getParameter("type");
+
 
 
         Map<String, String> searchMap = new HashMap<>();
         searchMap.put("searchCondition", searchCondition);
         searchMap.put("searchValue", searchValue);
+        searchMap.put("type", typeValue);
+
 
 
         log.info("[OneOnOneController] 컨트롤에서 검색 조건 확인하기" + searchMap);
@@ -70,7 +73,7 @@ public class OneOnOneController {
         OneOnOneSelectCriteriaDTO oneOnOneSelectCriteria = null;
 
         if(searchCondition !=null && !"".equals(searchCondition)){
-            oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue);
+            oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue,typeValue);
         } else {
             oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount);
         }
