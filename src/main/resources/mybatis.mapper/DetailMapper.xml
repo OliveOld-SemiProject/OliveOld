@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semi.oliveold.detail.repository.DetailMapper">
+
+
+    <resultMap type="DetailDTO" id="DetailResultMap">
+        <id property="productNo" column="PRODUCT_NO"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="productPrice" column="PRODUCT_PRICE"/>
+        <result property="productQuan" column="PRODUCT_QUAN"/>
+        <result property="productDate" column="PRODUCT_DATE"/>
+        <result property="productCategory" column="CATEGORY_CODE"/>
+        <result property="productStatus" column="PRODUCT_STATUS"/>
+        <result property="productImage1" column="PRODUCT_IMAGE1"/>
+        <result property="productImage2" column="PRODUCT_IMAGE2"/>
+
+    </resultMap>
+
+
+    <select id="selectProductList" resultMap="DetailResultMap">
+        SELECT
+        PRODUCT_NO
+        , PRODUCT_NAME
+        , PRODUCT_PRICE
+        , PRODUCT_QUAN
+        , PRODUCT_DATE
+        , CATEGORY_CODE
+        , PRODUCT_STATUS
+        , PRODUCT_IMAGE1
+        , PRODUCT_IMAGE2
+        FROM SemiDB.PRODUCT
+    </select>
+
+<!--  selectProduct  -->
+
+    <select id="selectProduct" resultMap="DetailResultMap">
+        SELECT
+        PRODUCT_NO
+        , PRODUCT_NAME
+        , PRODUCT_PRICE
+        , PRODUCT_QUAN
+        , PRODUCT_DATE
+        , CATEGORY_CODE
+        , PRODUCT_STATUS
+        , PRODUCT_IMAGE1
+        , PRODUCT_IMAGE2
+        FROM SemiDB.PRODUCT
+    </select>
+
+</mapper>
