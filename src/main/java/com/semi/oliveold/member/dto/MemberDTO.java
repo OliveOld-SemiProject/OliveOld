@@ -3,6 +3,7 @@ package com.semi.oliveold.member.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,6 +25,9 @@ public class MemberDTO {
     public String memberISAD;
     public String memberLevel;
     public String memberType;
+
+    private List<MemberRoleDTO> memberRoleList;		// 회원별권한리스트
+
 
 
 }
