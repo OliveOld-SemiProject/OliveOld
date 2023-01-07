@@ -127,22 +127,22 @@ public class OneOnOneController {
 
     
     //게시판 상세 화면 들어가기
-    @GetMapping("/detail")
-    public String selectBoardDetail(HttpServletRequest request, Model model){
-
-        log.info("");
-        log.info("");
-        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
-
-        Long no = Long.valueOf(request.getParameter("no"));
-        OneOnOneBoardDTO oneOnOneDetail = OneOnOneService.selectBoardDetail(no);
-
-        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
-
-        model.addAttribute("OneOnOneBoard", oneOnOneDetail);
-
-    }
-    
+//    @GetMapping("/detail")
+//    public String selectBoardDetail(HttpServletRequest request, Model model){
+//
+//        log.info("");
+//        log.info("");
+//        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
+//
+//        Long no = Long.valueOf(request.getParameter("no"));
+//        OneOnOneBoardDTO oneOnOneDetail = OneOnOneService.selectBoardDetail(no);
+//
+//        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
+//
+//        model.addAttribute("OneOnOneBoard", oneOnOneDetail);
+//
+//    }
+//
 
 
 
