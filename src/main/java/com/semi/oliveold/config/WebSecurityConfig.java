@@ -59,14 +59,16 @@ public class WebSecurityConfig {
 //                .anyRequest().permitAll()    // 등록되지 않은 경우로는 누구나 접근 가능
 //                    .and()
                 .authorizeRequests()
-                    .antMatchers("/login", "/cartList", "/order/**").authenticated()
-                    .anyRequest().permitAll()
+//                    .antMatchers("/login", "/cartList", "/order/**").authenticated()
+//                    .anyRequest().permitAll()
+                    .anyRequest().authenticated()
                 .and()
                 .formLogin()   // 로그인 form을 따로 이용해 로그인 처리할 것이다.
                     .loginPage("/member/login")   // login page로 해당 로그인페이지에서 submit요청하는 경로로 지정하겠다는 의미
                     .permitAll()
 //                    .defaultSuccessUrl("/cartList")
-                    .successForwardUrl("/")       // 성공 시 페이지 설정
+                    .successForwardUrl("/cartList")
+//                    .successForwardUrl("/")       // 성공 시 페이지 설정
                 .and()
                 .logout()                     // 로그아웃 설정
                 .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))  // 로그아웃 시 요청 경로

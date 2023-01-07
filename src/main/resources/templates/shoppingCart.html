@@ -294,53 +294,6 @@
                     </tfoot>
                     <tbody class="xans-element- xans-order xans-order-list">
 
-                    <!-- 동적인 부분
-                    <tr class="xans-record-">
-                        <td><input type="checkbox" id="basket_chk_id_0"
-                                name="basket_product_normal_type_supplier">
-                            </td>
-                        <td class="thumb"><a href="/product/detail.html?product_no=3917&amp;cate_no=24"><img
-                                    src="//seniormall.net/web/product/tiny/202211/f996ad8242fc2af4acde2cd37c17e3f2.jpg"
-                                    onerror="this.src='http://img.echosting.cafe24.com/thumb/img_product_small.gif';"
-                                    alt="알루미늄 휠체어 미키코리아 SM-7(16D)"></a></td>
-                        <td class="product">
-                            <a href="/product/detail.html?product_no=3917&amp;cate_no=24"><strong>알루미늄 휠체어
-                                    미키코리아 SM-7(16D)</strong> </a><span class="displaynone"><br>(영문명 :
-                                )</span>
-                        </td>
-                        <td class="price">
-                            <div class="">
-                                <strong>709,000원</strong>
-                                <p class="displaynone"></p>
-                            </div>
-                            <div class="displaynone">
-                                <strong>709,000원</strong>
-                                <p class="displaynone"></p>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="quantity"><input id="quantity_id_0" name="quantity_name_0" size="2"
-                                    value="1" type="text"><a href="javascript:;"
-                                    onclick="Basket.addQuantityShortcut('quantity_id_0', 0);">
-                        </td>
-                        <td class="mileage">-</td>
-                        <td class="delivery">기본배송<div class="displaynone">(해외배송가능)</div>
-                        </td>
-                        <td>
-                            <p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
-                        </td>
-                        <td class="total">
-                            <strong>709,000원</strong>
-                            <div class="displaynone"></div>
-                        </td>
-                        <td class="button">
-                            <a href="javascript:;" onclick="Basket.deleteBasketItem(0);"><img
-                                    src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_delete.gif"
-                                    alt="삭제"></a>
-                        </td>
-                    </tr>
-
-                    -->
 
 
                     <tr th:each="item : ${items}">
@@ -354,9 +307,8 @@
                                     alt="알루미늄 휠체어 미키코리아 SM-7(16D)"> </a>
                         </td>
                         <td class="product">
-                            <a href="/product/detail.html?product_no=3917&amp;cate_no=24" th:text="${item.cart_No}">
+                            <a th:text="${item.cart_No}">
                                 <strong>상품명</strong> </a>
-                            <span class="displaynone"><br>(영문명 :)</span>
                         </td>
                         <td class="price">
                             <div class="">
@@ -385,10 +337,13 @@
                             <div class="displaynone"></div>
                         </td>
                         <td class="button">
-                            <form action="/cartList/"
-                            <a href="javascript:;" onclick="Basket.deleteBasketItem(0);"><img
-                                    src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_delete.gif"
-                                    alt="삭제"></a>
+                            <form action="/cartList/delete" method="post">
+                                <button type="submit">
+                                    <input type="hidden" th:value="${item.cart_No}" name="cart_no">
+                                    <img src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_delete.gif"
+                                          alt="삭제">
+                                </button>
+                            </form>
                         </td>
                     </tr>
 

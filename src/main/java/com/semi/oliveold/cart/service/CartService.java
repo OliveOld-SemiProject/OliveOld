@@ -22,4 +22,9 @@ public class CartService {
         log.info("CartService.findById");
         return cartMapper.findById(memberId);
     }
+
+    public int deleteByCartId(int cartNo){
+        log.info("**CartService.deleteByCartId**");
+        return cartMapper.deleteByCartId(cartNo);
+    }
 }
