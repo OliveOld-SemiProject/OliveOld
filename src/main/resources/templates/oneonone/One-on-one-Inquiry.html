@@ -450,7 +450,7 @@
             <div class="list-customer">
                 <ul>
                     <li id="3979532">
-                        <a href="#n" role="button" class="stit" title="답변 내용보기">
+                        <a th:href="@{/OneOnOneBoard/detail(no=${oneonone.no})}" role="button" class="stit" title="답변 내용보기">
                             <strong>
                                 <th:block th:text="${oneonone.oneOnOneCategory.oneOnOneName}"></th:block>
                             </strong><th:block th:text="${oneonone.title}" ></th:block>
@@ -461,7 +461,10 @@
                 </ul>
             </div>
 
+
         </th:block>
+
+
 
         <div class="pagingArea" align="center">
 <!--            &lt;!&ndash; 맨 앞으로 이동 버튼 &ndash;&gt;-->

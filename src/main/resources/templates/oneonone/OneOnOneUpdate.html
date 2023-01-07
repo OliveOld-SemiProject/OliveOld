@@ -1,75 +1,71 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layouts/layout}"-->
-<!--      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <link rel="stylesheet" href="/assets/css/footer.css">
-    <th:block>
+
+    <th:block layout:fragment="content">
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <div class="outer outer-board-detail">
+
+            <div class="outer outer-notice-update">
                 <br>
-                <h2 align="center">게시판 내용</h2>
-                <div align="center" class="table-area">
-                    <table>
-                        <tr>
-                            <td>분야 : </td>
-
-                            <td><p th:text="${oneOnOneDetail.oneOnOneCategory.oneOnOneName}"></p></td>
-
-                        </tr>
-                        <tr>
-                            <td>제목 : </td>
-                            <td colspan="3"><p th:text="${oneOnOneDetail.title}"></p></td>
-                        </tr>
-                        <tr>
-                            <td>내용 : </td>
-                            <td colspan="3">
-                                <textarea
-                                        name="body"
-                                        cols="60"
-                                        rows="15"
-                                        style="resize: none;"
-                                        readonly
-                                        th:text="${oneOnOneDetail.body}"
-                                >
-                                </textarea>
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-
-                    <div align="center">
-                        <button
-                                type="button"
-                                class="btn btn-or"
-                                th:onclick="'location.href=\'' + @{/OneOnOneBoard/update(no=${oneOnOneDetail.no})} + '\''"
-                        >
-                            수정
-                        </button>
-
-                        <button
-                                type="button"
-                                class="btn btn-or"
-                                th:onclick="'location.href=\'' + @{/OneOnOneBoard/list} + '\''"
-                        >
-                            돌아가기
-                        </button>
-
-                        <button
-                                type="button"
-                                class="btn btn-or"
-                                th:onclick="'location.href=\'' + @{/OneOnOneBoard/delete(no=${oneOnOneDetail.no})} + '\''"
-                        >
-                            삭제
-                        </button>
-                    </div>
-
+                <h2 align="center">1:1 문의 수정</h2>
+                <div align="center"  class="table-area">
+                    <form id="noticeUpdateForm" th:action="@{/OneOnOneBoard/update}" method="post">
+                        <table>
+                            <input
+                                    type="hidden"
+                                    id="no"
+                                    name="no"
+                                    th:value="${ oneOnOneBoard.no }"
+                            >
+                            <tr>
+                                <td>제목 </td>
+                                <td><input type="text" size="50" name="title" th:value="${ oneOnOneBoard.title }"></td>
+                            </tr>
+                            <tr>
+                                <td>작성자 </td>
+                                <td><p th:text="${ oneOnOneBoard.writer.memberName }"></p></td>
+                            </tr>
+                            <tr>
+                                <td>내용 </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <textarea
+                                            name="body"
+                                            cols="60"
+                                            rows="15"
+                                            style="resize:none;"
+                                            th:text="${ oneOnOneBoard.body }"
+                                    ></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <div align="center">
+                            <button
+                                    type="button"
+                                    class="btn btn-or"
+                                    th:onclick="'location.href=\'/notice/detail?no='+ @{${ oneOnOneBoard.no }} + '\''"
+                            >
+                                돌아가기
+                            </button>
+                            <button type="reset" class="btn btn-or" style="width: 150px">작성내용 되돌리기</button>
+                            <button type="submit" class="btn btn-bs">수정하기</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
+
         </div>
     </th:block>
+
 
 
 <body>
@@ -121,6 +117,7 @@
     </div>
 </div>
 <!-- //#Footer -->
+</body>
 
 
 

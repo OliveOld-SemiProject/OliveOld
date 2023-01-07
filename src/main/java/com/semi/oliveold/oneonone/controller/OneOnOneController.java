@@ -5,7 +5,9 @@ import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
 import com.semi.oliveold.oneonone.dto.OneOnOnePagenation;
 import com.semi.oliveold.oneonone.dto.OneOnOneSelectCriteriaDTO;
+import com.semi.oliveold.oneonone.exception.OneOnOneModifyException;
 import com.semi.oliveold.oneonone.exception.OneOnOneRegistException;
+import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import com.semi.oliveold.oneonone.service.OneOnOneService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,25 +129,81 @@ public class OneOnOneController {
 
     
     //게시판 상세 화면 들어가기
-//    @GetMapping("/detail")
-//    public String selectBoardDetail(HttpServletRequest request, Model model){
-//
-//        log.info("");
-//        log.info("");
-//        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
-//
-//        Long no = Long.valueOf(request.getParameter("no"));
-//        OneOnOneBoardDTO oneOnOneDetail = OneOnOneService.selectBoardDetail(no);
-//
-//        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
-//
-//        model.addAttribute("OneOnOneBoard", oneOnOneDetail);
-//
-//    }
-//
+    @GetMapping("/detail")
+    public String selectBoardDetail(HttpServletRequest request, Model model){
+
+        log.info("");
+        log.info("");
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+        OneOnOneBoardDTO oneOnOneDetail = oneOnOneService.selectBoardDetail(no);
+
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
+
+        model.addAttribute("oneOnOneDetail", oneOnOneDetail);
+
+        log.info("[OneOnOneBoard Controller] ============");
+
+
+        return "oneonone/OneOnOneboardDetail";
+    }
+
+    //수정
+
+
+    @GetMapping("/update")
+    public String goModifyNotice(HttpServletRequest request, Model model) {
+
+        log.info("");
+        log.info("");
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        OneOnOneBoardDTO oneOnOneBoard = oneOnOneService.selectBoardDetail(no);
+
+        model.addAttribute("oneOnOneBoard", oneOnOneBoard);
+
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        return "oneonone/OneOnOneUpdate";
+    }
+
+
+    @PostMapping("/update")
+    public String modifyNotice(@ModelAttribute OneOnOneBoardDTO oneOnOneBoard, RedirectAttributes rttr) throws OneOnOneModifyException {
+
+        log.info("");
+        log.info("");
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        log.info("[NoticeController] notice : "+ oneOnOneBoard);
+        oneOnOneService.modifyOneOnOne(oneOnOneBoard);
+
+
+        rttr.addFlashAttribute("message", "수정에 성공하셨습니다!");
+
+        log.info("[modifyNoticeController] modify  =========================================================");
+        return "redirect:/OneOnOneBoard/list";
+    }
 
 
 
+
+
+    //삭제
+    @GetMapping("/delete")
+    public String removeNotice(HttpServletRequest request, RedirectAttributes rttr) throws OneOnOneRemoveException {
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        oneOnOneService.removeOneOnOne(no);
+
+        rttr.addFlashAttribute("message", "삭제에 성공하셨습니다!");
+
+        return "redirect:/OneOnOneBoard/list";
+    }
 
 
 
