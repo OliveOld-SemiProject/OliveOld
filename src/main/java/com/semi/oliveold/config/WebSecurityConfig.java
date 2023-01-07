@@ -71,7 +71,8 @@ public class WebSecurityConfig {
 //                    .successForwardUrl("/")       // 성공 시 페이지 설정
                 .and()
                 .logout()                     // 로그아웃 설정
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))  // 로그아웃 시 요청 경로
+                    .logoutUrl("/member/logout")
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/member/login"))  // 로그아웃 시 요청 경로
                 .deleteCookies("JSESSIONID")   // 쿠키 제거
                 .invalidateHttpSession(true)                        // session정보 무효화
                 .and()

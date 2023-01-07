@@ -32,17 +32,31 @@
             <div class="inner">
                 <div class="head-util">
                     <ul>
-                        <li class="util-join">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
                             <form action="/member/login" type="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
                             </form>
                         </li>
 
-                        <li class="util-signup">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
                             <form action="/signup" type="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
                             </form>
                         </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
+                            <form action="/mypage" type="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
+                                th:text="${#authentication.name}">user</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
+                            <form action="/logout" type="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
+                            </form>
+                        </li>
+
 
                         <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                         <li class="util-order">

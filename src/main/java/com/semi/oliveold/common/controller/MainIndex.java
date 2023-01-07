@@ -22,5 +22,8 @@ public class MainIndex {
     @GetMapping
     public String getmMainPage(){
         return "index";
+    }@GetMapping
+    public String getmMainPage(){
+        return "index";
     }
 }
