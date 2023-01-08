@@ -17,4 +17,9 @@
         FROM SemiDB.Cart
     </select>
 
+    <select id="findById" resultMap="CartResultMap">
+        SELECT *
+        from SemiDB.Cart c
+        where c.Member_id = #{memberId}
+    </select>
 </mapper>

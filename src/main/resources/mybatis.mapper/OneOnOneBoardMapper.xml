@@ -6,11 +6,12 @@
 
 
     <resultMap type="OneOnOneBoardDTO" id="OneOnOneBoardResultMap">
-        <id property="type" column="OneOnOne_BOARD_TYPE"/>
+        <id property="no" column="OneOnOne_BOARD_NO"/>
+        <result property="type" column="OneOnOne_BOARD_TYPE"/>
         <result property="CategoryCode" column="OneOnOne_CATEGORY_CODE"/>
         <result property="title" column="OneOnOne_BOARD_TITLE"/>
         <result property="body" column="OneOnOne_BOARD_BODY"/>
-        <result property="writerMemberNo" column="OneOnOne_BOARD_WRITER_MEMBER_NO"/>
+        <result property="writerMemberId" column="OneOnOne_BOARD_WRITER_MEMBER_ID"/>
         <result property="count" column="OneOnOne_BOARD_COUNT"/>
         <result property="createdDate" column="OneOnOne_CREATED_DATE"/>
         <result property="modifiedDate" column="OneOnOne_MODIFIED_DATE"/>
@@ -88,19 +89,19 @@
         JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)
 
         <where>
-            <if test="searchCondition == -1">
-                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
+            <if test="typeValue == '-1'">
+                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
             </if>
 
-             <if test="searchCondition == -3">
+             <if test="typeValue == -3">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
             </if>
 
-             <if test="searchCondition == -6">
+             <if test="typeValue == -6">
                  <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
             </if>
 
-            <if test="searchCondition == -12">
+            <if test="typeValue == '-12'">
                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>
             </if>
 
@@ -133,6 +134,39 @@
         )
 
     </insert>
+
+    <select id="selectBoardDetail" resultMap="OneOnOneBoardResultMap">
+        SELECT
+          A.OneOnOne_BOARD_NO
+        , A.OneOnOne_BOARD_TITLE
+        , A.OneOnOne_BOARD_BODY
+        , A.OneOnOne_BOARD_WRITER_MEMBER_ID
+        , B.MEMBER_NAME
+        , A.OneOnOne_BOARD_COUNT
+        , A.OneOnOne_CREATED_DATE
+        , C.CATEGORY_NAME
+        FROM TBL_OneOnOne_BOARD A
+        JOIN Member B ON (A.OneOnOne_BOARD_WRITER_MEMBER_ID = B.MEMBER_ID)
+        JOIN TBL_OneOnOne_CATEGORY C ON (A.OneOnOne_CATEGORY_CODE = C.CATEGORY_CODE)
+        WHERE A.OneOnOne_BOARD_STATUS = 'Y'
+        AND A.OneOnOne_BOARD_NO = #{ no }
+    </select>
+
+    <delete id="removeOneOnOne" parameterType="long">
+        DELETE
+        FROM TBL_OneOnOne_BOARD A
+        WHERE A.OneOnOne_BOARD_NO = #{ no }
+    </delete>
+
+    <update id="modifyOneOnOne" parameterType="OneOnOneBoardDTO">
+        UPDATE
+        TBL_OneOnOne_BOARD A
+        SET A.OneOnOne_BOARD_TITLE = #{ title }
+        , A.OneOnOne_BOARD_BODY = #{ body }
+        WHERE A.OneOnOne_BOARD_NO = #{ no }
+    </update>
+
+
 
 
 

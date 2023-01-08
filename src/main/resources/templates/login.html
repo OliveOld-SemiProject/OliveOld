@@ -92,91 +92,6 @@
             <div class="header-wrap">
 
                 <div class="gnb-wrap">
-                    <script>var IE8Under = false; var IE7Under = false;</script>
-
-                    <script>
-                        $(function () {
-                            $('.head-util ul li').mouseover(function () {
-                                $(this).children('.util-layer').show();
-                            });
-                            $('.head-util ul li').mouseleave(function () {
-                                $(this).children('.util-layer').hide();
-                            });
-                            //GNB Control
-                            $('.gnbV18 li').mouseover(function () {
-                                if (IE7Under) return;
-
-                                $('.gnbV18 li').removeClass('on');
-                                $(this).addClass('on');
-                                $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () { $(this).show(); })
-                                    .mouseleave(function () { $(this).hide(); });
-                                $('.gnb-sub').hide();
-                                var subGnbId = $(this).attr('name');
-
-                                try {
-                                    var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
-                                } catch (e) {
-                                    return;
-                                }
-
-                                //추가
-                                if (ictVar != "") {
-                                    $(".gnb-sub-wrap").append(ictVar);
-                                    eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
-                                    // HOT
-                                    jsHotCateShow(subGnbId.substring(3, 6));
-
-                                    if (IE8Under) {
-                                        $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                            .mouseover(function () {
-                                                $(this).addClass('current');
-                                            })
-                                            .mouseleave(function () {
-                                                $(this).removeClass('current');
-                                            });
-                                    } else {
-                                        $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                            .mouseover(function () {
-                                                $(this).addClass('current');
-                                                $('.gnbV18').children('span').show();
-                                                //if ($(this).children('.subGroupWrapV15').length > 0){
-                                                //	$(this).children('.subGroupWrapV15').show();
-                                                //	$('.gnbBnrV15').children('span').show();
-                                                //} else {
-                                                //	$(this).children('.subGroupWrapV15').hide();
-                                                //	$('.gnbBnrV15').children('span').hide();
-                                                //}
-                                            })
-                                            .mouseleave(function () {
-                                                $(this).removeClass('current');
-                                                //$(this).children('.subGroupWrapV15').hide();
-                                                $('.gnbV18').children('span').hide();
-                                            });
-                                    }
-                                }
-
-                                $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).show();
-                                        $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).hide();
-                                        $('.gnbV18 li').removeClass('on');
-                                    });
-                            });
-
-                            $('.gnbV18 li').mouseleave(function () {
-                                if (IE7Under) return;
-
-                                $(this).removeClass('on');
-                                $('.gnb-sub-wrap').hide();
-                            });
-                        });
-                    </script>
-                    <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
-                    <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
                     <div class="gnbV18">
                         <ul>
                             <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
@@ -214,53 +129,27 @@
             <div class="memberLogin" align="center">
                 <div class="login login-form-1">
                     <h3>회원 로그인</h3>
-                    <form>
+                    <form action="/member/login" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="아이디(이메일) *" />
+                            <input type="text" class="form-control" name="username" placeholder="아이디(이메일) *" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="비밀번호 *" />
+                            <input type="password" class="form-control" name="password" placeholder="비밀번호 *"/>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd">Forget Password?</a>
+                            <input type="submit" class="btnSubmit" value="로그인" />
                         </div>
                     </form>
-                </div>
-            </div>
-
-            <div class="NonMemLogin" align="center">
-                <div class="login login-form-2">
-                    <h3>비회원 로그인</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="아이디(이메일) *" />
+                    <br>
+                    <form action="/signup">
+                        <div class="SignUpButton">
+                            <input type="submit" class="btnSubmit" value="회원가입"/>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="비밀번호 *" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
-                        </div>
-                        <br>
                     </form>
+
                 </div>
-
             </div>
-
-            <div class="login-hr" align="center">
-                <hr class="loginHr">
-            </div>
-
-            <div class="SignUpButton" align="center">
-                <button type="button" name="SignUp-bottom" id="btn-signup-botoom" class="SignUp-bottom">회원가입</button>
-            </div>
-
         </div>
-
-
     </body>
 
     <!-- #Footer -->

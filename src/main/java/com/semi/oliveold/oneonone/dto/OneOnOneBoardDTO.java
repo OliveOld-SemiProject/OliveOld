@@ -19,7 +19,7 @@ public class OneOnOneBoardDTO {
     private Long CategoryCode;
     private String title;
     private String body;
-    private Long writerMemberId;
+    private String writerMemberId;
     private MemberDTO writer;
     private int count;
     private Date createdDate;

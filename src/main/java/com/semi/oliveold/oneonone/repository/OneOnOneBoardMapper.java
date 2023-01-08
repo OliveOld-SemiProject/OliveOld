@@ -16,4 +16,11 @@ public interface OneOnOneBoardMapper {
 
     int registOneOnOneBoard(OneOnOneBoardDTO board);
 
+    int incrementBoardCount(Long no);
+
+    OneOnOneBoardDTO selectBoardDetail(Long no);
+
+    int removeOneOnOne(Long no);
+
+    int modifyOneOnOne(OneOnOneBoardDTO oneOnOneBoard);
 }

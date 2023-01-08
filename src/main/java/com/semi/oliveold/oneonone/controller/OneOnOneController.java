@@ -5,11 +5,14 @@ import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
 import com.semi.oliveold.oneonone.dto.OneOnOnePagenation;
 import com.semi.oliveold.oneonone.dto.OneOnOneSelectCriteriaDTO;
+import com.semi.oliveold.oneonone.exception.OneOnOneModifyException;
 import com.semi.oliveold.oneonone.exception.OneOnOneRegistException;
+import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import com.semi.oliveold.oneonone.service.OneOnOneService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +44,7 @@ public class OneOnOneController {
         log.info("");
         log.info("");
         log.info("OneOnOneController start");
+        log.info("type ======================== " + request.getParameter("type"));
 
         String currentPage = request.getParameter("currentPage");
         int pageNo = 1;
@@ -51,22 +55,31 @@ public class OneOnOneController {
 
         String searchCondition = request.getParameter("searchCondition");
         String searchValue = request.getParameter("searchValue");
+        String typeValue = request.getParameter("type");
+
+
+        log.info("String typeValue ======" + typeValue);
+
+
 
         Map<String, String> searchMap = new HashMap<>();
         searchMap.put("searchCondition", searchCondition);
         searchMap.put("searchValue", searchValue);
+        searchMap.put("type", typeValue);
+
+
 
         log.info("[OneOnOneController] 컨트롤에서 검색 조건 확인하기" + searchMap);
 
         int totalCount = oneOnOneService.selectTotalCount(searchMap);
         log.info("[oneOnOneService] totalOneOnOneBoardCount" + totalCount);
-        int limit = 10;                 //1:1문의 게시물 최대 갯수
-        int buttonAmount = 0;           //버튼 갯수
+        int limit = 5;                 //1:1문의 게시물 최대 갯수
+        int buttonAmount = 1;           //버튼 갯수
 
         OneOnOneSelectCriteriaDTO oneOnOneSelectCriteria = null;
 
-        if(searchCondition !=null && !"".equals(searchCondition)){
-            oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue);
+        if(typeValue !=null && !"".equals(typeValue)){
+            oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue,typeValue);
         } else {
             oneOnOneSelectCriteria = OneOnOnePagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount);
         }
@@ -78,8 +91,11 @@ public class OneOnOneController {
 
         log.info("OneOnOneController OneOnOneBoardList : " + oneOnOneBoardList);
 
+
+
         mv.addObject("oneOnOneBoardList", oneOnOneBoardList);
         mv.addObject("oneOnOneSelectCriteria", oneOnOneSelectCriteria);
+        mv.addObject("type", typeValue);
         mv.setViewName("oneonone/One-on-one-Inquiry");
 
         log.info("OneOnOneController over");
@@ -111,9 +127,83 @@ public class OneOnOneController {
         return "redirect:/OneOnOneBoard/list";
     }
 
+    
+    //게시판 상세 화면 들어가기
+    @GetMapping("/detail")
+    public String selectBoardDetail(HttpServletRequest request, Model model){
+
+        log.info("");
+        log.info("");
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+        OneOnOneBoardDTO oneOnOneDetail = oneOnOneService.selectBoardDetail(no);
+
+        log.info("[OneOnOneBoard Controller] OneOnOneBoard Detail : " + oneOnOneDetail);
+
+        model.addAttribute("oneOnOneDetail", oneOnOneDetail);
+
+        log.info("[OneOnOneBoard Controller] ============");
+
+
+        return "oneonone/OneOnOneboardDetail";
+    }
+
+    //수정
+
+
+    @GetMapping("/update")
+    public String goModifyNotice(HttpServletRequest request, Model model) {
+
+        log.info("");
+        log.info("");
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        OneOnOneBoardDTO oneOnOneBoard = oneOnOneService.selectBoardDetail(no);
+
+        model.addAttribute("oneOnOneBoard", oneOnOneBoard);
+
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        return "oneonone/OneOnOneUpdate";
+    }
+
+
+    @PostMapping("/update")
+    public String modifyNotice(@ModelAttribute OneOnOneBoardDTO oneOnOneBoard, RedirectAttributes rttr) throws OneOnOneModifyException {
+
+        log.info("");
+        log.info("");
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        log.info("[NoticeController] notice : "+ oneOnOneBoard);
+        oneOnOneService.modifyOneOnOne(oneOnOneBoard);
+
+
+        rttr.addFlashAttribute("message", "수정에 성공하셨습니다!");
+
+        log.info("[modifyNoticeController] modify  =========================================================");
+        return "redirect:/OneOnOneBoard/list";
+    }
 
 
 
+
+
+    //삭제
+    @GetMapping("/delete")
+    public String removeNotice(HttpServletRequest request, RedirectAttributes rttr) throws OneOnOneRemoveException {
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        oneOnOneService.removeOneOnOne(no);
+
+        rttr.addFlashAttribute("message", "삭제에 성공하셨습니다!");
+
+        return "redirect:/OneOnOneBoard/list";
+    }
 
 
 

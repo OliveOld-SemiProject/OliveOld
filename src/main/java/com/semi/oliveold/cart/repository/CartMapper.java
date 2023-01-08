@@ -9,4 +9,6 @@ import java.util.List;
 public interface CartMapper {
     List<CartDTO> findByAll();
 
+    List<CartDTO> findById(String memberId);
+
 }

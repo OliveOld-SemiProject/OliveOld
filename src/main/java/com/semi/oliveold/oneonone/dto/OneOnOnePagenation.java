@@ -4,10 +4,10 @@ public class OneOnOnePagenation {
 
     public static OneOnOneSelectCriteriaDTO getSelectCriteria(int pageNo, int totalCount, int limit, int buttonAmount){
 
-        return getSelectCriteria(pageNo, totalCount, limit, buttonAmount, null, null);
+        return getSelectCriteria(pageNo, totalCount, limit, buttonAmount, null, null, null);
     }
 
-    public static OneOnOneSelectCriteriaDTO getSelectCriteria(int pageNo, int totalCount, int limit, int buttonAmount, String searchCondition, String searchValue){
+    public static OneOnOneSelectCriteriaDTO getSelectCriteria(int pageNo, int totalCount, int limit, int buttonAmount, String searchCondition, String searchValue,String typeValue){
 
         int maxPage;        //전체 페이지에서 가장 마지막 페이지
         int startPage;      //한번에 표시될 페이지 버튼의 시작할 페이지
@@ -31,7 +31,7 @@ public class OneOnOnePagenation {
         startRow = (pageNo - 1) * limit + 1;
         endRow = startRow + limit - 1;
 
-        OneOnOneSelectCriteriaDTO oneOnOneselectCriteria = new OneOnOneSelectCriteriaDTO(pageNo , totalCount, limit, buttonAmount, maxPage, startPage ,endPage,startRow,endRow, searchCondition ,searchValue);
+        OneOnOneSelectCriteriaDTO oneOnOneselectCriteria = new OneOnOneSelectCriteriaDTO(pageNo,totalCount,limit,buttonAmount,maxPage,startPage,endPage,startRow,endRow,searchCondition,searchValue,typeValue);
 
         System.out.println(oneOnOneselectCriteria);
 
