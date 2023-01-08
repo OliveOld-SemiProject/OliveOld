@@ -3,6 +3,7 @@ package com.semi.oliveold.member.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,9 +13,12 @@ public class MemberController {
 
     @GetMapping("/login")
     public String memberLoginForm() {
-        log.info("");
         log.info("**MemberController.memberLoginForm**");
-        log.info("");
         return "login";
+    }
+
+    @PostMapping("/logout")
+    public String memberLogoutForm(){
+        return "redirect:/";
     }
 }
