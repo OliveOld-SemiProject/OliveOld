@@ -37,14 +37,14 @@ public class DetailController {
     }
 
 
-    @GetMapping(value = "list")
+    @GetMapping(value = "/list")
     public ModelAndView productList(HttpServletRequest request, ModelAndView mv){
 
         List<DetailDTO> productList = detailService.selectProductList();
 
         log.info("[DetailController] productList : " + productList);
 
-        mv.addObject("productList", productList);
+        mv.addObject("productList", productList.get(0));
 
         mv.setViewName("/product_detail");
 

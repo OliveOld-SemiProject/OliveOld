@@ -523,16 +523,16 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p1.jpg" alt="#">
+                                <img th:src="${productList[0].productImage1}" alt="#">
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강식품</span>
+                                <span class="category" th:text="${productList[0].productCategoryName}"></span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">홍삼정(홍삼농축액)</a>
+                                    <a href="product-grids.html" th:text="${productList[0].productName}"></a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -543,7 +543,7 @@
                                     <li><span>4.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>78,000원</span>
+                                    <span th:text="${productList[0].productPrice}+원"></span>
                                 </div>
                             </div>
                         </div>
@@ -553,7 +553,7 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p2.jpg" alt="#">
+                                <img th:src="${productList[1].productImage1}" alt="#">
                                 <span class="sale-tag">-25%</span>
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
@@ -561,9 +561,9 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강 크림</span>
+                                <span class="category" th:text="${productList[1].productCategoryName}">건강 크림</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">설화조 스킨 세트 5종</a>
+                                    <a href="product-grids.html" th:text="${productList[1].productName}">설화조 스킨 세트 5종</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -574,7 +574,7 @@
                                     <li><span>5.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>115,000원</span>
+                                    <span th:text="${productList[1].productPrice}+원">115,000원</span>
                                     <!-- <span class="discount-price">$300.00</span> -->
                                 </div>
                             </div>
@@ -585,16 +585,16 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p3.jpg" alt="#">
+                                <img th:src="${productList[2].productImage1}" alt="#">
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강 크림</span>
+                                <span class="category" th:text="${productList[2].productCategoryName}">건강 크림</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">미네랄 썬크림</a>
+                                    <a href="product-grids.html" th:text="${productList[2].productName}">미네랄 썬크림</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -605,7 +605,7 @@
                                     <li><span>5.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>34,000원</span>
+                                    <span th:text="${productList[2].productPrice}+원">34,000원</span>
                                 </div>
                             </div>
                         </div>
@@ -615,7 +615,7 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p4.jpg" alt="#">
+                                <img th:src="${productList[3].productImage1}" alt="#">
                                 <span class="new-tag">New</span>
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
@@ -623,9 +623,9 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강식품</span>
+                                <span class="category" th:text="${productList[3].productCategoryName}">건강식품</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">생유산균 프로바이오틱스</a>
+                                    <a href="product-grids.html" th:text="${productList[3].productName}">생유산균 프로바이오틱스</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -636,7 +636,7 @@
                                     <li><span>5.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>55,000원</span>
+                                    <span th:text="${productList[3].productPrice}+원">55,000원</span>
                                 </div>
                             </div>
                         </div>
@@ -646,16 +646,16 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p5.jpg" alt="#">
+                                <img th:src="${productList[4].productImage1}" alt="#">
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">스킨 케어</span>
+                                <span class="category" th:text="${productList[4].productCategoryName}">스킨 케어</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">사우진 토탈 스킨</a>
+                                    <a href="product-grids.html" th:text="${productList[4].productName}">사우진 토탈 스킨</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -666,7 +666,7 @@
                                     <li><span>5.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>140,000원</span>
+                                    <span th:text="${productList[4].productPrice}+원">140,000원</span>
                                 </div>
                             </div>
                         </div>
@@ -676,16 +676,16 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p6.jpg" alt="#">
+                                <img th:src="${productList[5].productImage1}" alt="#">
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">스킨 케어</span>
+                                <span class="category" th:text="${productList[5].productCategoryName}">스킨 케어</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">헤르옴므 올인원 스킨</a>
+                                    <a href="product-grids.html" th:text="${productList[5].productName}">헤르옴므 올인원 스킨</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -696,7 +696,7 @@
                                     <li><span>4.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>77,000원</span>
+                                    <span th:text="${productList[5].productPrice}+원">77,000원</span>
                                 </div>
                             </div>
                         </div>
@@ -706,7 +706,7 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p7.jpg" alt="#">
+                                <img th:src="${productList[6].productImage1}" alt="#">
                                 <span class="sale-tag">-50%</span>
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
@@ -714,9 +714,9 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강 크림</span>
+                                <span class="category" th:text="${productList[6].productCategoryName}">건강 크림</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">설화수 에센셜 크림</a>
+                                    <a href="product-grids.html" th:text="${productList[6].productName}">설화수 에센셜 크림</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -727,7 +727,7 @@
                                     <li><span>4.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>95,000원</span>
+                                    <span th:text="${productList[6].productPrice}+원">95,000원</span>
                                     <!-- <span class="discount-price">$200.00</span> -->
                                 </div>
                             </div>
@@ -738,16 +738,16 @@
                         <!-- Start Single Product -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="/assets/images/products/p8.jpg" alt="#">
+                                <img th:src="${productList[7].productImage1}" alt="#">
                                 <div class="button">
                                     <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="category">건강식품</span>
+                                <span class="category" th:text="${productList[7].productCategoryName}">건강식품</span>
                                 <h4 class="title">
-                                    <a href="product-grids.html">종합 미네랄 500</a>
+                                    <a href="product-grids.html" th:text="${productList[7].productName}">종합 미네랄 500</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -758,7 +758,7 @@
                                     <li><span>5.0 Review(s)</span></li>
                                 </ul>
                                 <div class="price">
-                                    <span>220,000원</span>
+                                    <span th:text="${productList[7].productPrice}+원">220,000원</span>
                                 </div>
                             </div>
                         </div>

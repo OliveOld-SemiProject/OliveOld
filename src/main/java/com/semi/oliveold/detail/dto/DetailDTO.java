@@ -16,10 +16,11 @@ public class DetailDTO {
     private int productPrice;
     private int productQuan;
     private Date productDate;
-    private String productCategory;
+    private int productCategory;
     private String productStatus;
     private String productImage1;
     private String productImage2;
+    private String productCategoryName;
 
 
 
