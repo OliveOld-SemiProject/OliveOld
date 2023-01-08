@@ -24,10 +24,10 @@ public class UserImpl extends User {
 
     private List<MemberRoleDTO> memberRoleList;
 
+
     public UserImpl(String memberId, String memberPwd, Collection<? extends GrantedAuthority> authorities) {
         super(memberId, memberPwd, authorities);
     }
-
 
     public void setDetails(MemberDTO member){
 
