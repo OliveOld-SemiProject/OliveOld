@@ -1,4 +1,4 @@
-<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -69,19 +69,34 @@
                     </div>
                     <div class="col-lg-5 col-md-7 d-xs-none">
                         <!-- Start Main Menu Search -->
+
+                      <form th:action="@{/mainSearch/search}" method="get">
                         <div class="main-menu-search">
                             <!-- navbar search start -->
                             <div class="navbar-search search-style-5">
 
                                 <div class="search-input">
-                                    <input type="text" placeholder="Search">
+                                    <input id="text" type="text" name="searchValue" placeholder="Search">
                                 </div>
+
                                 <div class="search-btn">
-                                    <button><i class="lni lni-search-alt"></i></button>
+                                    <button><i class="lni lni-search-alt" type="submit"></i></button>
                                 </div>
                             </div>
                             <!-- navbar search Ends -->
                         </div>
+
+
+
+
+
+
+                      </form>
+
+
+
+
+
                         <!-- End Main Menu Search -->
                     </div>
 
@@ -278,9 +293,7 @@
                                                                                         <h3><span>이벤트 가격:</span>100,000원
                                                                                         </h3>
                                                                                         <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
+
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -296,9 +309,7 @@
                                                                                         <h3><span>이벤트 가격:</span>120,000원
                                                                                         </h3>
                                                                                         <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
+
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

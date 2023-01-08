@@ -48,11 +48,11 @@
                         <button
                                 type="button"
                                 class="btn btn-pk"
-                                th:onclick="'location.href=\'/board/list\''"
+                                th:onclick="'location.href=\''+@{/OneOnOneBoard/list}+'\''"
                         >
                             돌아가기
                         </button>
-                        <button type="reset" class="btn btn-or" style="width: 150px">작성내용 되돌리기</button>
+
                         <button type="submit" class="btn btn-bs">등록하기</button>
                     </div>
                 </form>

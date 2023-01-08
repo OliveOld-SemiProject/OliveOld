@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semi.oliveold.mainsearch.repository.MainSearchMapper">
+
+
+    <resultMap type="SearchProductDTO" id="SearchProductResultMap">
+        <id property="no" column="PRODUCT_NO"/>
+        <result property="name" column="PRODUCT_NAME"/>
+        <result property="price" column="PRODUCT_PRICE"/>
+        <result property="quan" column="PRODUCT_QUAN"/>
+        <result property="date" column="PRODUCT_DATE"/>
+        <result property="status" column="PRODUCT_STATUS"/>
+        <result property="image1" column="PRODUCT_IMAGE1"/>
+        <result property="image2" column="PRODUCT_IMAGE2"/>
+
+        <association property="searchProductCategory" resultMap="SearchProductCategoryResultMap"/>
+
+    </resultMap>
+
+
+    <resultMap type="SearchProductCategoryDTO" id="SearchProductCategoryResultMap">
+        <id property="searchCategoryCode" column="CATEGORY_CODE"/>
+        <result property="searchCategoryName" column="CATEGORY_NAME"/>
+    </resultMap>
+
+
+    <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT
+        COUNT(*)
+        FROM PRODUCT A
+
+        <where>
+            <if test="searchCondition == 'content'">
+                A.PRODUCT_NAME LIKE '%' || #{ searchValue } || '%'
+            </if>
+            AND A.PRODUCT_STATUS = 'Y'
+        </where>
+    </select>
+
+
+<!--    <select id="selectOneOnOneBoardList" resultMap="OneOnOneBoardResultMap">-->
+<!--        SELECT-->
+<!--              A.OneOnOne_BOARD_NO-->
+<!--            , A.OneOnOne_BOARD_NO-->
+<!--            , A.OneOnOne_CATEGORY_CODE-->
+<!--            , B.CATEGORY_NAME-->
+<!--            , A.OneOnOne_BOARD_TITLE-->
+<!--            , A.OneOnOne_BOARD_BODY-->
+<!--            , A.OneOnOne_BOARD_WRITER_MEMBER_ID-->
+<!--            , C.MEMBER_NAME-->
+<!--            , A.OneOnOne_BOARD_COUNT-->
+<!--            , A.OneOnOne_CREATED_DATE-->
+<!--            , A.OneOnOne_BOARD_STATUS-->
+<!--        FROM TBL_OneOnOne_BOARD A-->
+<!--        JOIN TBL_OneOnOne_CATEGORY B ON(B.CATEGORY_CODE = A.OneOnOne_CATEGORY_CODE)-->
+<!--        JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)-->
+
+<!--        <where>-->
+<!--            <if test="typeValue == '-1'">-->
+<!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>-->
+<!--            </if>-->
+
+<!--             <if test="typeValue == -3">-->
+<!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>-->
+<!--            </if>-->
+
+<!--             <if test="typeValue == -6">-->
+<!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>-->
+<!--            </if>-->
+
+<!--            <if test="typeValue == '-12'">-->
+<!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>-->
+<!--            </if>-->
+
+<!--        </where>-->
+
+<!--    </select>-->
+
+
+
+<!--    <insert id="registOneOnOneBoard" parameterType="OneOnOneBoardDTO">-->
+
+<!--        INSERT-->
+<!--        INTO TBL_OneOnOne_BOARD-->
+<!--        (-->
+<!--        OneOnOne_BOARD_NO-->
+<!--        ,OneOnOne_CATEGORY_CODE-->
+<!--        ,OneOnOne_BOARD_TITLE-->
+<!--        ,OneOnOne_BOARD_BODY-->
+<!--        ,OneOnOne_BOARD_WRITER_MEMBER_ID-->
+<!--        ,OneOnOne_CREATED_DATE-->
+<!--        )-->
+<!--        VALUES-->
+<!--        (-->
+<!--        NULL-->
+<!--        , #{ categoryCode }-->
+<!--        , #{ title }-->
+<!--        , #{ body }-->
+<!--        , 'user01'    &lt;!&ndash;  테스트용 이거 바꿔야 합니다&ndash;&gt;-->
+<!--        ,  now()-->
+<!--        )-->
+
+<!--    </insert>-->
+
+    <select id="selectSearchProductList" resultMap="SearchProductResultMap">
+        SELECT
+          A.PRODUCT_NO
+        , A.PRODUCT_NAME
+        , A.PRODUCT_PRICE
+        , A.PRODUCT_QUAN
+        , A.PRODUCT_DATE
+        , A.PRODUCT_STATUS
+        , A.PRODUCT_IMAGE1
+        , A.PRODUCT_IMAGE2
+        , B.CATEGORY_NAME
+        FROM PRODUCT A
+        JOIN CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
+        WHERE A.PRODUCT_STATUS = 'Y'
+        AND A.PRODUCT_NAME LIKE CONCAT('%',#{ searchValue },'%')
+    </select>
+
+
+</mapper>
