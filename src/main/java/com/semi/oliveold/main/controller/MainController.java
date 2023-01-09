@@ -14,7 +14,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/")
 public class MainController {
 
     private final MainService mainService;
@@ -22,7 +22,7 @@ public class MainController {
     public MainController(MainService mainService) {this.mainService = mainService; }
 
 
-    @GetMapping(value = "/list")
+    @GetMapping
     public ModelAndView productList(HttpServletRequest request, ModelAndView mv){
 
         List<DetailDTO> productList = mainService.selectProductList();
