@@ -26,4 +26,17 @@ public class DiscountService {
         return memberList;
     }
 
+    public MemberDTO findMileageById(String memberId) {
+
+        MemberDTO member = mapper.findMileageById();
+
+        return member;
+    }
+
+    public MemberDTO selectMileage() {
+
+        MemberDTO mileage = mapper.selectMileage();
+
+        return mileage;
+    }
 }

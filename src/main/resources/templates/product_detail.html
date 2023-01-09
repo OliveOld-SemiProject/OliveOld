@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -227,7 +227,8 @@
                     <div class="prd_img">
                         <span class="thumb_flag best">베스트</span>
                         <img id="mainImg"
-                             src="/assets/images/product-details/product/physiogel_pink_main1.jpeg"
+                              th:src="${findProductListByNo.get(0).productImage1}"
+
                              alt="상품명 이미지" onerror="common.errorImg(this);">
                         <input type="hidden" id="mainImgSize" value="550">
                     </div>
@@ -246,14 +247,14 @@
                 </div>
                 <div class="right_area">
                     <div class="prd_info">
-                        <p class="prd_name">[한정기획] 피지오겔 레드수딩 AI 진정보습 크림 100ml 기획(+50ml 증정)</p>
+                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}">[한정기획] 피지오겔 레드수딩 AI 진정보습 크림 100ml 기획(+50ml 증정)</p>
                         <div class="price">
-                                    <span class="price-1">
-                                        <strike>58,500</strike>
-                                        <span>원</span>
-                                    </span>
+<!--                                    <span class="price-1">-->
+<!--                                        <strike>58,500</strike>-->
+<!--                                        <span>원</span>-->
+<!--                                    </span>-->
                             <span class="price-2">
-                                        <strong>31,410</strong>
+                                        <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}">31,410</strong>
                                         <span>원</span>
                                     </span>
                         </div>
@@ -306,8 +307,9 @@
                                 $("#tempHtml").html("");
                             });
                         </script>
+
                         <img alt=""
-                             src="/assets/images/product-details/product/physiogel_pink_container.jpeg">
+                             th:src="${findProductListByNo.get(0).productImage2}"/>
 
                     </div>
                     <div style="text-align:center;padding:20px 0px 0px 0px;">
