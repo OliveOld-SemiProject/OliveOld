@@ -51,7 +51,7 @@
                     </li>
 
                     <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                        <form action="/logout" method="post">
+                        <form action="/member/logout" method="post">
                             <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                         </form>
                     </li>
