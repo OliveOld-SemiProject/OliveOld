@@ -26,463 +26,480 @@
 </head>
 
 <body>
-    <!-- start header -->
-    <div class="headerTopNew">
-        <div class="inner">
-            <div class="head-util">
+<!-- start header -->
+<div class="headerTopNew">
+    <div class="inner">
+        <div class="head-util">
+            <ul>
+                <li class="util-join">
+
+                    <a href="/member/login">로그인</a>
+                    / <a href="signup.html"
+                         onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+
+                </li>
+
+                <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
+                <li class="util-order"><a href="/order/list"
+                                          onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                </li>
+                <li class="util-cart">
+                    <form action="/cartList" method="post">
+                        <button type="submit">장바구니</button>
+                    </form>
+                </li>
+                <li class="util-cs"><a href="Notice.html"
+                                       onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Start Header Area -->
+<header class="header navbar-area">
+
+    <!-- Start Header Middle -->
+    <div class="header-middle">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3 col-7">
+                    <!-- Start Header Logo -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                    </a>
+                    <!-- End Header Logo -->
+                </div>
+                <div class="col-lg-5 col-md-7 d-xs-none">
+                    <!-- Start Main Menu Search -->
+                    <div class="main-menu-search">
+                        <!-- navbar search start -->
+                        <div class="navbar-search search-style-5">
+
+                            <div class="search-input">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="search-btn">
+                                <button><i class="lni lni-search-alt"></i></button>
+                            </div>
+                        </div>
+                        <!-- navbar search Ends -->
+                    </div>
+                    <!-- End Main Menu Search -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Header Middle -->
+    <div class="header-wrap">
+
+        <div class="gnb-wrap">
+            <script>var IE8Under = false;
+            var IE7Under = false;</script>
+
+            <script>
+                $(function () {
+                    $('.head-util ul li').mouseover(function () {
+                        $(this).children('.util-layer').show();
+                    });
+                    $('.head-util ul li').mouseleave(function () {
+                        $(this).children('.util-layer').hide();
+                    });
+                    //GNB Control
+                    $('.gnbV18 li').mouseover(function () {
+                        if (IE7Under) return;
+
+                        $('.gnbV18 li').removeClass('on');
+                        $(this).addClass('on');
+                        $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
+                            .mouseover(function () {
+                                $(this).show();
+                            })
+                            .mouseleave(function () {
+                                $(this).hide();
+                            });
+                        $('.gnb-sub').hide();
+                        var subGnbId = $(this).attr('name');
+
+                        try {
+                            var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
+                        } catch (e) {
+                            return;
+                        }
+
+                        //추가
+                        if (ictVar != "") {
+                            $(".gnb-sub-wrap").append(ictVar);
+                            eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
+                            // HOT
+                            jsHotCateShow(subGnbId.substring(3, 6));
+
+                            if (IE8Under) {
+                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                    .mouseover(function () {
+                                        $(this).addClass('current');
+                                    })
+                                    .mouseleave(function () {
+                                        $(this).removeClass('current');
+                                    });
+                            } else {
+                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
+                                    .mouseover(function () {
+                                        $(this).addClass('current');
+                                        $('.gnbV18').children('span').show();
+                                        //if ($(this).children('.subGroupWrapV15').length > 0){
+                                        //	$(this).children('.subGroupWrapV15').show();
+                                        //	$('.gnbBnrV15').children('span').show();
+                                        //} else {
+                                        //	$(this).children('.subGroupWrapV15').hide();
+                                        //	$('.gnbBnrV15').children('span').hide();
+                                        //}
+                                    })
+                                    .mouseleave(function () {
+                                        $(this).removeClass('current');
+                                        //$(this).children('.subGroupWrapV15').hide();
+                                        $('.gnbV18').children('span').hide();
+                                    });
+                            }
+                        }
+
+                        $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
+                            .mouseover(function () {
+                                $(this).show();
+                                $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
+                            })
+                            .mouseleave(function () {
+                                $(this).hide();
+                                $('.gnbV18 li').removeClass('on');
+                            });
+                    });
+
+                    $('.gnbV18 li').mouseleave(function () {
+                        if (IE7Under) return;
+
+                        $(this).removeClass('on');
+                        $('.gnb-sub-wrap').hide();
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+            <div class="gnbV18">
                 <ul>
-                    <li class="util-join">
-
-                      <a href="/member/login">로그인</a>
-                        / <a href="signup.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
-
+                    <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                        <p>스킨케어</p>
                     </li>
-
-                    <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
-                    <li class="util-order"><a href="/order/list" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                    <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                        <p>메이크업</p>
                     </li>
-                    <li class="util-cart">
-                        <form action="/cartList" method="post">
-                            <button type="submit">장바구니</button>
-                        </form>
+                    <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                        <p>헤어케어</p>
                     </li>
-                    <li class="util-cs"><a href="Notice.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                    <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                        <p>건강식품</p>
+                    </li>
+                    <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                        <p>보행보조용품</p>
+                    </li>
+                    <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                        <p>이벤트</p>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
-    
-        <!-- Start Header Area -->
-    <header class="header navbar-area">
+    </div><!-- Start Header Bottom -->
+    <!-- Start Header Bottom -->
+</header>
 
-        <!-- Start Header Middle -->
-        <div class="header-middle">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-3 col-7">
-                        <!-- Start Header Logo -->
-                        <a class="navbar-brand" href="index.html">
-                            <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                        </a>
-                        <!-- End Header Logo -->
-                    </div>
-                    <div class="col-lg-5 col-md-7 d-xs-none">
-                        <!-- Start Main Menu Search -->
-                        <div class="main-menu-search">
-                            <!-- navbar search start -->
-                            <div class="navbar-search search-style-5">
 
-                                <div class="search-input">
-                                    <input type="text" placeholder="Search">
-                                </div>
-                                <div class="search-btn">
-                                    <button><i class="lni lni-search-alt"></i></button>
-                                </div>
-                            </div>
-                            <!-- navbar search Ends -->
+<!-- Start Hero Area -->
+<section class="hero-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12 custom-padding-right">
+                <div class="slider-head">
+                    <!-- Start Hero Slider -->
+                    <div class="tns-outer" id="tns1-ow">
+                        <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
+                            <button
+                                    type="button" data-controls="prev" tabindex="-1" aria-controls="tns1"><i
+                                    class="lni lni-chevron-left"></i></button>
+                            <button type="button"
+                                    data-controls="next" tabindex="-1" aria-controls="tns1"><i
+                                    class="lni lni-chevron-right"></i></button>
                         </div>
-                        <!-- End Main Menu Search -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- End Header Middle -->
-        <div class="header-wrap">
-
-            <div class="gnb-wrap">
-                <script>var IE8Under = false; var IE7Under = false;</script>
-
-                <script>
-                    $(function () {
-                        $('.head-util ul li').mouseover(function () {
-                            $(this).children('.util-layer').show();
-                        });
-                        $('.head-util ul li').mouseleave(function () {
-                            $(this).children('.util-layer').hide();
-                        });
-                        //GNB Control
-                        $('.gnbV18 li').mouseover(function () {
-                            if (IE7Under) return;
-
-                            $('.gnbV18 li').removeClass('on');
-                            $(this).addClass('on');
-                            $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                                .mouseover(function () { $(this).show(); })
-                                .mouseleave(function () { $(this).hide(); });
-                            $('.gnb-sub').hide();
-                            var subGnbId = $(this).attr('name');
-
-                            try {
-                                var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
-                            } catch (e) {
-                                return;
-                            }
-
-                            //추가
-                            if (ictVar != "") {
-                                $(".gnb-sub-wrap").append(ictVar);
-                                eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
-                                // HOT
-                                jsHotCateShow(subGnbId.substring(3, 6));
-
-                                if (IE8Under) {
-                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                        .mouseover(function () {
-                                            $(this).addClass('current');
-                                        })
-                                        .mouseleave(function () {
-                                            $(this).removeClass('current');
-                                        });
-                                } else {
-                                    $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                        .mouseover(function () {
-                                            $(this).addClass('current');
-                                            $('.gnbV18').children('span').show();
-                                            //if ($(this).children('.subGroupWrapV15').length > 0){
-                                            //	$(this).children('.subGroupWrapV15').show();
-                                            //	$('.gnbBnrV15').children('span').show();
-                                            //} else {
-                                            //	$(this).children('.subGroupWrapV15').hide();
-                                            //	$('.gnbBnrV15').children('span').hide();
-                                            //}
-                                        })
-                                        .mouseleave(function () {
-                                            $(this).removeClass('current');
-                                            //$(this).children('.subGroupWrapV15').hide();
-                                            $('.gnbV18').children('span').hide();
-                                        });
-                                }
-                            }
-
-                            $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
-                                .mouseover(function () {
-                                    $(this).show();
-                                    $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
-                                })
-                                .mouseleave(function () {
-                                    $(this).hide();
-                                    $('.gnbV18 li').removeClass('on');
-                                });
-                        });
-
-                        $('.gnbV18 li').mouseleave(function () {
-                            if (IE7Under) return;
-
-                            $(this).removeClass('on');
-                            $('.gnb-sub-wrap').hide();
-                        });
-                    });
-                </script>
-                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
-                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
-                <div class="gnbV18">
-                    <ul>
-                        <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
-                            <p>스킨케어</p>
-                        </li>
-                        <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
-                            <p>메이크업</p>
-                        </li>
-                        <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
-                            <p>헤어케어</p>
-                        </li>
-                        <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
-                            <p>건강식품</p>
-                        </li>
-                        <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
-                            <p>보행보조용품</p>
-                        </li>
-                        <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
-                            <p>이벤트</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- Start Header Bottom -->
-        <!-- Start Header Bottom -->
-    </header>
-    
-
-        <!-- Start Hero Area -->
-        <section class="hero-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-12 custom-padding-right">
-                        <div class="slider-head">
-                            <!-- Start Hero Slider -->
-                            <div class="tns-outer" id="tns1-ow">
-                                <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0"><button
-                                        type="button" data-controls="prev" tabindex="-1" aria-controls="tns1"><i
-                                            class="lni lni-chevron-left"></i></button><button type="button"
-                                        data-controls="next" tabindex="-1" aria-controls="tns1"><i
-                                            class="lni lni-chevron-right"></i></button></div>
-                                <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">
-                                    slide
-                                    <span class="current">5</span> of 2
-                                </div>
-                                <div id="tns1-mw" class="tns-ovh">
-                                    <div class="tns-inner" id="tns1-iw">
-                                        <div class="tns-outer" id="tns1-ow">
-                                            <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
-                                                <button type="button" data-controls="prev" tabindex="-1"
-                                                    aria-controls="tns1"><i
-                                                        class="lni lni-chevron-left"></i></button><button type="button"
-                                                    data-controls="next" tabindex="-1" aria-controls="tns1"><i
-                                                        class="lni lni-chevron-right"></i></button></div>
-                                            <div class="tns-liveregion tns-visually-hidden" aria-live="polite"
-                                                aria-atomic="true">slide <span class="current">3</span> of 6</div>
-                                            <div id="tns1-mw" class="tns-ovh">
-                                                <div class="tns-inner" id="tns1-iw">
-                                                    <div class="tns-outer" id="tns1-ow">
-                                                        <div class="tns-controls" aria-label="Carousel Navigation"
-                                                            tabindex="0"><button type="button" data-controls="prev"
-                                                                tabindex="-1" aria-controls="tns1"><i
-                                                                    class="lni lni-chevron-left"></i></button><button
-                                                                type="button" data-controls="next" tabindex="-1"
-                                                                aria-controls="tns1"><i
-                                                                    class="lni lni-chevron-right"></i></button></div>
-                                                        <div class="tns-liveregion tns-visually-hidden"
-                                                            aria-live="polite" aria-atomic="true">slide <span
-                                                                class="current">3</span> of 8
-                                                        </div>
-                                                        <div id="tns1-mw" class="tns-ovh">
-                                                            <div class="tns-inner" id="tns1-iw">
-                                                                <div class="tns-outer" id="tns1-ow">
-                                                                    <div class="tns-controls"
-                                                                        aria-label="Carousel Navigation" tabindex="0">
-                                                                        <button type="button" data-controls="prev"
-                                                                            tabindex="-1" aria-controls="tns1"><i
-                                                                                class="lni lni-chevron-left"></i></button><button
-                                                                            type="button" data-controls="next"
-                                                                            tabindex="-1" aria-controls="tns1"><i
-                                                                                class="lni lni-chevron-right"></i></button>
-                                                                    </div>
-                                                                    <div class="tns-liveregion tns-visually-hidden"
-                                                                        aria-live="polite" aria-atomic="true">slide
-                                                                        <span class="current">8</span> of 10</div>
-                                                                    <div id="tns1-mw" class="tns-ovh">
-                                                                        <div class="tns-inner" id="tns1-iw">
-                                                                            <div class="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                                                                id="tns1"
-                                                                                style="transform: translate3d(-58.3333%, 0px, 0px);">
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    aria-hidden="true" tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 1 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                        <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">
+                            slide
+                            <span class="current">5</span> of 2
+                        </div>
+                        <div id="tns1-mw" class="tns-ovh">
+                            <div class="tns-inner" id="tns1-iw">
+                                <div class="tns-outer" id="tns1-ow">
+                                    <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
+                                        <button type="button" data-controls="prev" tabindex="-1"
+                                                aria-controls="tns1"><i
+                                                class="lni lni-chevron-left"></i></button>
+                                        <button type="button"
+                                                data-controls="next" tabindex="-1" aria-controls="tns1"><i
+                                                class="lni lni-chevron-right"></i></button>
+                                    </div>
+                                    <div class="tns-liveregion tns-visually-hidden" aria-live="polite"
+                                         aria-atomic="true">slide <span class="current">3</span> of 6
+                                    </div>
+                                    <div id="tns1-mw" class="tns-ovh">
+                                        <div class="tns-inner" id="tns1-iw">
+                                            <div class="tns-outer" id="tns1-ow">
+                                                <div class="tns-controls" aria-label="Carousel Navigation"
+                                                     tabindex="0">
+                                                    <button type="button" data-controls="prev"
+                                                            tabindex="-1" aria-controls="tns1"><i
+                                                            class="lni lni-chevron-left"></i></button>
+                                                    <button
+                                                            type="button" data-controls="next" tabindex="-1"
+                                                            aria-controls="tns1"><i
+                                                            class="lni lni-chevron-right"></i></button>
+                                                </div>
+                                                <div class="tns-liveregion tns-visually-hidden"
+                                                     aria-live="polite" aria-atomic="true">slide <span
+                                                        class="current">3</span> of 8
+                                                </div>
+                                                <div id="tns1-mw" class="tns-ovh">
+                                                    <div class="tns-inner" id="tns1-iw">
+                                                        <div class="tns-outer" id="tns1-ow">
+                                                            <div class="tns-controls"
+                                                                 aria-label="Carousel Navigation" tabindex="0">
+                                                                <button type="button" data-controls="prev"
+                                                                        tabindex="-1" aria-controls="tns1"><i
+                                                                        class="lni lni-chevron-left"></i></button>
+                                                                <button
+                                                                        type="button" data-controls="next"
+                                                                        tabindex="-1" aria-controls="tns1"><i
+                                                                        class="lni lni-chevron-right"></i></button>
+                                                            </div>
+                                                            <div class="tns-liveregion tns-visually-hidden"
+                                                                 aria-live="polite" aria-atomic="true">slide
+                                                                <span class="current">8</span> of 10
+                                                            </div>
+                                                            <div id="tns1-mw" class="tns-ovh">
+                                                                <div class="tns-inner" id="tns1-iw">
+                                                                    <div class="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
+                                                                         id="tns1"
+                                                                         style="transform: translate3d(-58.3333%, 0px, 0px);">
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             aria-hidden="true" tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 1 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    id="tns1-item0" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 8 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             id="tns1-item0" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 8 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    id="tns1-item0" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 1 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             id="tns1-item0" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 1 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    id="tns1-item0" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 2 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             id="tns1-item0" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 2 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    id="tns1-item1" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 3 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             id="tns1-item1" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 3 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <!-- Start Single Slider -->
-                                                                                <div class="single-slider tns-item"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    id="tns1-item0" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 4 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Start Single Slider -->
+                                                                        <div class="single-slider tns-item"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             id="tns1-item0" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 4 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <!-- End Single Slider -->
-                                                                                <!-- Start Single Slider -->
-                                                                                <div class="single-slider tns-item"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    id="tns1-item1" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 5 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- End Single Slider -->
+                                                                        <!-- Start Single Slider -->
+                                                                        <div class="single-slider tns-item"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             id="tns1-item1" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 5 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <!-- End Single Slider -->
-                                                                                <div class="single-slider tns-item tns-slide-cloned tns-slide-active"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    id="tns1-item4">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 6 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- End Single Slider -->
+                                                                        <div class="single-slider tns-item tns-slide-cloned tns-slide-active"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             id="tns1-item4">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 6 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    id="tns1-item5" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 7 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             id="tns1-item5" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 7 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    id="tns1-item7" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 8 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             id="tns1-item7" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 8 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic2.jpg);"
-                                                                                    id="tns1-item9" aria-hidden="true"
-                                                                                    tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>국내 화장품</span>
-                                                                                            더후 지네윤 건강크림
-                                                                                        </h2>
-                                                                                        <!-- 1 -->
-                                                                                        <h3><span>이벤트 가격:</span>100,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic2.jpg);"
+                                                                             id="tns1-item9" aria-hidden="true"
+                                                                             tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>국내 화장품</span>
+                                                                                    더후 지네윤 건강크림
+                                                                                </h2>
+                                                                                <!-- 1 -->
+                                                                                <h3><span>이벤트 가격:</span>100,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
-                                                                                <div class="single-slider tns-item tns-slide-cloned"
-                                                                                    style="background-image: url(/assets/images/hero/pic1.jpg);"
-                                                                                    aria-hidden="true" tabindex="-1">
-                                                                                    <div class="content">
-                                                                                        <h2><span>해외 건강 브랜드</span>
-                                                                                            나우푸드 미네랄 &amp; 크릴 오일
-                                                                                        </h2>
-                                                                                        <!-- 8 -->
-                                                                                        <h3><span>이벤트 가격:</span>120,000원
-                                                                                        </h3>
-                                                                                        <div class="button">
-                                                                                            <a href="product-grids.html"
-                                                                                                class="btn">구매
-                                                                                                하기</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="single-slider tns-item tns-slide-cloned"
+                                                                             style="background-image: url(/assets/images/hero/pic1.jpg);"
+                                                                             aria-hidden="true" tabindex="-1">
+                                                                            <div class="content">
+                                                                                <h2><span>해외 건강 브랜드</span>
+                                                                                    나우푸드 미네랄 &amp; 크릴 오일
+                                                                                </h2>
+                                                                                <!-- 8 -->
+                                                                                <h3><span>이벤트 가격:</span>120,000원
+                                                                                </h3>
+                                                                                <div class="button">
+                                                                                    <a href="product-grids.html"
+                                                                                       class="btn">구매
+                                                                                        하기</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -497,315 +514,323 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Hero Slider -->
                         </div>
                     </div>
-
+                    <!-- End Hero Slider -->
                 </div>
             </div>
-        </section>
-        <!-- End Hero Area -->
 
-        <!-- Start Trending Product Area -->
-        <section class="trending-product section" style="margin-top: 12px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title">
-                            <h2>인기 상품관</h2>
-                            <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[0].productImage1}" alt="#">
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[0].productCategoryName}"></span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[0].productName}"></a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star"></i></li>
-                                    <li><span>4.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[0].productPrice}+원"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[1].productImage1}" alt="#">
-                                <span class="sale-tag">-25%</span>
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[1].productCategoryName}">건강 크림</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[1].productName}">설화조 스킨 세트 5종</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[1].productPrice}+원">115,000원</span>
-                                    <!-- <span class="discount-price">$300.00</span> -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[2].productImage1}" alt="#">
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[2].productCategoryName}">건강 크림</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[2].productName}">미네랄 썬크림</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[2].productPrice}+원">34,000원</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[3].productImage1}" alt="#">
-                                <span class="new-tag">New</span>
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[3].productCategoryName}">건강식품</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[3].productName}">생유산균 프로바이오틱스</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[3].productPrice}+원">55,000원</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[4].productImage1}" alt="#">
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[4].productCategoryName}">스킨 케어</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[4].productName}">사우진 토탈 스킨</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[4].productPrice}+원">140,000원</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[5].productImage1}" alt="#">
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[5].productCategoryName}">스킨 케어</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[5].productName}">헤르옴므 올인원 스킨</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star"></i></li>
-                                    <li><span>4.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[5].productPrice}+원">77,000원</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[6].productImage1}" alt="#">
-                                <span class="sale-tag">-50%</span>
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[6].productCategoryName}">건강 크림</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[6].productName}">설화수 에센셜 크림</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star"></i></li>
-                                    <li><span>4.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[6].productPrice}+원">95,000원</span>
-                                    <!-- <span class="discount-price">$200.00</span> -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img th:src="${productList[7].productImage1}" alt="#">
-                                <div class="button">
-                                    <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="category" th:text="${productList[7].productCategoryName}">건강식품</span>
-                                <h4 class="title">
-                                    <a href="product-grids.html" th:text="${productList[7].productName}">종합 미네랄 500</a>
-                                </h4>
-                                <ul class="review">
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class="price">
-                                    <span th:text="${productList[7].productPrice}+원">220,000원</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                    </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero Area -->
+
+<!-- Start Trending Product Area -->
+<section class="trending-product section" style="margin-top: 12px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>인기 상품관</h2>
+                    <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                    suffered alteration in some form.</p> -->
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <a href="/detail/findlist?no=1" class="btn">
+                    <div class="single-product">
+                        <div class="product-image">
+                            <img th:src="${productList[0].productImage1}" alt="#">
+                            <div class="button">
+                                <i class="lni lni-cart"></i> Add to
+                                Cart
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="category" th:text="${productList[0].productCategoryName}"></span>
+                            <h4 class="title">
+                                <a onclick="location.href='/detail/findlist?no=1'"
+                                   th:text="${productList[0].productName}">
+                                </a>
+                                <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
+                            </h4>
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star"></i></li>
+                                <li><span>4.0 Review(s)</span></li>
+                            </ul>
+                            <div class="price">
+                                <span data-th-text="${#numbers.formatInteger(productList[0].productPrice, 3, 'COMMA') + '원'}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[1].productImage1}" alt="#">
+                        <span class="sale-tag">-25%</span>
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[1].productCategoryName}">건강 크림</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=2'" th:text="${productList[1].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><span>5.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[1].productPrice, 3, 'COMMA') + '원'}">115,000원</span>
+                            <!-- <span class="discount-price">$300.00</span> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[2].productImage1}" alt="#">
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[2].productCategoryName}">건강 크림</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=3'" th:text="${productList[2].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><span>5.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[2].productPrice, 3, 'COMMA') + '원'}">34,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[3].productImage1}" alt="#">
+                        <span class="new-tag">New</span>
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[3].productCategoryName}">건강식품</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=4'" th:text="${productList[3].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><span>5.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[3].productPrice, 3, 'COMMA') + '원'}">55,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[4].productImage1}" alt="#">
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[4].productCategoryName}">스킨 케어</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=5'" th:text="${productList[4].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><span>5.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[4].productPrice, 3, 'COMMA') + '원'}">140,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[5].productImage1}" alt="#">
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[5].productCategoryName}">스킨 케어</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=6'" th:text="${productList[5].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star"></i></li>
+                            <li><span>4.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[5].productPrice, 3, 'COMMA') + '원'}">77,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[6].productImage1}" alt="#">
+                        <span class="sale-tag">-50%</span>
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[6].productCategoryName}">건강 크림</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=7'" th:text="${productList[6].productName}">
+                            </a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star"></i></li>
+                            <li><span>4.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(productList[6].productPrice, 3, 'COMMA') + '원'}">95,000원</span>
+                            <!-- <span class="discount-price">$200.00</span> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${productList[7].productImage1}" alt="#">
+                        <div class="button">
+                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${productList[7].productCategoryName}">건강식품</span>
+                        <h4 class="title">
+                            <a onclick="location.href='/detail/findlist?no=8'" th:text="${productList[7].productName}">
+                            </a>
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><span>5.0 Review(s)</span></li>
+                            </ul>
+                            <div class="price">
+                                <span data-th-text="${#numbers.formatInteger(productList[7].productPrice, 3, 'COMMA') + '원'}">220,000원</span>
+                            </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+        </div>
+    </div>
+</section>
 
 
+<!-- Start Banner Area -->
 
+<!-- End Banner Area -->
 
+<!-- ========================= scroll-top ========================= -->
+<a href="#" class="scroll-top" style="display: none;">
+    <i class="lni lni-chevron-up"></i>
+</a>
 
+<!-- ========================= JS here ========================= -->
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/tiny-slider.js"></script>
+<script src="/assets/js/glightbox.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript">
+    //========= Hero Slider
+    tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
+    });
 
+    //======== Brand Slider
 
-        <!-- Start Banner Area -->
-
-        <!-- End Banner Area -->
-
-        <!-- ========================= scroll-top ========================= -->
-        <a href="#" class="scroll-top" style="display: none;">
-            <i class="lni lni-chevron-up"></i>
-        </a>
-
-        <!-- ========================= JS here ========================= -->
-        <script src="/assets/js/bootstrap.min.js"></script>
-        <script src="/assets/js/tiny-slider.js"></script>
-        <script src="/assets/js/glightbox.min.js"></script>
-        <script src="/assets/js/main.js"></script>
-        <script type="text/javascript">
-            //========= Hero Slider 
-            tns({
-                container: '.hero-slider',
-                slideBy: 'page',
-                autoplay: true,
-                autoplayButtonOutput: false,
-                mouseDrag: true,
-                gutter: 0,
-                items: 1,
-                nav: false,
-                controls: true,
-                controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
-            });
-
-        //======== Brand Slider
-
-        </script>
+</script>
 <!-- #Footer -->
 <div id="Footer" class="m2105">
     <div class="oneConts">
@@ -833,8 +858,8 @@
                     <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
                     </p>
                     <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
-                            정보확인
-                            &gt;</a></p>
+                        정보확인
+                        &gt;</a></p>
                 </li>
                 <li>
                     <ul class="list-link">
@@ -857,13 +882,6 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
 
 
 </body>
