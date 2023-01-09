@@ -11,4 +11,6 @@ public interface CartMapper {
 
     List<CartDTO> findById(String memberId);
 
+    int deleteByCartId(int cartNo);
+
 }

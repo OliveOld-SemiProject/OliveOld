@@ -59,34 +59,30 @@ public class WebSecurityConfig {
 //                .anyRequest().permitAll()    // 등록되지 않은 경우로는 누구나 접근 가능
 //                    .and()
                 .authorizeRequests()
-                    .antMatchers("/login", "/cartList", "/order/**").authenticated()
+                .antMatchers("/cartList/**", "/order/**").authenticated()
                     .anyRequest().permitAll()
-                .and()
+                    .and()
                 .formLogin()   // 로그인 form을 따로 이용해 로그인 처리할 것이다.
                     .loginPage("/member/login")   // login page로 해당 로그인페이지에서 submit요청하는 경로로 지정하겠다는 의미
                     .permitAll()
-//                    .defaultSuccessUrl("/cartList")
-                    .successForwardUrl("/")       // 성공 시 페이지 설정
+                    .successForwardUrl("/")
                 .and()
                 .logout()                     // 로그아웃 설정
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))  // 로그아웃 시 요청 경로
-                .deleteCookies("JSESSIONID")   // 쿠키 제거
-                .invalidateHttpSession(true)                        // session정보 무효화
+                    .logoutUrl("/member/logout")
+                    .deleteCookies("JSESSIONID")   // 쿠키 제거
+                    .invalidateHttpSession(true)                        // session정보 무효화
                 .and()
-                .exceptionHandling()
+                    .exceptionHandling()
                 // 인가/인증 exception 핸들리설정
-                .accessDeniedPage("/member/login")  // 인가되지 않았을 때 - 권한이 없는 기능을 요청했을 때
+                    .accessDeniedPage("/member/login")  // 인가되지 않았을 때 - 권한이 없는 기능을 요청했을 때
                 // 호출될 페이지
-                .and().build();
+                .and()
+                .build();
     }
 
     /* 사용자 인증을 위해서 사용할 service bean 등록 , 사용할 비밀번호 인코딩 방식 설정 */
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
-
-        log.info("");
-        log.info("");
-        log.info("Login 시도");
 
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(memberService)   // 사용자정보 가져오고

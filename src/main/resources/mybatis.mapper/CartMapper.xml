@@ -22,4 +22,9 @@
         from SemiDB.Cart c
         where c.Member_id = #{memberId}
     </select>
+
+    <delete id="deleteByCartId">
+        DELETE FROM SemiDB.Cart c
+        WHERE c.Cart_no = #{cartNo};
+    </delete>
 </mapper>
