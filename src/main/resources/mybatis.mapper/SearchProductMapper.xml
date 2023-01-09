@@ -30,11 +30,19 @@
         SELECT
         COUNT(*)
         FROM PRODUCT A
+        <if test="cateCode != null">
+            JOIN CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
+        </if>
 
         <where>
-            <if test="searchCondition == 'content'">
-                A.PRODUCT_NAME LIKE '%' || #{ searchValue } || '%'
+            <if test="searchValue != null">
+                A.PRODUCT_NAME LIKE CONCAT('%',#{ searchValue },'%')
             </if>
+
+            <if test="cateCode != null">
+                B.CATEGORY_CODE LIKE CONCAT('%',#{ cateCode },'%')
+            </if>
+
             AND A.PRODUCT_STATUS = 'Y'
         </where>
     </select>
@@ -117,8 +125,21 @@
         , B.CATEGORY_NAME
         FROM PRODUCT A
         JOIN CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
-        WHERE A.PRODUCT_STATUS = 'Y'
-        AND A.PRODUCT_NAME LIKE CONCAT('%',#{ searchValue },'%')
+
+        <where>
+            <if test="cateCode != null">
+                B.CATEGORY_CODE LIKE CONCAT('%',#{ cateCode },'%')
+            </if>
+            <if test="searchValue != null">
+                A.PRODUCT_NAME LIKE CONCAT('%',#{ searchValue },'%')
+            </if>
+
+            and A.PRODUCT_STATUS = 'Y'
+        </where>
+
+
+
+
     </select>
 
 

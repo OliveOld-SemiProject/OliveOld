@@ -47,27 +47,36 @@ public class MainSearchController {
 
         String searchCondition = request.getParameter("searchCondition");
         String searchValue = request.getParameter("searchValue");
+        String cateCode = request.getParameter("cateCode");
 
 
         Map<String, String> searchMap = new HashMap<>();
         searchMap.put("searchCondition", searchCondition);
         searchMap.put("searchValue", searchValue);
+        searchMap.put("cateCode", cateCode);
+
+
+        log.info("=============================cateCode  :  " + cateCode);
 
 
         log.info("[MainSearchController] 컨트롤에서 검색 조건 확인하기" + searchMap);
 
         int totalCount = mainSearchService.selectTotalCount(searchMap);
         log.info("[MainSearchController] MainSearch Count" + totalCount);
-        int limit = 5;                 //게시물 최대 갯수
-        int buttonAmount = 1;           //버튼 갯수
+        int limit = 2;                 //게시물 최대 갯수
+        int buttonAmount = 3;           //버튼 갯수
+
 
         SearchProductSelectCriteriaDTO searchProductSelectCriteria = null;
 
         if (searchValue != null && !"".equals(searchValue)) {
-            searchProductSelectCriteria = SearchProductPagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue);
-        } else {
+            searchProductSelectCriteria = SearchProductPagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue, cateCode);
+        } else if(cateCode != null && !"".equals(cateCode)) {
+            searchProductSelectCriteria = SearchProductPagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount, searchCondition, searchValue, cateCode);
+        }  else {
             searchProductSelectCriteria = SearchProductPagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount);
         }
+
 
         log.info("[MainSearchController] searchProductSelectCriteria" + searchProductSelectCriteria);
 
@@ -88,5 +97,49 @@ public class MainSearchController {
 
 
     }
+
+
+    //상단바 페이지 이동부분
+
+    //로고
+    @GetMapping("/index.html")
+    public String goindex(){
+        return "/index.html";
+    }
+
+    //로그인
+    @GetMapping("/login.html")
+    public String goLogin(){
+        return "redirect:/login.html";
+    }
+
+    //회원가입
+    @GetMapping("/signup.html")
+    public String goSignUp(){
+        return "redirect:/signup.html";
+    }
+
+    //주문배송
+    @GetMapping("/order-delivery.html")
+    public String goOrderList(){
+        return "redirect:/order/list";
+    }
+
+    //쇼핑카드
+    @GetMapping("/shoppingCart.html")
+    public String goShoppingCart(){
+        return "redirect:/cartList";
+    }
+
+    //공지사항
+    @GetMapping("/Notice.html")
+    public String goNotice(){
+        return "redirect:/Notice.html";
+    }
+
+
+
+
+
 
 }
