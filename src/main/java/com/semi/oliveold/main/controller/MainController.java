@@ -6,6 +6,7 @@ import com.semi.oliveold.main.service.MainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,8 +38,23 @@ public class MainController {
         mv.setViewName("/index");
 
         return mv;
+    }
+
+    @PostMapping
+    public ModelAndView productList2(HttpServletRequest request, ModelAndView mv){
+
+        List<DetailDTO> productList = mainService.selectProductList();
+
+        log.info("[MainController] productList : " + productList);
+
+//        mv.addObject("productList", productList.get(0));
+
+        mv.addObject("productList", productList);
 
 
+        mv.setViewName("/index");
+
+        return mv;
     }
 
 
