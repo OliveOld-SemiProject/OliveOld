@@ -1,4 +1,4 @@
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -25,21 +25,34 @@
             <div class="inner">
                 <div class="head-util">
                     <ul>
-                        <li class="util-join">
-                            <form action="/member/login" type="get">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
+                            <form action="/member/login" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
                             </form>
                         </li>
 
-                        <li class="util-signup">
-                            <form action="/signup" type="get">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
+                            <form action="/signup" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
+                            <form action="/mypage" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
+                                        th:text="${#authentication.name}">user</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
+                            <form action="/logout" method="post">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                             </form>
                         </li>
 
                         <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                         <li class="util-order">
-                            <form action="/order/list" type="get">
+                            <form action="/order/list" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
                             </form>
                         </li>
@@ -49,7 +62,7 @@
                             </form>
                         </li>
                         <li class="util-cs">
-                            <form action="/notice" type="get">
+                            <form action="/notice" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
                             </form>
                         </li>
@@ -221,16 +234,13 @@
             <h2>회원 가입</h2>
 
             <ul class="user-signup">
-                <li>
-                    <a href="signup.html">Sign up</a>
-                </li>
                 <!-- <li>
                     <a href="register.html">Register</a>
                 </li> -->
             </ul>
         </div>
 
-        <form id="joinForm" name="joinForm" action="/exec/front/Member/join/" method="post" target="_self"
+        <form id="joinForm" name="joinForm" action="/signup/join/" method="post" target="_self"
             enctype="multipart/form-data">
             <input id="useSimpleSignin" name="useSimpleSignin" value="F" type="hidden">
             <input id="member_name_cert_flag" name="member_name_cert_flag" value="F" type="hidden">
@@ -337,10 +347,13 @@
                                 <th scope="row">아이디 <img
                                         src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
                                         alt="필수"></th>
-                                <td><input id="member_id" name="member_id"
+                                <td>
+                                    <input id="member_id" name="member_id"
                                         fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity"
                                         fw-label="아이디" fw-msg="" class="inputTypeText" placeholder="" value=""
-                                        type="text"> <span id="idMsg"></span> (영문소문자/숫자, 4~16자)</td>
+                                        type="text">
+                                    <span id="idMsg"></span> (영문소문자/숫자, 4~16자)
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">비밀번호 <img
@@ -396,7 +409,8 @@
                                 <th scope="row">휴대전화 <img
                                         src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif" class=""
                                         alt="필수"></th>
-                                <td><select id="mobile1" name="mobile[]" fw-filter="isNumber&amp;isFill" fw-label="휴대전화"
+                                <td>
+                                    <select id="mobile1" name="mobile1" fw-filter="isNumber&amp;isFill" fw-label="휴대전화"
                                         fw-alone="N" fw-msg="">
                                         <option value="010">010</option>
                                         <option value="011">011</option>
@@ -404,11 +418,14 @@
                                         <option value="017">017</option>
                                         <option value="018">018</option>
                                         <option value="019">019</option>
-                                    </select>-<input id="mobile2" name="mobile[]" maxlength="4"
+                                    </select>-
+                                    <input id="mobile2" name="mobile2" maxlength="4"
                                         fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value=""
-                                        type="text">-<input id="mobile3" name="mobile[]" maxlength="4"
+                                        type="text">-
+                                    <input id="mobile3" name="mobile3" maxlength="4"
                                         fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value=""
-                                        type="text"></td>
+                                        type="text">
+                                </td>
                             </tr>
                             <tr class="">
                                 <th scope="row">SMS 수신여부 <img
@@ -431,7 +448,8 @@
                                 <th scope="row">이메일 수신여부 <img
                                         src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
                                         alt="필수"></th>
-                                <td><input id="is_news_mail0" name="is_news_mail" fw-label="is_news_mail" fw-msg=""
+                                <td>
+                                    <input id="is_news_mail0" name="is_news_mail" fw-label="is_news_mail" fw-msg=""
                                         class="ec-base-chk" value="T" type="checkbox"><label
                                         for="is_news_mail0">동의함</label>
                                     <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
@@ -449,29 +467,35 @@
                             <th scope="row">성별 <img
                                     src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
                                     class="displaynone" alt="필수"></th>
-                            <td><input id="is_sex0" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" value="M"
-                                    type="radio" autocomplete="off"><label for="is_sex0">남자</label>
-                                <input id="is_sex1" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" value="F"
-                                    type="radio" autocomplete="off"><label for="is_sex1">여자</label>
+                            <td>
+                                <select name="is_sex"
+                                        fw-alone="N" fw-msg="">
+                                    <option value="M">남</option>
+                                    <option value="F">여</option>
+                                </select>
+
+<!--                                <label><input name="is_sex" value="M" type="radio" disabled/>남자</label>-->
+<!--                                <label><input name="is_sex" value="F" type="radio"/>여자</label>-->
                             </td>
+
                             </tr>
                             <tr class="">
                                 <th scope="row">생년월일 <img
                                         src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
                                         class="displaynone" alt="필수"></th>
-                                <td><input id="birth_year" name="birth_year" fw-filter="" fw-label="생년월일" fw-msg=""
+                                <td>
+                                    <input id="birth_year" name="birth_year" fw-filter="" fw-label="생년월일" fw-msg=""
                                         class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년
                                     <input id="birth_month" name="birth_month" fw-filter="" fw-label="생년월일" fw-msg=""
                                         class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월
                                     <input id="birth_day" name="birth_day" fw-filter="" fw-label="생년월일" fw-msg=""
                                         class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 <span
-                                        class="birth "><input id="is_solar_calendar0" name="is_solar_calendar"
-                                            fw-filter="" fw-label="생년월일" fw-msg="" value="T" type="radio"
-                                            checked="checked" autocomplete="off"><label
-                                            for="is_solar_calendar0">양력</label>
-                                        <input id="is_solar_calendar1" name="is_solar_calendar" fw-filter=""
-                                            fw-label="생년월일" fw-msg="" value="F" type="radio" autocomplete="off"><label
-                                            for="is_solar_calendar1">음력</label></span>
+                                        class="birth ">
+
+                                    <select name="is_solar_calendar">
+                                        <option value="M">양력</option>
+                                        <option value="F">음력</option>
+                                    </select>
                                 </td>
                             </tr>
 
@@ -712,9 +736,9 @@
                     </div>
                 </div>
                 <div class="ec-base-button">
-                    <a href="#none" onclick="memberJoinAction()"><img
+                    <button type="submit"><img
                             src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_member_join1.gif"
-                            alt="회원가입"></a>
+                            alt="회원가입"></button>
                     <a href="/index212.html"><img
                             src="http://img.echosting.cafe24.com/skin/base_ko_KR/member/btn_member_join_cancel.gif"
                             alt="회원가입취소"></a>

@@ -27,21 +27,34 @@
             <div class="inner">
                 <div class="head-util">
                     <ul>
-                        <li class="util-join">
-                            <form action="/member/login" type="get">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
+                            <form action="/member/login" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
                             </form>
                         </li>
 
-                        <li class="util-signup">
-                            <form action="/signup" type="get">
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
+                            <form action="/signup" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
+                            <form action="/mypage" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
+                                        th:text="${#authentication.name}">user</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
+                            <form action="/logout" method="post">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                             </form>
                         </li>
 
                         <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                         <li class="util-order">
-                            <form action="/order/list" type="get">
+                            <form action="/order/list" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
                             </form>
                         </li>
@@ -51,7 +64,7 @@
                             </form>
                         </li>
                         <li class="util-cs">
-                            <form action="/notice" type="get">
+                            <form action="/notice" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
                             </form>
                         </li>

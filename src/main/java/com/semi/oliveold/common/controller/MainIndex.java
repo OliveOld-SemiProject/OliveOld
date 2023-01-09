@@ -19,8 +19,10 @@ public class MainIndex {
     public String postMainPage(@AuthenticationPrincipal User user){
         return "index";
     }
+
     @GetMapping
     public String getmMainPage(){
         return "index";
     }
+
 }
