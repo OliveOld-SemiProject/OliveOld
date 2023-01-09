@@ -253,12 +253,13 @@
                             <div class="ct-content bg-white">
                                 <div class="ct-best">
                                     <div class="col-wrap">
-                                        <div class="col ct-tab-wrap">
+                                        <div class="col ct-tab-wrap" style="display:inline-flex; flex-flow: wrap">
                                             <div class="detail" style="display: none">
                                             </div>
+                                            <th:block th:each="searchProductList : ${searchProductList}">
                                             <div class="detail">
                                                 <div class="ct-product" id="mRnkGoodsSec">
-                                                    <th:block th:each="searchProductList : ${searchProductList}">
+
                                                     <div class="item">
                                                         <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000177776&amp;dispCatNo=10000010001&amp;trackingCd=Cat10000010001_Prodrank&amp;curation&amp;egcode&amp;rccode&amp;egrankcode"
                                                             data-attr="카테고리관^스킨케어_랭킹BEST상품브랜드_상품랭킹^[한정기획] 라로슈포제 시카플라스트 크림 B5 100ml 기획(+시카세럼 30ml)"><span
@@ -282,11 +283,11 @@
                                                             <p></p>
                                                         </a>
                                                     </div>
-                                                    </th:block>
+
                                                 </div>
 
                                             </div>
-
+                                            </th:block>
                                         </div>
 
                                     </div>
