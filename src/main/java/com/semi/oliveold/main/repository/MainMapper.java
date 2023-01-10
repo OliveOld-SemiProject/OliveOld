@@ -8,6 +8,8 @@ import java.util.List;
 @Mapper
 public interface MainMapper {
 
+//    List<DetailDTO> selectProductList();
+
     List<DetailDTO> selectProductList();
 
 

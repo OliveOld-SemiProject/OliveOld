@@ -537,6 +537,48 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="row">
+            <div th:each="product : ${productList}" class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                    <div class="single-product">
+                        <div class="product-image">
+                            <img th:src="${product.productImage1}" alt="#">
+                            <div class="button">
+                                <i class="lni lni-cart"> </i> Add to
+                                Cart3
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="category" th:text="${product.productCategoryName}"></span>
+                            <h4 class="title">
+                                <a onclick="location.href='/detail/findlist?no=1'"
+                                   th:text="${product.productName}">
+                                </a>
+                                <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
+                            </h4>
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star"></i></li>
+                                <li><span>4.0 Review(s)</span></li>
+                            </ul>
+                            <div class="price">
+                                <span data-th-text="${#numbers.formatInteger(product.productPrice, 3, 'COMMA') + '원'}"></span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- End Single Product -->
+            </div>
+        </div>
+
+
+
+
+
         <div class="row">
             <div class="col-lg-3 col-md-6 col-12">
                 <!-- Start Single Product -->
@@ -545,7 +587,7 @@
                         <div class="product-image">
                             <img th:src="${productList[0].productImage1}" alt="#">
                             <div class="button">
-                                <i class="lni lni-cart"></i> Add to
+                                <i class="lni lni-cart"> </i> Add to
                                 Cart3
                             </div>
                         </div>
