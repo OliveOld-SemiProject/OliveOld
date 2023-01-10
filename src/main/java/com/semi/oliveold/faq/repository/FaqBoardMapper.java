@@ -17,4 +17,8 @@ public interface FaqBoardMapper {
     int insertFaqBoard(BoardDTO board);
 
     BoardDTO selectfaqBoardDetail(Long no);
+
+    int modifyfaqBoard(BoardDTO board);
+
+    int removefaqBoard(Long no);
 }

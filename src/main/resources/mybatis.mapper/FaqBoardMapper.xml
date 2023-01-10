@@ -180,7 +180,20 @@
         AND A.BOARD_NO = #{ no }
     </select>
 
+    <update id="modifyfaqBoard" parameterType="BoardDTO">
+        UPDATE
+        TBL_BOARD A
+        SET A.BOARD_TITLE = #{ title }
+          , A.BOARD_BODY = #{ body }
+        WHERE A.BOARD_NO = #{ no }
+    </update>
 
+
+    <delete id="removefaqBoard" parameterType="long">
+        DELETE
+        FROM TBL_BOARD A
+        WHERE A.BOARD_NO = #{ no }
+    </delete>
 
 
 </mapper>

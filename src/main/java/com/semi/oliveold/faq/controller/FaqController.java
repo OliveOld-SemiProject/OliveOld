@@ -7,6 +7,8 @@ import com.semi.oliveold.faq.dto.SelectCriteriaDTO;
 import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.faq.service.FaqService;
 import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
+import com.semi.oliveold.oneonone.exception.OneOnOneModifyException;
+import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -137,13 +139,58 @@ public class FaqController {
     //faq수정
 
 
+    @GetMapping("/update")
+    public String goModifyfaqBoard(HttpServletRequest request, Model model) {
+
+        log.info("");
+        log.info("");
+        log.info("[goModifyfaqBoard] modify =========================================================");
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        BoardDTO board = faqService.selectfaqBoardDetail(no);
+
+        model.addAttribute("board", board);
+
+        log.info("[modifyNoticeController] modify =========================================================");
+
+        return "faq/faqUpdate";
+    }
+
+
+    @PostMapping("/update")
+    public String goModifyfaqBoard(@ModelAttribute BoardDTO Board, RedirectAttributes rttr) throws OneOnOneModifyException {
+
+        log.info("");
+        log.info("");
+        log.info("[goModifyfaqBoard] modify =========================================================");
+
+        log.info("[goModifyfaqBoard] notice : "+ Board);
+        faqService.modifyfaqBoard(Board);
+
+
+        rttr.addFlashAttribute("message", "수정에 성공하셨습니다!");
+
+        log.info("[modifyNoticeController] modify  =========================================================");
+        return "redirect:/faqBoard/list";
+    }
+
 
 
 
     //faq 삭제 부분
 
+    @GetMapping("/delete")
+    public String removefaqBoard(HttpServletRequest request, RedirectAttributes rttr) throws OneOnOneRemoveException {
 
+        Long no = Long.valueOf(request.getParameter("no"));
 
+        faqService.removefaqBoard(no);
+
+        rttr.addFlashAttribute("message", "삭제에 성공하셨습니다!");
+
+        return "redirect:/faqBoard/list";
+    }
 
 
 

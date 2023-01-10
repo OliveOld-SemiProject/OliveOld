@@ -4,6 +4,8 @@ import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.faq.repository.FaqBoardMapper;
 import com.semi.oliveold.faq.dto.BoardDTO;
 import com.semi.oliveold.faq.dto.SelectCriteriaDTO;
+import com.semi.oliveold.oneonone.exception.OneOnOneModifyException;
+import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,5 +58,25 @@ public class FaqService {
         board = mapper.selectfaqBoardDetail(no);
 
         return board;
+    }
+
+    public void modifyfaqBoard(BoardDTO board) throws OneOnOneModifyException {
+
+        int result = mapper.modifyfaqBoard(board);
+
+        if(!(result > 0)){
+            throw new OneOnOneModifyException("수정에 실패 했습니다");
+        }
+
+    }
+
+    public void removefaqBoard(Long no) throws OneOnOneRemoveException {
+
+        int result = mapper.removefaqBoard(no);
+
+        if(!(result > 0)) {
+            throw new OneOnOneRemoveException("삭제에 실패하셨습니다.");
+        }
+
     }
 }
