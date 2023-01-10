@@ -6,12 +6,18 @@ import com.semi.oliveold.oneonone.exception.OneOnOneModifyException;
 import com.semi.oliveold.oneonone.exception.OneOnOneRegistException;
 import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import com.semi.oliveold.oneonone.repository.OneOnOneBoardMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class OneOnOneService {
 
@@ -19,6 +25,22 @@ public class OneOnOneService {
 
     public OneOnOneService(OneOnOneBoardMapper mapper){
         this.mapper = mapper;
+    }
+
+    public static void fileUpload(OneOnOneBoardDTO oneOnOneBoard, MultipartHttpServletRequest multipartHttpServletRequest) {
+        if(ObjectUtils.isEmpty(multipartHttpServletRequest) == false){
+            Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+            String name;
+            while(iterator.hasNext()){
+                name = iterator.next();
+                log.debug("file tag name : " + name);
+                List<MultipartFile> list = multipartHttpServletRequest.getFiles(name);
+                for(MultipartFile multipartFile : list){
+
+                }
+
+            }
+        }
     }
 
     public OneOnOneBoardDTO selectBoardDetail(Long no) {

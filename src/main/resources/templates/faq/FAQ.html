@@ -172,24 +172,65 @@
                 <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
                 <div class="gnbV18">
                     <ul>
-                        <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                        <li id="cateButton1" name="gnb101" class="">
                             <p>스킨케어</p>
                         </li>
-                        <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                        <li id="cateButton2" class="line" name="gnb121" >
                             <p>메이크업</p>
                         </li>
-                        <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                        <li id="cateButton3" class="line" name="gnb120" >
                             <p>헤어케어</p>
                         </li>
-                        <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                        <li id="cateButton4" class="line" name="gnb112" >
                             <p>건강식품</p>
                         </li>
-                        <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                        <li id="cateButton5" class="line" name="gnb116" >
                             <p>보행보조용품</p>
                         </li>
                         <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
                             <p>이벤트</p>
                         </li>
+
+                        <script>
+
+                            // 스킨케어
+
+                            document.getElementById("cateButton1").onclick=function(){
+
+                                location.href='/mainSearch/search?cateCode=4';
+
+                            };
+
+
+                            //메이크업
+
+                            document.getElementById("cateButton2").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=2';
+                            };
+
+                            //
+
+                            document.getElementById("cateButton3").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=5';
+                            };
+
+                            document.getElementById("cateButton4").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=1';
+                            };
+
+                            document.getElementById("cateButton5").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=3';
+                            };
+
+                        </script>
+
+
+
+
                     </ul>
                 </div>
             </div>
@@ -246,17 +287,11 @@
                 <ul>
 
 
-                    <li class="topThree">
-                        <!-- faq.faqLrclCd로 -->
-                        <a href="#n" role="button" class="tit" title="답변 내용보기"
-                           data-attr="고객센터^FAQ_TOP10_TOP10^[오늘드림] 교환&반품도 매장에서 하면되나요?"><strong>TOP10</strong>교환&반품도
-                            매장에서 하면되나요?</a>
-
-                    </li>
+<!--시작-->
                     <th:block th:each="faq : ${ faqBoardList}">
                         <li class="topThree">
                             <!-- faq.faqLrclCd로 -->
-                            <a href="#n" role="button" class="tit" th:title="${ faq.title }">
+                            <a th:href="@{/faqBoard/detail(no=${faq.no})}" role="button" class="tit" th:title="${ faq.title }">
                                 <strong th:text="${ faq.faqCategory.faqName }"></strong>
                                 <th:block th:text="${ faq.title}"></th:block>
 
@@ -295,21 +330,24 @@
 
         <!--            </table>-->
 
+        <div class="Regist Button" align="right">
+            <button
+                    type="button"
+                    style="background-color: #37003E; color: white; border-radius: 5px; margin-top: 20px"
 
+                    class="btn btn-pk"
+                    th:onclick="'location.href=\''+@{/faqBoard/regist}+'\''"
+            >
+                등록하기
+            </button>
+        </div>
 
 
 
         <div class="pageing">
 
-
-
-
-            <strong title="현재 페이지">1</strong>
-
-
-
-
-
+            <strong title="현재 페이지" th:text="${selectCriteria.pageNo}"></strong>
+            "
         </div>
 
 

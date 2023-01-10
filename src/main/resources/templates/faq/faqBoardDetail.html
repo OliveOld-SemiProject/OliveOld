@@ -1,77 +1,75 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout}">
-
+<html xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{layouts/layout}"-->
+<!--      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">-->
 <link rel="stylesheet" href="/assets/css/footer.css">
+    <th:block>
+        <div class="container-fluid">
 
-
-<th:block layout:fragment="content">
-    <div class="container-fluid">
-
-        <div class="outer outer-board-insert">
-            <br>
-            <h2 align="center">게시판 작성</h2>
-            <div class="table-area">
-                <form id="boardRegistForm" th:action="@{/OneOnOneBoard/regist}" method="post">
-                    <table align="center">
-                        <input
-                                type="hidden"
-                                id="writerMemberId"
-                                name="writerMemberId">
-                        <!--                                th:value="${ #authentication.getPrincipal().getMemberNo() }"-->
-
+            <div class="outer outer-board-detail">
+                <br>
+                <h2 align="center">FAQ 게시판 내용</h2>
+                <div align="center" class="table-area">
+                    <table>
                         <tr>
-                            <td>분야</td>
-                            <td>
-                                <select name="categoryCode">
-                                    <option value="10">결제</option>
-                                    <option value="20">배송</option>
-                                    <option value="30">기타</option>
+                            <td>분야 : </td>
 
-                                </select>
-                            </td>
+                            <td><p th:text="${boardDetail.faqCategory.faqName}"></p></td>
+
                         </tr>
                         <tr>
-                            <td>제목 </td>
-                            <td colspan="3"><input type="text" name="title" style="width:400px;"></td>
+                            <td>제목 : </td>
+                            <td colspan="3"><p th:text="${boardDetail.title}"></p></td>
                         </tr>
                         <tr>
-                        <tr>
-                            <td>파일 첨부 </td>
-                            <td>
-                            <form id="frm" name="frm" method="post" action="/OneOnOneBoard/fileUpload" enctype="multipart/form-data">
-                                <input type="file" id="files" name="files" multiple="multuple">
-<!--                                <input type="submit" id="submit" values="저장" class="btn">-->
-                            </form>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>내용 </td>
+                            <td>내용 : </td>
                             <td colspan="3">
-                                <textarea name="body" cols="60" rows="15" style="resize:none;"></textarea>
+                                <textarea
+                                        name="body"
+                                        cols="60"
+                                        rows="15"
+                                        style="resize: none;"
+                                        readonly
+                                        th:text="${boardDetail.body}"
+                                >
+                                </textarea>
                             </td>
                         </tr>
                     </table>
                     <br>
+
                     <div align="center">
                         <button
                                 type="button"
-                                class="btn btn-pk"
-                                th:onclick="'location.href=\''+@{/OneOnOneBoard/list}+'\''"
+                                class="btn btn-or"
+                                th:onclick="'location.href=\'' + @{/faqBoard/update(no=${boardDetail.no})} + '\''"
+                        >
+                            수정
+                        </button>
+
+                        <button
+                                type="button"
+                                class="btn btn-or"
+                                th:onclick="'location.href=\'' + @{/faqBoard/list} + '\''"
                         >
                             돌아가기
                         </button>
 
-                        <button type="submit" class="btn btn-bs">등록하기</button>
+                        <button
+                                type="button"
+                                class="btn btn-or"
+                                th:onclick="'location.href=\'' + @{/faqBoard/delete(no=${boardDetail.no})} + '\''"
+                        >
+                            삭제
+                        </button>
                     </div>
-                </form>
-            </div>
-        </div>
 
-    </div>
-</th:block>
+                </div>
+            </div>
+
+        </div>
+    </th:block>
 
 
 <body>
@@ -123,7 +121,8 @@
     </div>
 </div>
 <!-- //#Footer -->
-</body>
+
+
 
 
 </html>
