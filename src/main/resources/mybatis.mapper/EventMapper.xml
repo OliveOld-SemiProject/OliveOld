@@ -30,9 +30,16 @@
         <result property="accSavingDate" column="acc_savingDate"/>
     </resultMap>
 
-    <update id="EventResultMap" parameterType="EventDTO">
-        UPDATE EVENT_ACCUMULATED
-           SET accSaving = #{ACC_SAVING}
-         WHERE accNo = #{ACC_NO}
-    </update>
+    <insert id="insertMileage" parameterType="EventDTO">
+        INSERT
+          INTO Event_accumulated
+             (
+                accSaving
+             )
+         VALUE
+             (
+               #{ acc_saving }
+             )
+
+    </insert>
 </mapper>
