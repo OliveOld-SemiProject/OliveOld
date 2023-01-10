@@ -84,18 +84,9 @@
 
     <select id="selectMember" resultMap="memberResultMap">
         SELECT
-                  MEMBER_ID
-                , MEMBER_PWD
-                , MEMBER_NAME
-                , MEMBER_GENDER
-                , MEMBER_IDENTIFIER
+                  MEMBER_NAME
                 , MEMBER_PHONE
                 , MEMBER_ADDRESS
-                , MEMBER_EMAIL
-                , MEMBER_REGISTDATE
-                , MEMBER_ISAD
-                , MEMBER_LEVEL
-                , MEMBER_TYPE
                 , MEMBER_MILEAGE
         FROM SemiDB.Member
         WHERE MEMBER_ID = #{ memberID }
