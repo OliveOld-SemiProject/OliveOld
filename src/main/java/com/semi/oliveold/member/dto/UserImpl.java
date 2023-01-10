@@ -21,6 +21,7 @@ public class UserImpl extends User {
     public String memberISAD;
     public String memberLevel;
     public String memberType;
+    public int mileage;
 
     private List<MemberRoleDTO> memberRoleList;
 
@@ -44,6 +45,7 @@ public class UserImpl extends User {
         this.memberLevel = memberLevel;
         this.memberType = memberType;
         this.memberRoleList = memberRoleList;
+        this.mileage = mileage;
 
     }
 

@@ -43,19 +43,43 @@ public class DetailController {
         System.out.println("no ==========>" + no);
 
         List<DetailDTO> findProductListByNo = detailService.findProductListByNo(no);
+        List<DetailDTO> findNewProductListByNo = detailService.findNewProductListByNo(no);
 
         log.info("[DetailController] findProductListByNo : " + findProductListByNo);
+        log.info("[DetailController] findNewProductListByNo : " + findNewProductListByNo);
 
 //        mv.addObject("productList", productList.get(0));
 
         mv.addObject("findProductListByNo", findProductListByNo);
+        mv.addObject("findNewProductListByNo", findNewProductListByNo);
 
         mv.setViewName("product_detail");
 
         return mv;
 
 
+
     }
+
+//    @GetMapping(value = "/findnewlist")
+//    public ModelAndView findNewProductListByNo(HttpServletRequest request, ModelAndView mv, @RequestParam int no){
+//
+//        System.out.println("no ==========>" + no);
+//
+//        List<DetailDTO> findNewProductListByNo = detailService.findNewProductListByNo(no);
+//
+//        log.info("[DetailController] findNewProductListByNo : " + findNewProductListByNo);
+//
+////        mv.addObject("productList", productList.get(0));
+//
+//        mv.addObject("findNewProductListByNo", findNewProductListByNo);
+//
+//        mv.setViewName("product_detail");
+//
+//        return mv;
+//
+//
+//    }
 
 
     @GetMapping(value = "/list")
@@ -64,6 +88,7 @@ public class DetailController {
 
 
        List<DetailDTO> productList = detailService.selectProductList();
+
 
        log.info("[DetailController] productList : " + productList);
 

@@ -1,7 +1,6 @@
 package com.semi.oliveold.signup.controller;
 
 import com.semi.oliveold.member.dto.MemberDTO;
-import com.semi.oliveold.member.dto.UserImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,7 @@ import java.util.Date;
 @Slf4j
 @RequestMapping("/signup")
 @Controller
-public class signUpController {
+public class SignUpController {
 
     @GetMapping
     public String signUpMainView(){

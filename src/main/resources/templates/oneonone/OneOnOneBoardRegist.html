@@ -37,6 +37,17 @@
                             <td colspan="3"><input type="text" name="title" style="width:400px;"></td>
                         </tr>
                         <tr>
+                        <tr>
+                            <td>파일 첨부 </td>
+                            <td>
+                            <form id="frm" name="frm" method="post" action="/OneOnOneBoard/fileUpload" enctype="multipart/form-data">
+                                <input type="file" id="files" name="files" multiple="multuple">
+<!--                                <input type="submit" id="submit" values="저장" class="btn">-->
+                            </form>
+                            </td>
+                        </tr>
+                        <tr>
+
                             <td>내용 </td>
                             <td colspan="3">
                                 <textarea name="body" cols="60" rows="15" style="resize:none;"></textarea>

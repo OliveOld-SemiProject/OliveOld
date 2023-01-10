@@ -15,4 +15,6 @@ public interface DetailService {
     DetailDTO selectProduct();
 
     List<DetailDTO> findProductListByNo(int no);
+
+    List<DetailDTO> findNewProductListByNo(int no);
 }

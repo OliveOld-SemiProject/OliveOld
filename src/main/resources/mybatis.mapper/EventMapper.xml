@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semi.event.repository.EventMapper">
+
+    <resultMap type="MemberDTO" id="MemberResultMap">
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberGender" column="MEMBER_GENDER"/>
+        <result property="memberIdentifier" column="MEMBER_IDENTIFIER"/>
+        <result property="memberPhone" column="MEMBER_PHONE"/>
+        <result property="memberAddress" column="MEMBER_ADDRESS"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberRegistDate" column="MEMBER_REGISTDATE"/>
+        <result property="memberISAD" column="MEMBER_ISAD"/>
+        <result property="memberLevel" column="MEMBER_LEVEL"/>
+        <result property="memberType" column="MEMBER_TYPE"/>
+        <result property="memberMileage" column="MEMBER_MILEAGE"/>
+
+        
+    </resultMap>
+
+    <resultMap id="EventResultMap" type="EventDTO">
+        <id property="accNo" column="acc_no"/>
+        <result property="accSaving" column="acc_saving"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="productId" column="PRODUCT_ID"/>
+        <result property="accSavingDate" column="acc_savingDate"/>
+    </resultMap>
+
+    <insert id="insertMileage" parameterType="EventDTO">
+        INSERT
+          INTO Event_accumulated
+             (
+                accSaving
+             )
+         VALUE
+             (
+               #{ acc_saving }
+             )
+
+    </insert>
+</mapper>

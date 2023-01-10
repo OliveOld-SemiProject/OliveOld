@@ -26,4 +26,23 @@
         Where A.MEMBER_ID = #{memberId}
     </select>
 
+    <insert id="insertMember">
+        INSERT into SemiDB.Member
+        values (
+        "user03",
+        "ajlksjas",
+        "강",
+        "남",
+        "971234-1",
+        "010-2380-9892",
+        "서울",
+        "alkjfa@naver.com",
+        DATE(20080101),
+        "Y",
+        "GOLD",
+        "운영자",
+        300
+        )
+    </insert>
+
 </mapper>

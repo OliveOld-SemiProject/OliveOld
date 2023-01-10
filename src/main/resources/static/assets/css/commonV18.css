@@ -43,6 +43,7 @@ caption {
 }
 
 button {
+    padding: 5px;
     border: 0;
     cursor: pointer;
     outline: 0;

@@ -12,5 +12,7 @@ public interface DetailMapper {
 
     List<DetailDTO> findProductListByNo(int no);
 
+    List<DetailDTO> findNewProductListByNo(int no);
+
     DetailDTO selectProduct();
 }
