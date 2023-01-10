@@ -545,17 +545,13 @@
                     <div class="single-product">
                         <div class="product-image">
                             <img th:src="${product.productImage1}" alt="#">
-                            <div class="button">
-                                <i class="lni lni-cart"> </i> Add to
-                                Cart3
-                            </div>
                         </div>
                         <div class="product-info">
                             <span class="category" th:text="${product.productCategoryName}"></span>
                             <h4 class="title">
-                                <a onclick="location.href='/detail/findlist?no=1'"
-                                   th:text="${product.productName}">
-                                </a>
+<!--                                <a onclick="location.href='/detail/findlist?no=1'"-->
+<!--                                   th:text="${product.productName}">-->
+<!--                                </a>-->
                                 <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}"
                                    th:text="${product.productName}">
                                 </a>
@@ -567,8 +563,8 @@
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star"></i></li>
-                                <li><span>4.0 Review(s)</span></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class="price">
                                 <span data-th-text="${#numbers.formatInteger(product.productPrice, 3, 'COMMA') + '원'}"></span>
