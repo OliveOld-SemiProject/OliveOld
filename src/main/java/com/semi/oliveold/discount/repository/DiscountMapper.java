@@ -9,4 +9,8 @@ import java.util.List;
 public interface DiscountMapper {
 
     List<MemberDTO> selectMemberList();
+
+    MemberDTO findMileageById();
+
+    MemberDTO selectMileage();
 }

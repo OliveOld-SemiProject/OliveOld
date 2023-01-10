@@ -11,16 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 @Slf4j
 public class MainIndex {
 
-    @PostMapping
-    public String postMainPage(@AuthenticationPrincipal User user){
-        return "index";
-    }
-    @GetMapping
-    public String getmMainPage(){
-        return "index";
-    }
+//    @PostMapping
+//    public String postMainPage(@AuthenticationPrincipal User user){
+//        return "index";
+//    }
+//
+//    @GetMapping
+//    public String getmMainPage(){
+//        return "index";
+//    }
+
 }

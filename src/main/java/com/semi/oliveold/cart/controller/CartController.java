@@ -34,10 +34,13 @@ public class CartController {
     }
 
     @PostMapping("/delete")
-    public String deleteById(@AuthenticationPrincipal User user, HttpServletRequest request, Model model){
-        log.info("Do delete CartList");
+    public String deleteByCartId(@AuthenticationPrincipal User user, HttpServletRequest request, Model model){
 
-        log.info(request.getParameter(""));
+        int result = cartService.deleteByCartId(Integer.parseInt(request.getParameter("cart_no")));
+        log.info("**  delete result = {}  **", result);
+
+        List<CartDTO> items = cartService.findById(user.getUsername());
+        model.addAttribute("items", items);
 
         return "shoppingCart";
     }
