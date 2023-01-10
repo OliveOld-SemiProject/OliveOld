@@ -556,6 +556,10 @@
                                 <a onclick="location.href='/detail/findlist?no=1'"
                                    th:text="${product.productName}">
                                 </a>
+                                <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}"
+                                   th:text="${product.productName}">
+                                </a>
+
                                 <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
                             </h4>
                             <ul class="review">
