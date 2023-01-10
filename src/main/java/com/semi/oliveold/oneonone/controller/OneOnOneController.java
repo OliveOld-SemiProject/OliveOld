@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -202,6 +203,15 @@ public class OneOnOneController {
 
         rttr.addFlashAttribute("message", "삭제에 성공하셨습니다!");
 
+        return "redirect:/OneOnOneBoard/list";
+    }
+
+
+    //파일 업로드
+
+    @GetMapping("/fileUpload")
+    public String fileUpload(OneOnOneBoardDTO oneOnOneBoard, MultipartHttpServletRequest multipartHttpServletRequest){
+        OneOnOneService.fileUpload(oneOnOneBoard, multipartHttpServletRequest);
         return "redirect:/OneOnOneBoard/list";
     }
 

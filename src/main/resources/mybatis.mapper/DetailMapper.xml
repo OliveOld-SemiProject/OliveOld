@@ -51,6 +51,22 @@
         WHERE PRODUCT_NO = #{ code }
     </select>
 
+    <select id="findNewProductListByNo" resultMap="DetailResultMap">
+        SELECT
+        PRODUCT_NO
+        , PRODUCT_NAME
+        , PRODUCT_PRICE
+        , PRODUCT_QUAN
+        , PRODUCT_DATE
+        , CATEGORY_CODE
+        , PRODUCT_STATUS
+        , PRODUCT_IMAGE1
+        , PRODUCT_IMAGE2
+        , CATEGORY_NAME
+        FROM SemiDB.PRODUCT
+        WHERE PRODUCT_NO = #{ code }
+    </select>
+
 <!--  selectProduct  -->
 
     <select id="selectProduct" resultMap="DetailResultMap">

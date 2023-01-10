@@ -15,4 +15,10 @@ public interface FaqBoardMapper {
     List<BoardDTO> selectFaqBoardList(SelectCriteriaDTO selectCriteria);
 
     int insertFaqBoard(BoardDTO board);
+
+    BoardDTO selectfaqBoardDetail(Long no);
+
+    int modifyfaqBoard(BoardDTO board);
+
+    int removefaqBoard(Long no);
 }
