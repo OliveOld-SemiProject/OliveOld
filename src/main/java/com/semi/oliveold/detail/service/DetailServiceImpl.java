@@ -33,6 +33,14 @@ public class DetailServiceImpl implements DetailService{
     }
 
     @Override
+    public List<DetailDTO> findNewProductListByNo(int no) {
+
+        List<DetailDTO> newProductList = mapper.findNewProductListByNo(no);
+
+        return newProductList;
+    }
+
+    @Override
     public DetailDTO selectProduct() {
 
         DetailDTO product = mapper.selectProduct();

@@ -286,6 +286,7 @@
                                                                     <div class="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
                                                                          id="tns1"
                                                                          style="transform: translate3d(-58.3333%, 0px, 0px);">
+<!--                                                                        style="background-image: url(/assets/images/hero/pic2.jpg);"-->
                                                                         <div class="single-slider tns-item tns-slide-cloned"
                                                                              style="background-image: url(/assets/images/hero/pic2.jpg);"
                                                                              aria-hidden="true" tabindex="-1">
@@ -432,6 +433,20 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+<!--                                                                        <div class="single-product">-->
+<!--                                                                            <div class="product-image">-->
+<!--                                                                                <img th:src="${productList[0].productImage1}" alt="#">-->
+<!--                                                                                <div class="button">-->
+<!--                                                                                    <i class="lni lni-cart"> </i> Add to-->
+<!--                                                                                    Cart3-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div class="product-info">-->
+<!--                                                                                <span class="category" th:text="${productList[0].productCategoryName}"></span>-->
+<!--                                                                                <h4 class="title">-->
+<!--                                                                                    <a onclick="location.href='/detail/findlist?no=1'"-->
+<!--                                                                                       th:text="${productList[0].productName}">-->
+<!--                                                                                    </a>-->
                                                                         <div class="single-slider tns-item tns-slide-cloned"
                                                                              style="background-image: url(/assets/images/hero/pic2.jpg);"
                                                                              id="tns1-item5" aria-hidden="true"
@@ -531,7 +546,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>인기 상품관</h2>
+                    <h2>인기 상품</h2>
                     <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                     suffered alteration in some form.</p> -->
                 </div>
@@ -579,266 +594,61 @@
 
 
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <a href="/detail/findlist?no=1" class="btn">
-                    <div class="single-product">
-                        <div class="product-image">
-                            <img th:src="${productList[0].productImage1}" alt="#">
-                            <div class="button">
-                                <i class="lni lni-cart"> </i> Add to
-                                Cart3
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="category" th:text="${productList[0].productCategoryName}"></span>
-                            <h4 class="title">
-                                <a onclick="location.href='/detail/findlist?no=1'"
-                                   th:text="${productList[0].productName}">
-                                </a>
-                                <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
-                            </h4>
-                            <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star"></i></li>
-                                <li><span>4.0 Review(s)</span></li>
-                            </ul>
-                            <div class="price">
-                                <span data-th-text="${#numbers.formatInteger(productList[0].productPrice, 3, 'COMMA') + '원'}"></span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[1].productImage1}" alt="#">
-                        <span class="sale-tag">-25%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[1].productCategoryName}">건강 크림</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=2'" th:text="${productList[1].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[1].productPrice, 3, 'COMMA') + '원'}">115,000원</span>
-                            <!-- <span class="discount-price">$300.00</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[2].productImage1}" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[2].productCategoryName}">건강 크림</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=3'" th:text="${productList[2].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[2].productPrice, 3, 'COMMA') + '원'}">34,000원</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[3].productImage1}" alt="#">
-                        <span class="new-tag">New</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[3].productCategoryName}">건강식품</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=4'" th:text="${productList[3].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[3].productPrice, 3, 'COMMA') + '원'}">55,000원</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[4].productImage1}" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[4].productCategoryName}">스킨 케어</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=5'" th:text="${productList[4].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[4].productPrice, 3, 'COMMA') + '원'}">140,000원</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[5].productImage1}" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[5].productCategoryName}">스킨 케어</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=6'" th:text="${productList[5].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[5].productPrice, 3, 'COMMA') + '원'}">77,000원</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[6].productImage1}" alt="#">
-                        <span class="sale-tag">-50%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[6].productCategoryName}">건강 크림</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=7'" th:text="${productList[6].productName}">
-                            </a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span data-th-text="${#numbers.formatInteger(productList[6].productPrice, 3, 'COMMA') + '원'}">95,000원</span>
-                            <!-- <span class="discount-price">$200.00</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img th:src="${productList[7].productImage1}" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category" th:text="${productList[7].productCategoryName}">건강식품</span>
-                        <h4 class="title">
-                            <a onclick="location.href='/detail/findlist?no=8'" th:text="${productList[7].productName}">
-                            </a>
-                            <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><span>5.0 Review(s)</span></li>
-                            </ul>
-                            <div class="price">
-                                <span data-th-text="${#numbers.formatInteger(productList[7].productPrice, 3, 'COMMA') + '원'}">220,000원</span>
-                            </div>
-                    </div>
-                </div>
+
                 <!-- End Single Product -->
             </div>
         </div>
     </div>
 </section>
+
+<section class="trending-product section" style="margin-top: 12px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>신규 상품</h2>
+                    <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                    suffered alteration in some form.</p> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div th:each="product : ${newProductList}" class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Product -->
+                <div class="single-product">
+                    <div class="product-image">
+                        <img th:src="${product.productImage1}" alt="#">
+                    </div>
+                    <div class="product-info">
+                        <span class="category" th:text="${product.productCategoryName}"></span>
+                        <h4 class="title">
+                            <!--                                <a onclick="location.href='/detail/findlist?no=1'"-->
+                            <!--                                   th:text="${product.productName}">-->
+                            <!--                                </a>-->
+                            <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}"
+                               th:text="${product.productName}">
+                            </a>
+
+                            <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><span>5.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span data-th-text="${#numbers.formatInteger(product.productPrice, 3, 'COMMA') + '원'}"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Product -->
+            </div>
+        </div>
 
 
 <!-- Start Banner Area -->

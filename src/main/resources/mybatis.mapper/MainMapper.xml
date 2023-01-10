@@ -35,20 +35,21 @@
 <!--        FROM SemiDB.PRODUCT-->
 <!--    </select>-->
 
-<!--    <select id="selectProductList" resultMap="DetailResultMap">-->
-<!--        SELECT-->
-<!--        PRODUCT_NO-->
-<!--        , PRODUCT_NAME-->
-<!--        , PRODUCT_PRICE-->
-<!--        , PRODUCT_QUAN-->
-<!--        , PRODUCT_DATE-->
-<!--        , PRODUCT_STATUS-->
-<!--        , PRODUCT_IMAGE1-->
-<!--        , PRODUCT_IMAGE2-->
-<!--        , CATEGORY_CODE-->
-<!--        , CATEGORY_NAME-->
-<!--        FROM SemiDB.PRODUCT-->
-<!--    </select>-->
+    <select id="selectNewProductList" resultMap="DetailResultMap">
+        SELECT
+        PRODUCT_NO
+        , PRODUCT_NAME
+        , PRODUCT_PRICE
+        , PRODUCT_QUAN
+        , PRODUCT_DATE
+        , PRODUCT_STATUS
+        , PRODUCT_IMAGE1
+        , PRODUCT_IMAGE2
+        , CATEGORY_CODE
+        , CATEGORY_NAME
+        FROM SemiDB.PRODUCT
+        WHERE PRODUCT_NO In(3, 8, 14, 19, 25, 38, 41, 46)
+    </select>
 
     <select id="selectProductList" resultMap="DetailResultMap">
         SELECT
@@ -63,7 +64,7 @@
         , CATEGORY_CODE
         , CATEGORY_NAME
         FROM SemiDB.PRODUCT
-        WHERE PRODUCT_NO In(2, 5, 12, 17, 27, 33, 38, 42)
+        WHERE PRODUCT_NO In(2, 5, 12, 17, 27, 33, 36, 41)
     </select>
 
     <!--  selectProduct  -->

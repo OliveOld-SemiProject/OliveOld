@@ -23,15 +23,15 @@ public class MainController {
 
 
 //    @GetMapping
-//    public ModelAndView productList(HttpServletRequest request, ModelAndView mv){
+//    public ModelAndView newProductList(HttpServletRequest request, ModelAndView mv){
 //
-//        List<DetailDTO> productList = mainService.selectProductList();
+//        List<DetailDTO> newProductList = mainService.selectNewProductList();
 //
-//        log.info("[MainController] productList : " + productList);
+//        log.info("[MainController] newProductList : " + newProductList);
 //
 ////        mv.addObject("productList", productList.get(0));
 //
-//        mv.addObject("productList", productList);
+//        mv.addObject("newProductList", newProductList);
 //
 //
 //        mv.setViewName("/index");
@@ -45,12 +45,15 @@ public class MainController {
     public ModelAndView productList(HttpServletRequest request, ModelAndView mv){
 
         List<DetailDTO> productList = mainService.selectProductList();
+        List<DetailDTO> newProductList = mainService.selectNewProductList();
 
         log.info("[MainController] productList : " + productList);
+        log.info("[MainController] newProductList : " + newProductList);
 
 //        mv.addObject("productList", productList.get(0));
 
         mv.addObject("productList", productList);
+        mv.addObject("newProductList", newProductList);
 
 
         mv.setViewName("/index");
