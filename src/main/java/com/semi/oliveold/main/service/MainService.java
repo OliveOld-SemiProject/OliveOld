@@ -18,10 +18,19 @@ public class MainService {
     }
 
 
+    public List<DetailDTO> selectNewProductList() {
+
+        List<DetailDTO> newProductList = mapper.selectNewProductList();
+
+        return newProductList;
+    }
+
     public List<DetailDTO> selectProductList() {
 
         List<DetailDTO> productList = mapper.selectProductList();
 
         return productList;
     }
+
+
 }
