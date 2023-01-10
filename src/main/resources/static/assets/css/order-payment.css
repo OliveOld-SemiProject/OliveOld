@@ -1,7 +1,6 @@
-/*# sourceURL=https://static.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=20221208001 */
-/*@ sourceURL=https://static.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=20221208001 */
+/*# sourceURL=https://static.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=20230103001 */
+/*@ sourceURL=https://static.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=20230103001 */
 @charset "UTF-8";
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
 @font-face {
     font-family: Montserrat;
@@ -15147,7 +15146,7 @@ td.nodata {
 
 .search-period .select_con li.on button {
     border: 1px solid #555;
-    background: #560050;
+    background: #555;
     color: #fff
 }
 
@@ -15186,16 +15185,11 @@ td.nodata {
     right: 0;
     width: 85px;
     height: 100%;
-    background: #37003E;
+    background: #9bce26;
     border-radius: 0 5px 5px 0;
     color: #fff;
     font-size: 12px;
     line-height: 22px
-}
-.search-period button.active{
-    background-color: #37003E;
-    color: white;
-
 }
 
 .search-period.mgT30 {
@@ -16399,12 +16393,11 @@ td.nodata {
 }
 
 .mypage-conts {
-    float: center;
-    width: 1200px;
-    min-height: 840px;
+    float: left;
+    width: 850px;
+    min-height: 640px;
     padding: 0 29px 40px;
-    background: #fff;
-    margin: 0 auto;
+    background: #fff
 }
 
 .mypage-conts .board-write-2s {
@@ -19252,7 +19245,7 @@ td.nodata {
     position: relative;
     margin: 10px 0 0;
     min-height: 60px;
-    padding: 14px 20px;
+    padding: 15px 20px;
     border: 1px solid #e9e9e9;
     background: #f9f9f9
 }
@@ -19283,15 +19276,21 @@ td.nodata {
     margin: -2px 0 0 3px !important
 }
 
+.prd_cnt_box .tit_area .option_cnt_box {
+    margin-top: 5px
+}
+
 .prd_cnt_box .cont_area {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     right: 22px;
     max-width: 50%
 }
 
-.prd_cnt_box .case_cnt_box~.cont_area {
-    top: 46px
+.prd_cnt_box .case_cnt_box~.cont_area,
+.prd_cnt_box .rsvd_delivery_info~.cont_area {
+    top: 56px;
+    bottom: auto
 }
 
 .prd_cnt_box .cont_area .option_price {
@@ -19321,7 +19320,6 @@ td.nodata {
 .prd_cnt_box .option_cnt_box {
     display: block;
     max-width: 121px;
-    margin-top: 5px;
     border: 1px solid #ddd;
     overflow: hidden
 }
@@ -19355,12 +19353,8 @@ td.nodata {
     border-left: 1px solid #ddd
 }
 
-.prd_cnt_box .cont_area .option_cnt_box {
-    margin-bottom: -6px
-}
-
 .prd_option_box~.option_add_area .prd_cnt_box {
-    padding: 10px 20px 19px
+    padding: 10px 20px 15px
 }
 
 .option_add_area.pkg_goods_n .prd_cnt_box+.prd_cnt_box {
@@ -19376,28 +19370,26 @@ td.nodata {
     border-top: 1px solid #e9e9e9
 }
 
-.option_add_area .case_cnt_box,
-.prd_cnt_box .case_cnt_box {
-    padding: 6px 24px
+.option_add_area .case_cnt_box {
+    padding: 6px 20px
 }
 
 .option_add_area .case_cnt_box p,
 .prd_cnt_box .case_cnt_box p {
-    padding-left: 7px;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_2x2.gif") 0 center no-repeat;
     font-size: 12px;
-    line-height: 22px;
-    color: #888
+    line-height: 18px;
+    color: #757d86
 }
 
 .option_add_area .case_cnt_box strong,
 .prd_cnt_box .case_cnt_box p strong {
-    color: #9bce26
+    font-weight: 400;
+    color: #131518
 }
 
 .prd_cnt_box .case_cnt_box {
     padding: 0;
-    margin: 10px 0 -10px
+    margin-top: 10px
 }
 
 .prd_cnt_box.disabled input[type=text] {
@@ -23300,6 +23292,42 @@ td.nodata {
     text-decoration: line-through
 }
 
+.layer_pop_wrap.renew {
+    border-radius: 4px
+}
+
+.layer_pop_wrap.renew .layer_cont2 {
+    padding: 0
+}
+
+.layer_pop_wrap.renew .layer_title2 {
+    padding: 27px 30px 19px;
+    border: 0;
+    font-size: 18px;
+    line-height: 27px;
+    color: #131518
+}
+
+.layer_pop_wrap.renew .layer_close.type2 {
+    top: 25px;
+    width: 24px;
+    height: 24px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_close24x24_black.png") 0 0/100% auto no-repeat
+}
+
+.layer_pop_wrap.renew .layer_btn_area {
+    padding-bottom: 40px
+}
+
+.layer_pop_wrap.renew .layer_btn_area .fullGreen {
+    width: 240px;
+    height: 42px;
+    padding: 11px 0 10px;
+    border-radius: 4px;
+    background: #9ac75b;
+    line-height: 21px
+}
+
 .layer_cont.cjGiftcard {
     padding: 95px 0 0;
     background: url("https://static.oliveyoung.co.kr/pc-static-root/image/project/giftcard_bg.png") no-repeat
@@ -23485,6 +23513,134 @@ td.nodata {
     height: 25px;
     background-color: #989898;
     content: ""
+}
+
+.coupon_wrap {
+    width: 500px;
+    padding: 19px 52px 0;
+    font-family: NotoSansCJKkr
+}
+
+.coupon_wrap .coupon_item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 198px;
+    padding: 22px 83px 20px 22px;
+    border: 1px solid #d8d8d8;
+    border-right: 0
+}
+
+.coupon_wrap .coupon_item::after,
+.coupon_wrap .coupon_item::before {
+    position: absolute;
+    right: 77px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    transform: rotate(45deg);
+    content: ""
+}
+
+.coupon_wrap .coupon_item::before {
+    top: -6px;
+    border-width: 0 1px 1px 0
+}
+
+.coupon_wrap .coupon_item::after {
+    bottom: -6px;
+    border-width: 1px 0 0 1px
+}
+
+.coupon_wrap .coupon_item .btn_cpdw {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: 0 0
+}
+
+.coupon_wrap .coupon_item_cont {
+    flex: 1 1 100%;
+    width: 100%;
+    padding-right: 22px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/coupon/bg_coupon_line_dash.png") right -2px/1px auto repeat-y
+}
+
+.coupon_wrap .coupon_item_cont::before {
+    position: absolute;
+    right: 29px;
+    bottom: 21px;
+    width: 28px;
+    height: 28px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/coupon/ico_coupon_down_gray50.png") 0 0/28px auto no-repeat;
+    content: ""
+}
+
+.coupon_wrap .coupon_item_cont::after {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/coupon/bg_coupon_tail.png") 0 center/100% auto repeat-y;
+    content: ""
+}
+
+.coupon_wrap .coupon_title {
+    display: block;
+    overflow: hidden;
+    min-height: 27px;
+    color: #131518;
+    font-size: 18px;
+    line-height: 22px
+}
+
+.coupon_wrap .coupon_dsc {
+    display: flex;
+    align-items: flex-end;
+    height: 84px;
+    padding-bottom: 6px
+}
+
+.coupon_wrap .coupon_dsc .value {
+    flex: 0 0 auto;
+    color: #131518;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 78px
+}
+
+.coupon_wrap .coupon_dsc .value.num {
+    font-size: 60px
+}
+
+.coupon_wrap .coupon_dsc .unit {
+    flex: 0 0 auto;
+    padding-bottom: 10px;
+    color: #131518;
+    font-size: 30px;
+    line-height: 40px
+}
+
+.coupon_wrap .coupon_notice .txt {
+    min-height: 20px;
+    color: #757d86;
+    font-size: 15px;
+    line-height: 20px
+}
+
+.coupon_wrap .coupon_notice .txt .flag {
+    display: inline-block;
+    height: 20px;
+    margin: 0 3px 0 0;
+    padding: 0;
+    color: #131518;
+    font-size: 16px;
+    font-weight: 700
 }
 
 .layer_pop_wrap .coupon_info_box {
@@ -45838,6 +45994,10 @@ input#giftBoxYn_temp+label {
     padding: 0
 }
 
+.layer_todelivery .layer_cont.layer_scroll_box {
+    max-height: 629px
+}
+
 .layer_todelivery .layer_title {
     padding: 25px 30px 20px;
     border-bottom: 1px solid #f0f1f4;
@@ -50360,8 +50520,8 @@ span.gc-sub-title {
 }
 
 .prd_coupon {
-    margin-top: 10px;
-    border: 1px solid #9bce26;
+    margin-top: 15px;
+    border: 1px solid #c9cdd2;
     border-radius: 5px;
     height: 48px;
     line-height: 48px;
@@ -50393,8 +50553,8 @@ span.gc-sub-title {
 
 .prd_coupon p a {
     display: block;
-    font-size: 16px;
-    color: #333;
+    font-size: 14px;
+    color: #3a3e45;
     letter-spacing: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -50407,34 +50567,45 @@ span.gc-sub-title {
 
 .prd_coupon .btn_coupon {
     width: 125px;
-    padding-right: 0;
+    padding-right: 18px;
     height: 100%;
-    color: #fff;
-    background: #9bce26
+    color: #3a3e45;
+    font-weight: 700;
+    text-align: right;
+    background: #fff
 }
 
 .prd_coupon .btn_coupon span {
     width: auto;
-    padding-right: 24px;
-    font-size: 16px;
+    padding-right: 28px;
+    font-size: 14px;
     line-height: 46px;
-    color: #fff;
-    font-weight: 400;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_download.png") right 1px/19px auto no-repeat;
+    font-weight: 700;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/coupon/ico_coupon_down_black.png") right 0/18px auto no-repeat;
     letter-spacing: 0
 }
 
 .prd_coupon.disabled {
-    border-color: #888
+    background: #f0f1f4;
+    border-color: #f0f1f4;
+    color: #99a1a8
+}
+
+.prd_coupon.disabled p a {
+    color: #99a1a8
 }
 
 .prd_coupon.disabled .btn_coupon {
-    background: #888
+    background: #f0f1f4;
+    color: #99a1a8
 }
 
 .prd_coupon.disabled .btn_coupon span {
-    padding-right: 0;
-    background: 0 0
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/coupon/ico_coupon_down_gray50.png") right 0/18px auto no-repeat
+}
+
+.prd_coupon+.prd_coupon {
+    margin-top: 10px
 }
 
 .prd_detail_box.renew .prd_flag+.prd_coupon,
@@ -50750,16 +50921,17 @@ span.gc-sub-title {
     margin-top: 40px;
     display: -webkit-flex;
     display: flex;
-    padding: 28px 30px;
-    background: #f5f5f5;
+    padding: 28px 30px 25px;
+    background: #f6f7f9;
     border-radius: 5px
 }
 
 .prd_free_gift .tit {
-    margin-right: 20px;
+    margin-right: 25px;
     font-size: 16px;
     font-weight: 700;
-    color: #000
+    color: #000;
+    letter-spacing: .2px
 }
 
 .prd_free_gift .free_gift {
@@ -50781,12 +50953,24 @@ span.gc-sub-title {
     white-space: nowrap
 }
 
+.prd_free_gift .free_gift .notice_exception {
+    display: block;
+    color: #99a1a8;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: .2px
+}
+
+.prd_free_gift .free_gift .notice_exception:not(:first-child) {
+    margin-top: 5px
+}
+
 .prd_free_gift .btn_more {
-    padding-right: 15px;
+    padding-right: 19px;
     font-size: 16px;
     font-weight: 700;
-    color: #000;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/ico_gift_more.png") right 5px/5px auto no-repeat
+    color: #b2b8be;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/ico_gift_more.png") right 2px/14px auto no-repeat
 }
 
 .prd_free_gift .txt {
@@ -59391,6 +59575,365 @@ ul.coupon-tabs.line-e5e5e5>li.on a {
     width: 186px
 }
 
+#payMethod_div.title_wrap button.sub_area.benefit-opener {
+    top: 7px;
+    padding-right: 14px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #131518;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-forward-12@2x_131518.png") 100% 50%/12px auto no-repeat
+}
+
+#payMethodList.paymethod-list-v2>li {
+    margin-top: 10px
+}
+
+#payMethodList.paymethod-list-v2>li::after {
+    content: none
+}
+
+#payMethodList.paymethod-list-v2>li:first-child {
+    margin-top: 0
+}
+
+#payMethodList.paymethod-list-v2>li.bg_area {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 15px 10px;
+    border-bottom: none;
+    background-color: transparent
+}
+
+#payMethodList.paymethod-list-v2>li.benefit-slide-banner {
+    position: relative;
+    padding: 0 15px;
+    margin-top: 20px;
+    border: none
+}
+
+#payMethodList.paymethod-list-v2>li>span {
+    width: calc(25% - 7.5px);
+    height: 50px;
+    padding: 0;
+    margin: 10px 0 0 10px;
+    font-size: 13px;
+    line-height: 50px;
+    text-align: center;
+    color: #757d86
+}
+
+#payMethodList.paymethod-list-v2>li>span:nth-child(4n+2) {
+    margin-left: 0
+}
+
+#payMethodList.paymethod-list-v2>li>span:first-child {
+    float: none;
+    width: 100%;
+    margin: 0
+}
+
+#payMethodList.paymethod-list-v2>li>span label {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 50px
+}
+
+#payMethodList.paymethod-list-v2>li>span [type=radio]:checked,
+#payMethodList.paymethod-list-v2>li>span [type=radio]:not(:checked) {
+    position: absolute;
+    left: -9999px
+}
+
+#payMethodList.paymethod-list-v2>li>span [type=radio]+label:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 2px);
+    border: 1px solid #dadde0;
+    border-radius: 2px
+}
+
+#payMethodList.paymethod-list-v2>li>span [type=radio]:checked+label {
+    font-weight: 700;
+    color: #131518
+}
+
+#payMethodList.paymethod-list-v2>li>span [type=radio]:checked+label:after {
+    border-color: #1b1d1f
+}
+
+#payMethodList.paymethod-list-v2>li>span .logo {
+    padding: 1px 8px;
+    margin-right: 3px;
+    border-radius: 9px
+}
+
+#payMethodList.paymethod-list-v2>li>span .logo img {
+    max-width: 26px;
+    vertical-align: baseline
+}
+
+#payMethodList.paymethod-list-v2>li>span.kakao .logo {
+    background-color: #ffeb04
+}
+
+#payMethodList.paymethod-list-v2>li>span label span.flag.bn {
+    position: absolute;
+    left: 11px;
+    top: -9px;
+    width: 30px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    border-radius: 9px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    color: #fff;
+    background-image: none;
+    background-color: #131518;
+    z-index: 10
+}
+
+#payMethodList.paymethod-list-v2>li>span:first-child label span.flag.bn {
+    top: -6px
+}
+
+#payMethodList.paymethod-list-v2>li>span.on {
+    border-color: #1b1d1f;
+    background-color: transparent;
+    background-image: none
+}
+
+#payMethodList.paymethod-list-v2>li .other_kakao_box {
+    padding-bottom: 0;
+    border: none
+}
+
+#payMethodList.paymethod-list-v2>li>span.on label span.flag.bn {
+    font-weight: 400
+}
+
+#payMethodList.paymethod-list-v2>li .other_cash_box {
+    border-bottom: none
+}
+
+#payMethodList.paymethod-list-v2>li .cash_inquiry_area+.info_dot_list_area,
+#payMethodList.paymethod-list-v2>li .other_cash_box>.info_dot_list_area {
+    padding-bottom: 0
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper {
+    padding: 0 45px;
+    font-size: 13px;
+    line-height: 1.27
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide {
+    margin: 0 8px 0 7px
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide div.inner {
+    padding: 15px 120px 13px;
+    border-radius: 4px;
+    background-color: #f0f1f4
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide .logo {
+    height: 15px
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide .logo img {
+    max-width: 50px
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.55
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p.desc {
+    margin-top: 6px;
+    color: #131518
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p.scope {
+    color: #757d86
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -14px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 14px auto
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow.slick-prev {
+    left: 0;
+    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-left-14@2x.png")
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow.slick-next {
+    right: 0;
+    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-right-14@2x.png")
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 9px
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots li {
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    background-color: #d8d8d8
+}
+
+#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots li.slick-active {
+    background-color: #000
+}
+
+.total_price_info .sum_price.free-size-type {
+    height: auto;
+    padding-bottom: 20px
+}
+
+.total_price_info .sum_price.free-size-type .button-group .benefit-opener {
+    padding-right: 14px;
+    margin-right: -3px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #fe2a28;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-forward-12@2x_ff5753.png") 100% 50%/12px auto no-repeat
+}
+
+.layer_pop_wrap.benefit-popup {
+    width: 400px;
+    height: 550px;
+    background-color: #fff
+}
+
+.layer_pop_wrap.benefit-popup .layer_title {
+    border-color: #000;
+    font-weight: 600;
+    font-size: 24px;
+    color: #131518
+}
+
+.layer_pop_wrap.benefit-popup .layer_title .layer_close {
+    width: 32px;
+    height: 32px;
+    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_close32x32_black.png");
+    background-size: 32px auto
+}
+
+.layer_pop_wrap.benefit-popup .popCont {
+    padding: 15px 0
+}
+
+.layer_pop_wrap.benefit-popup .popCont .mCustomScrollbar {
+    height: 440px
+}
+
+.layer_pop_wrap.benefit-popup .title-group {
+    padding: 11px 0 10px
+}
+
+.layer_pop_wrap.benefit-popup .title-group h2 {
+    font-size: 16px;
+    color: #131518
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li {
+    margin-top: 20px
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li:first-child {
+    margin-top: 0
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner {
+    display: flex
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner.only {
+    align-items: center
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .thumbnail {
+    width: 90px
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .thumbnail img {
+    width: 100%
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info {
+    flex: 1;
+    margin-left: 15px;
+    font-size: 13px;
+    color: #131518;
+    overflow: hidden
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info p,
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.maximum {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.date,
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.maximum {
+    display: block;
+    letter-spacing: 0
+}
+
+.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.date {
+    margin-top: 4px;
+    color: #757d86
+}
+
+.layer_pop_wrap.benefit-popup .button-group {
+    text-align: center
+}
+
+.layer_pop_wrap.benefit-popup .button-group .benefit-more {
+    position: relative;
+    font-size: 14px;
+    color: #131518;
+    background-color: transparent
+}
+
+.layer_pop_wrap.benefit-popup .button-group .benefit-more::after {
+    content: "";
+    position: absolute;
+    right: -19px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-down-14-000.svg") no-repeat
+}
+
+.layer_pop_wrap.benefit-popup .button-group .benefit-more.open::after {
+    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-up-14-000.svg")
+}
+
 .prd_detail_box.renew .prd_btn_area.new-style {
     display: flex;
     justify-content: space-between
@@ -60071,991 +60614,6 @@ ul.coupon-tabs.line-e5e5e5>li.on a {
     margin: 15px 0 0
 }
 
-input[type=checkbox].check-style {
-    background-repeat: no-repeat;
-    background-position: 0 0
-}
-
-input[type=checkbox].check-style.type1 {
-    width: 22px;
-    height: 22px;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-checkbox-22@2x.png");
-    background-size: 22px auto
-}
-
-input[type=checkbox].check-style.type1:checked {
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-checkbox-22@2x_black_checked.png") 0 0/22px auto no-repeat
-}
-
-input[type=checkbox].check-style.type1:disabled {
-    background-color: #f6f6f6 !important
-}
-
-input[type=checkbox].check-style.type1:checked:disabled {
-    background-color: transparent !important;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-checkbox-22@2x_checked_disabled.png")
-}
-
-input[type=radio].check-style {
-    margin: 0;
-    background-repeat: no-repeat;
-    background-position: 0 0
-}
-
-input[type=radio].check-style.type1 {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #c9cdd2 !important;
-    border-radius: 50%;
-    background-image: none;
-    background-size: 100% auto
-}
-
-input[type=radio].check-style.type1:checked {
-    border: none !important;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-radio-20x20-131518-checked.svg") no-repeat
-}
-
-input[type=radio].check-style.type1:disabled {
-    border: none !important;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-radio-20x20-dadde0-disable.svg") no-repeat
-}
-
-.order_payment_box .left_area.quickpay .sub-title2 {
-    width: auto
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input[type=number],
-.order_payment_box .left_area.quickpay .paymethod-list input[type=tel],
-.order_payment_box .left_area.quickpay .paymethod-list input[type=text],
-.order_payment_box .left_area.quickpay .paymethod-list select {
-    height: 42px;
-    border-color: #dadde0;
-    border-radius: 6px;
-    color: #99a1a8;
-    background-repeat: no-repeat
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list select {
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-line-arrow-down-20x20-757d86.svg");
-    background-position: right 15px top 50%
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input[type=number]:focus-visible,
-.order_payment_box .left_area.quickpay .paymethod-list input[type=tel]:focus-visible,
-.order_payment_box .left_area.quickpay .paymethod-list input[type=text]:focus-visible,
-.order_payment_box .left_area.quickpay .paymethod-list select:focus-visible {
-    border-color: #1b1d1f;
-    color: #131518
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list option:not(:checked) {
-    color: #99a1a8
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input.fill,
-.order_payment_box .left_area.quickpay .paymethod-list select.fill {
-    border-color: #1b1d1f;
-    color: #131518
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input::placeholder {
-    color: #99a1a8;
-    opacity: 1
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input:-ms-input-placeholder {
-    color: #99a1a8
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list input::-ms-input-placeholder {
-    color: #99a1a8
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list {
-    border-top: 2px solid #888;
-    border-bottom: 1px solid #e5e5e5
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li {
-    padding: 16px 0 15px;
-    border-top: 1px solid #f0f1f4
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li:first-child {
-    border: none
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector {
-    padding: 12px 15px
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .inner {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-left: 30px
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .inner input[type=radio] {
-    position: absolute;
-    left: 0;
-    top: 0
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .inner label {
-    font-weight: 700;
-    color: #131518
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .inner .button-set {
-    width: 14px;
-    height: 14px;
-    margin-left: 5px;
-    text-indent: -9999px;
-    font-size: 0;
-    line-height: 0;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/ico-info-circle-14x14-99a1a8.svg") no-repeat
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .benefit {
-    display: inline-block;
-    margin-left: 5px;
-    font-size: 12px;
-    line-height: 14px;
-    color: #757d86
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li .selector .benefit .point {
-    color: #f81542
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet {
-    display: none;
-    padding: 30px 0 0
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .wallet-swiper-banner {
-    padding: 0 60px
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-wrapper {
-    display: flex
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide {
-    flex-shrink: 0;
-    width: 257px;
-    margin: 0 15px;
-    font-size: 14px;
-    line-height: normal
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 160px;
-    border: 1px solid #dadde0;
-    border-radius: 6px;
-    z-index: 10
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .inner .add {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #dadde0;
-    border-radius: 50%;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-add-18x18-50585f.svg") 50% 50% no-repeat
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .inner .guide {
-    margin-top: 15px;
-    font-size: 13px;
-    line-height: 18px;
-    text-align: center;
-    color: #50585f
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use {
-    color: #fff
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner {
-    justify-content: flex-end;
-    align-items: flex-start;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 15px;
-    border: none;
-    box-shadow: 5px 8px 15px 1px rgba(0, 0, 0, .19)
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner .card-image {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner .details {
-    position: relative;
-    width: 100%;
-    z-index: 10
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner .details strong {
-    display: block;
-    font-weight: 400
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner .details .card-number {
-    margin-top: 5px
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide.use .inner .details select {
-    width: 100%;
-    height: 34px;
-    margin-top: 12px
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .use-point {
-    text-align: center
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .use-point input[type=checkbox] {
-    margin-right: 5px
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .swiper-slide .use-point label {
-    color: #131518
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .quickpay-note {
-    padding: 20px 15px;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 16px;
-    color: #757d86;
-    background-color: #f6f7f9
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .quickpay-note>ul>li {
-    margin-top: 6px;
-    padding-left: 8px;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_2x2.gif") 0 8px/2px 2px no-repeat
-}
-
-.order_payment_box .left_area.quickpay .user-card-wallet .quickpay-note>ul>li:first-child {
-    margin-top: 0
-}
-
-.order_payment_box .left_area.quickpay .details {
-    display: none
-}
-
-#payMethodList.paymethod-list-v2>li,
-.order_payment_box .left_area.quickpay .payment_info_form {
-    border-top: none
-}
-
-#payMethodList.paymethod-list-v2>li::after {
-    content: none
-}
-
-#payMethodList.paymethod-list-v2>li.bg_area {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 10px;
-    padding: 20px 15px 0;
-    border-bottom: none;
-    background-color: transparent
-}
-
-#payMethodList.paymethod-list-v2>li>span {
-    width: auto;
-    height: 50px;
-    padding: 0;
-    margin: 10px 0 0;
-    font-size: 13px;
-    line-height: 50px;
-    text-align: center;
-    color: #757d86
-}
-
-#payMethodList.paymethod-list-v2>li>span label {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    line-height: 50px
-}
-
-#payMethodList.paymethod-list-v2>li>span [type=radio]:checked,
-#payMethodList.paymethod-list-v2>li>span [type=radio]:not(:checked) {
-    position: absolute;
-    left: -9999px
-}
-
-#payMethodList.paymethod-list-v2>li>span [type=radio]+label {
-    border: 1px solid #dadde0;
-    border-radius: 4px;
-    background-color: #fff
-}
-
-#payMethodList.paymethod-list-v2>li>span [type=radio]:checked+label {
-    border-color: #9ac75b;
-    color: #fff;
-    background-color: #9ac75b
-}
-
-#payMethodList.paymethod-list-v2>li>span .logo {
-    padding: 1px 8px;
-    margin-right: 3px;
-    border-radius: 9px
-}
-
-#payMethodList.paymethod-list-v2>li>span .logo img {
-    max-width: 26px;
-    vertical-align: baseline
-}
-
-#payMethodList.paymethod-list-v2>li>span.kakao .logo {
-    background-color: #ffeb04
-}
-
-#payMethodList.paymethod-list-v2>li>span label span.flag.bn {
-    position: absolute;
-    left: 11px;
-    top: -9px;
-    width: 30px;
-    height: 16px;
-    padding: 0;
-    margin: 0;
-    border-radius: 9px;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-    color: #fff;
-    background-image: none;
-    background-color: #131518;
-    z-index: 10
-}
-
-#payMethodList.paymethod-list-v2>li>span:first-child label span.flag.bn {
-    top: -6px
-}
-
-#payMethodList.paymethod-list-v2>li>span.on {
-    border-color: #1b1d1f;
-    background-color: transparent;
-    background-image: none
-}
-
-#payMethodList.paymethod-list-v2>li>span.on label span.flag.bn {
-    font-weight: 400
-}
-
-#payMethodList.paymethod-list-v2>li.method-box {
-    display: none;
-    padding: 0 15px;
-    margin-top: 30px
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.inner {
-    padding: 20px;
-    border-radius: 4px;
-    background-color: #f6f7f9
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.info_dot_list_area>ul li {
-    margin-top: 6px;
-    line-height: 16px;
-    color: #757d86;
-    background-position-y: 8px
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.info_dot_list_area>ul li:first-child {
-    margin-top: 0
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.divider-box {
-    display: flex;
-    justify-content: space-between
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.divider-box.double .item {
-    width: calc(50% - 5px)
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.rounding-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 42px;
-    padding: 0 15px;
-    border: 1px solid #dadde0;
-    border-radius: 6px;
-    color: #99a1a8;
-    background-color: #fff
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.rounding-box button {
-    position: relative;
-    font-weight: 700;
-    font-size: 14px;
-    color: #9ac75b;
-    background-color: transparent
-}
-
-#payMethodList.paymethod-list-v2>li.method-box div.rounding-box button::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #9ac75b
-}
-
-#payMethodList.paymethod-list-v2>li.method-box p.note {
-    color: #131518
-}
-
-#payMethodList.paymethod-list-v2>li.method-box p.note .point {
-    color: #f81542
-}
-
-.order_payment_box .left_area.quickpay .paymethod-list>li.on .details,
-.order_payment_box .left_area.quickpay .paymethod-list>li.on .user-card-wallet {
-    display: block
-}
-
-.benefit-slide-banner {
-    padding: 0 75px 15px;
-    margin-top: 20px;
-    font-size: 13px;
-    line-height: 1.27
-}
-
-.benefit-slide-banner .slick-slide {
-    margin: 0 8px 0 7px
-}
-
-.benefit-slide-banner .slick-slide div.inner {
-    padding: 15px 120px 13px;
-    border-radius: 4px;
-    background-color: rgba(154, 199, 91, .1)
-}
-
-.benefit-slide-banner .slick-slide .logo {
-    height: 15px
-}
-
-.benefit-slide-banner .slick-slide .logo img {
-    max-width: 50px
-}
-
-.benefit-slide-banner .slick-slide p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 1.55
-}
-
-.benefit-slide-banner .slick-slide p.desc {
-    margin-top: 6px;
-    color: #131518
-}
-
-.benefit-slide-banner .slick-slide p.scope {
-    color: #757d86
-}
-
-.left_area.quickpay .slick-arrow {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background-position-y: 0
-}
-
-.left_area.quickpay .slick-arrow.slick-prev {
-    left: 0;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-line-arrow-left-14x14-131518.svg");
-    background-position-x: 0
-}
-
-.left_area.quickpay .slick-arrow.slick-next {
-    right: 0;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-line-arrow-right-14x14-131518.svg");
-    background-position-x: 100%
-}
-
-.left_area.quickpay .wallet-swiper-banner .slick-arrow {
-    top: 72px
-}
-
-.left_area.quickpay .benefit-slide-banner .slick-arrow {
-    top: 40px
-}
-
-.left_area.quickpay ul.slick-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 9px
-}
-
-.left_area.quickpay ul.slick-dots li {
-    width: 6px;
-    height: 6px;
-    margin: 0 4px;
-    border-radius: 50%;
-    text-indent: -9999px;
-    background-color: #d8d8d8
-}
-
-.left_area.quickpay ul.slick-dots li.slick-active {
-    background-color: #000
-}
-
-#cashReceipt div.inner {
-    padding: 16px 15px 30px;
-    border-top: 2px solid #888;
-    border-bottom: 1px solid #e5e5e5
-}
-
-#cashReceipt div.inner ul {
-    display: flex;
-    padding: 12px 0
-}
-
-#cashReceipt div.inner ul li {
-    margin-left: 154px
-}
-
-#cashReceipt div.inner ul li:first-child {
-    margin-left: 0
-}
-
-#cashReceipt div.inner ul li label {
-    margin-left: 8px;
-    color: #131518
-}
-
-#cashReceipt div.inner div.agency {
-    display: flex;
-    justify-content: space-between
-}
-
-#cashReceipt div.inner div.agency select {
-    width: 190px
-}
-
-#cashReceipt div.inner div.agency input {
-    flex: 1;
-    margin-left: 10px
-}
-
-#cashReceipt div.inner div.agency input::placeholder {
-    color: #99a1a8
-}
-
-#payMethod_div.title_wrap button.sub_area.benefit-opener {
-    top: 7px;
-    padding-right: 14px;
-    font-weight: 400;
-    font-size: 13px;
-    color: #131518;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-forward-12@2x_131518.png") 100% 50%/12px auto no-repeat
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper {
-    padding: 0 45px;
-    font-size: 13px;
-    line-height: 1.27
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide {
-    margin: 0 8px 0 7px
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide div.inner {
-    padding: 15px 120px 13px;
-    border-radius: 4px;
-    background-color: #f0f1f4
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide .logo {
-    height: 15px
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide .logo img {
-    max-width: 50px
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 1.55
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p.desc {
-    margin-top: 6px;
-    color: #131518
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-slide p.scope {
-    color: #757d86
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow {
-    position: absolute;
-    top: 50%;
-    width: 14px;
-    height: 14px;
-    margin-top: -14px;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 14px auto
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow.slick-prev {
-    left: 0;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-left-14@2x.png")
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper .slick-arrow.slick-next {
-    right: 0;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-right-14@2x.png")
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 9px
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots li {
-    width: 6px;
-    height: 6px;
-    margin: 0 4px;
-    border-radius: 50%;
-    text-indent: -9999px;
-    background-color: #d8d8d8
-}
-
-#payMethodList .benefit-slide-banner .benefit-swiper ul.slick-dots li.slick-active {
-    background-color: #000
-}
-
-.total_price_info .sum_price.free-size-type {
-    height: auto;
-    padding-bottom: 20px
-}
-
-.total_price_info .sum_price.free-size-type .button-group .benefit-opener {
-    padding-right: 14px;
-    margin-right: -3px;
-    font-weight: 400;
-    font-size: 13px;
-    color: #fe2a28;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-arrow-forward-12@2x_ff5753.png") 100% 50%/12px auto no-repeat
-}
-
-.layer_pop_wrap.benefit-popup {
-    width: 400px;
-    height: 550px;
-    background-color: #fff
-}
-
-.layer_pop_wrap.benefit-popup .layer_title {
-    border-color: #000;
-    font-weight: 600;
-    font-size: 24px;
-    color: #131518
-}
-
-.layer_pop_wrap.benefit-popup .layer_title .layer_close {
-    width: 32px;
-    height: 32px;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_close32x32_black.png");
-    background-size: 32px auto
-}
-
-.layer_pop_wrap.benefit-popup .popCont {
-    padding: 15px 0
-}
-
-.layer_pop_wrap.benefit-popup .popCont .mCustomScrollbar {
-    height: 440px
-}
-
-.layer_pop_wrap.benefit-popup .title-group {
-    padding: 11px 0 10px
-}
-
-.layer_pop_wrap.benefit-popup .title-group h2 {
-    font-size: 16px;
-    color: #131518
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li {
-    margin-top: 20px
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li:first-child {
-    margin-top: 0
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner {
-    display: flex
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner.only {
-    align-items: center
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .thumbnail {
-    width: 90px
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .thumbnail img {
-    width: 100%
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info {
-    flex: 1;
-    margin-left: 15px;
-    font-size: 13px;
-    color: #131518;
-    overflow: hidden
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info p,
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.maximum {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.date,
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.maximum {
-    display: block;
-    letter-spacing: 0
-}
-
-.layer_pop_wrap.benefit-popup .benefit-list>li .inner .info span.date {
-    margin-top: 4px;
-    color: #757d86
-}
-
-.layer_pop_wrap.benefit-popup .button-group {
-    text-align: center
-}
-
-.layer_pop_wrap.benefit-popup .button-group .benefit-more {
-    position: relative;
-    font-size: 14px;
-    color: #131518;
-    background-color: transparent
-}
-
-.layer_pop_wrap.benefit-popup .button-group .benefit-more::after {
-    content: "";
-    position: absolute;
-    right: -19px;
-    top: 50%;
-    width: 14px;
-    height: 14px;
-    margin-top: -7px;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-down-14-000.svg") no-repeat
-}
-
-.layer_pop_wrap.benefit-popup .button-group .benefit-more.open::after {
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-up-14-000.svg")
-}
-
-#cardDscnt_div input[type=checkbox] {
-    margin-left: 30px
-}
-
-#cardDscnt_div select,
-#cardDscnt_div span {
-    vertical-align: middle
-}
-
-#cardDscnt_div label {
-    font-size: 13px;
-    color: #131518
-}
-
-.tbl_inp_form.divider tbody tr:first-child td,
-.tbl_inp_form.divider tbody tr:first-child th {
-    border-top: none
-}
-
-.quickpay-service-guide {
-    display: none
-}
-
-.quickpay-service-guide .guide-inner .guide-header h1,
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-wording strong {
-    font-size: 24px;
-    line-height: 29px;
-    color: #131518
-}
-
-.quickpay-service-guide .guide-inner {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 560px;
-    height: 600px;
-    padding: 0 30px;
-    border-radius: 4px;
-    background-color: #fff;
-    z-index: 20
-}
-
-.quickpay-service-guide .guide-inner .guide-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px
-}
-
-.quickpay-service-guide .guide-inner .guide-header button.button-set {
-    width: 24px;
-    height: 24px;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-close-24x24-131518.svg") no-repeat
-}
-
-.quickpay-service-guide .guide-inner .slick-container {
-    flex: 1;
-    padding: 20px 0 0
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-wording {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 143px;
-    text-align: center
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-wording strong .point {
-    color: #ff5753
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-wording p.desc {
-    margin-top: 15px;
-    font-size: 16px;
-    line-height: 22px;
-    color: #757d86
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-wording span.step {
-    display: inline-block;
-    border-radius: 100px;
-    height: 24px;
-    padding: 0 8px;
-    margin-bottom: 6px;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 24px;
-    color: #fff;
-    background-color: #000
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide .guide-visual img {
-    display: block;
-    margin: 0 auto
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-slide:first-child .guide-wording {
-    height: 103px
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-arrow {
-    position: absolute;
-    top: 268px;
-    width: 32px;
-    height: 32px;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity .2s ease-out
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-arrow.slick-prev {
-    left: 20px;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-back-32x32-c9cdd2.svg")
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-arrow.slick-next {
-    right: 20px;
-    background-image: url("https://static.oliveyoung.co.kr/pc-static-root/image/svg/icon-arrow-forward-32x32-c9cdd2.svg");
-    background-position-x: 0
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-arrow:hover {
-    background-position: 0 0
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-arrow.slick-disabled {
-    opacity: 0
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-dots {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 0;
-    bottom: 38px;
-    width: 100%;
-    height: 6px
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-dots li {
-    padding: 0 5px
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-dots li button {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background-color: #c9cdd2
-}
-
-.quickpay-service-guide .guide-inner .slick-container .slick-dots li.slick-active button {
-    background-color: #000
-}
-
-.quickpay-service-guide .slick-dimd {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .4);
-    z-index: 11
-}
-
 .onedayFixedChk {
     padding: 25px 0 0
 }
@@ -61064,20 +60622,1074 @@ input[type=radio].check-style.type1:disabled {
     color: #ff5753
 }
 
-.info-today-delivery-order.layer_pop_wrap {
-    position: fixed;
-    margin: 0;
-    transform: translate(-50%, -50%)
+.renew-mem-lounge .sffont-area {
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif
 }
 
-.info-today-delivery-order.layer_pop_wrap .layer_btn_area .btn_close {
-    width: 100%;
+.renew-mem-lounge .login-area {
+    padding: 60px 0 80px
+}
+
+.renew-mem-lounge .login-area .login-info-text {
+    margin-bottom: 24px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #131518;
+    text-align: center
+}
+
+.renew-mem-lounge .login-area .login-button-area {
+    text-align: center
+}
+
+.renew-mem-lounge .login-area .login-button-area .button-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 50px;
-    border-radius: 4px;
-    font-weight: 600;
+    padding: 0 30px;
+    background-color: #131518;
+    border-radius: 40px;
+    font-weight: 400;
     font-size: 16px;
+    color: #fff
+}
+
+.renew-mem-lounge .mem-content {
+    margin-bottom: 90px
+}
+
+.renew-mem-lounge .mem-content:last-child {
+    margin-bottom: 80px
+}
+
+.renew-mem-lounge .mem-content .content-tit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #131518
+}
+
+.renew-mem-lounge .mem-content .content-tit .button-info-area {
+    height: 20px;
+    margin: 1px 0 0 6px
+}
+
+.renew-mem-lounge .mem-content .content-tit .button-benefit-info {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/line_InfoCircle.svg") 0 0/20px 20px no-repeat;
+    vertical-align: top
+}
+
+.renew-mem-lounge .mem-content .content-tit.center-align {
+    justify-content: center
+}
+
+.renew-mem-lounge .newsign-benefits-list {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 -9px
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-item {
+    width: 50%;
+    padding: 0 9px
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-item:nth-child(1) .list-content:before {
+    display: block;
+    width: 72px;
+    height: 50px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_benifit01.svg") 0 0/72px 50px no-repeat;
+    content: ""
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-item:nth-child(2) .list-content:before {
+    display: block;
+    width: 72px;
+    height: 54px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_benifit02.svg") 0 0/72px 54px no-repeat;
+    content: ""
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 134px;
+    padding: 40px;
+    background: #f6f7f9;
+    border-radius: 4px
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-content .content-area {
+    margin-left: 20px
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-content-title {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #131518
+}
+
+.renew-mem-lounge .newsign-benefits-list .list-content-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #99a1a8
+}
+
+.renew-mem-lounge .table-box {
+    position: relative
+}
+
+.renew-mem-lounge .table-box:after {
+    position: absolute;
+    top: 0;
+    width: 142px;
+    height: 1028px;
+    content: ""
+}
+
+.renew-mem-lounge .table-box.gold::after {
+    left: 303px;
+    border: 1px solid #c5ab4e
+}
+
+.renew-mem-lounge .table-box.black::after {
+    left: 446px;
+    border: 1px solid #333
+}
+
+.renew-mem-lounge .table-box.green::after {
+    left: 589px;
+    border: 1px solid #01bb56
+}
+
+.renew-mem-lounge .table-box.pink::after {
+    left: 732px;
+    border: 1px solid #eb6d9a
+}
+
+.renew-mem-lounge .table-box.baby::after {
+    left: 875px;
+    width: 143px;
+    border: 1px solid #cfd31a
+}
+
+.renew-mem-lounge .benefit-table {
+    width: 100%
+}
+
+.renew-mem-lounge .benefit-table td,
+.renew-mem-lounge .benefit-table th {
+    border: 1px solid #e5e7ea;
+    border-width: 1px 1px 0 0;
+    text-align: center
+}
+
+.renew-mem-lounge .benefit-table th {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #131518;
+    background: #f6f7f9
+}
+
+.renew-mem-lounge .benefit-table th:first-child {
+    border-left: 1px solid #e5e7ea
+}
+
+.renew-mem-lounge .benefit-table th.gold {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #c5ab4e
+}
+
+.renew-mem-lounge .benefit-table th.black {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #333
+}
+
+.renew-mem-lounge .benefit-table th.green {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #01bb56
+}
+
+.renew-mem-lounge .benefit-table th.pink {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #eb6d9a
+}
+
+.renew-mem-lounge .benefit-table th.baby {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #cfd31a
+}
+
+.renew-mem-lounge .benefit-table th .table-sub-title {
+    display: block;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #757d86
+}
+
+.renew-mem-lounge .benefit-table td {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #131518
+}
+
+.renew-mem-lounge .benefit-table td .check-td {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #131518;
+    border-radius: 50%
+}
+
+.renew-mem-lounge .benefit-table thead th {
+    height: 100px
+}
+
+.renew-mem-lounge .benefit-table tbody td,
+.renew-mem-lounge .benefit-table tbody th {
+    height: 93px
+}
+
+.renew-mem-lounge .benefit-table tbody tr:last-child td,
+.renew-mem-lounge .benefit-table tbody tr:last-child th {
+    border-bottom: 1px solid #e5e7ea
+}
+
+.renew-mem-lounge .mem-banner-slide.slick-initialized .slick-slide {
+    display: block;
+    width: 330px
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0 -7.5px;
+    padding: 0
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-slide {
+    float: left;
+    height: 100%;
+    margin: 0 7.5px
+}
+
+.renew-mem-lounge .mem-banner-slide .slide-item a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box
+}
+
+.renew-mem-lounge .mem-banner-slide .slide-item a img {
+    width: 330px;
+    height: 176px;
+    border-radius: 4px
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-arrow.slick-prev {
+    left: -40px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_slide_arrow_left.svg") 0 0/40px 40px no-repeat
+}
+
+.renew-mem-lounge .mem-banner-slide .slick-arrow.slick-next {
+    right: -40px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_slide_arrow_right.svg") 0 0/40px 40px no-repeat
+}
+
+.renew-mem-lounge .mem-info {
+    padding-top: 40px;
+    border-top: 1px solid #e5e7ea
+}
+
+.renew-mem-lounge .mem-info dt {
+    float: left;
+    min-width: 100px;
+    margin-right: 21px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #131518
+}
+
+.renew-mem-lounge .mem-info dd {
+    overflow: hidden;
+    margin-bottom: 30px
+}
+
+.renew-mem-lounge .mem-info .mem-info-list .list-item {
+    position: relative;
+    padding-left: 10px;
+    font-family: "Lucida Grande";
+    font-weight: 500;
+    font-size: 12px;
+    color: #99a1a8
+}
+
+.renew-mem-lounge .mem-info .mem-info-list .list-item:before {
+    position: absolute;
+    left: 2px;
+    content: "∙"
+}
+
+.renew-mem-lounge .rating-info-area {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 90px;
+    padding: 35px 90px 35px 40px;
+    border-radius: 12px
+}
+
+.renew-mem-lounge .rating-info-area.baby {
+    background: #cfd31a
+}
+
+.renew-mem-lounge .rating-info-area.baby .baddge-img {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon_membership_baby.svg")
+}
+
+.renew-mem-lounge .rating-info-area.baby .progress-rate:after {
+    background: #cfd31a
+}
+
+.renew-mem-lounge .rating-info-area.pink {
+    background: #eb6d9a
+}
+
+.renew-mem-lounge .rating-info-area.pink .baddge-img {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon_membership_pink.svg")
+}
+
+.renew-mem-lounge .rating-info-area.pink .progress-rate:after {
+    background: #eb6d9a
+}
+
+.renew-mem-lounge .rating-info-area.green {
+    background: #01bb56
+}
+
+.renew-mem-lounge .rating-info-area.green .baddge-img {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon_membership_green.svg")
+}
+
+.renew-mem-lounge .rating-info-area.green .progress-rate:after {
+    background: #01bb56
+}
+
+.renew-mem-lounge .rating-info-area.black {
+    background: #333
+}
+
+.renew-mem-lounge .rating-info-area.black .baddge-img {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon_membership_black.svg")
+}
+
+.renew-mem-lounge .rating-info-area.black .progress-rate:after {
+    background: #333
+}
+
+.renew-mem-lounge .rating-info-area.black .rating-info-content .progress-list {
+    background: rgba(0, 0, 0, .3)
+}
+
+.renew-mem-lounge .rating-info-area.gold {
+    background: #c5ab4e
+}
+
+.renew-mem-lounge .rating-info-area.gold .baddge-img {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon_membership_gold.svg")
+}
+
+.renew-mem-lounge .rating-info-area.gold .progress-rate:after {
+    background: #c5ab4e
+}
+
+.renew-mem-lounge .rating-info-area .user-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 340px
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .user-rate-area {
+    flex: 1;
+    padding-right: 15px
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .user-name-text {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .user-name-text .user-name {
+    font-style: normal;
+    font-weight: 600
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .user-rate-text {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
     color: #fff;
-    background-color: #131518
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .user-rate-date {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif
+}
+
+.renew-mem-lounge .rating-info-area .user-rating .baddge-img {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+    background-size: 80px 80px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content {
+    flex: 1
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text em {
+    font-style: normal
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text .price-text {
+    font-weight: 600
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text .price-text-span {
+    margin: 0 3px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text .button-benefit-info {
+    display: flex;
+    align-items: center;
+    margin-left: 2px;
+    background-color: transparent
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text .button-benefit-info em {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-price-text .button-benefit-info:after {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_benefit_arrow.svg") 0 0/14px 14px no-repeat;
+    content: ""
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .graph-area {
+    padding-top: 25px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 550px;
+    height: 6px;
+    margin: 0 auto;
+    font-size: 0;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 4px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item {
+    display: inline-block;
+    width: 25%;
+    height: 6px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item:first-child .progress-rate {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item:last-child .progress-rate {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item:last-child .progress-rate:before {
+    right: 0
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item:last-child .progress-rate:after {
+    right: 3px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item.complet .progress-rate {
+    display: block;
+    width: 100% !important;
+    height: 6px;
+    background-color: #fff
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item.progress .progress-rate {
+    position: relative;
+    display: block;
+    height: 6px;
+    background-color: #fff
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item.progress .progress-rate:before {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border-radius: 50%;
+    content: ""
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .progress-list .list-item.progress .progress-rate:after {
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    content: ""
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list {
+    position: relative;
+    width: 550px;
+    height: 17px;
+    margin: 15px auto 0
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item {
+    position: absolute;
+    width: 137.5px;
+    margin-left: -69px;
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, .7);
+    text-align: center
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item.on {
+    font-weight: 600;
+    color: #fff
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item:nth-child(1) {
+    left: 0;
+    margin-left: -50px
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item:nth-child(2) {
+    left: 25%
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item:nth-child(3) {
+    left: 50%
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item:nth-child(4) {
+    left: 75%
+}
+
+.renew-mem-lounge .rating-info-area .rating-info-content .rate-list .list-item:nth-child(5) {
+    left: 100%;
+    margin-left: -88px
+}
+
+.renew-mem-lounge .coupon-content-area {
+    display: none
+}
+
+.renew-mem-lounge .coupon-content-area.on {
+    display: block
+}
+
+.renew-mem-lounge .conts {
+    margin-top: 30px
+}
+
+.renew-mem-lounge .cp_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 824px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center
+}
+
+.renew-mem-lounge .cp_list.one-coupon {
+    justify-content: center
+}
+
+.renew-mem-lounge .cp_list .item_coupon {
+    width: 396px;
+    height: 178px;
+    margin-bottom: 30px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/bg_coupon.png") 0 0/396px 178px no-repeat;
+    text-align: left
+}
+
+.renew-mem-lounge .cp_list .item_coupon .coupon-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 83px;
+    height: 100%
+}
+
+.renew-mem-lounge .cp_list .item_coupon .download_complete,
+.renew-mem-lounge .cp_list .item_coupon.disabled .coupon-number {
+    display: none
+}
+
+.renew-mem-lounge .cp_list .item_coupon.disabled .download_complete {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #dadde0;
+    white-space: nowrap
+}
+
+.renew-mem-lounge .cp_list .item_coupon.disabled .btn_coupon {
+    pointer-events: none;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_coupon_down2.svg") 0 0/28px 28px no-repeat;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.renew-mem-lounge .cp_list .item_coupon:nth-child(even) {
+    margin-left: 32px
+}
+
+.renew-mem-lounge .cp_list .item_coupon .bx_txt {
+    height: 100%
+}
+
+.renew-mem-lounge .cp_list .item_coupon .bx_inner {
+    position: relative;
+    height: 100%;
+    padding: 22px 30px 26px 25px
+}
+
+.renew-mem-lounge .cp_list .item_coupon .bx_inner::after {
+    position: absolute;
+    top: 22px;
+    right: 83px;
+    width: 1px;
+    height: 135px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/bg_line.png") 0 0/1px 135px no-repeat;
+    content: ""
+}
+
+.renew-mem-lounge .cp_list .item_coupon .coupon_tit {
+    font-family: NotoSansCJKkr;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #131518
+}
+
+.renew-mem-lounge .cp_list .item_coupon .coupon-number,
+.renew-mem-lounge .cp_list .item_coupon .new-text {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #131518;
+    white-space: nowrap
+}
+
+.renew-mem-lounge .cp_list .item_coupon .new-text {
+    font-weight: 700;
+    line-height: 22px
+}
+
+.renew-mem-lounge .cp_list .item_coupon .free-shipping-txt {
+    margin: 3px 0 0 -2px;
+    font-family: NotoSansCJKkr;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 72px;
+    color: #131518
+}
+
+.renew-mem-lounge .cp_list .item_coupon .price_txt,
+.renew-mem-lounge .cp_list .item_coupon .sale_txt {
+    margin: -4px 0 2px -4px;
+    font-family: NotoSansCJKkr;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 87px;
+    color: #131518
+}
+
+.renew-mem-lounge .cp_list .item_coupon .price_txt span,
+.renew-mem-lounge .cp_list .item_coupon .sale_txt span {
+    font-size: 35px;
+    line-height: 42px;
+    vertical-align: 4px
+}
+
+.renew-mem-lounge .cp_list .item_coupon .price_txt span {
+    font-weight: 350;
+    font-size: 30px;
+    line-height: 44px
+}
+
+.renew-mem-lounge .cp_list .item_coupon .sub_txt {
+    position: absolute;
+    left: 25px;
+    bottom: 26px;
+    font-family: NotoSansCJKkr;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #757d86
+}
+
+.renew-mem-lounge .cp_list .item_coupon .sub_txt strong {
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif;
+    font-weight: 400
+}
+
+.renew-mem-lounge .cp_list .item_coupon .btn_coupon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 22px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_coupon_down.svg") 0 0/28px 28px no-repeat
+}
+
+.renew-mem-lounge .coupon-button-area .button-coupon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 16px;
+    color: #50585f;
+    border: 1px solid #c9cdd2;
+    border-radius: 4px;
+    background-color: #fff
+}
+
+.renew-mem-lounge .no-coupon-area {
+    display: none;
+    margin: 30px 0 92px
+}
+
+.renew-mem-lounge .no-coupon-area.on {
+    display: block
+}
+
+.renew-mem-lounge .no-coupon-area .no-coupon-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+    text-align: center
+}
+
+.lounge-popup-layer .layer_cont2 {
+    padding: 0 30px
+}
+
+.lounge-popup-layer .sffont-area {
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif
+}
+
+.lounge-popup-layer .lounge-popup-content {
+    padding: 60px 0 0
+}
+
+.lounge-popup-layer .lounge-popup-content .popup-content-title {
+    margin-bottom: 25px;
+    text-align: center
+}
+
+.lounge-popup-layer .lounge-popup-content .popup-content-title em {
+    display: block;
+    margin-bottom: 3px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000
+}
+
+.lounge-popup-layer .lounge-popup-content .popup-content-title strong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000
+}
+
+.lounge-popup-layer .lounge-popup-content .popup-content-title strong span {
+    margin-right: 3px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px
+}
+
+.lounge-popup-layer .lounge-popup-content .popup-content-text {
+    margin-bottom: 42px;
+    padding: 16px 0 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #757d86;
+    border: 1px solid #f0f1f4
+}
+
+.lounge-popup-layer .lounge-popup-content .rating-standard-content .rating-standard-title {
+    display: block;
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #131518
+}
+
+.lounge-popup-layer .lounge-popup-content .rating-standard-list {
+    padding-bottom: 62px
+}
+
+.lounge-popup-layer .lounge-popup-content .rating-standard-list .list-item {
+    position: relative;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #757d86
+}
+
+.lounge-popup-layer .lounge-popup-content .rating-standard-list .list-item:before {
+    position: absolute;
+    top: 9px;
+    left: 1px;
+    width: 4px;
+    height: 1px;
+    background-color: #757d86;
+    content: ""
+}
+
+.lounge-popup-layer .lounge-popup-content .rating-standard-list .list-item+.list-item {
+    margin-top: 10px
+}
+
+.lounge-popup-layer .layer_close.type2 {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: 0 0;
+    z-index: 10
+}
+
+.lounge-popup-layer .layer_close.type2::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/icon-cancel-20-line.svg") 0 0/24px auto no-repeat
+}
+
+.grade-selection-layer .layer_cont2 {
+    padding: 0 30px 30px
+}
+
+.grade-selection-layer .popCont {
+    overflow-y: auto;
+    max-height: 750px
+}
+
+.grade-selection-layer .lounge-popup-header {
+    display: flex;
+    align-items: center;
+    height: 89px
+}
+
+.grade-selection-layer .lounge-popup-header .popup-header-title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #131518
+}
+
+.grade-selection-layer .lounge-popup-content {
+    padding-top: 0
+}
+
+.grade-selection-layer .blind {
+    position: absolute;
+    top: -10000px;
+    left: 0;
+    display: block;
+    text-indent: -10000px;
+    overflow: hidden
+}
+
+.grade-selection-layer .popInner {
+    margin-top: 40px
+}
+
+.grade-selection-layer .popInner:first-child {
+    margin-top: 0
+}
+
+.grade-selection-layer .popInner h4 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #131518
+}
+
+.grade-selection-layer .popInner .gbn_box {
+    margin-top: 12px
+}
+
+.grade-selection-layer .popInner .gbn_box.type2>li {
+    margin-top: 20px
+}
+
+.grade-selection-layer .popInner .gbn_box.type2>li:first-child {
+    margin-top: 0
+}
+
+.grade-selection-layer .popInner .gbn_box>li {
+    position: relative;
+    font-size: 13px;
+    color: #131518;
+    margin-top: 8px;
+    padding-left: 10px
+}
+
+.grade-selection-layer .popInner .gbn_box>li:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #131518;
+    content: "-"
+}
+
+.grade-selection-layer .popInner .gbn_box>li strong {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px
+}
+
+.grade-selection-layer .popInner .gbn_box>li strong.grade-text {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: 700;
+    line-height: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, SFProText, AppleSDGothicNeo, Montserrat, NotoSansCJKkr, Roboto, dotum, "돋움", sans-serif
+}
+
+.grade-selection-layer .popInner .gbn_box>li p {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #757d86
+}
+
+.grade-selection-layer .layer_close .type2 {
+    right: 35px
 }
 
 .tit_type03 {
@@ -70540,6 +71152,59 @@ input[type=radio].check-style.type1:disabled {
     position: absolute;
     top: -6px;
     right: 22px
+}
+
+.reviewer-profile-info .reviewer-profile-nickname,
+.reviewer-profile-info.nickname_setting .reviewer-profile-id,
+.reviewer-profile-info.nickname_setting .reviewer-profile-info__middle,
+.reviewer-profile-info.nickname_setting .reviewer-profile-ranking {
+    display: none
+}
+
+.reviewer-profile-info.nickname_setting .reviewer-profile-nickname {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    color: #131518
+}
+
+.reviewer-profile-info.nickname_setting .reviewer-profile-nickname .button-nickname-setting {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: -2px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_arrow_forward_nickname.svg") 0 0/20px 20px no-repeat
+}
+
+.reviewer-profile-info.nickname_setting .txt_tag {
+    display: block;
+    text-align: center;
+    margin-top: 7px
+}
+
+.reviewer-profile-info.nickname_setting .txt_tag em {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #757d86
+}
+
+.reviewer-profile-info.nickname_setting .txt_tag em:after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin: 0 0 0 -2px;
+    display: inline-block;
+    vertical-align: top;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/css/../image/mypage/ico_arrow_forward_nickname2.svg") 0 0/14px 14px no-repeat
 }
 
 .reviewer-profile-content {

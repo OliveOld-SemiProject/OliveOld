@@ -1,0 +1,450 @@
+
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OLIVE OLD</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png">
+
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css ">
+    <link rel="stylesheet" href="/assets/css/order-payment.css ">
+</head>
+
+<body>
+    <header>
+        <!-- start header -->
+        <div class="headerTopNew">
+            <div class="inner">
+                <div class="head-util">
+                    <ul>
+                        <li class="util-join">
+                            <a href="login.html"
+                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                            / <a href="signup.html"
+                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
+                        </li>
+
+
+
+                        <li class="util-order"><a href="order-delivery.html"
+                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
+                        </li>
+                        <li class="util-cart">
+                            <form action="/cartList" type="get">
+                                <button type="submit">장바구니</button>
+                            </form>
+                        </li>
+                        <li class="util-cs"><a href="Notice.html"
+                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Header Area -->
+        <header class="header navbar-area">
+
+            <!-- Start Header Middle -->
+            <div class="header-middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-7">
+                            <!-- Start Header Logo -->
+                            <a class="navbar-brand" href="index.html">
+                                <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                            </a>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-lg-5 col-md-7 d-xs-none">
+                            <!-- Start Main Menu Search -->
+                            <div class="main-menu-search">
+                                <!-- navbar search start -->
+                                <div class="navbar-search search-style-5">
+
+                                    <div class="search-input">
+                                        <input type="text" placeholder="Search">
+                                    </div>
+                                    <div class="search-btn">
+                                        <button><i class="lni lni-search-alt"></i></button>
+                                    </div>
+                                </div>
+                                <!-- navbar search Ends -->
+                            </div>
+                            <!-- End Main Menu Search -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Middle -->
+            <div class="header-wrap">
+
+                <div class="gnb-wrap">
+                    <div class="gnbV18">
+                        <ul>
+                            <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                                <p>스킨케어</p>
+                            </li>
+                            <li class="line" name="gnb121"
+                                onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                                <p>메이크업</p>
+                            </li>
+                            <li class="line" name="gnb120"
+                                onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                                <p>헤어케어</p>
+                            </li>
+                            <li class="line" name="gnb112"
+                                onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                                <p>건강식품</p>
+                            </li>
+                            <li class="line" name="gnb116"
+                                onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                                <p>보행보조용품</p>
+                            </li>
+                            <li class="line" name="gnb118"
+                                onclick="top.location.href='/shopping/category_list.asp?disp=118';">
+                                <p>이벤트</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- Start Header Bottom -->
+            <!-- Start Header Bottom -->
+        </header>
+
+
+
+        <body>
+            <div id="Wrapper">
+                <div id="Container">
+                    <!-- #Contents -->
+                    <div id="Contents">
+                        <div class="title_box">
+                            <h1>주문/결제</h1>
+                            <ul class="step_list">
+                                <li><span class="step_num tx_num">1</span> 장바구니</li>
+                                <li class="on"><span class="hide">현재단계</span><span class="step_num tx_num">2</span>
+                                    주문/결제</li><!-- 현재단계 li에 클래스 on과 <span class="hide">현재단계</span> 넣어주세요 -->
+                                <li class="last"><span class="step_num tx_num">3 </span> 주문완료</li>
+                            </ul>
+                        </div>
+                        <!--// title_box -->
+                        <form name="orderForm" id="orderForm" th:action="@{/payment/create}" method="post">
+                            <!-- 배송지 정보 -->
+                            <div class="title_wrap">
+                                <h2 class="sub-title2">배송지정보</h2>
+
+                            </div>
+                            <table class="tbl_inp_form important" id="dlvpInfo">
+                                <caption></caption>
+                                <colgroup>
+                                    <col style="width:170px">
+                                    <col style="width:*">
+                                </colgroup>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">배송지선택</th>
+                                        <td>
+                                            <span class="chk_area mgzero"><input type="radio" id="btn_dlvp_exist"
+                                                    name="inpAddrSel" value="exist" targetid="exist"
+                                                    data-attr="배송지정보^1_배송지선택"><label for="btn_dlvp_exist">기존
+                                                    배송지</label></span>
+
+
+                                            <span class="chk_area"><input type="radio" id="btn_dlvp_new"
+                                                    name="inpAddrSel" value="new" targetid="new"
+                                                    data-attr="배송지정보^1_배송지선택"><label for="btn_dlvp_new">신규
+                                                    배송지</label></span>
+                                        </td>
+                                    </tr>
+                                    <tr type="new" class="new_order_area" style="">
+                                        <th scope="row">받는분</th>
+                                        <td class="imp_data">
+                                            <input type="text" id="rmitNm_new" name="name" value="" orgvalue=""
+                                                class="inpH28" title="받는분 이름을 입력해주세요." style="width:200px"
+                                                this="받는분 이름은" data-attr="배송지정보^1_받는분">
+
+                                        </td>
+                                    </tr>
+                                    <tr type="new" class="new_order_area" style="">
+                                        <th scope="row">연락처</th>
+                                        <td class="imp_data">
+                                            <select id="rmitCellSctNo_new" name="phone1" class="selH28"
+                                                title="연락처 앞자리" orgvalue="" style="width:90px" data-attr="연락처1">
+                                                <option value="010">010</option>
+                                            </select>
+                                            - <input type="text" id="rmitCellTxnoNo_new" name="phone2" value=""
+                                                orgvalue="" class="inpH28" title="연락처 가운데 자리" this="연락처1 가운데 자리는"
+                                                style="width:90px" data-attr="연락처1">
+                                            - <input type="text" id="rmitCellEndNo_new" name="phone3" value=""
+                                                orgvalue="" class="inpH28" title="연락처1 마지막 자리" this="연락처1 마지막 자리는"
+                                                style="width:90px" data-attr="연락처1">
+                                        </td>
+                                    </tr>
+
+                                    <tr type="new" class="new_order_area" style="display: table-row;">
+                                        <th scope="row">주소</th>
+                                        <td class="imp_data"><!-- 2017-01-25 수정 : 클래스 추가 -->
+                                            <input type="text" id="stnmRmitPostNo_new" name="rmitPostNo" value="" class="inpH28" title="우편번호를 검색해주세요." style="width:90px" readonly="readonly">
+                                            <input type="hidden" id="rmitPostNo_new" name="stnmRmitPostNo" value="" title="우편번호를 검색해주세요.">
+                                            <button type="button" class="btnSmall wGreen w100" id="search-zipcode-pop_new" data-attr="배송지정보^1_주소"><span>우편번호 찾기</span></button>
+                                            <div class="addr_box">
+                                                <input type="hidden" id="stnmRmitPostAddr_new" name="stnmRmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">
+                                                <input type="hidden" id="rmitBaseAddr_new" name="rmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">
+                                                <!-- 주소 입력 시 보여지는 부분 -->
+                                                <p class="addr_new">
+                                                    <span class="tx_tit">도로명</span> :
+                                                    <span class="tx_addr" id="stnmPostAddr_new"></span><!--  도로명주소를 넣어주세요 -->
+                                                </p>
+                                                <p class="addr_old">
+                                                    <span class="tx_tit">지번</span> :
+                                                    <span class="tx_addr" id="baseAddr_new"></span><!--  지번주소를 넣어주세요 -->
+                                                </p>
+                                                <!--// 주소 입력 시 보여지는 부분 -->
+                                            </div>
+                                            <input type="text" id="tempRmitDtlAddr_new" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px;" this="상세 주소는">
+                                            <p class="txtDot mgT5">신규배송지 정보는 마이페이지 내 배송지에 저장됩니다.</p>
+                                            <input type="hidden" id="stnmRmitDtlAddr_new" name="stnmRmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px" this="상세 주소는">
+                                            <input type="hidden" id="rmitDtlAddr_new" name="rmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px">
+                                            <input type="hidden" id="emdNm_new" name="emdNm">
+                                            <input type="hidden" id="admrNm_new" name="admrNm">
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                            <h2 class="sub-title2">
+                                배송상품
+                            </h2>
+                            <table class="tbl_prd_list">
+                                <colgroup>
+                                    <col style="width:*">
+                                    <col style="width:110px">
+                                    <col style="width:100px">
+                                    <col style="width:110px">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">상품번호</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col">수량</th>
+                                        <th scope="col">구매가</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td th:text="${ product.productNo }"></td>
+                                        <td th:text="${ product.productName }"></td>
+                                        <td th:text="${ product.productQuan }"></td>
+                                        <td th:text="${ product.productPrice }"></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <input type="hidden" name="cartNo" value="439275545">
+                                         <td colspan="5" dispcatno="" stdcatno="090502" goodsno="A000000149575"
+                                            itemno="001" entrno="C18741" brndcd="3459" tradeshpcd="1" staffdscntyn="Y"
+                                            pntrsrvyn="Y" ordqty="1"
+                                            thnlpathnm="https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014957502ko.jpg?l=ko"
+                                            goodsnm="필리밀리 히알루론산 화장솜 80p" cartno="439275545">
+                                            <div class="tbl_cont_area">
+                                                <div class="tbl_cell w700">
+                                                    <div class="prd_info">
+                                                        <div class="prd_img">
+                                                            <img src="https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014957502ko.jpg?l=ko"
+                                                                alt="장바구니 상품 임시 이미지" onerror="common.errorImg(this);">
+                                                        </div>
+                                                        <div class="prd_name">
+                                                            <span>필리밀리</span><!-- 2017-01-26 수정 : 브랜드명 분리 -->
+                                                            <p>필리밀리 히알루론산 화장솜 80p</p>
+                                                        </div>
+                                                        <p class="prd_opt">
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="tbl_cell w110">
+                                                    <span class="cur_price"><span class="tx_num">4,000</span>원</span>
+                                                </div>
+                                                <div class="tbl_cell w100">1</div>
+                                                <div class="tbl_cell w110">
+                                                    <span class="org_price"><span class="tx_num"
+                                                            id="normPrc_A000000149575/001">4,000</span>원</span><!-- 2017-01-24 수정 : 추가 -->
+                                                    <span class="pur_price"><span class="tx_num"
+                                                            id="salePrc_A000000149575/001">3,600</span>원</span>
+                                                    <input type="hidden" id="orgNormPrc_A000000149575/001" value="4000" name="price">
+                                                    <input type="hidden" id="orgSalePrc_A000000149575/001" value="3600">
+                                                    <input type="hidden" id="imdtDscntAmt_A000000149575/001" value="0">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- 쿠폰 및 포인트, 결제수단, 결제정보 -->
+                            <div class="order_payment_box">
+                                <div class="left_area">
+                                    <!-- 쿠폰할인정보 -->
+                                    <h2 class="sub-title2 width-inline">할인</h2>
+                                    <table class="tbl_inp_form type2">
+                                        <caption>배송비할인 입력 폼</caption>
+                                        <colgroup>
+                                            <col style="width:170px">
+                                            <col style="width:*">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">배송비 할인</th>
+                                                <td id="dlexCouponList_hd">
+                                                    <div>
+                                                        <select id="selDelCoupon" class="selH28 mgT5"
+                                                            style="width:300px" disabled="disabled" name="deliveryCoupon"
+                                                            data-attr="쿠폰할인정보^배송비쿠폰">
+                                                            <option>적용할 수 있는 할인이 없습니다.</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="tbl_inp_form type2">
+                                        <caption>적립금사용 입력 폼</caption>
+                                        <colgroup>
+                                            <col style="width:170px">
+                                            <col style="width:*">
+                                        </colgroup>
+                                        <input type="hidden" id="lastAplyPntInputName" value="">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><span class="tx_num">적립금</span></th>
+                                                <td>
+                                                    <div>
+                                                        <span class="inp_point_wrap">
+                                                            <!-- fix/3275248 bmiy20 cjone point 적립불가건에 대해 사용 불가 처리 추가 -->
+                                                            <input type="text" id="cjonePntAplyAmt"
+                                                                class="inpH28 cjonePoint"
+                                                                name="mileage"
+                                                                title="사용하실 CJ ONE 포인트를 입력해주세요." style="width:100px"
+                                                                this="CJ ONE 포인트는 " minownamt="1000" unit="P"
+                                                                unitamt="10" minaplyamt="0"
+                                                                data-attr="포인트/기프트카드사용^CJONE포인트"> 원 / <span
+                                                                id="cjonePnt_span" class="tx_num colorOrange"><span
+                                                                    id="cjonePnt">1,786</span>P</span>
+                                                            <input type="hidden" name="cjonePntAplyAmt" value="0">
+                                                            <input type="hidden" name="cjonePntNonPosCnt" value="0">
+                                                            <!--//cjone point 사용가능 금액 bmiy20, 2021-09-16 문구수정// -->
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="right_area">
+                                    <!-- 최종 결제정보 -->
+                                    <h2 class="sub-title2">결제</h2>
+                                    <!--// 최종 결제정보 -->
+                                    <ul class="total_payment_box">
+                                        <li>
+                                            <button class="btnPayment" id="btnPay" name="btnPay" type="submit"
+                                                data-attr="최종결제정보^결제하기">결제하기</button>
+                                            <input type="hidden" id="tempOrdNo" value="">
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- //#Contents -->
+                </div>
+                <!-- //#Container -->
+            </div>
+
+            <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            <script th:inline="javascript">
+
+                const $searchZipCode = document.getElementById("searchZipCode");
+                const $goMain = document.getElementById("goMain");
+
+                $searchZipCode.onclick = function() {
+
+                    /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다. */
+                    new daum.Postcode({
+                        oncomplete: function(data){
+                            /* 팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분 */
+                            document.getElementById("zipCode").value = data.zonecode;
+                            document.getElementById("address1").value = data.address;
+                            document.getElementById("address2").focus();
+                        }
+                    }).open();
+                }
+
+                $goMain.onclick = function() {
+                    location.href = "/";
+                }
+
+            </script>
+
+
+        <!-- #Footer -->
+        <div id="Footer" class="m2105">
+            <div class="oneConts">
+                <div class="conts">
+                    <ul class="list-menu">
+                        <li><a class="brandstory" href="">회사소개</a></li>
+                        <li><a class="faqList" href="Notice.html">고객센터</a></li>
+                        <li><a class="employee" href="">직원전용</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="twoConts">
+                <div class="conts">
+                    <ul class="list-area">
+                        <li>
+                            <p class="logo"><a href=""><img src="/assets/images/logo/oliveLogo.png" width="170"
+                                        height="60" alt="OLIVEOLD"></a></p>
+                            <h2>올리브올드 주식회사</h2>
+                            <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
+                            <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
+                            <p>호스팅사업자 : 올리브올드</p>
+                            <p>통신판매업신고번호 : 2022-서울종로-0000</p>
+                            <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
+                            </p>
+                            <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
+                                    정보확인
+                                    &gt;</a></p>
+                        </li>
+                        <li>
+                            <ul class="list-link">
+                                <li>
+                                    <a href="javascript:common.link.moveTermsPage();">이용약관</a>
+                                    <a href="javascript:common.link.moveLegalPage();">법적고지</a>
+                                </li>
+                                <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
+                                <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
+                                <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a>
+                                </li>
+                                <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- //#Footer -->
+    </body>
+
+
+</html>

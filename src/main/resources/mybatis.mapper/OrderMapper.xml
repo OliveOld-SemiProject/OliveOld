@@ -6,22 +6,99 @@
 
 
     <resultMap type="OrderDTO" id="OrderResultMap">
-        <id property="no" column="ORDER_NO"/>
-        <result property="date" column="ORDER_DATE"/>
-        <result property="productName" column="ORDER_PRODUCT_NAME"/>
-        <result property="productQuan" column="ORDER_PRODUCT_QUAN"/>
-        <result property="price" column="ORDER_PRICE"/>
-        <result property="delivery" column="ORDER_DELIVERY"/>
+        <id property="productNo" column="PRODUCT_NO"/>
+        <result property="orderNo" column="ORDER_NO"/>
+        <result property="orderDate" column="ORDER_DATE"/>
+        <result property="orderQuan" column="ORDER_QUAN"/>
+        <result property="memberId" column="MEMBER_ID"/>
     </resultMap>
 
-    <select id="selectOrderList" resultMap="OrderResultMap">
-        SELECT
-                ORDER_NO
+    <resultMap type="OrderMemberDTO" id="memberResultMap">
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberGender" column="MEMBER_GENDER"/>
+        <result property="memberIdentifier" column="MEMBER_IDENTIFIER"/>
+        <result property="memberPhone" column="MEMBER_PHONE"/>
+        <result property="memberAddress" column="MEMBER_ADDRESS"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberRegistDate" column="MEMBER_REGISTDATE"/>
+        <result property="memberISAD" column="MEMBER_ISAD"/>
+        <result property="memberLevel" column="MEMBER_LEVEL"/>
+        <result property="memberType" column="MEMBER_TYPE"/>
+        <result property="mileage" column="MEMBER_MILEAGE"/>
+    </resultMap>
+
+    <resultMap type="ProductDTO" id="productResultMap">
+        <id property="productNo" column="PRODUCT_NO"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="productPrice" column="PRODUCT_PRICE"/>
+        <result property="productQuan" column="PRODUCT_QUAN"/>
+        <result property="productDate" column="PRODUCT_DATE"/>
+        <result property="productStatus" column="PRODUCT_STATUS"/>
+        <result property="productImage1" column="PRODUCT_IMAGE1"/>
+        <result property="productImage2" column="PRODUCT_IMAGE2"/>
+        <result property="categoryCode" column="CATEGORY_CODE"/>
+        <result property="categoryName" column="CATEGORY_NAME"/>
+    </resultMap>
+
+  <insert id="insertOrderMenu">
+
+        INSERT INTO SemiDB.TBL_ORDER
+                (
+                  PRODUCT_NO
+                , ORDER_NO
                 , ORDER_DATE
-                , ORDER_PRODUCT_NAME
-                , ORDER_PRODUCT_QUAN
-                , ORDER_PRICE
-                , ORDER_DELIVERY
-          FROM SemiDB.ORDER_DELIVERY
+                , ORDER_QUAN
+                , MEMBER_ID
+                )
+            VALUES
+                (
+                  #{ productNo }
+                , null
+                , NOW()
+                , 1
+                , #{ memberId }
+                )
+      <selectKey keyProperty="orderNo" resultType="int" order="AFTER">
+          select LAST_INSERT_ID()
+      </selectKey>
+    </insert>
+
+    <select id="selectProductNo" resultType="_int">
+        SELECT
+               PRODUCT_NO
+          FROM SemiDB.TBL_ORDER
+         WHERE ORDER_NO = #{ orderNo }
+    </select>
+
+    <select id="selectProduct" resultMap="productResultMap">
+        SELECT
+                  PRODUCT_NO
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_QUAN
+         FROM SemiDB.PRODUCT
+        WHERE PRODUCT_NO = #{ productNo }
+    </select>
+
+    <select id="selectMember" resultMap="memberResultMap">
+        SELECT
+                  MEMBER_ID
+                , MEMBER_PWD
+                , MEMBER_NAME
+                , MEMBER_GENDER
+                , MEMBER_IDENTIFIER
+                , MEMBER_PHONE
+                , MEMBER_ADDRESS
+                , MEMBER_EMAIL
+                , MEMBER_REGISTDATE
+                , MEMBER_ISAD
+                , MEMBER_LEVEL
+                , MEMBER_TYPE
+                , MEMBER_MILEAGE
+        FROM SemiDB.Member
+        WHERE MEMBER_ID = #{ memberID }
+
     </select>
 </mapper>
