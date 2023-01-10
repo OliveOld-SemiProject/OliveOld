@@ -1,16 +1,14 @@
 package com.semi.oliveold.order.controller;
 
-import com.semi.oliveold.order.service.OrderService;
 import com.semi.oliveold.order.dto.OrderDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.semi.oliveold.order.dto.OrderMemberDTO;
+import com.semi.oliveold.order.dto.ProductDTO;
+import com.semi.oliveold.order.service.OrderService;
+import org.mybatis.logging.Logger;
+import org.mybatis.logging.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -22,19 +20,44 @@ public class OrderController {
 
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
-
     }
 
-    @GetMapping(value = "/list")
-    public ModelAndView orderList(HttpServletRequest request, ModelAndView mv){
+    @GetMapping("/registOrder")
+    public String insertOrderMenu(@RequestParam int productNo) {
 
-        List<OrderDTO> orderList = orderService.selectOrderList();
+        System.out.println("no =========== : " + productNo);
+        String memberId = "user01";
 
-        log.info("[OrderController] orderList : " + orderList);
+        OrderDTO order = new OrderDTO();
+        order.setProductNo(productNo);
+        order.setMemberId(memberId);
 
-        mv.addObject("orderList", orderList);
+       // rttr.addFlashAttribute("productNo", productNo);
 
-        mv.setViewName("/order-delivery");
+        int result =  orderService.insertOrderMenu(order);
+
+        System.out.println("orderNo===========" + order);
+        //return "";
+
+        return "redirect:/order/orderProductDetail/"+ order.getOrderNo();
+    }
+    @GetMapping("/orderProductDetail/{orderNo}")
+    public ModelAndView selectOrderMenu(@PathVariable("orderNo") int orderNo, ModelAndView mv){
+
+        String memberId = "user01";
+        System.out.println("orderNo = " + orderNo);
+
+        // productNo
+        int productNo = orderService.selectProductNo(orderNo);
+
+        ProductDTO product = orderService.selectProduct(productNo);
+        System.out.println("product ================> " + product);
+        OrderMemberDTO member = orderService.selectMember(memberId);
+        System.out.println("member ==================> " + member);
+        mv.addObject("product", product);
+        mv.addObject("member", member);
+
+        mv.setViewName("/order-payment");
 
         return mv;
     }

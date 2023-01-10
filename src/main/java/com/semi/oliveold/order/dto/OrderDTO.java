@@ -10,11 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class OrderDTO {
 
-    private int no;
-    private Date date;
-    private String productName;
-    private int productQuan;
-    private int price;
-    private String delivery;
-
+    private int productNo; //제품번호
+    private int orderNo; //주문번호
+    private Date orderDate; //주문일
+    private int orderQuan; //주문 수량
+    private String memberId; //주문 아이디
 }
