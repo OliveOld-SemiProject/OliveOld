@@ -43,7 +43,6 @@
     </resultMap>
 
   <insert id="insertOrderMenu">
-
         INSERT INTO SemiDB.TBL_ORDER
                 (
                   PRODUCT_NO
@@ -90,6 +89,5 @@
                 , MEMBER_MILEAGE
         FROM SemiDB.Member
         WHERE MEMBER_ID = #{ memberID }
-
     </select>
 </mapper>
