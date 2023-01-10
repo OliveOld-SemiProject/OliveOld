@@ -6,9 +6,11 @@ import com.semi.oliveold.faq.dto.Pagenation;
 import com.semi.oliveold.faq.dto.SelectCriteriaDTO;
 import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.faq.service.FaqService;
+import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -94,7 +96,7 @@ public class FaqController {
     //FAQ등록
     @GetMapping("/regist")
     public String goRegister(){
-        return "faqBoardRegist";
+        return "faq/faqBoardRegist";
     }
 
     @PostMapping("/regist")
@@ -113,6 +115,29 @@ public class FaqController {
 
         return "redirect:/faqBoard/list";
     }
+
+    //faq상세
+
+    @GetMapping("/detail")
+    public String selectfaqBoardDetail(HttpServletRequest request, Model model){
+
+
+        Long no = Long.valueOf(request.getParameter("no"));
+        BoardDTO boardDetail = faqService.selectfaqBoardDetail(no);
+
+
+        model.addAttribute("boardDetail", boardDetail);
+
+        log.info("boardDetail======" + boardDetail);
+
+        return "faq/faqBoardDetail";
+    }
+
+
+    //faq수정
+
+
+
 
 
     //faq 삭제 부분

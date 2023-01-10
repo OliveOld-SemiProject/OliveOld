@@ -149,6 +149,7 @@
           ,BOARD_TITLE
           ,BOARD_BODY
           ,BOARD_WRITER_MEMBER_ID
+          ,CREATED_DATE
        )
        VALUES
        (
@@ -156,10 +157,29 @@
             , #{ categoryCode }
             , #{ title }
             , #{ body }
-            , #{ writerMemberId }
+            , 'user01'
+            , NOW()
        )
 
     </insert>
+
+    <select id="selectfaqBoardDetail" resultMap="BoardResultMap">
+        SELECT
+        A.BOARD_NO
+        , A.BOARD_TITLE
+        , A.BOARD_BODY
+        , A.BOARD_WRITER_MEMBER_ID
+        , B.MEMBER_NAME
+        , A.BOARD_COUNT
+        , A.CREATED_DATE
+        , C.CATEGORY_NAME
+        FROM TBL_BOARD A
+        JOIN Member B ON (A.BOARD_WRITER_MEMBER_ID = B.MEMBER_ID)
+        JOIN TBL_CATEGORY C ON (A.CATEGORY_CODE = C.CATEGORY_CODE)
+        WHERE A.BOARD_STATUS = 'Y'
+        AND A.BOARD_NO = #{ no }
+    </select>
+
 
 
 

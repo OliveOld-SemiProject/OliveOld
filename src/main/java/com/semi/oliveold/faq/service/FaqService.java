@@ -49,4 +49,12 @@ public class FaqService {
         return faqBoardList;
     }
 
+    public BoardDTO selectfaqBoardDetail(Long no) {
+
+        BoardDTO board = null;
+
+        board = mapper.selectfaqBoardDetail(no);
+
+        return board;
+    }
 }
