@@ -26,6 +26,8 @@ public class MemberDTO {
     public String memberLevel;
     public String memberType;
 
+    public int mileage;
+
     private List<MemberRoleDTO> memberRoleList;		// 회원별권한리스트
 
 

@@ -22,4 +22,15 @@ public class MemberController {
         return "/";
     }
 
+    @GetMapping("/changePwdView")
+    public String changePwdView(){
+        return "ChangePwd";
+    }
+
+    @PostMapping("/changePwd")
+    public String changePwd(){
+
+        return "/";
+    }
+
 }
