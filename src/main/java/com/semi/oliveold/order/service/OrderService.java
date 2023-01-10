@@ -1,24 +1,24 @@
 package com.semi.oliveold.order.service;
 
 import com.semi.oliveold.order.dto.OrderDTO;
-import com.semi.oliveold.order.repository.OrderMapper;
-import org.springframework.stereotype.Service;
+import com.semi.oliveold.order.dto.OrderMemberDTO;
+import com.semi.oliveold.order.dto.ProductDTO;
 
-import java.util.List;
+import java.util.Map;
 
-@Service
-public class OrderService {
 
-    private final OrderMapper mapper;
+public interface OrderService {
 
-    public OrderService(OrderMapper mapper) {
-        this.mapper = mapper;
-    }
+    /* insert, update, delete 인 경우에는 리턴형은 정수형 */
+//    int insertOrderMenu(Map<String, Object> productMap);
 
-    public List<OrderDTO> selectOrderList(){
+    int insertOrderMenu(OrderDTO order);
 
-        List<OrderDTO> orderList = mapper.selectOrderList();
+    int selectProductNo(int orderNo);
 
-        return orderList;
-    }
+    ProductDTO selectProduct(int productNo);
+
+    OrderMemberDTO selectMember(String memberId);
+
+
 }

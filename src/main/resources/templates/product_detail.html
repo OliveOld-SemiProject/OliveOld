@@ -279,9 +279,13 @@
                             <button class="btnBasket  goods_cart"
                                     onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.cart');"
                                     data-attr="상품상세^주문유형^장바구니">장바구니</button>
+
+
+                            <form action="order/list" method="get">
                             <button class="btnBuy goods_buy" id="cartBtn"
-                                    onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.order');"
+                                    onclick="location.href='/order/registOrder?productNo=2'"
                                     data-attr="상품상세^주문유형^바로구매">바로구매</button>
+                            </form>
                         </div>
                     </div>
                 </div>

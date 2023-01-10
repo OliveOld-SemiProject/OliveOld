@@ -1,11 +1,24 @@
 package com.semi.oliveold.order.repository;
 
 import com.semi.oliveold.order.dto.OrderDTO;
+import com.semi.oliveold.order.dto.OrderMemberDTO;
+import com.semi.oliveold.order.dto.ProductDTO;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface OrderMapper {
-    List<OrderDTO> selectOrderList();
+//    int insertOrderMenu(Map<String, Object> productMap);
+
+    int insertOrderMenu(OrderDTO order);
+
+    int selectProductNo(int orderNo);
+
+    ProductDTO selectProduct(int productNo);
+
+    OrderMemberDTO selectMember(String memberId);
+
+
+
 }
