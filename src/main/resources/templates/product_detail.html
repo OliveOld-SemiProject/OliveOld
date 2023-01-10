@@ -80,9 +80,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-3 col-7">
                     <!-- Start Header Logo -->
-                    <a class="navbar-brand" href="index.html">
-                        <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                    </a>
+                    <form class="navbar-brand" action="/">
+                        <button type="submit">
+                            <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                        </button>
+                    </form>
                     <!-- End Header Logo -->
                 </div>
                 <div class="col-lg-5 col-md-7 d-xs-none">
@@ -209,29 +211,64 @@
             <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
                 <ul>
-                    <li name="gnb101" onclick="top.location.href='/shopping/category_list.asp?disp=101';" class="">
+                    <li id="cateButton1" name="gnb101" class="">
                         <p>스킨케어</p>
                     </li>
-                    <li class="line" name="gnb121"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                    <li id="cateButton2" class="line" name="gnb121" >
                         <p>메이크업</p>
                     </li>
-                    <li class="line" name="gnb120"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                    <li id="cateButton3" class="line" name="gnb120" >
                         <p>헤어케어</p>
                     </li>
-                    <li class="line" name="gnb112"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                    <li id="cateButton4" class="line" name="gnb112" >
                         <p>건강식품</p>
                     </li>
-                    <li class="line" name="gnb116"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                    <li id="cateButton5" class="line" name="gnb116" >
                         <p>보행보조용품</p>
                     </li>
-                    <li class="line" name="gnb118"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=118';">
-                        <p>이벤트</p>
+                    <li>
+                        <form>
+                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                        </form>
                     </li>
+                    <script>
+
+                        // 스킨케어
+
+                        document.getElementById("cateButton1").onclick=function(){
+
+                            location.href='/mainSearch/search?cateCode=4';
+
+                        };
+
+
+                        //메이크업
+
+                        document.getElementById("cateButton2").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=2';
+                        };
+
+                        //
+
+                        document.getElementById("cateButton3").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=5';
+                        };
+
+                        document.getElementById("cateButton4").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=1';
+                        };
+
+                        document.getElementById("cateButton5").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=3';
+                        };
+
+                    </script>
+
+
                 </ul>
             </div>
         </div>

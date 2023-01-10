@@ -596,13 +596,15 @@
             </div>
         </div>
 
-
+        <!--  인기 상품-->
         <div class="row">
             <div th:each="product : ${productList}" class="col-lg-3 col-md-6 col-12">
                 <!-- Start Single Product -->
                     <div class="single-product">
                         <div class="product-image">
+                            <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}" >
                             <img th:src="${product.productImage1}" alt="#">
+                            </a>
                         </div>
                         <div class="product-info">
                             <span class="category" th:text="${product.productCategoryName}"></span>
@@ -662,7 +664,9 @@
                 <!-- Start Single Product -->
                 <div class="single-product">
                     <div class="product-image">
-                        <img th:src="${product.productImage1}" alt="#">
+                        <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}">
+                            <img th:src="${product.productImage1}" alt="#">
+                        </a>
                     </div>
                     <div class="product-info">
                         <span class="category" th:text="${product.productCategoryName}"></span>
