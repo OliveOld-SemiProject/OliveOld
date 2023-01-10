@@ -49,7 +49,7 @@ public class EventController {
 
         List<EventDTO> eventList = eventService.MileageList();
         mv.addObject("EventList", eventList);
-        mv.setViewName("");
+        mv.setViewName("/myPage");
 
         log.info("eventList" + eventList);
 
