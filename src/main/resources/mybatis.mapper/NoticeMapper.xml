@@ -13,4 +13,23 @@
 
     </resultMap>
 
+    <resultMap type="MemberDTO" id="MemberResultMap">
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberGender" column="MEMBER_GENDER"/>
+        <result property="memberIdentifier" column="MEMBER_IDENTIFIER"/>
+        <result property="memberPhone" column="MEMBER_PHONE"/>
+        <result property="memberAddress" column="MEMBER_ADDRESS"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberRegistDate" column="MEMBER_REGISTDATE"/>
+        <result property="memberISAD" column="MEMBER_ISAD"/>
+        <result property="memberLevel" column="MEMBER_LEVEL"/>
+        <result property="memberType" column="MEMBER_TYPE"/>
+        <result property="mileage" column="MEMBER_MILEAGE"/>
+
+
+    </resultMap>
+
+
 </mapper>
