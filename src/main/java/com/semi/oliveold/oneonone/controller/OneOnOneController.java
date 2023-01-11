@@ -151,6 +151,8 @@ public class OneOnOneController {
 
         board.setAttachment(tempFileInfo);
 
+        System.out.println(tempFileInfo);
+
         try {
 
               // 이 시점에서 파일 업로드는 진행
