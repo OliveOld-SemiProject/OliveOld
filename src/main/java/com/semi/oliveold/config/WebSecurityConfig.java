@@ -65,7 +65,7 @@ public class WebSecurityConfig {
                 .formLogin()   // 로그인 form을 따로 이용해 로그인 처리할 것이다.
                     .loginPage("/member/login")   // login page로 해당 로그인페이지에서 submit요청하는 경로로 지정하겠다는 의미
                     .permitAll()
-                    .successForwardUrl("/")
+//                    .successForwardUrl("/")
                 .and()
                 .logout()                     // 로그아웃 설정
                     .logoutUrl("/member/logout")
