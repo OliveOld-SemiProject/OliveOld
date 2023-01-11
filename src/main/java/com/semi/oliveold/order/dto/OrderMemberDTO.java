@@ -11,17 +11,22 @@ import java.util.Date;
 @ToString
 public class OrderMemberDTO {
 
-
     public String memberId;
     public String memberPwd;
+
     public String memberName;
     public String memberGender;
     public String memberIdentifier;
     public String memberPhone;
-    public String memberPhone1;
-    public String memberPhone2;
-    public String memberPhone3;
+    public String Phone1;
+    public String Phone2;
+    public String Phone3;
+
     public String memberAddress;
+    public String zipcode;
+    public String address1;
+    public String address2;
+
     public String memberEmail;
     public Date memberRegistDate;
     public String memberISAD;

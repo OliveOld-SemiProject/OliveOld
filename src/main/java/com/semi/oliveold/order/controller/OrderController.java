@@ -1,5 +1,7 @@
 package com.semi.oliveold.order.controller;
 
+import com.semi.oliveold.member.dto.MemberDTO;
+import com.semi.oliveold.member.dto.UserImpl;
 import com.semi.oliveold.order.dto.OrderDTO;
 import com.semi.oliveold.order.dto.OrderMemberDTO;
 import com.semi.oliveold.order.dto.ProductDTO;
@@ -30,52 +32,54 @@ public class OrderController {
     public String insertOrderMenu(@AuthenticationPrincipal User user, @RequestParam int productNo) {
 
         System.out.println("no =========== : " + productNo);
-
-        /*String memberId = orderService.findById(user.getUsername());*/
-        String memberId = "user01";
-
+        /*String memberId = "user01";*/
+        System.out.println("user.getUsername() = " + user.getUsername());
         OrderDTO order = new OrderDTO();
         order.setProductNo(productNo);
-        order.setMemberId(memberId);
-
-       // rttr.addFlashAttribute("productNo", productNo);
+        order.setMemberId(user.getUsername());
 
         int result =  orderService.insertOrderMenu(order);
 
         System.out.println("orderNo===========" + order);
-        //return "";
 
         return "redirect:/order/orderProductDetail/"+ order.getOrderNo();
     }
     @GetMapping("/orderProductDetail/{orderNo}")
-    public ModelAndView selectOrderMenu(@AuthenticationPrincipal User user, @PathVariable("orderNo") int orderNo, ModelAndView mv, HttpServletRequest request){
+    public ModelAndView selectOrderMenu(@AuthenticationPrincipal User user, @PathVariable("orderNo") int orderNo, ModelAndView mv){
 
-
-        /*String memberId = orderService.findById(user.getUsername());*/
-        String memberId = "user01";
-        System.out.println("orderNo = " + orderNo);
+        /*String memberId = "user01";*/
+        System.out.println("orderNo ==============> " + orderNo);
 
         // productNo
         int productNo = orderService.selectProductNo(orderNo);
 
         ProductDTO product = orderService.selectProduct(productNo);
         System.out.println("product ================> " + product);
-        OrderMemberDTO member = orderService.selectMember(memberId);
+        OrderMemberDTO member = orderService.selectMember(user.getUsername());
         System.out.println("member ==================> " + member);
         OrderDTO order = orderService.selectOrderQuan(orderNo);
-/*
 
+        String[] phoneNum = member.memberPhone.split("-");
+        for(int i = 0; i < phoneNum.length; i++){
+            member.setPhone1(phoneNum[0]);
+            member.setPhone2(phoneNum[1]);
+            member.setPhone3(phoneNum[2]);
+        }
 
-        String address = request.getParameter("zipCode") + "%" + request.getParameter("address1") + "%" + request.getParameter("address2");
-        member.setAddress(address);
-        member.setPhone(phone);
-        member.setPhone(member.getPhone().replace("-", ""));
-*/
+        String[] arrAddress = member.memberAddress.split("/");
 
+        for (int i = 0; i <arrAddress.length; i++){
+            member.setZipcode(arrAddress[0]);
+            member.setAddress1(arrAddress[1]);
+            member.setAddress2(arrAddress[2]);
+        }
+
+        System.out.println("order = " + order);
         mv.addObject("product", product);
         mv.addObject("member", member);
         mv.addObject("order", order);
 
+        System.out.println("확인용 ===============>>>>>>");
         mv.setViewName("/order-payment");
 
         return mv;

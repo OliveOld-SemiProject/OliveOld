@@ -68,7 +68,7 @@ public class OrderServiceImpl implements OrderService{
 
         OrderDTO order = mapper.selectOrderQuan(orderNo);
 
-        return null;
+        return order;
     }
 
 }

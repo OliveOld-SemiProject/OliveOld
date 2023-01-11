@@ -76,7 +76,7 @@
                   PRODUCT_NO
                 , PRODUCT_NAME
                 , PRODUCT_PRICE
-                , PRODUCT_QUAN
+                , PRODUCT_IMAGE1
           FROM SemiDB.PRODUCT
          WHERE PRODUCT_NO = #{ productNo }
     </select>
@@ -86,6 +86,7 @@
                   MEMBER_NAME
                 , MEMBER_PHONE
                 , MEMBER_ADDRESS
+                , MEMBER_EMAIL
                 , MEMBER_MILEAGE
           FROM SemiDB.Member
          WHERE MEMBER_ID = #{ memberID }
