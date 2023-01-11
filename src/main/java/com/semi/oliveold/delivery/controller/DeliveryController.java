@@ -42,35 +42,4 @@ public class DeliveryController {
         return mv;
     }
 
-
-
-    /*//index
-    @RequestMapping("/index")
-    public String doIndex(){
-        return "/index.html";
-    }
-
-    //로그인
-    @RequestMapping("/login.html")
-    public String doLogin(){
-        return "redirect:/login.html";
-    }
-
-    //회원가입
-    @GetMapping("/signup.html")
-    public String goSignUp(){
-        return "redirect:/signup.html";
-    }
-
-    //쇼핑카드
-    @GetMapping("/shoppingCart.html")
-    public String goShoppingCart(){
-        return "redirect:/cartList";
-    }
-
-    //공지사항
-    @GetMapping("/Notice.html")
-    public String goNotice(){
-        return "redirect:/Notice.html";
-    }*/
 }

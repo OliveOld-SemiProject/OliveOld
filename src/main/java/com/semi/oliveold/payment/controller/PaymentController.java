@@ -38,6 +38,7 @@ public class PaymentController {
         String address = request.getParameter("zipCode") + "$" + request.getParameter("address1") + "$" + request.getParameter("address2");
         orderDTO.setAddress(address);
         orderDTO.setPhone(phone);
+        member.setPhone(member.getPhone().replace("-", ""));
 
         paymentService.createPayment(payment);
 

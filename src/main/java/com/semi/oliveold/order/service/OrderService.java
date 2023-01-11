@@ -20,5 +20,8 @@ public interface OrderService {
 
     OrderMemberDTO selectMember(String memberId);
 
+    OrderDTO selectOrderQuan(int orderNo);
 
+
+    /*String findById(String );*/
 }

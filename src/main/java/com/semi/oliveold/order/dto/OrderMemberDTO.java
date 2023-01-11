@@ -18,6 +18,9 @@ public class OrderMemberDTO {
     public String memberGender;
     public String memberIdentifier;
     public String memberPhone;
+    public String memberPhone1;
+    public String memberPhone2;
+    public String memberPhone3;
     public String memberAddress;
     public String memberEmail;
     public Date memberRegistDate;

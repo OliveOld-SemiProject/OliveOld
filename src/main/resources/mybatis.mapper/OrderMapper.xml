@@ -77,8 +77,8 @@
                 , PRODUCT_NAME
                 , PRODUCT_PRICE
                 , PRODUCT_QUAN
-         FROM SemiDB.PRODUCT
-        WHERE PRODUCT_NO = #{ productNo }
+          FROM SemiDB.PRODUCT
+         WHERE PRODUCT_NO = #{ productNo }
     </select>
 
     <select id="selectMember" resultMap="memberResultMap">
@@ -87,7 +87,14 @@
                 , MEMBER_PHONE
                 , MEMBER_ADDRESS
                 , MEMBER_MILEAGE
-        FROM SemiDB.Member
-        WHERE MEMBER_ID = #{ memberID }
+          FROM SemiDB.Member
+         WHERE MEMBER_ID = #{ memberID }
+    </select>
+
+    <select id="selectOrderQuan" resultMap="OrderResultMap">
+        SELECT
+                ORDER_QUAN
+          FROM SemiDB.TBL_ORDER
+         WHERE ORDER_NO = #{ orderNo }
     </select>
 </mapper>

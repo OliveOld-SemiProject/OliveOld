@@ -62,4 +62,13 @@ public class OrderServiceImpl implements OrderService{
 
         return member;
     }
+
+    @Override
+    public OrderDTO selectOrderQuan(int orderNo) {
+
+        OrderDTO order = mapper.selectOrderQuan(orderNo);
+
+        return null;
+    }
+
 }

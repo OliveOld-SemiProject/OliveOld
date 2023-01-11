@@ -155,7 +155,7 @@
                                         <th scope="row">배송지선택</th>
                                         <td>
                                             <span class="chk_area mgzero"><input type="radio" id="btn_dlvp_exist"
-                                                    name="inpAddrSel" value="exist" targetid="exist"
+                                                    name="inpAddrSel" value="exist" targetid="exist" checked="checked"
                                                     data-attr="배송지정보^1_배송지선택"><label for="btn_dlvp_exist">기존
                                                     배송지</label></span>
 
@@ -169,10 +169,9 @@
                                     <tr type="new" class="new_order_area" style="">
                                         <th scope="row">받는분</th>
                                         <td class="imp_data">
-                                            <input type="text" id="rmitNm_new" name="name" value="" orgvalue=""
-                                                class="inpH28" title="받는분 이름을 입력해주세요." style="width:200px"
-                                                this="받는분 이름은" data-attr="배송지정보^1_받는분">
-
+                                            <input type="text" id="rmitNm_new" name="name" th:value="${ member.memberName }"
+                                                   orgvalue="" class="inpH28" title="받는분 이름을 입력해주세요." style="width:200px"
+                                                   this="받는분 이름은" data-attr="배송지정보^1_받는분" >
                                         </td>
                                     </tr>
                                     <tr type="new" class="new_order_area" style="">
@@ -184,12 +183,14 @@
                                             </select>
                                             - <input type="text" id="rmitCellTxnoNo_new" name="phone2" value=""
                                                 orgvalue="" class="inpH28" title="연락처 가운데 자리" this="연락처1 가운데 자리는"
-                                                style="width:90px" data-attr="연락처1">
+                                                style="width:90px" data-attr="연락처1" th:value="${ member.memberPhone2 }">
                                             - <input type="text" id="rmitCellEndNo_new" name="phone3" value=""
                                                 orgvalue="" class="inpH28" title="연락처1 마지막 자리" this="연락처1 마지막 자리는"
-                                                style="width:90px" data-attr="연락처1">
+                                                style="width:90px" data-attr="연락처1" th:value="${ member.memberPhone3 }">
                                         </td>
                                     </tr>
+
+
 
                                     <tr type="new" class="new_order_area" style="display: table-row;">
                                         <th scope="row">주소</th>
@@ -211,7 +212,7 @@
                                                 </p>
                                                 <!--// 주소 입력 시 보여지는 부분 -->
                                             </div>
-                                            <input type="text" id="tempRmitDtlAddr_new" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px;" this="상세 주소는">
+                                            <input type="text" id="tempRmitDtlAddr_new" th:value="${ member.memberAddress }" class="inpH28" title="상세주소를 입력해주세요." style="width:500px;" this="상세 주소는">
                                             <p class="txtDot mgT5">신규배송지 정보는 마이페이지 내 배송지에 저장됩니다.</p>
                                             <input type="hidden" id="stnmRmitDtlAddr_new" name="stnmRmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px" this="상세 주소는">
                                             <input type="hidden" id="rmitDtlAddr_new" name="rmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px">
@@ -219,7 +220,6 @@
                                             <input type="hidden" id="admrNm_new" name="admrNm">
                                         </td>
                                     </tr>
-
 
                                 </tbody>
                             </table>
@@ -229,7 +229,8 @@
                             </h2>
                             <table class="tbl_prd_list">
                                 <colgroup>
-                                    <col style="width:*">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
                                     <col style="width:110px">
                                     <col style="width:100px">
                                     <col style="width:110px">
@@ -237,6 +238,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">상품번호</th>
+                                        <th scope="col">상품이미지</th>
                                         <th scope="col">상품명</th>
                                         <th scope="col">수량</th>
                                         <th scope="col">구매가</th>
@@ -244,12 +246,13 @@
 
                                     <tr>
                                         <td th:text="${ product.productNo }"></td>
+                                        <td th:src="${ product.productImage1 }"></td>
                                         <td th:text="${ product.productName }"></td>
-                                        <td th:text="${ product.productQuan }"></td>
+                                        <td th:text="${ order.orderQuan }"></td>
                                         <td th:text="${ product.productPrice }"></td>
                                     </tr>
                                 </thead>
-                                <tbody>
+                               <!-- <tbody>
                                     <tr>
                                         <input type="hidden" name="cartNo" value="439275545">
                                          <td colspan="5" dispcatno="" stdcatno="090502" goodsno="A000000149575"
@@ -265,7 +268,7 @@
                                                                 alt="장바구니 상품 임시 이미지" onerror="common.errorImg(this);">
                                                         </div>
                                                         <div class="prd_name">
-                                                            <span>필리밀리</span><!-- 2017-01-26 수정 : 브랜드명 분리 -->
+                                                            <span>필리밀리</span>&lt;!&ndash; 2017-01-26 수정 : 브랜드명 분리 &ndash;&gt;
                                                             <p>필리밀리 히알루론산 화장솜 80p</p>
                                                         </div>
                                                         <p class="prd_opt">
@@ -279,7 +282,7 @@
                                                 <div class="tbl_cell w100">1</div>
                                                 <div class="tbl_cell w110">
                                                     <span class="org_price"><span class="tx_num"
-                                                            id="normPrc_A000000149575/001">4,000</span>원</span><!-- 2017-01-24 수정 : 추가 -->
+                                                            id="normPrc_A000000149575/001">4,000</span>원</span>&lt;!&ndash; 2017-01-24 수정 : 추가 &ndash;&gt;
                                                     <span class="pur_price"><span class="tx_num"
                                                             id="salePrc_A000000149575/001">3,600</span>원</span>
                                                     <input type="hidden" id="orgNormPrc_A000000149575/001" value="4000" name="price">
@@ -289,14 +292,14 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </tbody>
+                                </tbody>-->
                             </table>
                             <!-- 쿠폰 및 포인트, 결제수단, 결제정보 -->
                             <div class="order_payment_box">
                                 <div class="left_area">
                                     <!-- 쿠폰할인정보 -->
-                                    <h2 class="sub-title2 width-inline">할인</h2>
-                                    <table class="tbl_inp_form type2">
+                                    <h2 class="sub-title2 width-inline">적립금</h2>
+                                   <!-- <table class="tbl_inp_form type2">
                                         <caption>배송비할인 입력 폼</caption>
                                         <colgroup>
                                             <col style="width:170px">
@@ -316,7 +319,7 @@
                                                 </td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table>-->
                                     <table class="tbl_inp_form type2">
                                         <caption>적립금사용 입력 폼</caption>
                                         <colgroup>
@@ -331,15 +334,15 @@
                                                     <div>
                                                         <span class="inp_point_wrap">
                                                             <!-- fix/3275248 bmiy20 cjone point 적립불가건에 대해 사용 불가 처리 추가 -->
-                                                            <input type="text" id="cjonePntAplyAmt"
+                                                            <input type="text" id="cjonePntAplyAmt" th:value="${ member.mileage }"
                                                                 class="inpH28 cjonePoint"
                                                                 name="mileage"
                                                                 title="사용하실 CJ ONE 포인트를 입력해주세요." style="width:100px"
                                                                 this="CJ ONE 포인트는 " minownamt="1000" unit="P"
                                                                 unitamt="10" minaplyamt="0"
-                                                                data-attr="포인트/기프트카드사용^CJONE포인트"> 원 / <span
+                                                                data-attr="포인트/기프트카드사용^CJONE포인트"> <!--원 / <span
                                                                 id="cjonePnt_span" class="tx_num colorOrange"><span
-                                                                    id="cjonePnt">1,786</span>P</span>
+                                                                    id="cjonePnt">1,786</span>P</span>-->
                                                             <input type="hidden" name="cjonePntAplyAmt" value="0">
                                                             <input type="hidden" name="cjonePntNonPosCnt" value="0">
                                                             <!--//cjone point 사용가능 금액 bmiy20, 2021-09-16 문구수정// -->
