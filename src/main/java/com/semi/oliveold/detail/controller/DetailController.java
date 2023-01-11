@@ -1,6 +1,7 @@
 package com.semi.oliveold.detail.controller;
 
 import com.semi.oliveold.detail.dto.DetailDTO;
+import com.semi.oliveold.detail.dto.ReviewDTO;
 import com.semi.oliveold.detail.service.DetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -44,14 +45,19 @@ public class DetailController {
 
         List<DetailDTO> findProductListByNo = detailService.findProductListByNo(no);
         List<DetailDTO> findNewProductListByNo = detailService.findNewProductListByNo(no);
+        List<ReviewDTO> findReviewListByProductNo = detailService.findReviewListByProductNo(no);
+
 
         log.info("[DetailController] findProductListByNo : " + findProductListByNo);
         log.info("[DetailController] findNewProductListByNo : " + findNewProductListByNo);
+        log.info("[DetailController] findNewProductListByNo : " + findReviewListByProductNo);
+
 
 //        mv.addObject("productList", productList.get(0));
 
         mv.addObject("findProductListByNo", findProductListByNo);
         mv.addObject("findNewProductListByNo", findNewProductListByNo);
+        mv.addObject("findNewProductListByNo", findReviewListByProductNo);
 
         mv.setViewName("product_detail");
 
