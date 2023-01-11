@@ -21,6 +21,7 @@
 
 <body>
 
+<!-- start header -->
 <div class="headerTopNew">
     <div class="inner">
         <div class="head-util">
@@ -45,12 +46,11 @@
                 </li>
 
                 <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                    <form action="/logout" method="post">
+                    <form action="/member/logout" method="post">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                     </form>
                 </li>
 
-                <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                 <li class="util-order">
                     <form action="/order/list" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
@@ -80,37 +80,32 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-3 col-7">
                     <!-- Start Header Logo -->
-                    <a class="navbar-brand" href="index.html">
-                        <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                    </a>
+                    <form class="navbar-brand" action="/">
+                        <button type="submit">
+                            <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                        </button>
+                    </form>
                     <!-- End Header Logo -->
                 </div>
                 <div class="col-lg-5 col-md-7 d-xs-none">
                     <!-- Start Main Menu Search -->
-                    <div class="main-menu-search">
-                        <!-- navbar search start -->
-                        <div class="navbar-search search-style-5">
-                            <div class="search-select">
-                                <div class="select-position">
-                                    <select id="select1">
-                                        <option selected="">All</option>
-                                        <option value="1">option 01</option>
-                                        <option value="2">option 02</option>
-                                        <option value="3">option 03</option>
-                                        <option value="4">option 04</option>
-                                        <option value="5">option 05</option>
-                                    </select>
+
+                    <form th:action="@{/mainSearch/search}" method="get">
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+
+                                <div class="search-input">
+                                    <input id="text" type="text" name="searchValue" placeholder="Search">
+                                </div>
+
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt" type="submit"></i></button>
                                 </div>
                             </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <div class="search-btn">
-                                <button><i class="lni lni-search-alt"></i></button>
-                            </div>
+                            <!-- navbar search Ends -->
                         </div>
-                        <!-- navbar search Ends -->
-                    </div>
+                    </form>
                     <!-- End Main Menu Search -->
                 </div>
 
@@ -204,34 +199,68 @@
                     });
                 });
             </script>
-            <script type="text/javascript"
-                    src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
             <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
                 <ul>
-                    <li name="gnb101" onclick="top.location.href='/shopping/category_list.asp?disp=101';" class="">
+                    <li id="cateButton1" name="gnb101" class="">
                         <p>스킨케어</p>
                     </li>
-                    <li class="line" name="gnb121"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                    <li id="cateButton2" class="line" name="gnb121" >
                         <p>메이크업</p>
                     </li>
-                    <li class="line" name="gnb120"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                    <li id="cateButton3" class="line" name="gnb120" >
                         <p>헤어케어</p>
                     </li>
-                    <li class="line" name="gnb112"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                    <li id="cateButton4" class="line" name="gnb112" >
                         <p>건강식품</p>
                     </li>
-                    <li class="line" name="gnb116"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                    <li id="cateButton5" class="line" name="gnb116" >
                         <p>보행보조용품</p>
                     </li>
-                    <li class="line" name="gnb118"
-                        onclick="top.location.href='/shopping/category_list.asp?disp=118';">
-                        <p>이벤트</p>
+                    <li>
+                        <form>
+                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                        </form>
                     </li>
+                    <script>
+
+                        // 스킨케어
+
+                        document.getElementById("cateButton1").onclick=function(){
+
+                            location.href='/mainSearch/search?cateCode=4';
+
+                        };
+
+
+                        //메이크업
+
+                        document.getElementById("cateButton2").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=2';
+                        };
+
+                        //
+
+                        document.getElementById("cateButton3").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=5';
+                        };
+
+                        document.getElementById("cateButton4").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=1';
+                        };
+
+                        document.getElementById("cateButton5").onclick = function(){
+
+                            location.href='/mainSearch/search?cateCode=3';
+                        };
+
+                    </script>
+
+
                 </ul>
             </div>
         </div>

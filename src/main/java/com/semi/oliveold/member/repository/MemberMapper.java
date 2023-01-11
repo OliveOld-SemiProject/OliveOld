@@ -9,4 +9,6 @@ public interface MemberMapper {
     MemberDTO findMemberById(String memberId);
 
     int insertMember(MemberDTO member);
+
+    int changePwd(String id, String newPwd);
 }

@@ -13,7 +13,7 @@
             <br>
             <h2 align="center">게시판 작성</h2>
             <div class="table-area">
-                <form id="boardRegistForm" th:action="@{/OneOnOneBoard/regist}" method="post">
+                <form id="boardRegistForm" th:action="@{/OneOnOneBoard/regist}" method="post" enctype="multipart/form-data">
                     <table align="center">
                         <input
                                 type="hidden"
@@ -36,16 +36,13 @@
                             <td>제목 </td>
                             <td colspan="3"><input type="text" name="title" style="width:400px;"></td>
                         </tr>
+
                         <tr>
-                        <tr>
-                            <td>파일 첨부 </td>
-                            <td>
-                            <form id="frm" name="frm" method="post" action="/OneOnOneBoard/fileUpload" enctype="multipart/form-data">
-                                <input type="file" id="files" name="files" multiple="multuple">
-<!--                                <input type="submit" id="submit" values="저장" class="btn">-->
-                            </form>
-                            </td>
+                        <td for="formFileMultiple" class="form-label">파일업로드</td>
+                        <td><input class="form-control" type="file" id="formFileMultiple" name="multipartFiles" multiple>
+                        </td>
                         </tr>
+
                         <tr>
 
                             <td>내용 </td>
