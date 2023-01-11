@@ -5,6 +5,7 @@ import com.semi.oliveold.notice.dto.NoticeDTO;
 import com.semi.oliveold.notice.exception.NoticeRegistException;
 import com.semi.oliveold.notice.repository.NoticeMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -40,9 +41,14 @@ public class NoticeService {
         return noticeList;
     }
 
-    public void registNotice(NoticeDTO notice) {
+    @Transactional
+    public void registNotice(NoticeDTO notice) throws NoticeRegistException {
 
-        int result = mapper.insertNotice(notice);
+        int result = mapper.registNotice(notice);
 
+        if(!(result > 0 )){
+            throw new NoticeRegistException("공지사항 등록에 실패하셨습니다.");
+
+        }
     }
 }

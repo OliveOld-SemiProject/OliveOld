@@ -3,11 +3,13 @@ package com.semi.oliveold.notice.controller;
 import com.semi.oliveold.notice.dto.NoticeCriteria;
 import com.semi.oliveold.notice.dto.NoticeDTO;
 import com.semi.oliveold.notice.dto.NoticePagenation;
+import com.semi.oliveold.notice.exception.NoticeRegistException;
 import com.semi.oliveold.notice.service.NoticeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -84,14 +86,16 @@ public class NoticeController {
         return "/notice/noticeRegist";
     }
 
-    @GetMapping("/regist")
-    public String registNotice(@ModelAttribute NoticeDTO notice, RedirectAttributes rttr){
+    @PostMapping("/regist")
+    public String registNotice(@ModelAttribute NoticeDTO notice, RedirectAttributes rttr) throws NoticeRegistException {
 
         noticeService.registNotice(notice);
 
-        rttr.addFlashAttribute("msg", "공지사항 등록에 성공하였습니다.");
+        rttr.addFlashAttribute("message", "공지사항 등록에 성공하였습니다.");
 
         return "redirect:/notice/list";
     }
+
+
 
 }

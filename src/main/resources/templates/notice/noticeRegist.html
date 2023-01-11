@@ -3,10 +3,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
 
+
 <link rel="stylesheet" href="/assets/css/footer.css">
 
 
 <th:block layout:fragment="content">
+  <!-- Begin Page Content -->
   <div class="container-fluid">
 
     <div class="outer outer-board-insert">
@@ -19,19 +21,14 @@
                     type="hidden"
                     id="writerMemberId"
                     name="writerMemberId">
-            <!--                                th:value="${ #authentication.getPrincipal().getMemberNo() }"-->
+            <!--    th:value="${ #authentication.getPrincipal().getMemberNo() }"-->
 
             <tr>
               <td>제목 </td>
               <td><input type="text" size="50" name="title"></td>
             </tr>
             <tr>
-              <td>작성자 </td>
-              <td>
-                <p
-                        th:text="${ #authentication.getPrincipal().getNickname() }"
-                >
-                </p>
+
               </td>
             </tr>
             <tr>

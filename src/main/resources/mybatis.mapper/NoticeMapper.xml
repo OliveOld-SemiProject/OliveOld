@@ -2,15 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.semi.oliveold.notice.repository.FaqBoardMapper">
+<mapper namespace="com.semi.oliveold.notice.repository.NoticeMapper">
 
-    <resultMap id="noticeResultMap" type="NoticeDTO">
+    <resultMap type="NoticeDTO" id="NoticeResultMap">
         <id property="noticeNo" column="NOTICE_NO"/>
         <result property="noticeTitle" column="NOTICE_TITLE"/>
         <result property="noticeRegistDate" column="NOTICE_REGISTDATE"/>
         <result property="noticeContent" column="NOTICE_CONTENT"/>
         <result property="noticeWriter" column="NOTICE_WRITER"/>
-
     </resultMap>
 
     <resultMap type="MemberDTO" id="MemberResultMap">
@@ -28,8 +27,63 @@
         <result property="memberType" column="MEMBER_TYPE"/>
         <result property="mileage" column="MEMBER_MILEAGE"/>
 
-
     </resultMap>
 
+    <select id="selectNoticeList" resultMap="NoticeResultMap">
+        SELECT
+               NOTICE_NO
+             , NOTICE_TITLE
+             , NOTICE_REGISTDATE
+             , NOTICE_CONTENT
+             , NOTICE_WRITER
+        FROM SemiDB.NOTICE
+    </select>
+
+    <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT
+        COUNT(*)
+        FROM NOTICE A
+
+        <if test="searchCondition == 'writer'">
+            JOIN Member B ON(A.NOTICE_WRITER = B.MEMBER_NO)
+        </if>
+        <where>
+            <if test="searchCondition == 'category'">
+                B.CATEGORY_NAME = #{ searchValue }
+            </if>
+            <if test="searchCondition == 'writer'">
+                B.MEMBER_NAME LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'title'">
+                A.NOTICE_TITLE LIKE '%' || #{ searchValue } || '%'
+            </if>
+            <if test="searchCondition == 'content'">
+                A.NOTICE_CONTENT LIKE '%' || #{ searchValue } || '%'
+            </if>
+
+        </where>
+    </select>
+
+
+
+    <insert id="registNotice" parameterType="NoticeDTO">
+        INSERT
+          INTO SemiDB.NOTICE
+        (
+          NOTICE_NO
+        , NOTICE_TITLE
+        , NOTICE_REGISTDATE
+        , NOTICE_CONTENT
+        , NOTICE_WRITER
+        )
+        VALUES
+        (
+          null
+        , #{ noticeTitle }
+        , now()
+        , #{ noticeContent }
+        , 'user01'    <!-- 수정 -->
+        )
+    </insert>
 
 </mapper>

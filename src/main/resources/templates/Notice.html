@@ -353,13 +353,15 @@
                         <caption>번호, 제목, 등록일/당첨자 발표일로 이루어진 공지사항 목록 표</caption>
                         <colgroup>
                             <col style="width:9%;">
-                            <col style="width:79%;">
-                            <col style="width:12%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                            <col style="width:10%;">
                         </colgroup>
                         <thead>
                             <tr>
                                 <th scope="col">번호</th>
                                 <th scope="col">제목</th>
+                                <th scope="col">작성자</th>
                                 <th scope="col">등록일</th>
                             </tr>
                         </thead>
@@ -373,50 +375,50 @@
                                 <td th:text="${notice.noticeNo}"></td>
                                 <td th:text="${notice.noticeTitle}"></td>
                                 <td th:text="${notice.noticeWriter}"></td>
-                                <td th:text="${notice.noticeContent}"></td>
+<!--                                <td th:text="${notice.noticeContent}"></td>-->
                                 <td th:text="${notice.noticeRegistDate}"></td>
                             </tr>
 
-                            <tr class="notice_fix">
-                                <td>중요</td>
-                                <td class="subject">
-                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 오늘드림 서비스 제한
-                                        안내</a>
-                                </td>
-                                <td>2022.12.21</td>
-                            </tr>
-                            <tr class="notice_fix">
-                                <td>중요</td>
-                                <td class="subject">
-                                    <a href="javascript:counsel.noticeList.goDetail('38400')">올리브영 온라인몰 배송지연 및 상담지연
-                                        안내</a>
-                                </td>
-                                <td>2022.12.10</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td class="subject">
-                                    <a href="javascript:counsel.noticeList.goDetail('38720')">&lt;올리브올드&gt; 이벤트 당첨자
-                                        안내</a>
-                                </td>
-                                <td>2022.12.21</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td class="subject">
-                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 배송서비스 제한
-                                        안내</a>
-                                </td>
-                                <td>2022.12.21</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td class="subject">
-                                    <a href="javascript:counsel.noticeList.goDetail('38560')">[올리브올드-보행보조용품] 새로운 제품 등록
-                                        안내</a>
-                                </td>
-                                <td>2022.12.14</td>
-                            </tr>
+<!--                            <tr class="notice_fix">-->
+<!--                                <td>중요</td>-->
+<!--                                <td class="subject">-->
+<!--                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 오늘드림 서비스 제한-->
+<!--                                        안내</a>-->
+<!--                                </td>-->
+<!--                                <td>2022.12.21</td>-->
+<!--                            </tr>-->
+<!--                            <tr class="notice_fix">-->
+<!--                                <td>중요</td>-->
+<!--                                <td class="subject">-->
+<!--                                    <a href="javascript:counsel.noticeList.goDetail('38400')">올리브영 온라인몰 배송지연 및 상담지연-->
+<!--                                        안내</a>-->
+<!--                                </td>-->
+<!--                                <td>2022.12.10</td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td>3</td>-->
+<!--                                <td class="subject">-->
+<!--                                    <a href="javascript:counsel.noticeList.goDetail('38720')">&lt;올리브올드&gt; 이벤트 당첨자-->
+<!--                                        안내</a>-->
+<!--                                </td>-->
+<!--                                <td>2022.12.21</td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td>2</td>-->
+<!--                                <td class="subject">-->
+<!--                                    <a href="javascript:counsel.noticeList.goDetail('38700')">기상악화로 인한 일부지역 배송서비스 제한-->
+<!--                                        안내</a>-->
+<!--                                </td>-->
+<!--                                <td>2022.12.21</td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td>1</td>-->
+<!--                                <td class="subject">-->
+<!--                                    <a href="javascript:counsel.noticeList.goDetail('38560')">[올리브올드-보행보조용품] 새로운 제품 등록-->
+<!--                                        안내</a>-->
+<!--                                </td>-->
+<!--                                <td>2022.12.14</td>-->
+<!--                            </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -489,9 +491,9 @@
 <!--                <a href="javascript:void(0);" data-page-no="5">5</a>-->
 <!--                </div>-->
 
-<!--         로그인 한 경우에만 버튼이 보여짐-->
+<!--         관리자인경우  경우에만 버튼이 보여짐-->
         <div>
-        <th:block  sec:authorize="isAuthenticated()">
+        <th:block  sec:authorize="hasRole('admin')">
         <button class="btn btn-or" id="writeBoard">작성하기</button>
         </th:block>
         </div>
