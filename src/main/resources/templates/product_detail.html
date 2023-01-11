@@ -23,6 +23,7 @@
 
 <body>
 
+<!-- start header -->
 <div class="headerTopNew">
     <div class="inner">
         <div class="head-util">
@@ -47,12 +48,11 @@
                 </li>
 
                 <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                    <form action="/logout" method="post">
+                    <form action="/member/logout" method="post">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                     </form>
                 </li>
 
-                <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                 <li class="util-order">
                     <form action="/order/list" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
@@ -91,30 +91,23 @@
                 </div>
                 <div class="col-lg-5 col-md-7 d-xs-none">
                     <!-- Start Main Menu Search -->
-                    <div class="main-menu-search">
-                        <!-- navbar search start -->
-                        <div class="navbar-search search-style-5">
-                            <div class="search-select">
-                                <div class="select-position">
-                                    <select id="select1">
-                                        <option selected="">All</option>
-                                        <option value="1">option 01</option>
-                                        <option value="2">option 02</option>
-                                        <option value="3">option 03</option>
-                                        <option value="4">option 04</option>
-                                        <option value="5">option 05</option>
-                                    </select>
+
+                    <form th:action="@{/mainSearch/search}" method="get">
+                        <div class="main-menu-search">
+                            <!-- navbar search start -->
+                            <div class="navbar-search search-style-5">
+
+                                <div class="search-input">
+                                    <input id="text" type="text" name="searchValue" placeholder="Search">
+                                </div>
+
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt" type="submit"></i></button>
                                 </div>
                             </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <div class="search-btn">
-                                <button><i class="lni lni-search-alt"></i></button>
-                            </div>
+                            <!-- navbar search Ends -->
                         </div>
-                        <!-- navbar search Ends -->
-                    </div>
+                    </form>
                     <!-- End Main Menu Search -->
                 </div>
 
@@ -208,8 +201,7 @@
                     });
                 });
             </script>
-            <script type="text/javascript"
-                    src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
             <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
                 <ul>

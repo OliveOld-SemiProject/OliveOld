@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 public class OneOnOneBoardDTO {
 
-    private Long no;
+    private int no;
     private Integer type;
     private Long CategoryCode;
     private String title;
@@ -25,7 +25,7 @@ public class OneOnOneBoardDTO {
     private Date createdDate;
     private Date modifiedDate;
     private String status;
-    private List<AttachmentDTO> attachmentList;
+    private AttachmentDTO attachment;
     private OneOnOneCategoryDTO oneOnOneCategory;      // faq 카테고리 목록 조회용 밑으로 관련 카테고리 추가하면 됨
 
 }

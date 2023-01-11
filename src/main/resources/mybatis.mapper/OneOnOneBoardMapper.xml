@@ -20,6 +20,8 @@
         <association property="writer" resultMap="memberResultMap"/>
         <association property="oneOnOneCategory" resultMap="oneOnOneCategoryResultMap"/>
 
+        <collection property="attachment" resultMap="attachmentResultMap"/>
+
     </resultMap>
 
     <resultMap type="MemberDTO" id="memberResultMap">
@@ -38,6 +40,19 @@
         <id property="oneOnOneCode" column="CATEGORY_CODE"/>
         <result property="oneOnOneName" column="CATEGORY_NAME"/>
     </resultMap>
+
+    <resultMap type="AttachmentDTO" id="attachmentResultMap">
+        <id property="no" column="ATTACHMENT_NO"></id>
+        <result property="refBoardNo" column="REF_BOARD_NO"/>
+        <result property="originalName" column="ORIGINAL_NAME"/>
+        <result property="savedName" column="SAVED_NAME"/>
+        <result property="savePath" column="SAVE_PATH"/>
+        <result property="fileType" column="FILE_TYPE"/>
+        <result property="status" column="ATTACHMENT_STATUS"/>
+    </resultMap>
+
+
+
 
 
     <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
@@ -132,6 +147,10 @@
         , 'user01'    <!--  테스트용 이거 바꿔야 합니다-->
         ,  now()
         )
+        <selectKey keyColumn="OneOnOne_BOARD_NO" keyProperty="no" order="AFTER" resultType="_int">
+            select LAST_INSERT_ID()
+        </selectKey>
+
 
     </insert>
 
@@ -165,6 +184,31 @@
         , A.OneOnOne_BOARD_BODY = #{ body }
         WHERE A.OneOnOne_BOARD_NO = #{ no }
     </update>
+
+
+    <insert id="insertAttachment" parameterType="AttachmentDTO">
+
+
+        INSERT
+        INTO TBL_ATTACHMENT A
+        (
+          A.ATTACHMENT_NO
+        , A.REF_BOARD_NO
+        , A.ORIGINAL_NAME
+        , A.SAVED_NAME
+        , A.SAVE_PATH
+        , A.FILE_TYPE
+        )
+        VALUES
+        (
+          null
+        , #{ refBoardNo }
+        , #{ originalName }
+        , #{ savedName }
+        , #{ savePath }
+        , #{ fileType }
+        )
+    </insert>
 
 
 
