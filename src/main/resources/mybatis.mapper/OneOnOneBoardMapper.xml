@@ -164,11 +164,14 @@
         , A.OneOnOne_BOARD_COUNT
         , A.OneOnOne_CREATED_DATE
         , C.CATEGORY_NAME
+        , D.ORIGINAL_NAME
         FROM TBL_OneOnOne_BOARD A
         JOIN Member B ON (A.OneOnOne_BOARD_WRITER_MEMBER_ID = B.MEMBER_ID)
         JOIN TBL_OneOnOne_CATEGORY C ON (A.OneOnOne_CATEGORY_CODE = C.CATEGORY_CODE)
+        JOIN TBL_ATTACHMENT D ON ( A.OneOnOne_BOARD_NO = D.REF_BOARD_NO )
         WHERE A.OneOnOne_BOARD_STATUS = 'Y'
         AND A.OneOnOne_BOARD_NO = #{ no }
+<!--        AND D.ATTACHMENT_STATUS = 'Y'-->
     </select>
 
     <delete id="removeOneOnOne" parameterType="long">
@@ -187,17 +190,17 @@
 
 
     <insert id="insertAttachment" parameterType="AttachmentDTO">
-
-
         INSERT
-        INTO TBL_ATTACHMENT A
+        INTO TBL_ATTACHMENT
         (
-          A.ATTACHMENT_NO
-        , A.REF_BOARD_NO
-        , A.ORIGINAL_NAME
-        , A.SAVED_NAME
-        , A.SAVE_PATH
-        , A.FILE_TYPE
+          ATTACHMENT_NO
+        , REF_BOARD_NO
+        , ORIGINAL_NAME
+        , SAVED_NAME
+        , SAVE_PATH
+        , FILE_TYPE
+        , THUMBNAIL_PATH
+        , ATTACHMENT_STATUS
         )
         VALUES
         (
@@ -206,11 +209,21 @@
         , #{ originalName }
         , #{ savedName }
         , #{ savePath }
-        , #{ fileType }
+        , null
+        , null
+        , 'Y'
         )
     </insert>
 
+    <update id="deleteBoardFile" parameterType="OneOnOneBoardDTO">
+        UPDATE
+        TBL_ATTACHMENT
+        SET ATTACHMENT_STATUS = 'N'
+        WHERE REF_BOARD_NO = #{ no }
 
+
+
+    </update>
 
 
 

@@ -14,14 +14,15 @@
                     <table>
                         <tr>
                             <td>분야 : </td>
-
-                            <td><p th:text="${oneOnOneDetail.oneOnOneCategory.oneOnOneName}"></p></td>
+                            <td><p th:text="${oneOnOneDetail.oneOnOneCategory?.oneOnOneName}"></p></td>
 
                         </tr>
                         <tr>
                             <td>제목 : </td>
                             <td colspan="3"><p th:text="${oneOnOneDetail.title}"></p></td>
                         </tr>
+
+
                         <tr>
                             <td>내용 : </td>
                             <td colspan="3">
@@ -36,7 +37,16 @@
                                 </textarea>
                             </td>
                         </tr>
+
                     </table>
+                    <div>
+                        <tr>
+                            <td>첨부파일 : </td>
+                            <td><th:block th:color="black" th:if="${oneOnOneDetail.attachment?.status} == 'Y'">
+                               </th:block></td>
+                            <input type="button" id="delete_file" th:value="파일삭제" th:onclick="'location.href=\'' + @{/OneOnOneBoard/deleteBoardFile(no=${oneOnOneDetail.no})} + '\''">
+                        </tr>
+                    </div>
                     <br>
 
                     <div align="center">

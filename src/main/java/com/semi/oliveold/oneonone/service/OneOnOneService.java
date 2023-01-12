@@ -62,11 +62,15 @@ public class OneOnOneService {
         // 1. 게시글 등록 작업을 진행
          int result = mapper.registOneOnOneBoard(board);
          int attachmentResult = 0;
+
+
          if (result > 0){ // 게시글 등록이 성공하면 파일 업로드를 진행
+             board.getAttachment().setRefBoardNo(board.getNo());
+             System.out.println("board =================> " + board);
              attachmentResult = mapper.insertAttachment(board.getAttachment());
          }
 
-         if(result > 0 && attachmentResult > 0){ // 게시글 업로드가 실패하면 파일 업로드는 진행하지 않고 예외처리를 진행한다.
+         if(result == 0 && attachmentResult == 0){ // 게시글 업로드가 실패하면 파일 업로드는 진행하지 않고 예외처리를 진행한다.
              throw new OneOnOneRegistException("1:1문의 등록에 실패했습니다.");
          }
     }
@@ -89,6 +93,12 @@ public class OneOnOneService {
         if(!(result > 0)){
             throw new OneOnOneModifyException("수정에 실패 했습니다");
         }
+
+    }
+
+    public void deleteBoardFile(int no) throws Exception {
+
+        mapper.deleteBoardFile(no);
 
     }
 }

@@ -231,7 +231,6 @@
 
                         };
 
-
                         //메이크업
 
                         document.getElementById("cateButton2").onclick = function(){
@@ -403,17 +402,57 @@
                                         alt="필수"></th>
                                 <td><input id="passwd" name="passwd" fw-filter="isFill&amp;isMin[4]&amp;isMax[16]"
                                         fw-label="비밀번호" fw-msg="" autocomplete="off" maxlength="16" 0="disabled"
-                                        value="" type="password"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)</td>
+                                        value="" type="password" onchange=""> (영문/숫자, 4~16자) </td>
                             </tr>
                             <tr>
                                 <th scope="row">비밀번호 확인 <img
                                         src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
-                                        alt="필수"></th>
+                                        alt="필수"></th>1
                                 <td><input id="user_passwd_confirm" name="user_passwd_confirm"
                                         fw-filter="isFill&amp;isMatch[passwd]" fw-label="비밀번호 확인"
                                         fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off" maxlength="16" 0="disabled"
-                                        value="" type="password"> <span id="pwConfirmMsg"></span> </td>
+                                        value="" type="password" onkeyup="isSame()"> <span id="same"></span> </td>
                             </tr>
+
+                            <script>
+
+
+                               function isSame(){
+
+                                var pw = document.getElementById("passwd").value;
+                                var confirmPw = document.getElementById("user_passwd_confirm").value;
+
+                                if (pw.length < 6 || pw.length > 16) {
+                                    window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+                                    document.getElementById('passwd').value=document.getElementById('user_passwd_confirm').value='';
+                                    document.getElementById('same').innerHTML='';
+
+                                }
+
+                                if(document.getElementById('passwd').value!='' && document.getElementById('user_passwd_confirm').value!='') {
+                                    if(document.getElementById('passwd').value==document.getElementById('user_passwd_confirm').value){
+                                       document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
+                                       document.getElementById('same').style.color='blue';
+                                       const clickValue = 0;
+                                      }
+                                }    else {
+                                    document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다.';
+                                    document.getElementById('same').style.color='red';
+                                    const clickValue = 1;
+                                }
+
+
+
+                                }
+
+
+
+                            </script>
+
+
+
+
+
                             <tr class="displaynone">
 
                             </tr>
