@@ -29,16 +29,12 @@ public class DeliveryController {
     }
 
 
-    //localHost:8080/delivery/list
+    //localHost:8080/order/list
+    // memberId로 주문내역 조회하기
     @GetMapping(value = "/list")
     public ModelAndView selectDeliveryList(@AuthenticationPrincipal User user, ModelAndView mv) {
 
-        // memberId, productNo --> 한번에 쓰고 싶다.
-        // 두가지 방식을 사용해볼 수 있는데
-        // 1. 두개의 값을 가지고 있는 DTO 객체안에다가 집어놓고 사용
         List<OrderDTO> order = deliveryService.selectDeliveryList(user.getUsername());
-
-        // 2. HashMap을 이용해서 넣어서 사용
 
         mv.addObject("order", order);
 
@@ -49,16 +45,6 @@ public class DeliveryController {
         mv.setViewName("order-delivery");
 
         return mv;
-
-        /*List<DeliveryDTO> deliveryList = deliveryService.selectDeliveryList();
-
-        log.info("[OrderController] deliveryList : " + deliveryList);
-
-        mv.addObject("deliveryList", deliveryList);
-
-        mv.setViewName("/order-delivery");
-
-        return mv;*/
 
     }
 

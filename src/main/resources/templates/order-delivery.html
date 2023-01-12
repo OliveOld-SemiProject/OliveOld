@@ -274,7 +274,6 @@
                 <table class="board-list-2s mgT20">
                     <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
                     <colgroup>
-                        <col style="width:50px;">
                         <col style="width:100px;">
                         <col style="width:110px;">
                         <col style="width:110px;">
@@ -283,7 +282,6 @@
                     </colgroup>
                     <thead>
                     <tr style="text-align: center;">
-                        <th scope="col">주문번호</th>
                         <th scope="col">주문일자</th>
                         <th scope="col">이미지</th>
                         <th scope="col">상품명</th>
@@ -292,11 +290,9 @@
 <!--                        <th scope="col">배송상태</th>-->
                     </tr>
 
-
                     <tr
                             th:each="order : ${ order }"
                     >
-                        <td th:text="${ order.orderNo }"></td>
                         <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd')}"></td>
                         <td><img th:src="${ order.productDTO.productImage1 }"></td>
                         <td th:text="${ order.productDTO.productName }"></td>
@@ -304,47 +300,7 @@
                         <td th:text="${ order.productDTO.productPrice }"></td>
 <!--                        <td th:text="${ order.delivery}"></td>-->
                     </tr>
-
-
-
-<!--                <tbody class="history">-->
-<!--                    <tr>-->
-<!--                        <td colspan="5" class="nodata">기간 내 주문내역이 없습니다</td>-->
-<!--                    </tr>-->
-<!--                </tbody>-->
-
-
                 </table>
-
-
-
-
-
-
-<!--            <script type="text/javascript" src="https://static.oliveyoung.co.kr/pc-static-root/js/mypage/myorder.js?dumm=20221208001"></script>-->
-<!--            <script type="text/javascript" src="https://static.oliveyoung.co.kr/pc-static-root/js/mypage/gdas.js?dumm=20221208001"></script>-->
-<!--            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.12.1/underscore-min.js"></script>-->
-            <script>
-            // HDC_PATH = $.parseJSON('{"00":"http://nexs.cjgls.com/web/service02_01.jsp?slipno=","01":"http://www.lotteglogis.com/personalService/tracking/06/tracking_goods_result.jsp?InvNo=","10":"http://www.hanjinexpress.hanjin.net/customer/plsql/hddcw07.result?wbl_num=","20":"http://www.lotteglogis.com/personalService/tracking/06/tracking_goods_result.jsp?InvNo=","30":"http://nexs.cjgls.com/web/detail.jsp?slipno=","50":"http://service.epost.go.kr/trace.RetrieveRegiPrclDeliv.postal?sid1=","70":"http://www.ilogen.com/d2d/delivery/invoice_search_popup.jsp?viewType=type2&invoiceNum=","92":"http://www.kglogis.co.kr/delivery/delivery_result.jsp?item_no=","93":"http://kdexp.com/basicNewDelivery.kd?barcode=","94":null,"95":"http://www.chunil.co.kr/HTrace/HTrace.jsp?transNo=","96":"https://mall.todaypickup.com/front/delivery/list/","97":"http://www.sbgls.co.kr/search.html","81":null,"82":"https://my.amazing.today/track/","200":"http://service.epost.go.kr/trace.RetrieveEmsRigiTraceList.comm?POST_CODE=","210":"http://www.dhl.co.kr/content/kr/ko/express/tracking.shtml?brand=DHL&AWB=","99":null,"02":"http://nexs.cjgls.com/web/service02_01.jsp?slipno=","03":null}');
-            //
-            // $(document).ready(function(){
-            //     mypage.orderList.init();
-            // });
-            // function surveyInfo(){
-            //     var targetUrl = _baseUrl+ "mypage/popup/surveyInfoPop.do";
-            //     $('#service_survey').load(targetUrl,function (){
-            //         fnLayerSet('service_survey','open','');
-            //         $('#service_survey').css('top','3%');
-            //         $('#service_survey').css('z-index','999');
-            //         $("#service_survey").attr("tabindex", 0).focus();
-            //     });
-            // }
-            </script>
-
-
-
-
-
         </div>
     </div>
 </body>

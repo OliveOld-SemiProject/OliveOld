@@ -46,19 +46,4 @@
          WHERE  A.MEMBER_ID = #{ memberId }
   </select>
 
-   <!-- <select id="selectDeliveryList" resultType="OrderResultMap">
-        SELECT
-               ORDER_QUAN
-          FROM SemiDB.TBL_ORDER
-         WHERE MEMBER_ID = #{ memberId }
-
-    </select>
-
-    <select id="selectDeliveryList" resultMap="productResultMap">
-        SELECT
-               PRODUCT_NAME
-             , PRODUCT_IMAGE1
-          FROM SemiDB.PRODUCT
-         WHERE PRODUCT_NO = #{ productNo }
-    </select>-->
 </mapper>
