@@ -4,6 +4,7 @@ import com.semi.oliveold.detail.dto.DetailDTO;
 import com.semi.oliveold.detail.dto.ReviewDTO;
 import com.semi.oliveold.detail.repository.DetailMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -57,6 +58,14 @@ public class DetailServiceImpl implements DetailService{
         DetailDTO product = mapper.selectProduct();
 
         return product;
+    }
+
+    @Override
+    @Transactional
+    public void registReview(ReviewDTO reviewDTO) {
+
+        int result = mapper.registReview(reviewDTO);
+
     }
 
 
