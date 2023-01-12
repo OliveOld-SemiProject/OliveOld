@@ -18,4 +18,6 @@ public interface DetailMapper {
     DetailDTO selectProduct();
 
     List<ReviewDTO> findReviewListByProductNo(int no);
+
+    int registReview(ReviewDTO reviewDTO);
 }

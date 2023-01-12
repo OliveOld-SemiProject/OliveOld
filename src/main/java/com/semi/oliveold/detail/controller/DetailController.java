@@ -5,10 +5,9 @@ import com.semi.oliveold.detail.dto.ReviewDTO;
 import com.semi.oliveold.detail.service.DetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -67,8 +66,24 @@ public class DetailController {
 
     }
 
-    @GetMapping("/regist")
-    public String RegistReview() { return "/reviewRegist";}
+//    @GetMapping("/regist")
+//    public String RegistReview() { return "/reviewRegist";}
+//
+//    @PostMapping("/regist")
+//    public String registReview(@ModelAttribute ReviewDTO reviewDTO, RedirectAttributes rttr){
+//
+//        log.info("=================================================================");
+//        log.info("[DetailController]  registReview : " + reviewDTO);
+//
+//        detailService.registReview(reviewDTO);
+//
+//        rttr.addFlashAttribute("message", "리뷰 등록 성공!!!");
+//
+//        return "redirect:/detail/findlist";
+//
+//    }
+
+
 
 
 

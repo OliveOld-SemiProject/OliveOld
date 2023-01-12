@@ -303,16 +303,7 @@
                         <input type="hidden" id="mainImgSize" value="550">
                     </div>
                     <ul class="prd_thumb_list" id="prd_thumb_list">
-                        <input type="hidden" id="snsImgUrl"
-                               value="/assets/images/product-details/product/physiogel_pink_main1.jpeg">
-                        <li class="sel"><a href="javascript:;"
-                                           data-img="/assets/images/product-details/product/physiogel_pink_main1.jpeg"><img
-                                src="/assets/images/product-details/product/physiogel_pink_main2.jpeg"
-                                alt="썸네일이미지" onerror="common.errorImg(this);"></a></li>
-                        <li class=""><a href="javascript:;"
-                                        data-img="/assets/images/product-details/product/physiogel_pink_main3.jpeg"><img
-                                src="/assets/images/product-details/product/physiogel_pink_main4.jpeg"
-                                alt="썸네일이미지" onerror="common.errorImg(this);"></a></li>
+
                     </ul>
                 </div>
                 <div class="right_area">
@@ -368,8 +359,8 @@
                 <li id="buyInfo"><a href="javascript:;" class="goods_buyinfo"
                                     data-attr="상품상세^상품상세_SortingTab^구매정보">구매정보</a></li>
                 <li id="reviewInfo" class=""><a href="javascript:;" class="goods_reputation"
-                                                data-attr="상품상세^상품상세_SortingTab^리뷰">리뷰<span>(3,760)</span></a></li>
-                <li id="qnaInfo"><a href="javascript:;" class="goods_qna" data-attr="상품상세^상품상세_SortingTab^Q&amp;A">Q&amp;A<span>(76)</span></a>
+                                                data-attr="상품상세^상품상세_SortingTab^리뷰">리뷰<span></span></a></li>
+                <li id="qnaInfo"><a href="javascript:;" class="goods_qna" data-attr="상품상세^상품상세_SortingTab^Q&amp;A">Q&amp;A<span></span></a>
                 </li>
             </ul>
             <div class="tabConts prd_detail_cont show">
@@ -395,61 +386,62 @@
             </div>
 
 
-            <div class="review_cont">
+<!--            <div class="review_cont" >-->
                 <div class="oneOnBoard area">
-                    <div th:each="review : ${findReviewListByProductNo}">
+                    <div th:if="${!#lists.isEmpty(findReviewListByProductNo)}" th:each="review : ${findReviewListByProductNo}">
                         <div class="list-customer">
-                            <a th:text="${review.getReviewContents()}">
-                            </a>
                             <ul>
-                                <li>
+                                <li id="3979532">
                                     <a href="/" role="button" class="stit" title="답변 내용보기">
-
                                         <strong th:text="${review.getReviewWriter()}">
-
+                                            <th:block th:text="${review.getReviewContents()}"> </th:block>
                                         </strong>
-                                        <a th:text="${review.getReviewContents()}"></a>
+                                        <th:block th:text="${review.getReviewContents()}"></th:block>
+
                                         <span class="data">2023-01-10</span>
                                     </a>
-                                    <a th:text="${review.getReviewContents()}">
 
-                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
+<!--                    <div class="Regist Button" align="right">-->
+<!--                        <button-->
+<!--                                type="button"-->
+<!--                                style="background-color: #37003E; color: white; border-radius: 5px; margin-top: 20px"-->
+
+<!--                                class="btn btn-pk"-->
+<!--                                th:onclick="'location.href=\''+@{/detail/regist}+'\''"-->
+<!--                        >-->
+<!--                            등록하기-->
+<!--                        </button>-->
+<!--                    </div>-->
 
 
-                    <div class="list-customer">
-                        <ul>
-                            <li id="3979532">
+<!--                    <div class="list-customer">-->
+<!--                        <ul>-->
+<!--                            <li id="3979532">-->
 
-                                <a href="/OneOnOneBoard/detail?no=28" role="button" class="stit" title="답변 내용보기">
-                                    <!--                                    <strong th:text="${findProductListByNo.get(0).productCategoryName}">-->
+<!--                                <a href="/OneOnOneBoard/detail?no=28" role="button" class="stit" title="답변 내용보기">-->
+<!--                                    &lt;!&ndash;                                    <strong th:text="${findProductListByNo.get(0).productCategoryName}">&ndash;&gt;-->
 
-                                    <!--                                    </strong>-->
-                                    <strong th:text="${findReviewListByProductNo.get(0).reviewContents}">
+<!--                                    &lt;!&ndash;                                    </strong>&ndash;&gt;-->
+<!--                                    <strong th:text="${findReviewListByProductNo.get(0).reviewContents}">-->
 
-                                    </strong>
-                                    <a th:text="${findReviewListByProductNo.get(0).reviewContents}"></a>
-                                    <span class="data">2023-01-11</span>
-                                </a>
+<!--                                    </strong>-->
+<!--                                    <a th:text="${findReviewListByProductNo.get(0).reviewContents}"></a>-->
+<!--                                    <span class="data">2023-01-11</span>-->
+<!--                                </a>-->
 
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <!--                    <div class="pagingArea" align="center">-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
 
 
-                    <!--                        <button onclick="location.href='/OneOnOneBoard/list?currentPage=1'" disabled="disabled">1</button>-->
 
-
-                    <!--                    </div>-->
 
                 </div>
-            </div>
+<!--            </div>-->
             <div class="tabConts prd_detail_cont">
                 <h3 class="detail_tit">상품정보 제공고시</h3>
                 <div id="kcInfo">
