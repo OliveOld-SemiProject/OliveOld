@@ -12,6 +12,8 @@ import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import com.semi.oliveold.oneonone.service.OneOnOneService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +41,7 @@ public class OneOnOneController {
     }
 
     @GetMapping(value = "/list")
-    public ModelAndView faqBoardList(HttpServletRequest request, ModelAndView mv){
+    public ModelAndView faqBoardList(@AuthenticationPrincipal User user, HttpServletRequest request, ModelAndView mv){
 
         log.info("");
         log.info("");
@@ -136,22 +138,26 @@ public class OneOnOneController {
         String ext = originFileName.substring(originFileName.lastIndexOf("."));
         String savedName = UUID.randomUUID().toString().replace("-", "") + ext;
 
+
         /* 파일에 관한 정보 추출 후 보관 */
         Map<String, String> file = new HashMap<>();
         file.put("originFileName", originFileName);
         file.put("savedName", savedName);
         file.put("filePath", filePath);
 
+
         // service에서 파일추가할때 필요한 정보값을 담은 객체
         AttachmentDTO tempFileInfo = new AttachmentDTO();
+        tempFileInfo.setRefBoardNo(board.getNo());
         tempFileInfo.setOriginalName(file.get("originFileName"));
-        tempFileInfo.setSavedName(file.get("savedFileName"));
-        tempFileInfo.setSavePath(file.get("savePath"));
-        tempFileInfo.setFileType(file.get("fileType"));
+        tempFileInfo.setSavedName(file.get("savedName"));
+        tempFileInfo.setSavePath(file.get("filePath"));
+
+
 
         board.setAttachment(tempFileInfo);
 
-        System.out.println(tempFileInfo);
+        System.out.println("tempFileInfo" +   tempFileInfo);
 
         try {
 
@@ -179,6 +185,7 @@ public class OneOnOneController {
         rttr.addFlashAttribute("message", "1:1 문의사항 등록완료");
 
         log.info("[OneOnOneBoard Controller] OneOnOneBoard =========================================================");
+        System.out.println("original name : "  +board.getAttachment().getOriginalName());
 
         return "redirect:/OneOnOneBoard/list";
     }
@@ -261,6 +268,13 @@ public class OneOnOneController {
         return "redirect:/OneOnOneBoard/list";
     }
 
+    @GetMapping("/deleteBoardFile")
+    public String deleteBoardFile(@RequestParam int no) throws Exception{
+        oneOnOneService.deleteBoardFile(no);
+        System.out.println("no =========" + no);
+        return "redirect:/OneOnOneBoard/detail?no="+no;
+    }
+
 
     // 파일 업로드
 
@@ -307,7 +321,7 @@ public class OneOnOneController {
     //공지사항
     @GetMapping("/Notice.html")
     public String goNotice(){
-        return "redirect:/Notice.html";
+        return "redirect:/notice/list";
     }
 
 

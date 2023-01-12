@@ -5,6 +5,7 @@ import com.semi.oliveold.faq.dto.AttachmentDTO;
 import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
 import com.semi.oliveold.oneonone.dto.OneOnOneSelectCriteriaDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -26,4 +27,6 @@ public interface OneOnOneBoardMapper {
     int modifyOneOnOne(OneOnOneBoardDTO oneOnOneBoard);
 
     int insertAttachment(AttachmentDTO attachmentDTO);
+
+    void deleteBoardFile(@Param("no") int no);
 }
