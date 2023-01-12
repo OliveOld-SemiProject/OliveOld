@@ -354,19 +354,17 @@
                             </button>
 
 
-                            <form action="order/list" method="get">
-                                <button class="btnBuy goods_buy" id="cartBtn"
-                                        onclick="location.href='/order/registOrder?productNo=2'"
-                                        data-attr="상품상세^주문유형^바로구매">바로구매
-                                </button>
-                            </form>
+<!--                            <form action="order/list" method="get">-->
+                            <button class="btnBuy goods_buy" id="cartBtn"
+                                    th:onclick="'location.href=\'/order/registOrder?productNo=' + @{${findProductListByNo.get(0).productNo}} + '\''"
+                                    data-attr="상품상세^주문유형^바로구매">바로구매</button>
+<!--                            </form>-->
                         </div>
                     </div>
                 </div>
             </div>
             <ul class="prd_detail_tab" id="tabList">
-                <li class="on" id="productInfo"><a href="javascript:;" class="goods_detailinfo"
-                                                   data-attr="상품상세^상품상세_SortingTab^상품설명">상품설명</a></li>
+                <li class="on" id="productInfo"><a href="javascript:;" class="goods_detailinfo" data-attr="상품상세^상품상세_SortingTab^상품설명">상품설명</a></li>
                 <li id="buyInfo"><a href="javascript:;" class="goods_buyinfo"
                                     data-attr="상품상세^상품상세_SortingTab^구매정보">구매정보</a></li>
                 <li id="reviewInfo" class=""><a href="javascript:;" class="goods_reputation"
@@ -385,13 +383,11 @@
                             });
                         </script>
 
-                        <img alt=""
-                             th:src="${findProductListByNo.get(0).productImage2}"/>
+                        <img alt="" th:src="${findProductListByNo.get(0).productImage2}"/>
 
                     </div>
                     <div style="text-align:center;padding:20px 0px 0px 0px;">
-                        <p
-                                style="display:inline-block;font-size:14px;border:1px solid #ddd;padding:10px 40px 10px 40px;text-align:center;">
+                        <p style="display:inline-block;font-size:14px;border:1px solid #ddd;padding:10px 40px 10px 40px;text-align:center;">
                             본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.</p>
                     </div>
                 </div>

@@ -19,6 +19,5 @@ public interface OrderMapper {
 
     OrderMemberDTO selectMember(String memberId);
 
-
-
+    OrderDTO selectOrderQuan(int orderNo);
 }

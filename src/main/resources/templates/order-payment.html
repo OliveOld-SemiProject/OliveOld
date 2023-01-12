@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -8,8 +8,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png">
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -137,7 +139,7 @@
                             </ul>
                         </div>
                         <!--// title_box -->
-                        <form name="orderForm" id="orderForm" th:action="@{/payment/create}" method="post">
+<!--                        <form name="orderForm" id="orderForm" th:action="@{/payment/create}" method="post">-->
                             <!-- 배송지 정보 -->
                             <div class="title_wrap">
                                 <h2 class="sub-title2">배송지정보</h2>
@@ -155,7 +157,7 @@
                                         <th scope="row">배송지선택</th>
                                         <td>
                                             <span class="chk_area mgzero"><input type="radio" id="btn_dlvp_exist"
-                                                    name="inpAddrSel" value="exist" targetid="exist"
+                                                    name="inpAddrSel" value="exist" targetid="exist" checked="checked"
                                                     data-attr="배송지정보^1_배송지선택"><label for="btn_dlvp_exist">기존
                                                     배송지</label></span>
 
@@ -169,10 +171,9 @@
                                     <tr type="new" class="new_order_area" style="">
                                         <th scope="row">받는분</th>
                                         <td class="imp_data">
-                                            <input type="text" id="rmitNm_new" name="name" value="" orgvalue=""
-                                                class="inpH28" title="받는분 이름을 입력해주세요." style="width:200px"
-                                                this="받는분 이름은" data-attr="배송지정보^1_받는분">
-
+                                            <input type="text" id="rmitNm_new" name="name" th:value="${ member.memberName }"
+                                                   orgvalue="" class="inpH28" title="받는분 이름을 입력해주세요." style="width:200px"
+                                                   this="받는분 이름은" data-attr="배송지정보^1_받는분" >
                                         </td>
                                     </tr>
                                     <tr type="new" class="new_order_area" style="">
@@ -184,42 +185,43 @@
                                             </select>
                                             - <input type="text" id="rmitCellTxnoNo_new" name="phone2" value=""
                                                 orgvalue="" class="inpH28" title="연락처 가운데 자리" this="연락처1 가운데 자리는"
-                                                style="width:90px" data-attr="연락처1">
+                                                style="width:90px" data-attr="연락처1" th:value="${ member.phone2 }">
                                             - <input type="text" id="rmitCellEndNo_new" name="phone3" value=""
                                                 orgvalue="" class="inpH28" title="연락처1 마지막 자리" this="연락처1 마지막 자리는"
-                                                style="width:90px" data-attr="연락처1">
+                                                style="width:90px" data-attr="연락처1" th:value="${ member.phone3 }">
                                         </td>
                                     </tr>
+
+
 
                                     <tr type="new" class="new_order_area" style="display: table-row;">
                                         <th scope="row">주소</th>
                                         <td class="imp_data"><!-- 2017-01-25 수정 : 클래스 추가 -->
-                                            <input type="text" id="stnmRmitPostNo_new" name="rmitPostNo" value="" class="inpH28" title="우편번호를 검색해주세요." style="width:90px" readonly="readonly">
+                                            <input type="text" id="stnmRmitPostNo_new" name="rmitPostNo" th:value="${ member.zipcode }" class="inpH28" title="우편번호를 검색해주세요." style="width:90px" readonly="readonly">
                                             <input type="hidden" id="rmitPostNo_new" name="stnmRmitPostNo" value="" title="우편번호를 검색해주세요.">
-                                            <button type="button" class="btnSmall wGreen w100" id="search-zipcode-pop_new" data-attr="배송지정보^1_주소"><span>우편번호 찾기</span></button>
-                                            <div class="addr_box">
-                                                <input type="hidden" id="stnmRmitPostAddr_new" name="stnmRmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">
-                                                <input type="hidden" id="rmitBaseAddr_new" name="rmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">
-                                                <!-- 주소 입력 시 보여지는 부분 -->
-                                                <p class="addr_new">
-                                                    <span class="tx_tit">도로명</span> :
-                                                    <span class="tx_addr" id="stnmPostAddr_new"></span><!--  도로명주소를 넣어주세요 -->
-                                                </p>
-                                                <p class="addr_old">
-                                                    <span class="tx_tit">지번</span> :
-                                                    <span class="tx_addr" id="baseAddr_new"></span><!--  지번주소를 넣어주세요 -->
-                                                </p>
-                                                <!--// 주소 입력 시 보여지는 부분 -->
-                                            </div>
-                                            <input type="text" id="tempRmitDtlAddr_new" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px;" this="상세 주소는">
-                                            <p class="txtDot mgT5">신규배송지 정보는 마이페이지 내 배송지에 저장됩니다.</p>
-                                            <input type="hidden" id="stnmRmitDtlAddr_new" name="stnmRmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px" this="상세 주소는">
-                                            <input type="hidden" id="rmitDtlAddr_new" name="rmitDtlAddr" value="" class="inpH28" title="상세주소를 입력해주세요." style="width:500px">
+<!--                                            <button type="button" class="btnSmall wGreen w100" id="search-zipcode-pop_new" data-attr="배송지정보^1_주소"><span>우편번호 찾기</span></button>-->
+<!--                                            <div class="addr_box">-->
+<!--                                                <input type="hidden" id="stnmRmitPostAddr_new" name="stnmRmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">-->
+<!--                                                <input type="hidden" id="rmitBaseAddr_new" name="rmitPostAddr" value="" class="inpH28" title="우편번호를 검색해주세요." readonly="readonly">-->
+<!--                                                &lt;!&ndash; 주소 입력 시 보여지는 부분 &ndash;&gt;-->
+<!--                                                <p class="addr_new">-->
+<!--                                                    <span class="tx_tit">도로명 </span> :-->
+<!--                                                    <span class="tx_addr" id="stnmPostAddr_new"></span>&lt;!&ndash;  도로명주소를 넣어주세요 &ndash;&gt;-->
+<!--                                                </p>-->
+<!--                                                <p class="addr_old">-->
+<!--                                                    <span class="tx_tit">지번</span> :-->
+<!--                                                    <span class="tx_addr" id="baseAddr_new"></span>&lt;!&ndash;  지번주소를 넣어주세요 &ndash;&gt;-->
+<!--                                                </p>-->
+<!--                                                &lt;!&ndash;// 주소 입력 시 보여지는 부분 &ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                            <input type="text" id="tempRmitDtlAddr_new" th:value="${ member.address2 }" class="inpH28" title="상세주소를 입력해주세요." style="width:500px;" this="상세 주소는">-->
+                                            <br>
+                                            <input type="text" id="stnmRmitDtlAddr_new" name="stnmRmitDtlAddr" th:value="${ member.address1 }" class="inpH28" title="상세주소를 입력해주세요." style="width:500px" this="상세 주소는">
+                                            <input type="text" id="rmitDtlAddr_new" name="rmitDtlAddr" th:value="${ member.address2 }" class="inpH28" title="상세주소를 입력해주세요." style="width:500px">
                                             <input type="hidden" id="emdNm_new" name="emdNm">
                                             <input type="hidden" id="admrNm_new" name="admrNm">
                                         </td>
                                     </tr>
-
 
                                 </tbody>
                             </table>
@@ -229,94 +231,34 @@
                             </h2>
                             <table class="tbl_prd_list">
                                 <colgroup>
-                                    <col style="width:*">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
                                     <col style="width:110px">
                                     <col style="width:100px">
                                     <col style="width:110px">
                                 </colgroup>
                                 <thead>
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <th scope="col">상품번호</th>
+                                        <th scope="col">상품이미지</th>
                                         <th scope="col">상품명</th>
                                         <th scope="col">수량</th>
                                         <th scope="col">구매가</th>
                                     </tr>
 
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <td th:text="${ product.productNo }"></td>
+                                        <td><img th:src="${ product.productImage1 }"></td>
                                         <td th:text="${ product.productName }"></td>
-                                        <td th:text="${ product.productQuan }"></td>
+                                        <td th:text="${ order.orderQuan }"></td>
                                         <td th:text="${ product.productPrice }"></td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <input type="hidden" name="cartNo" value="439275545">
-                                         <td colspan="5" dispcatno="" stdcatno="090502" goodsno="A000000149575"
-                                            itemno="001" entrno="C18741" brndcd="3459" tradeshpcd="1" staffdscntyn="Y"
-                                            pntrsrvyn="Y" ordqty="1"
-                                            thnlpathnm="https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014957502ko.jpg?l=ko"
-                                            goodsnm="필리밀리 히알루론산 화장솜 80p" cartno="439275545">
-                                            <div class="tbl_cont_area">
-                                                <div class="tbl_cell w700">
-                                                    <div class="prd_info">
-                                                        <div class="prd_img">
-                                                            <img src="https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014957502ko.jpg?l=ko"
-                                                                alt="장바구니 상품 임시 이미지" onerror="common.errorImg(this);">
-                                                        </div>
-                                                        <div class="prd_name">
-                                                            <span>필리밀리</span><!-- 2017-01-26 수정 : 브랜드명 분리 -->
-                                                            <p>필리밀리 히알루론산 화장솜 80p</p>
-                                                        </div>
-                                                        <p class="prd_opt">
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="tbl_cell w110">
-                                                    <span class="cur_price"><span class="tx_num">4,000</span>원</span>
-                                                </div>
-                                                <div class="tbl_cell w100">1</div>
-                                                <div class="tbl_cell w110">
-                                                    <span class="org_price"><span class="tx_num"
-                                                            id="normPrc_A000000149575/001">4,000</span>원</span><!-- 2017-01-24 수정 : 추가 -->
-                                                    <span class="pur_price"><span class="tx_num"
-                                                            id="salePrc_A000000149575/001">3,600</span>원</span>
-                                                    <input type="hidden" id="orgNormPrc_A000000149575/001" value="4000" name="price">
-                                                    <input type="hidden" id="orgSalePrc_A000000149575/001" value="3600">
-                                                    <input type="hidden" id="imdtDscntAmt_A000000149575/001" value="0">
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
                             </table>
-                            <!-- 쿠폰 및 포인트, 결제수단, 결제정보 -->
+                            <!-- 적립금 -->
                             <div class="order_payment_box">
                                 <div class="left_area">
-                                    <!-- 쿠폰할인정보 -->
-                                    <h2 class="sub-title2 width-inline">할인</h2>
-                                    <table class="tbl_inp_form type2">
-                                        <caption>배송비할인 입력 폼</caption>
-                                        <colgroup>
-                                            <col style="width:170px">
-                                            <col style="width:*">
-                                        </colgroup>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">배송비 할인</th>
-                                                <td id="dlexCouponList_hd">
-                                                    <div>
-                                                        <select id="selDelCoupon" class="selH28 mgT5"
-                                                            style="width:300px" disabled="disabled" name="deliveryCoupon"
-                                                            data-attr="쿠폰할인정보^배송비쿠폰">
-                                                            <option>적용할 수 있는 할인이 없습니다.</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <h2 class="sub-title2 width-inline">적립금</h2>
                                     <table class="tbl_inp_form type2">
                                         <caption>적립금사용 입력 폼</caption>
                                         <colgroup>
@@ -331,15 +273,14 @@
                                                     <div>
                                                         <span class="inp_point_wrap">
                                                             <!-- fix/3275248 bmiy20 cjone point 적립불가건에 대해 사용 불가 처리 추가 -->
-                                                            <input type="text" id="cjonePntAplyAmt"
+                                                            <input type="text" id="cjonePntAplyAmt" th:value="${ member.mileage }"
                                                                 class="inpH28 cjonePoint"
                                                                 name="mileage"
-                                                                title="사용하실 CJ ONE 포인트를 입력해주세요." style="width:100px"
-                                                                this="CJ ONE 포인트는 " minownamt="1000" unit="P"
-                                                                unitamt="10" minaplyamt="0"
-                                                                data-attr="포인트/기프트카드사용^CJONE포인트"> 원 / <span
-                                                                id="cjonePnt_span" class="tx_num colorOrange"><span
-                                                                    id="cjonePnt">1,786</span>P</span>
+                                                                title="사용하실 포인트를 입력해주세요." style="width:100px"
+                                                                > <span class="inpH28">p</span>
+
+                                                                <!--원 / <span id="cjonePnt_span" class="tx_num colorOrange">
+                                                                <span id="cjonePnt">1,786</span>P</span>-->
                                                             <input type="hidden" name="cjonePntAplyAmt" value="0">
                                                             <input type="hidden" name="cjonePntNonPosCnt" value="0">
                                                             <!--//cjone point 사용가능 금액 bmiy20, 2021-09-16 문구수정// -->
@@ -356,15 +297,14 @@
                                     <!--// 최종 결제정보 -->
                                     <ul class="total_payment_box">
                                         <li>
-                                            <button class="btnPayment" id="btnPay" name="btnPay" type="submit"
-                                                data-attr="최종결제정보^결제하기">결제하기</button>
+                                            <button onclick="requestPay()" class="btnPayment" id="btnPay" name="btnPay" type="button"
+                                                data-attr="최종결제정보^결제하기" >결제하기</button>
                                             <input type="hidden" id="tempOrdNo" value="">
-
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                        </form>
+<!--                        </form>-->
                     </div>
                     <!-- //#Contents -->
                 </div>
@@ -377,21 +317,75 @@
                 const $searchZipCode = document.getElementById("searchZipCode");
                 const $goMain = document.getElementById("goMain");
 
-                $searchZipCode.onclick = function() {
+                <!-- 수정해보기 -->
+                // $searchZipCode.onclick = function() {
+                //
+                //     /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다. */
+                //     new daum.Postcode({
+                //         oncomplete: function(data){
+                //             /* 팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분 */
+                //             document.getElementById("zipCode").value = data.zonecode;
+                //             document.getElementById("address1").value = data.address;
+                //             document.getElementById("address2").focus();
+                //         }
+                //     }).open();
+                // }
 
-                    /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다. */
-                    new daum.Postcode({
-                        oncomplete: function(data){
-                            /* 팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분 */
-                            document.getElementById("zipCode").value = data.zonecode;
-                            document.getElementById("address1").value = data.address;
-                            document.getElementById("address2").focus();
+                // $goMain.onclick = function() {
+                //     location.href = "/";
+                // }
+                <!-- 수정해보기 -->
+            </script>
+
+            <script>
+               function requestPay() {
+                     const productName = '[[${ product.productName }]]';
+                     const productPrice = '[[${ product.productPrice }]]';
+                     const memberEmail = '[[${ member.memberEmail }]]';
+                     const memberName = '[[${ member.memberName }]]';
+                     const memberPhone = '[[${ member.memberPhone }]]';
+                     const memberAddress1 = '[[${ member.memberAddress }]]';
+                     const memberAddress2 = '[[${ member.memberAddress }]]';
+
+                    // getCurrentUserInfo();
+                    // let productName = product.productName;
+                    // let orderQuan = order.orderQuan;
+                    // let memberEmail = member.memberEmail;
+                    // let memberName = member.memberName;
+                    // let memberPhone = member.memberPhone;
+                    // let memberAddress1 = member.memberAddress;
+                    // let memberAddress2 = member.memberAddress;
+
+                    let IMP = window.IMP;
+                    IMP.init("imp20770740");
+
+                    IMP.request_pay(
+                        {
+                            pg: "kakaopay",
+                            pay_method: "card",
+                            merchant_uid: "merchant_" + new Date().getTime(),
+                            name: productName, // 상품이름
+                            amount: productPrice, // 가격
+                            buyer_email: memberEmail, // 사용자이메일
+                            buyer_name: memberName, // 사용자이름
+                            buyer_tel: memberPhone, // 사용자전화번호
+                            buyer_addr: memberAddress1, // 사용자 주소
+                            buyer_postcode: memberAddress2, // 주소
+                        },
+                        function (rsp) {
+                            // callback
+                            if (rsp.success) {
+                                // 결제 성공 시 로직,
+                                alert(rsp.paid_amount + "결제가 완료되었습니다.");
+
+                                // ajax를 통해서 데이터베이스에 결제정보를 추가
+                                // alert("imp_uid : " + rsp.imp_uid + "/ merchant_uid(orderkey) : " + rsp.merchant_uid);
+                            } else {
+                                // 결제 실패 시 로직,
+                                alert("결제에 실패하였습니다.");
+                            }
                         }
-                    }).open();
-                }
-
-                $goMain.onclick = function() {
-                    location.href = "/";
+                    );
                 }
 
             </script>

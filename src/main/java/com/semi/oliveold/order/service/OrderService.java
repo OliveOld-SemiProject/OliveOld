@@ -4,8 +4,6 @@ import com.semi.oliveold.order.dto.OrderDTO;
 import com.semi.oliveold.order.dto.OrderMemberDTO;
 import com.semi.oliveold.order.dto.ProductDTO;
 
-import java.util.Map;
-
 
 public interface OrderService {
 
@@ -20,5 +18,6 @@ public interface OrderService {
 
     OrderMemberDTO selectMember(String memberId);
 
+    OrderDTO selectOrderQuan(int orderNo);
 
 }
