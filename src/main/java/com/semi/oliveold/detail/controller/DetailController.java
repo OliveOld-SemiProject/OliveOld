@@ -57,7 +57,7 @@ public class DetailController {
 
         mv.addObject("findProductListByNo", findProductListByNo);
         mv.addObject("findNewProductListByNo", findNewProductListByNo);
-        mv.addObject("findNewProductListByNo", findReviewListByProductNo);
+        mv.addObject("findReviewListByProductNo", findReviewListByProductNo);
 
         mv.setViewName("product_detail");
 
@@ -66,6 +66,14 @@ public class DetailController {
 
 
     }
+
+    @GetMapping("/regist")
+    public String RegistReview() { return "/reviewRegist";}
+
+
+
+
+
 
 //    @GetMapping(value = "/findnewlist")
 //    public ModelAndView findNewProductListByNo(HttpServletRequest request, ModelAndView mv, @RequestParam int no){
