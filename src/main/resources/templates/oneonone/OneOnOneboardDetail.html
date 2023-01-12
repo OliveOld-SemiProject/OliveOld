@@ -42,7 +42,8 @@
                     <div>
                         <tr>
                             <td>첨부파일 : </td>
-                            <td><th:block th:color="black" th:text="${oneOnOneDetail.attachment?.originalName}"></th:block></td>
+                            <td><th:block th:color="black" th:if="${oneOnOneDetail.attachment?.status} == 'Y'">
+                               </th:block></td>
                             <input type="button" id="delete_file" th:value="파일삭제" th:onclick="'location.href=\'' + @{/OneOnOneBoard/deleteBoardFile(no=${oneOnOneDetail.no})} + '\''">
                         </tr>
                     </div>
