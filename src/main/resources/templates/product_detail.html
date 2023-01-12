@@ -395,15 +395,15 @@
             </div>
 
 
-            <div class="review_cont">
+            <div class="review_cont" th:if="${!#lists.isEmpty(findReviewListByProductNo)}">
                 <div class="oneOnBoard area">
                     <div th:each="review : ${findReviewListByProductNo}">
                         <div class="list-customer">
                             <a th:text="${review.getReviewContents()}">
                             </a>
                             <ul>
-                                <li>
-                                    <a href="/" role="button" class="stit" title="답변 내용보기">
+                                <li >
+<!--                                    <a href="/" role="button" class="stit" title="답변 내용보기">-->
 
                                         <strong th:text="${review.getReviewWriter()}">
 
@@ -440,13 +440,7 @@
                     </div>
 
 
-                    <!--                    <div class="pagingArea" align="center">-->
 
-
-                    <!--                        <button onclick="location.href='/OneOnOneBoard/list?currentPage=1'" disabled="disabled">1</button>-->
-
-
-                    <!--                    </div>-->
 
                 </div>
             </div>
