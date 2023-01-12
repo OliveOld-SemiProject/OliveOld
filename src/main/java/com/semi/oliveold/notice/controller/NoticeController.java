@@ -111,6 +111,11 @@ public class NoticeController {
         return "notice/noticeDetail";
     }
 
+    //공지사항
+    @GetMapping("/rouletteEvent.html")
+    public String goRoulet(){
+        return "redirect:/rouletteEvent.html";
+    }
 
 
 }

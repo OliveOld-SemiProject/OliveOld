@@ -137,6 +137,12 @@ public class MainSearchController {
         return "redirect:/Notice.html";
     }
 
+    //공지사항
+    @GetMapping("/rouletteEvent.html")
+    public String goRoulet(){
+        return "redirect:/rouletteEvent.html";
+    }
+
 
 
 
