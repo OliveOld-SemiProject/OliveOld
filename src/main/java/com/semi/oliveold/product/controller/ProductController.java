@@ -21,11 +21,14 @@ public class ProductController {
     }
 
      @GetMapping("/upload")
-    public String productUploading(){
-
+    public String productUploadingView(){
         return "product-Upload";
      }
 
      @PostMapping("/upload")
+    public String productUpLoad(){
+        // 로직 추가 예정
+        return "product-Upload";
+     }
 
 }
