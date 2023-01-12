@@ -1,5 +1,6 @@
 package com.semi.oliveold.product.repository;
 
+import com.semi.oliveold.order.dto.ProductDTO;
 import com.semi.oliveold.product.dto.CategoryDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
@@ -11,5 +12,7 @@ import java.util.List;
 public interface ProductMapper {
 
     List<CategoryDTO> findByAllCategory();
+
+    int insertProduct(ProductDTO product);
 
 }

@@ -14,4 +14,31 @@
         FROM SemiDB.CATEGORY
     </select>
 
+    <insert id="insertProduct" parameterType="ProductDTO">
+        insert into SemiDB.PRODUCT
+        (
+            PRODUCT_NAME,
+            PRODUCT_PRICE,
+            PRODUCT_QUAN,
+            PRODUCT_DATE,
+            PRODUCT_STATUS,
+            PRODUCT_IMAGE1,
+            PRODUCT_IMAGE2,
+            CATEGORY_CODE,
+            CATEGORY_NAME
+        )
+        Values
+        (
+            #{productName},
+            #{productPrice},
+            #{productQuan},
+            NOW(),
+            #{productStatus},
+            #{productImage1},
+            #{productImage2},
+            #{categoryCode},
+            #{categoryName}
+        );
+
+    </insert>
 </mapper>

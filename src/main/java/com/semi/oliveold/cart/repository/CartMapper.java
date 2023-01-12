@@ -16,4 +16,8 @@ public interface CartMapper {
 
     List<CartResultDTO> findProductByMemberID(String memberId);
 
+    int insertInCart(String memberId, int Product_no);
+
+    int totalCartPrice(String memberId);
+
 }

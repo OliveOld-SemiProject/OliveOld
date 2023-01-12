@@ -43,4 +43,30 @@
         on  c.Product_no = p.PRODUCT_NO
         WHERE c.Member_id = #{memberId};
     </select>
+
+    <select id="totalCartPrice" resultType="_int">
+        select sum(PRODUCT_PRICE)
+        FROM SemiDB.Cart c
+        inner join SemiDB.PRODUCT p
+        on c.Product_no = p.PRODUCT_NO
+        WHERE c.Member_id = #{memberId};
+    </select>
+
+    <insert id="insertInCart">
+        insert into SemiDB.Cart
+        (
+        Cart_amount,
+        Member_id,
+        Product_no,
+        Cart_insertDate
+        )
+        Values
+        (
+        1,
+        #{memberId},
+        #{Product_no},
+        NOW()
+        )
+    </insert>
+
 </mapper>
