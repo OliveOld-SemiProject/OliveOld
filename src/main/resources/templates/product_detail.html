@@ -387,7 +387,7 @@
                                         </strong>
                                         <th:block th:text="${review.getReviewContents()}"></th:block>
 
-                                        <span class="data">2023-01-10</span>
+                                        <span class="data" th:text="${#dates.format(review.getReviewDate(), 'yyyy-MM-dd')}"></span>
                                     </a>
                                 </li>
                             </ul>

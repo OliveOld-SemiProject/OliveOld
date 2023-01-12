@@ -26,6 +26,7 @@
         <result property="reviewWriter" column="REVIEW_WRITER"/>
         <result property="reviewReply" column="REVIEW_REPLY"/>
         <result property="productNo" column="PRODUCT_NO"/>
+        <result property="reviewDate" column="REVIEW_DATE"/>
 
     </resultMap>
 
@@ -111,6 +112,7 @@
         , REVIEW_WRITER
         , REVIEW_REPLY
         , PRODUCT_NO
+        , REVIEW_DATE
         FROM SemiDB.REVIEW
         WHERE PRODUCT_NO = #{ code }
     </select>
