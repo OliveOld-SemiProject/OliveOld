@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -139,7 +139,7 @@
                             </ul>
                         </div>
                         <!--// title_box -->
-                        <form name="orderForm" id="orderForm" th:action="@{/payment/create}" method="post">
+<!--                        <form name="orderForm" id="orderForm" th:action="@{/payment/create}" method="post">-->
                             <!-- 배송지 정보 -->
                             <div class="title_wrap">
                                 <h2 class="sub-title2">배송지정보</h2>
@@ -297,15 +297,14 @@
                                     <!--// 최종 결제정보 -->
                                     <ul class="total_payment_box">
                                         <li>
-                                            <button onclick="requestPay()" class="btnPayment" id="btnPay" name="btnPay" type="submit"
+                                            <button onclick="requestPay()" class="btnPayment" id="btnPay" name="btnPay" type="button"
                                                 data-attr="최종결제정보^결제하기" >결제하기</button>
                                             <input type="hidden" id="tempOrdNo" value="">
-
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                        </form>
+<!--                        </form>-->
                     </div>
                     <!-- //#Contents -->
                 </div>
@@ -318,36 +317,44 @@
                 const $searchZipCode = document.getElementById("searchZipCode");
                 const $goMain = document.getElementById("goMain");
 
-                $searchZipCode.onclick = function() {
+                <!-- 수정해보기 -->
+                // $searchZipCode.onclick = function() {
+                //
+                //     /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다. */
+                //     new daum.Postcode({
+                //         oncomplete: function(data){
+                //             /* 팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분 */
+                //             document.getElementById("zipCode").value = data.zonecode;
+                //             document.getElementById("address1").value = data.address;
+                //             document.getElementById("address2").focus();
+                //         }
+                //     }).open();
+                // }
 
-                    /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다. */
-                    new daum.Postcode({
-                        oncomplete: function(data){
-                            /* 팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분 */
-                            document.getElementById("zipCode").value = data.zonecode;
-                            document.getElementById("address1").value = data.address;
-                            document.getElementById("address2").focus();
-                        }
-                    }).open();
-                }
-
-                $goMain.onclick = function() {
-                    location.href = "/";
-                }
-
+                // $goMain.onclick = function() {
+                //     location.href = "/";
+                // }
+                <!-- 수정해보기 -->
             </script>
 
             <script>
-                function requestPay() {
-                    // const productName = "[[${product.productName}]]";
-                    // var productName = $('input[name="product.productName"]').val();
-                    // var orderQuan = $('input[name="order.orderQuan"]').val();
-                    // var memberEmail = $('input[name="member.memberEmail"]').val();
-                    // var memberName = $('input[name="member.memberName"]').val();
-                    // var memberPhone = $('input[name="member.memberPhone"]').val();
-                    // var memberAddress1 = $('input[name="member.memberAddress"]').val();
-                    // var memberAddress2 = $('input[name="member.memberAddress"]').val();
+               function requestPay() {
+                     const productName = '[[${ product.productName }]]';
+                     const productPrice = '[[${ product.productPrice }]]';
+                     const memberEmail = '[[${ member.memberEmail }]]';
+                     const memberName = '[[${ member.memberName }]]';
+                     const memberPhone = '[[${ member.memberPhone }]]';
+                     const memberAddress1 = '[[${ member.memberAddress }]]';
+                     const memberAddress2 = '[[${ member.memberAddress }]]';
 
+                    // getCurrentUserInfo();
+                    // let productName = product.productName;
+                    // let orderQuan = order.orderQuan;
+                    // let memberEmail = member.memberEmail;
+                    // let memberName = member.memberName;
+                    // let memberPhone = member.memberPhone;
+                    // let memberAddress1 = member.memberAddress;
+                    // let memberAddress2 = member.memberAddress;
 
                     let IMP = window.IMP;
                     IMP.init("imp20770740");
@@ -358,7 +365,7 @@
                             pay_method: "card",
                             merchant_uid: "merchant_" + new Date().getTime(),
                             name: productName, // 상품이름
-                            amount: orderQuan, // 갯수
+                            amount: productPrice, // 가격
                             buyer_email: memberEmail, // 사용자이메일
                             buyer_name: memberName, // 사용자이름
                             buyer_tel: memberPhone, // 사용자전화번호
@@ -369,13 +376,13 @@
                             // callback
                             if (rsp.success) {
                                 // 결제 성공 시 로직,
-                                alert("success");
+                                alert(rsp.paid_amount + "결제가 완료되었습니다.");
 
                                 // ajax를 통해서 데이터베이스에 결제정보를 추가
-                                alert("imp_uid : " + rsp.imp_uid + "/ merchant_uid(orderkey) : " + rsp.merchant_uid);
+                                // alert("imp_uid : " + rsp.imp_uid + "/ merchant_uid(orderkey) : " + rsp.merchant_uid);
                             } else {
                                 // 결제 실패 시 로직,
-                                alert("fail");
+                                alert("결제에 실패하였습니다.");
                             }
                         }
                     );
