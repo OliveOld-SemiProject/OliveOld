@@ -422,14 +422,19 @@
 
 
                             <tr
-                                    th:each="notice : ${ noticeList }"
-                            >
-                                <td th:text="${notice.noticeNo}"></td>
-                                <td th:text="${notice.noticeTitle}"></td>
-                                <td th:text="${notice.noticeWriter}"></td>
+                                    th:each="notice : ${ noticeList }">
+
+<!--                                <td><a th:href="@{|/notice/detail?no=${notice.noticeNo}|}" th:text="${notice.noticeTitle}"></td></a>-->
+
+                               <td> <a th:href="@{|/notice/detail?no=${notice.noticeNo}|}" th:text="${notice.noticeNo}"></a></td>
+                                <td> <a th:href="@{|/notice/detail?no=${notice.noticeNo}|}" th:text="${notice.noticeTitle}"></a></td>
+                                <td  th:text="${notice.noticeWriter}"></td>
 <!--                                <td th:text="${notice.noticeContent}"></td>-->
                                 <td th:text="${notice.noticeRegistDate}"></td>
+
+
                             </tr>
+
 
 
 
