@@ -40,7 +40,7 @@
         DATE(#{memberRegistDate}),
         'Y',
         #{memberLevel},
-        'ROLE_member',
+        'ROLE_MEMBER',
         0
         )
     </insert>
