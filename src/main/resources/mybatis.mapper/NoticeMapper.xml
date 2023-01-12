@@ -94,10 +94,12 @@
              , A.NOTICE_CONTENT
              , A.NOTICE_WRITER
              , B.MEMBER_NAME
-          FROM NOTICE
+          FROM NOTICE A
           JOIN Member B ON (A.NOTICE_WRITER = B.MEMBER_ID)
-
+          WHERE A.NOTICE_NO = #{ no }
     </select>
+
+
 
 
 </mapper>

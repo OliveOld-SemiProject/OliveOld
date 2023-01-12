@@ -14,7 +14,7 @@
                     <table align="center">
                         <tr>
                             <td>제목 </td>
-                            <td colspan="3"><p th:text="${ noticeDetail.noticeTitle }"></p></td>
+                            <td colspan="3" align="center"><p th:text="${ noticeDetail.noticeTitle }"></p></td>
                         </tr>
                         <tr>
 <!--                            <td>작성자 </td>-->
@@ -26,7 +26,7 @@
                             <td>내용 </td>
                             <td colspan="3">
                                 <textarea
-                                        style="resize:none; width:90%; height:200px; resize:none;"
+                                        style="resize:none; width:150%; height:200px; resize:none;"
                                         th:text="${ noticeDetail.noticeContent }"
                                         readonly
                                 ></textarea>

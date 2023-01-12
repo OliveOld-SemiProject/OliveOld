@@ -24,17 +24,18 @@ public class EventService {
     }
 
 
-    public List<EventDTO> MileageList() {
-
-        List<EventDTO> eventList = eventMapper.MileageList();
-
-        return eventList;
-
-    }
 
 
-    public void insertMileage(EventDTO event) {
 
-        int result = eventMapper.insertMileage();
+//    public void insertMileage(EventDTO event) {
+//
+//        int result = eventMapper.insertMileage();
+//    }
+
+    public void UpdateMileage(MemberDTO member) {
+
+        eventMapper.UpdateMileage(member);
+
+
     }
 }
