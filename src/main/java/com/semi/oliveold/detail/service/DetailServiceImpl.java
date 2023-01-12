@@ -1,6 +1,7 @@
 package com.semi.oliveold.detail.service;
 
 import com.semi.oliveold.detail.dto.DetailDTO;
+import com.semi.oliveold.detail.dto.ReviewDTO;
 import com.semi.oliveold.detail.repository.DetailMapper;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,16 @@ public class DetailServiceImpl implements DetailService{
 
         return newProductList;
     }
+
+    @Override
+    public List<ReviewDTO> findReviewListByProductNo(int no) {
+
+        List<ReviewDTO> reviewList = mapper.findReviewListByProductNo(no);
+
+        return reviewList;
+    }
+
+
 
     @Override
     public DetailDTO selectProduct() {

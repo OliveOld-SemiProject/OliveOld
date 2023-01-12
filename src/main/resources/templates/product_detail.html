@@ -2,19 +2,20 @@
 <html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>OLIVE OLD</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png" />
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo/oliveOld.png"/>
 
 
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
     <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/footer.css " />
+    <link rel="stylesheet" href="/assets/css/footer.css "/>
     <link rel="stylesheet" href="/assets/css/product_detail.css">
+    <link rel="stylesheet" href="/assets/css/One-on-one-Inquiry.css "/>
 
 
 </head>
@@ -28,42 +29,55 @@
             <ul>
                 <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
                     <form action="/member/login" method="get">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            로그인
+                        </button>
                     </form>
                 </li>
 
                 <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
                     <form action="/signup" method="get">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            회원가입
+                        </button>
                     </form>
                 </li>
 
                 <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
                     <form action="/mypage" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
-                                th:text="${#authentication.name}">user</button>
+                                th:text="${#authentication.name}">user
+                        </button>
                     </form>
                 </li>
 
                 <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
                     <form action="/member/logout" method="post">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            로그아웃
+                        </button>
                     </form>
                 </li>
 
                 <li class="util-order">
                     <form action="/order/list" method="get">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            주문/배송
+                        </button>
                     </form>
                 </li>
                 <li class="util-cart">
                     <form action="/cartList" method="post">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            장바구니
+                        </button>
                     </form>
                 </li>
                 <li class="util-cs">
                     <form action="/notice" method="get">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
+                            고객센터
+                        </button>
                     </form>
                 </li>
             </ul>
@@ -116,7 +130,8 @@
     <div class="header-wrap">
 
         <div class="gnb-wrap">
-            <script>var IE8Under = false; var IE7Under = false;</script>
+            <script>var IE8Under = false;
+            var IE7Under = false;</script>
 
             <script>
                 $(function () {
@@ -133,8 +148,12 @@
                         $('.gnbV18 li').removeClass('on');
                         $(this).addClass('on');
                         $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () { $(this).show(); })
-                            .mouseleave(function () { $(this).hide(); });
+                            .mouseover(function () {
+                                $(this).show();
+                            })
+                            .mouseleave(function () {
+                                $(this).hide();
+                            });
                         $('.gnb-sub').hide();
                         var subGnbId = $(this).attr('name');
 
@@ -206,56 +225,57 @@
                     <li id="cateButton1" name="gnb101" class="">
                         <p>스킨케어</p>
                     </li>
-                    <li id="cateButton2" class="line" name="gnb121" >
+                    <li id="cateButton2" class="line" name="gnb121">
                         <p>메이크업</p>
                     </li>
-                    <li id="cateButton3" class="line" name="gnb120" >
+                    <li id="cateButton3" class="line" name="gnb120">
                         <p>헤어케어</p>
                     </li>
-                    <li id="cateButton4" class="line" name="gnb112" >
+                    <li id="cateButton4" class="line" name="gnb112">
                         <p>건강식품</p>
                     </li>
-                    <li id="cateButton5" class="line" name="gnb116" >
+                    <li id="cateButton5" class="line" name="gnb116">
                         <p>보행보조용품</p>
                     </li>
                     <li>
                         <form>
-                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                            <a href="rouletteEvent.html"
+                               onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                         </form>
                     </li>
                     <script>
 
                         // 스킨케어
 
-                        document.getElementById("cateButton1").onclick=function(){
+                        document.getElementById("cateButton1").onclick = function () {
 
-                            location.href='/mainSearch/search?cateCode=4';
+                            location.href = '/mainSearch/search?cateCode=4';
 
                         };
 
 
                         //메이크업
 
-                        document.getElementById("cateButton2").onclick = function(){
+                        document.getElementById("cateButton2").onclick = function () {
 
-                            location.href='/mainSearch/search?cateCode=2';
+                            location.href = '/mainSearch/search?cateCode=2';
                         };
 
                         //
 
-                        document.getElementById("cateButton3").onclick = function(){
+                        document.getElementById("cateButton3").onclick = function () {
 
-                            location.href='/mainSearch/search?cateCode=5';
+                            location.href = '/mainSearch/search?cateCode=5';
                         };
 
-                        document.getElementById("cateButton4").onclick = function(){
+                        document.getElementById("cateButton4").onclick = function () {
 
-                            location.href='/mainSearch/search?cateCode=1';
+                            location.href = '/mainSearch/search?cateCode=1';
                         };
 
-                        document.getElementById("cateButton5").onclick = function(){
+                        document.getElementById("cateButton5").onclick = function () {
 
-                            location.href='/mainSearch/search?cateCode=3';
+                            location.href = '/mainSearch/search?cateCode=3';
                         };
 
                     </script>
@@ -277,7 +297,7 @@
                     <div class="prd_img">
                         <span class="thumb_flag best">베스트</span>
                         <img id="mainImg"
-                              th:src="${findProductListByNo.get(0).productImage1}"
+                             th:src="${findProductListByNo.get(0).productImage1}"
 
                              alt="상품명 이미지" onerror="common.errorImg(this);">
                         <input type="hidden" id="mainImgSize" value="550">
@@ -297,12 +317,13 @@
                 </div>
                 <div class="right_area">
                     <div class="prd_info">
-                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}">[한정기획] 피지오겔 레드수딩 AI 진정보습 크림 100ml 기획(+50ml 증정)</p>
+                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}">[한정기획] 피지오겔 레드수딩 AI 진정보습
+                            크림 100ml 기획(+50ml 증정)</p>
                         <div class="price">
-<!--                                    <span class="price-1">-->
-<!--                                        <strike>58,500</strike>-->
-<!--                                        <span>원</span>-->
-<!--                                    </span>-->
+                            <!--                                    <span class="price-1">-->
+                            <!--                                        <strike>58,500</strike>-->
+                            <!--                                        <span>원</span>-->
+                            <!--                                    </span>-->
                             <span class="price-2">
                                         <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}">31,410</strong>
                                         <span>원</span>
@@ -310,7 +331,8 @@
                         </div>
                         <div class="prd_more_info">
                             <div class="row">
-                                <p class="tit">배송정보<a href="javascript:goods.detail.openDlexFullPop('20','1');" class="ico_info" style="margin:5px 0 0 7px">배송정보 레이어 열기</a></p>
+                                <p class="tit">배송정보<a href="javascript:goods.detail.openDlexFullPop('20','1');"
+                                                      class="ico_info" style="margin:5px 0 0 7px">배송정보 레이어 열기</a></p>
                                 <p></p>
                                 <ul class="bl_list">
                                     <li>
@@ -328,7 +350,8 @@
                         <div class="prd_btn_area new-style type1">
                             <button class="btnBasket  goods_cart"
                                     onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.cart');"
-                                    data-attr="상품상세^주문유형^장바구니">장바구니</button>
+                                    data-attr="상품상세^주문유형^장바구니">장바구니
+                            </button>
 
 
 <!--                            <form action="order/list" method="get">-->
@@ -344,9 +367,10 @@
                 <li class="on" id="productInfo"><a href="javascript:;" class="goods_detailinfo" data-attr="상품상세^상품상세_SortingTab^상품설명">상품설명</a></li>
                 <li id="buyInfo"><a href="javascript:;" class="goods_buyinfo"
                                     data-attr="상품상세^상품상세_SortingTab^구매정보">구매정보</a></li>
-                <li id="reviewInfo"><a href="javascript:;" class="goods_reputation" data-attr="상품상세^상품상세_SortingTab^리뷰">리뷰<span>(3,628)</span></a></li>
-                <li id="qnaInfo"><a href="javascript:;" class="goods_qna"
-                                    data-attr="상품상세^상품상세_SortingTab^Q&amp;A">Q&amp;A<span>(2)</span></a></li>
+                <li id="reviewInfo" class=""><a href="javascript:;" class="goods_reputation"
+                                                data-attr="상품상세^상품상세_SortingTab^리뷰">리뷰<span>(3,760)</span></a></li>
+                <li id="qnaInfo"><a href="javascript:;" class="goods_qna" data-attr="상품상세^상품상세_SortingTab^Q&amp;A">Q&amp;A<span>(76)</span></a>
+                </li>
             </ul>
             <div class="tabConts prd_detail_cont show">
                 <div class="detail_area">
@@ -366,6 +390,64 @@
                         <p style="display:inline-block;font-size:14px;border:1px solid #ddd;padding:10px 40px 10px 40px;text-align:center;">
                             본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.</p>
                     </div>
+                </div>
+
+            </div>
+
+
+            <div class="review_cont">
+                <div class="oneOnBoard area">
+                    <div th:each="review : ${findReviewListByProductNo}">
+                        <div class="list-customer">
+                            <a th:text="${review.getReviewContents()}">
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/" role="button" class="stit" title="답변 내용보기">
+
+                                        <strong th:text="${review.getReviewWriter()}">
+
+                                        </strong>
+                                        <a th:text="${review.getReviewContents()}"></a>
+                                        <span class="data">2023-01-10</span>
+                                    </a>
+                                    <a th:text="${review.getReviewContents()}">
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="list-customer">
+                        <ul>
+                            <li id="3979532">
+
+                                <a href="/OneOnOneBoard/detail?no=28" role="button" class="stit" title="답변 내용보기">
+                                    <!--                                    <strong th:text="${findProductListByNo.get(0).productCategoryName}">-->
+
+                                    <!--                                    </strong>-->
+                                    <strong th:text="${findReviewListByProductNo.get(0).reviewContents}">
+
+                                    </strong>
+                                    <a th:text="${findReviewListByProductNo.get(0).reviewContents}"></a>
+                                    <span class="data">2023-01-11</span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!--                    <div class="pagingArea" align="center">-->
+
+
+                    <!--                        <button onclick="location.href='/OneOnOneBoard/list?currentPage=1'" disabled="disabled">1</button>-->
+
+
+                    <!--                    </div>-->
+
                 </div>
             </div>
             <div class="tabConts prd_detail_cont">
@@ -399,6 +481,7 @@
             <!--// 구매정보 컨텐츠 영역 -->
             <div class="tabConts prd_detail_cont" id="gdasContentsArea">
                 <div class="review_wrap renew review-reward-notice"><!-- ## 리뷰 고도화 1차 : 영역 부모 div 추가 ## -->
+
                 </div>
             </div>
             <div class="tabConts prd_detail_cont" id="qnaContentsArea">
