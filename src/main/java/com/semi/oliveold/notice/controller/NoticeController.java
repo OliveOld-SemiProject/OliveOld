@@ -7,6 +7,7 @@ import com.semi.oliveold.notice.exception.NoticeRegistException;
 import com.semi.oliveold.notice.service.NoticeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -91,9 +92,23 @@ public class NoticeController {
 
         noticeService.registNotice(notice);
 
+        System.out.println("notice = " + notice);
         rttr.addFlashAttribute("message", "공지사항 등록에 성공하였습니다.");
 
         return "redirect:/notice/list";
+    }
+
+    @GetMapping("/detail")
+    public String selectNoticeDetail(HttpServletRequest request, Model model){
+
+        Long no = Long.valueOf(request.getParameter("no"));
+        NoticeDTO noticeDetail = noticeService.selectNoticeDetail(no);
+
+        log.info("noticeDetail : " + noticeDetail);
+
+        model.addAttribute("noticeDetail", noticeDetail);
+
+        return "notice/noticeDetail";
     }
 
 

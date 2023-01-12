@@ -51,4 +51,13 @@ public class NoticeService {
 
         }
     }
+
+    public NoticeDTO selectNoticeDetail(Long no) {
+
+        NoticeDTO noticeDetail = null;
+
+        noticeDetail = mapper.selectNoticeDetail(no);
+
+        return noticeDetail;
+    }
 }

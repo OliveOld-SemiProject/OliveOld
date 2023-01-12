@@ -345,6 +345,16 @@
                 </th:block>
 
 
+<!--                <th:block th:each="notice : ${ noticeList}">-->
+<!--                    <li class="topThree">-->
+
+<!--                        <a th:href="@{/notice/detail(no=${notice.noticeNo})}" role="button" class="tit" th:title="${ notice.noticeTitle }">-->
+<!--                            <strong th:text="${ notice.noticeTitle }"></strong>-->
+<!--                            <th:block th:text="${ notice.noticeTitle}"></th:block>-->
+
+                        </a>
+                    </li>
+                </th:block>
 
                 <div class="TabsConts on">
                     <ul class="noticeList" id="notice-list">
@@ -378,6 +388,8 @@
 <!--                                <td th:text="${notice.noticeContent}"></td>-->
                                 <td th:text="${notice.noticeRegistDate}"></td>
                             </tr>
+
+
 
 <!--                            <tr class="notice_fix">-->
 <!--                                <td>중요</td>-->
@@ -462,7 +474,6 @@
                     <a href="javascript:void(0);" data-page-no="5">5</a>
                 </button>
             </th:block>
-
 
 
             <!-- 다음 페이지 버튼 -->

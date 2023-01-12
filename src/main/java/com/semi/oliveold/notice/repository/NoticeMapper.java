@@ -16,4 +16,6 @@ public interface NoticeMapper {
     List<NoticeDTO> selectNoticeList(NoticeCriteria noticeCriteria);
 
     int registNotice(NoticeDTO notice);
+
+    NoticeDTO selectNoticeDetail(Long no);
 }

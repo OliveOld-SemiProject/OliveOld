@@ -86,4 +86,18 @@
         )
     </insert>
 
+    <select id="selectNoticeDetail" resultMap="NoticeResultMap">
+        SELECT
+               A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_REGISTDATE
+             , A.NOTICE_CONTENT
+             , A.NOTICE_WRITER
+             , B.MEMBER_NAME
+          FROM NOTICE
+          JOIN Member B ON (A.NOTICE_WRITER = B.MEMBER_ID)
+
+    </select>
+
+
 </mapper>
