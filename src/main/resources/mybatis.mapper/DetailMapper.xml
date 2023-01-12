@@ -5,6 +5,7 @@
 <mapper namespace="com.semi.oliveold.detail.repository.DetailMapper">
 
 
+
     <resultMap type="DetailDTO" id="DetailResultMap">
         <id property="productNo" column="PRODUCT_NO"/>
         <result property="productName" column="PRODUCT_NAME"/>
@@ -18,6 +19,39 @@
         <result property="productCategoryName" column="CATEGORY_NAME"/>
 
     </resultMap>
+
+    <resultMap type="ReviewDTO" id="ReviewResultMap">
+        <id property="reviewNo" column="REVIEW_NO"/>
+        <result property="reviewContents" column="REVIEW_CONTENTS"/>
+        <result property="reviewWriter" column="REVIEW_WRITER"/>
+        <result property="reviewReply" column="REVIEW_REPLY"/>
+        <result property="productNo" column="PRODUCT_NO"/>
+
+    </resultMap>
+
+<!--    <insert id="registReview" parameterType="ReviewResultMap">-->
+
+<!--        INSERT-->
+<!--        INTO REVIEW-->
+<!--        (-->
+<!--            REVIEW_NO-->
+<!--           ,REVIEW_CONTENTS-->
+<!--           ,REVIEW_WRITER-->
+<!--           ,REVIEW_REPLY-->
+<!--           ,PRODUCT_NO-->
+<!--        )-->
+<!--        VALUES-->
+<!--        (-->
+<!--            #{ reviewNo }-->
+<!--          , #{ reviewContents }-->
+<!--          , #{ reviewWriter }-->
+<!--          , #{ reviewReply }-->
+<!--          , #{ productNo }-->
+<!--        )-->
+
+<!--    </insert>-->
+
+
 
 
     <select id="selectProductList" resultMap="DetailResultMap">
@@ -64,6 +98,20 @@
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
         FROM SemiDB.PRODUCT
+        WHERE PRODUCT_NO = #{ code }
+    </select>
+
+
+
+
+    <select id="findReviewListByProductNo" resultMap="ReviewResultMap">
+        SELECT
+        REVIEW_NO
+        , REVIEW_CONTENTS
+        , REVIEW_WRITER
+        , REVIEW_REPLY
+        , PRODUCT_NO
+        FROM SemiDB.REVIEW
         WHERE PRODUCT_NO = #{ code }
     </select>
 

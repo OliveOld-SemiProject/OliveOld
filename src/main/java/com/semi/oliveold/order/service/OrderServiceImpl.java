@@ -6,7 +6,6 @@ import com.semi.oliveold.order.dto.OrderMemberDTO;
 import com.semi.oliveold.order.dto.ProductDTO;
 import com.semi.oliveold.order.repository.OrderMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
@@ -19,19 +18,7 @@ public class OrderServiceImpl implements OrderService{
         this.mapper = mapper;
     }
 
-   /* @Transactional
-    @Override
-    public int insertOrderMenu(Map<String, Object> productMap) {
-
-        // 주문등록하고
-        int insertOrderMenu = mapper.insertOrderMenu(productMap);
-        System.out.println("orderList = " + insertOrderMenu);
-        // 조건문으로 주문등록이 완료되면 사용자정보, 상품정보를 조회
-      //  Map<String, Object>
-        return insertOrderMenu;
-    }*/
-
-
+    //order 등록
     public int insertOrderMenu(OrderDTO order) {
 
         int insertOrderMenu = mapper.insertOrderMenu(order);
@@ -39,6 +26,7 @@ public class OrderServiceImpl implements OrderService{
         return insertOrderMenu;
     }
 
+    //1. orderNo로 'productNo' 가져오기
     @Override
     public int selectProductNo(int orderNo) {
 
@@ -47,6 +35,7 @@ public class OrderServiceImpl implements OrderService{
         return selectProductNo;
     }
 
+    //2. productNo로 '상품 정보' 가져오기
     @Override
     public ProductDTO selectProduct(int productNo){
 
@@ -55,6 +44,7 @@ public class OrderServiceImpl implements OrderService{
         return product;
     }
 
+    //3. 로그인 한 memberId로 '회원 정보' 가져오기
     @Override
     public OrderMemberDTO selectMember(String memberId){
 
@@ -62,4 +52,14 @@ public class OrderServiceImpl implements OrderService{
 
         return member;
     }
+
+    //4. orderNo로 '주문한 수량' 정보 가져오기
+    @Override
+    public OrderDTO selectOrderQuan(int orderNo) {
+
+        OrderDTO order = mapper.selectOrderQuan(orderNo);
+
+        return order;
+    }
+
 }

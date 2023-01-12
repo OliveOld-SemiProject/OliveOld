@@ -17,10 +17,26 @@
         <result property="memberISAD" column="MEMBER_ISAD"/>
         <result property="memberLevel" column="MEMBER_LEVEL"/>
         <result property="memberType" column="MEMBER_TYPE"/>
-        <result property="memberMileage" column="MEMBER_MILEAGE"/>
+        <result property="mileage" column="MEMBER_MILEAGE"/>
 
-        
     </resultMap>
+    
+<!--    <select id="selectMemberList" resultMap="EventResultMap">-->
+<!--        SELECT-->
+<!--               *-->
+<!--          FROM semiDB.Member-->
+<!--         WHERE MEMBER_MILEAGE = #{ mileage }-->
+<!--    </select>-->
+
+    <update id="UpdateMileage" parameterType="MemberDTO">
+        UPDATE
+               MemberDTO
+           SET
+               MEMBER_MILEAGE = #{ mileage }
+         WHERE MEMBER_ID = #{ memberId}
+    </update>
+
+
 
     <resultMap id="EventResultMap" type="EventDTO">
         <id property="accNo" column="acc_no"/>
@@ -30,16 +46,6 @@
         <result property="accSavingDate" column="acc_savingDate"/>
     </resultMap>
 
-    <insert id="insertMileage" parameterType="EventDTO">
-        INSERT
-          INTO Event_accumulated
-             (
-                accSaving
-             )
-         VALUE
-             (
-               #{ acc_saving }
-             )
+    
 
-    </insert>
 </mapper>

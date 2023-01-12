@@ -12,6 +12,14 @@
         <result property="cart_insertDate" column="Cart_insertDate"/>
     </resultMap>
 
+    <resultMap type="CartResultDTO" id="CartJoinOnProductResultMap">
+        <id property="PRODUCT_NAME" column="PRODUCT_NAME"/>
+        <result property="cart_amount" column="Cart_amount"/>
+        <result property="PRODUCT_IMAGE1" column="PRODUCT_IMAGE1"/>
+        <result property="PRODUCT_PRICE" column="PRODUCT_PRICE"/>
+        <result property="Cart_no" column="Cart_no"/>
+    </resultMap>
+
     <select id="findByAll" resultMap="CartResultMap">
         SELECT *
         FROM SemiDB.Cart
@@ -27,4 +35,12 @@
         DELETE FROM SemiDB.Cart c
         WHERE c.Cart_no = #{cartNo};
     </delete>
+
+    <select id="findProductByMemberID" resultMap="CartJoinOnProductResultMap">
+        SELECT PRODUCT_IMAGE1, PRODUCT_NAME, PRODUCT_PRICE ,Cart_amount, Cart_no
+        FROM Cart c
+        Inner join PRODUCT p
+        on  c.Product_no = p.PRODUCT_NO
+        WHERE c.Member_id = #{memberId};
+    </select>
 </mapper>

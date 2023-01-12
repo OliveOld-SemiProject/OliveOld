@@ -1,6 +1,7 @@
 package com.semi.oliveold.oneonone.controller;
 
 
+import com.semi.oliveold.faq.dto.AttachmentDTO;
 import com.semi.oliveold.faq.exception.FaqBoardRegistException;
 import com.semi.oliveold.oneonone.dto.OneOnOneBoardDTO;
 import com.semi.oliveold.oneonone.dto.OneOnOnePagenation;
@@ -11,20 +12,20 @@ import com.semi.oliveold.oneonone.exception.OneOnOneRemoveException;
 import com.semi.oliveold.oneonone.service.OneOnOneService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 
 @Controller
@@ -40,7 +41,7 @@ public class OneOnOneController {
     }
 
     @GetMapping(value = "/list")
-    public ModelAndView faqBoardList(HttpServletRequest request, ModelAndView mv){
+    public ModelAndView faqBoardList(@AuthenticationPrincipal User user, HttpServletRequest request, ModelAndView mv){
 
         log.info("");
         log.info("");
@@ -112,11 +113,71 @@ public class OneOnOneController {
     }
 
     @PostMapping("/regist")
-    public String registFaqBoard(@ModelAttribute OneOnOneBoardDTO board, RedirectAttributes rttr) throws FaqBoardRegistException, OneOnOneRegistException {
+    public String registFaqBoard(@ModelAttribute OneOnOneBoardDTO board,HttpServletRequest request,
+                                 @RequestParam(required=false) MultipartFile multipartFiles,
+                                 RedirectAttributes rttr) throws FaqBoardRegistException, OneOnOneRegistException {
+
+//        String multiFileDescription = request.getParameter("multiFileDescription");
+        System.out.println("multiFiles : " + multipartFiles);
+//        System.out.println("multiFileDescription : " + multiFileDescription);
+
+        String root = request.getSession().getServletContext().getRealPath("resources");
+
+        System.out.println("root : " + root);
+
+
+        String filePath = root + "\\uploadFiles";
+
+        File mkdir = new File(filePath);
+        if(!mkdir.exists()) {
+            mkdir.mkdirs();
+        }
+
+        /* 파일명 변경 처리 */
+        String originFileName = multipartFiles.getOriginalFilename();
+        String ext = originFileName.substring(originFileName.lastIndexOf("."));
+        String savedName = UUID.randomUUID().toString().replace("-", "") + ext;
+
+
+        /* 파일에 관한 정보 추출 후 보관 */
+        Map<String, String> file = new HashMap<>();
+        file.put("originFileName", originFileName);
+        file.put("savedName", savedName);
+        file.put("filePath", filePath);
+
+
+        // service에서 파일추가할때 필요한 정보값을 담은 객체
+        AttachmentDTO tempFileInfo = new AttachmentDTO();
+        tempFileInfo.setRefBoardNo(board.getNo());
+        tempFileInfo.setOriginalName(file.get("originFileName"));
+        tempFileInfo.setSavedName(file.get("savedName"));
+        tempFileInfo.setSavePath(file.get("filePath"));
+
+
+
+        board.setAttachment(tempFileInfo);
+
+        System.out.println("tempFileInfo" +   tempFileInfo);
+
+        try {
+
+              // 이 시점에서 파일 업로드는 진행
+              multipartFiles.transferTo(new File(filePath + "\\" + file.get("savedName")));
+
+        } catch (IllegalStateException | IOException e) {
+
+            e.printStackTrace();
+            /* 실패시 파일 삭제 */
+            new File(filePath + "\\" + file.get("savedName")).delete();
+        }
+
+        System.out.println("files : " + file);
+
 
         log.info("");
         log.info("");
         log.info("[OneOnOneBoard Controller] OneOnOneBoard =========================================================");
+        // board안에는 게시글 정보 + 파일업로드 객체 정보 두가지를 담고있다.
         log.info("[OneOnOneBoard Controller] OneOnOneBoard Request : " + board);
 
         oneOnOneService.registOneOnOneBoard(board);
@@ -124,6 +185,7 @@ public class OneOnOneController {
         rttr.addFlashAttribute("message", "1:1 문의사항 등록완료");
 
         log.info("[OneOnOneBoard Controller] OneOnOneBoard =========================================================");
+        System.out.println("original name : "  +board.getAttachment().getOriginalName());
 
         return "redirect:/OneOnOneBoard/list";
     }
@@ -206,14 +268,20 @@ public class OneOnOneController {
         return "redirect:/OneOnOneBoard/list";
     }
 
-
-    //파일 업로드
-
-    @GetMapping("/fileUpload")
-    public String fileUpload(OneOnOneBoardDTO oneOnOneBoard, MultipartHttpServletRequest multipartHttpServletRequest){
-        OneOnOneService.fileUpload(oneOnOneBoard, multipartHttpServletRequest);
-        return "redirect:/OneOnOneBoard/list";
+    @GetMapping("/deleteBoardFile")
+    public String deleteBoardFile(@RequestParam int no) throws Exception{
+        oneOnOneService.deleteBoardFile(no);
+        System.out.println("no =========" + no);
+        return "redirect:/OneOnOneBoard/detail?no="+no;
     }
+
+
+    // 파일 업로드
+
+
+
+
+
 
 
 
@@ -221,10 +289,10 @@ public class OneOnOneController {
     //상단바 페이지 이동부분
 
     //로고
-    @GetMapping("/index.html")
-    public String goindex(){
-        return "redirect:/index.html";
-    }
+//    @GetMapping("/index.html")
+//    public String goindex(){
+//        return "redirect:/";
+//    }
 
     //로그인
     @GetMapping("/login.html")
@@ -253,7 +321,7 @@ public class OneOnOneController {
     //공지사항
     @GetMapping("/Notice.html")
     public String goNotice(){
-        return "redirect:/Notice.html";
+        return "redirect:/notice/list";
     }
 
 

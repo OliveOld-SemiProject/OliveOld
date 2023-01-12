@@ -11,7 +11,7 @@ import lombok.*;
 public class AttachmentDTO {
 
     private Long no;
-    private Long refBoardNo;
+    private int refBoardNo;
     private String originalName;
     private String savedName;
     private String savePath;

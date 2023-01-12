@@ -1,25 +1,27 @@
 package com.semi.oliveold.delivery.controller;
 
 import com.semi.oliveold.delivery.service.DeliveryService;
-import com.semi.oliveold.delivery.dto.DeliveryDTO;
+import com.semi.oliveold.order.dto.OrderDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("/delivery")
+@RequestMapping("/order")
 public class DeliveryController {
 
     // 로그정보를 처리하는 객체 생성
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    //OrderService로 이동
+    //deliveryService로 이동
     private final DeliveryService deliveryService;
 
     public DeliveryController(DeliveryService deliveryService) {
@@ -28,49 +30,22 @@ public class DeliveryController {
 
 
     //localHost:8080/order/list
+    // memberId로 주문내역 조회하기
     @GetMapping(value = "/list")
-    public ModelAndView deliveryList(HttpServletRequest request, ModelAndView mv){
+    public ModelAndView selectDeliveryList(@AuthenticationPrincipal User user, ModelAndView mv) {
 
-        List<DeliveryDTO> deliveryList = deliveryService.selectDeliveryList();
+        List<OrderDTO> order = deliveryService.selectDeliveryList(user.getUsername());
 
-        log.info("[OrderController] deliveryList : " + deliveryList);
+        mv.addObject("order", order);
 
-        mv.addObject("deliveryList", deliveryList);
+        System.out.println("name================" + user.getUsername());
 
-        mv.setViewName("/order-delivery");
+        System.out.println("==========나와랏===================");
+
+        mv.setViewName("order-delivery");
 
         return mv;
+
     }
 
-
-
-    /*//index
-    @RequestMapping("/index")
-    public String doIndex(){
-        return "/index.html";
-    }
-
-    //로그인
-    @RequestMapping("/login.html")
-    public String doLogin(){
-        return "redirect:/login.html";
-    }
-
-    //회원가입
-    @GetMapping("/signup.html")
-    public String goSignUp(){
-        return "redirect:/signup.html";
-    }
-
-    //쇼핑카드
-    @GetMapping("/shoppingCart.html")
-    public String goShoppingCart(){
-        return "redirect:/cartList";
-    }
-
-    //공지사항
-    @GetMapping("/Notice.html")
-    public String goNotice(){
-        return "redirect:/Notice.html";
-    }*/
 }

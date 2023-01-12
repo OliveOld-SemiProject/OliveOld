@@ -1,5 +1,6 @@
 package com.semi.oliveold.cart.controller;
 
+import com.semi.oliveold.cart.dto.CartResultDTO;
 import com.semi.oliveold.cart.service.CartService;
 import com.semi.oliveold.cart.dto.CartDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -23,15 +24,24 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @PostMapping
-    public String findById(@AuthenticationPrincipal User user, Model model){
-        log.info("Play findAll");
+    @GetMapping
+    public String findProductByMemberID(@AuthenticationPrincipal User user, Model model){
+        log.info("*******CartController.findProductByMemberID******");
 
-        List<CartDTO> items = cartService.findById(user.getUsername());
+        List<CartResultDTO> items = cartService.findProductByMemberID(user.getUsername());
         model.addAttribute("items", items);
 
         return "shoppingCart";
     }
+//    @PostMapping
+//    public String findById(@AuthenticationPrincipal User user, Model model){
+//        log.info("Play findAll");
+//
+//        List<CartDTO> items = cartService.findById(user.getUsername());
+//        model.addAttribute("items", items);
+//
+//        return "shoppingCart";
+//    }
 
     @PostMapping("/delete")
     public String deleteByCartId(@AuthenticationPrincipal User user, HttpServletRequest request, Model model){

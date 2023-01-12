@@ -1,7 +1,7 @@
 package com.semi.oliveold.delivery.service;
 
-import com.semi.oliveold.delivery.dto.DeliveryDTO;
 import com.semi.oliveold.delivery.repository.DeliveryMapper;
+import com.semi.oliveold.order.dto.OrderDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +15,11 @@ public class DeliveryService {
         this.mapper = mapper;
     }
 
-    public List<DeliveryDTO> selectDeliveryList(){
+    public List<OrderDTO> selectDeliveryList(String memberId) {
 
-        List<DeliveryDTO> deliveryList = mapper.selectDeliveryList();
+        List<OrderDTO> order = mapper.selectDeliveryList(memberId);
 
-        return deliveryList;
+        return order;
     }
+
 }
