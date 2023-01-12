@@ -58,7 +58,7 @@ const rotate = () => {
     
     $c.style.transform = `rotate(-${rotate}deg)`;
     $c.style.transition = `2s`;
-      document.getElementById("myPoint").value = product[ran];
+      document.getElementById("mileage").value = product[ran];
     setTimeout(() => alert(`축하합니다~ ${product[ran]} 점 당첨되었습니다.`), 2000);
 
   }, 1);

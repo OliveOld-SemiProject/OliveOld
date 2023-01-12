@@ -12,10 +12,10 @@ public interface EventMapper {
 
     List<MemberDTO> selectMemberList();
 
-    List<EventDTO> MileageList();
 
 
-    int insertMileage();
+
+    int UpdateMileage(MemberDTO member);
 }
 
 
