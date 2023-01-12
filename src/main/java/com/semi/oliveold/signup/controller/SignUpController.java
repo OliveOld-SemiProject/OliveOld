@@ -29,7 +29,7 @@ public class SignUpController {
     @GetMapping
     public String signUpMainView(){
 
-        return "signup";
+        return "signup2";
     }
 
     @PostMapping("/join")
@@ -47,21 +47,20 @@ public class SignUpController {
         member.setMemberId(request.getParameter("member_id"));
         member.setMemberPwd(encodePassword);
         member.setMemberName(request.getParameter("name"));
-        member.setMemberAddress(request.getParameter("postcode1"));
+        member.setMemberAddress(request.getParameter("postcode"));
 
-        String mobile = request.getParameter("mobile1") + "-"
+        String mobile = request.getParameter("mobile") + "-"
                 + request.getParameter("mobile2") + "-"
                 + request.getParameter("mobile3");
 
         member.setMemberPhone(mobile);
-        member.setMemberISAD(request.getParameter("is_sms"));
-        member.setMemberEmail(request.getParameter("email1"));
+        member.setMemberISAD(
+                request.getParameter("aggrement").equals("on") ? "Y" : "N");
+        member.setMemberEmail(request.getParameter("email"));
         member.setMemberGender(request.getParameter("is_sex"));
 
-        String identifier = request.getParameter("birth_year")
-                + request.getParameter("birth_month")
-                + request.getParameter("birth_day");
-                //+ request.getParameter("is_solar_calendar");
+        String identifier = request.getParameter("births") + "-"
+                + request.getParameter("after_birth");
 
         member.setMemberIdentifier(identifier);
         member.setMemberType("일반회원");

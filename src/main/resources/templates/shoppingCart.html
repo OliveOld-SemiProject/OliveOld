@@ -372,17 +372,19 @@
                         </td>
                         <td class="thumb"><a href="/product/detail.html?product_no=3917&amp;cate_no=24">
                             <img
-                                    src="//seniormall.net/web/product/tiny/202211/f996ad8242fc2af4acde2cd37c17e3f2.jpg"
+                                    th:src="${item.PRODUCT_IMAGE1}"
                                     onerror="this.src='http://img.echosting.cafe24.com/thumb/img_product_small.gif';"
                                     alt="알루미늄 휠체어 미키코리아 SM-7(16D)"> </a>
                         </td>
                         <td class="product">
-                            <a th:text="${item.cart_No}">
+                            <a th:text="${item.PRODUCT_NAME}">
                                 <strong>상품명</strong> </a>
                         </td>
                         <td class="price">
                             <div class="">
-                                <strong>709,000원</strong>
+                                <a th:text="${item.PRODUCT_PRICE}">
+                                    <strong>709,000원</strong>
+                                </a>
                                 <p class="displaynone"></p>
                             </div>
                             <div class="displaynone">
@@ -407,9 +409,9 @@
                             <div class="displaynone"></div>
                         </td>
                         <td class="button">
-                            <form action="/cartList/delete" method="post">
+                            <form action="/cartList/delete" method="get">
                                 <button type="submit">
-                                    <input type="hidden" th:value="${item.cart_No}" name="cart_no">
+                                    <input type="hidden" th:value="${item.cart_no}" name="cart_no">
                                     <img src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_delete.gif"
                                           alt="삭제">
                                 </button>
@@ -462,7 +464,7 @@
                             </span>
                     <!-- 네이버 체크아웃 구매 버튼  -->
                     <div id="NaverChk_Button"></div>
-                </div>매
+                </div>
             </div>
             <!-- //장바구니 모듈 Package -->
 
