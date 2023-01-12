@@ -57,7 +57,7 @@
                     </form>
                 </li>
                 <li class="util-cart">
-                    <form action="/cartList" method="post">
+                    <form action="/cartList" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
                     </form>
                 </li>
@@ -138,7 +138,7 @@
                     </li>
                     <li>
                         <form>
-                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                            <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                         </form>
                     </li>
                     <script>
@@ -306,7 +306,7 @@
                                         <th scope="col">상품명</th>
                                         <th scope="col">수량</th>
                                         <th scope="col">구매가</th>
-                                    </tr>정
+                                    </tr>
 
                                     <tr style="text-align: center;">
                                         <td th:text="${ product.productNo }"></td>
@@ -409,15 +409,6 @@
                      const memberAddress1 = '[[${ member.memberAddress }]]';
                      const memberAddress2 = '[[${ member.memberAddress }]]';
 
-                    // getCurrentUserInfo();
-                    // let productName = product.productName;
-                    // let orderQuan = order.orderQuan;
-                    // let memberEmail = member.memberEmail;
-                    // let memberName = member.memberName;
-                    // let memberPhone = member.memberPhone;
-                    // let memberAddress1 = member.memberAddress;
-                    // let memberAddress2 = member.memberAddress;
-
                     let IMP = window.IMP;
                     IMP.init("imp20770740");
 
@@ -440,8 +431,6 @@
                                 // 결제 성공 시 로직,
                                 alert(rsp.paid_amount + "결제가 완료되었습니다.");
 
-                                // ajax를 통해서 데이터베이스에 결제정보를 추가
-                                // alert("imp_uid : " + rsp.imp_uid + "/ merchant_uid(orderkey) : " + rsp.merchant_uid);
                             } else {
                                 // 결제 실패 시 로직,
                                 alert("결제에 실패하였습니다.");
