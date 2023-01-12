@@ -19,6 +19,15 @@
 
     </resultMap>
 
+    <resultMap type="ReviewDTO" id="ReviewResultMap">
+        <id property="reviewNo" column="REVIEW_NO"/>
+        <result property="reviewContents" column="REVIEW_CONTENTS"/>
+        <result property="reviewWriter" column="REVIEW_WRITER"/>
+        <result property="reviewReply" column="REVIEW_REPLY"/>
+        <result property="productNo" column="PRODUCT_NO"/>
+
+    </resultMap>
+
 
     <select id="selectProductList" resultMap="DetailResultMap">
         SELECT
@@ -64,6 +73,20 @@
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
         FROM SemiDB.PRODUCT
+        WHERE PRODUCT_NO = #{ code }
+    </select>
+
+
+
+
+    <select id="findReviewListByProductNo" resultMap="ReviewResultMap">
+        SELECT
+        REVIEW_NO
+        , REVIEW_CONTENTS
+        , REVIEW_WRITER
+        , REVIEW_REPLY
+        , PRODUCT_NO
+        FROM SemiDB.REVIEW
         WHERE PRODUCT_NO = #{ code }
     </select>
 
