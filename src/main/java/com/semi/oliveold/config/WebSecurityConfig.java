@@ -58,7 +58,7 @@ public class WebSecurityConfig {
 //                .anyRequest().permitAll()    // 등록되지 않은 경우로는 누구나 접근 가능
 //                    .and()
                 .authorizeRequests()
-                .antMatchers("/cartList/**", "/order/**", "/event/**").authenticated()
+                .antMatchers("/cartList/**", "/order/**", "/event/**", "/admin/**").authenticated()
                     .anyRequest().permitAll()
                     .and()
                 .formLogin()   // 로그인 form을 따로 이용해 로그인 처리할 것이다.
