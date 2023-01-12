@@ -1,5 +1,4 @@
-
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -45,17 +44,15 @@
                         </li>
 
                         <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                            <form action="/logout" method="post">
+                            <form action="/member/logout" method="post">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
                             </form>
                         </li>
 
-                        <!-- <h2 th:text="${#authentication.name}">Name</h2> -->
                         <li class="util-order">
                             <form action="/order/list" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
                             </form>
-                        <li class="util-order"><a href="order-delivery.html" onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
                         </li>
                         <li class="util-cart">
                             <form action="/cartList" method="post">
@@ -90,19 +87,23 @@
                         </div>
                         <div class="col-lg-5 col-md-7 d-xs-none">
                             <!-- Start Main Menu Search -->
-                            <div class="main-menu-search">
-                                <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
 
-                                    <div class="search-input">
-                                        <input type="text" placeholder="Search">
+                            <form th:action="@{/mainSearch/search}" method="get">
+                                <div class="main-menu-search">
+                                    <!-- navbar search start -->
+                                    <div class="navbar-search search-style-5">
+
+                                        <div class="search-input">
+                                            <input id="text" type="text" name="searchValue" placeholder="Search">
+                                        </div>
+
+                                        <div class="search-btn">
+                                            <button><i class="lni lni-search-alt" type="submit"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt"></i></button>
-                                    </div>
+                                    <!-- navbar search Ends -->
                                 </div>
-                                <!-- navbar search Ends -->
-                            </div>
+                            </form>
                             <!-- End Main Menu Search -->
                         </div>
 
@@ -115,28 +116,65 @@
                 <div class="gnb-wrap">
                     <script>var IE8Under = false; var IE7Under = false;</script>
 
-                    <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
-                    <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
+
                     <div class="gnbV18">
                         <ul>
-                            <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                            <li id="cateButton1" name="gnb101" class="">
                                 <p>스킨케어</p>
                             </li>
-                            <li class="line" name="gnb121" onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <li id="cateButton2" class="line" name="gnb121" >
                                 <p>메이크업</p>
                             </li>
-                            <li class="line" name="gnb120" onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <li id="cateButton3" class="line" name="gnb120" >
                                 <p>헤어케어</p>
                             </li>
-                            <li class="line" name="gnb112" onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <li id="cateButton4" class="line" name="gnb112" >
                                 <p>건강식품</p>
                             </li>
-                            <li class="line" name="gnb116" onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <li id="cateButton5" class="line" name="gnb116" >
                                 <p>보행보조용품</p>
                             </li>
-                            <li class="line" name="gnb118" onclick="top.location.href='/shopping/category_list.asp?disp=118';">
-                                <p>이벤트</p>
+                            <li>
+                                <form>
+                                    <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                                </form>
                             </li>
+                            <script>
+
+                                // 스킨케어
+
+                                document.getElementById("cateButton1").onclick=function(){
+
+                                    location.href='/mainSearch/search?cateCode=4';
+
+                                };
+
+
+                                //메이크업
+
+                                document.getElementById("cateButton2").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=2';
+                                };
+
+                                //
+
+                                document.getElementById("cateButton3").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=5';
+                                };
+
+                                document.getElementById("cateButton4").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=1';
+                                };
+
+                                document.getElementById("cateButton5").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=3';
+                                };
+
+                            </script>
                         </ul>
                     </div>
                 </div>
@@ -153,7 +191,7 @@
                 <fieldset class="search-period mgT30">
                     <legend></legend>
 
-                    <div class="select_con">
+                   <!-- <div class="select_con">
                         <p>구매기간</p>
                         <ul class="select-month">
                             <li class="on">
@@ -220,13 +258,10 @@
                                 <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13" selected="selected">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
                             <label for="cal-end-day">일</label>
                         </div>
-                    </div>
+                    </div>-->
                       <!-- //오프라인 리뷰 -->
                       <!-- 2016-12-23 수정 -->
-                    <form id="searchForm" th:action="@{/delivery/list}" method="get">
                         <button type="button" class="btnLookup" id="do-search-period">조회</button>
-                        <input type="hidden" id="btnSearchForm">
-                    </form>
                 </fieldset>
             <script>
 
@@ -239,11 +274,11 @@
                 <table class="board-list-2s mgT20">
                     <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
                     <colgroup>
-                        <col style="width:17%;">
-                        <col style="width:17%;">
-                        <col style="width:%;">
-                        <col style="width:8%;">
-                        <col style="width:130px;">
+                        <col style="width:50px;">
+                        <col style="width:100px;">
+                        <col style="width:110px;">
+                        <col style="width:110px;">
+                        <col style="width:50px;">
                         <col style="width:110px;">
                     </colgroup>
                     <thead>
@@ -254,30 +289,29 @@
                         <th scope="col">상품명</th>
                         <th scope="col">수량</th>
                         <th scope="col">주문금액</th>
+<!--                        <th scope="col">배송상태</th>-->
                     </tr>
 
 
                     <tr
-                            th:each="order : ${ orderList }"
+                            th:each="order : ${ order }"
                     >
-                        <td th:text="${ order.no }"></td>
-                        <td th:text="${ #dates.format(order.date, 'yyyy-MM-dd')}"></td>
-                        <td><img th:src="${ product.productImage1 }"></td>
-                        <td th:text="${ order.productName }"></td>
-                        <td th:text="${ order.productQuan }"></td>
-                        <td th:text="${ order.price}"></td>
-                        <td th:text="${ order.delivery}"></td>
-
-
+                        <td th:text="${ order.orderNo }"></td>
+                        <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd')}"></td>
+                        <td><img th:src="${ order.productDTO.productImage1 }"></td>
+                        <td th:text="${ order.productDTO.productName }"></td>
+                        <td th:text="${ order.orderQuan }"></td>
+                        <td th:text="${ order.productDTO.productPrice }"></td>
+<!--                        <td th:text="${ order.delivery}"></td>-->
                     </tr>
 
 
 
-                <tbody class="history">
-                    <tr>
-                        <td colspan="5" class="nodata">기간 내 주문내역이 없습니다</td>
-                    </tr>
-                </tbody>
+<!--                <tbody class="history">-->
+<!--                    <tr>-->
+<!--                        <td colspan="5" class="nodata">기간 내 주문내역이 없습니다</td>-->
+<!--                    </tr>-->
+<!--                </tbody>-->
 
 
                 </table>
@@ -321,7 +355,7 @@
             <ul class="list-menu">
                 <li><a class="brandstory" href="">회사소개</a></li>
                 <li><a class="faqList" href="Notice.html">고객센터</a></li>
-                <li><a class="employee" href="">직원전용</a></li>
+                <li><a class="employee" href="/admin/dashboard?">직원전용</a></li>
             </ul>
         </div>
     </div>

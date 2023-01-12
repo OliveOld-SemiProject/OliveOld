@@ -22,34 +22,56 @@
 <body>
     <header>
         <!-- start header -->
+        <!-- start header -->
         <div class="headerTopNew">
             <div class="inner">
                 <div class="head-util">
                     <ul>
-                        <li class="util-join">
-                            <a href="login.html"
-                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
-                            / <a href="signup.html"
-                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
-                        </li>
-
-
-
-                        <li class="util-order"><a href="order-delivery.html"
-                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
-                        </li>
-                        <li class="util-cart">
-                            <form action="/cartList" type="get">
-                                <button type="submit">장바구니</button>
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
+                            <form action="/member/login" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
                             </form>
                         </li>
-                        <li class="util-cs"><a href="Notice.html"
-                                onclick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
+
+                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
+                            <form action="/signup" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
+                            <form action="/mypage" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
+                                        th:text="${#authentication.name}">user</button>
+                            </form>
+                        </li>
+
+                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
+                            <form action="/member/logout" method="post">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
+                            </form>
+                        </li>
+
+                        <li class="util-order">
+                            <form action="/order/list" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
+                            </form>
+                        </li>
+                        <li class="util-cart">
+                            <form action="/cartList" method="post">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
+                            </form>
+                        </li>
+                        <li class="util-cs">
+                            <form action="/notice" method="get">
+                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
 
         <!-- Start Header Area -->
         <header class="header navbar-area">
@@ -60,26 +82,31 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3 col-7">
                             <!-- Start Header Logo -->
-                            <a class="navbar-brand" href="index.html">
-                                <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                            </a>
+                            <form class="navbar-brand" action="/">
+                                <button type="submit">
+                                    <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                                </button>
+                            </form>
                             <!-- End Header Logo -->
                         </div>
                         <div class="col-lg-5 col-md-7 d-xs-none">
                             <!-- Start Main Menu Search -->
-                            <div class="main-menu-search">
-                                <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
+                            <form th:action="@{/mainSearch/search}" method="get">
+                                <div class="main-menu-search">
+                                    <!-- navbar search start -->
+                                    <div class="navbar-search search-style-5">
 
-                                    <div class="search-input">
-                                        <input type="text" placeholder="Search">
+                                        <div class="search-input">
+                                            <input id="text" type="text" name="searchValue" placeholder="Search">
+                                        </div>
+
+                                        <div class="search-btn">
+                                            <button><i class="lni lni-search-alt" type="submit"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt"></i></button>
-                                    </div>
+                                    <!-- navbar search Ends -->
                                 </div>
-                                <!-- navbar search Ends -->
-                            </div>
+                            </form>
                             <!-- End Main Menu Search -->
                         </div>
 
@@ -90,31 +117,67 @@
             <div class="header-wrap">
 
                 <div class="gnb-wrap">
+                    <script>var IE8Under = false; var IE7Under = false;</script>
+
+
                     <div class="gnbV18">
                         <ul>
-                            <li name="gnb101" onclick="top.location.href='category_skincare.html';" class="">
+                            <li id="cateButton1" name="gnb101" class="">
                                 <p>스킨케어</p>
                             </li>
-                            <li class="line" name="gnb121"
-                                onclick="top.location.href='/shopping/category_list.asp?disp=121';">
+                            <li id="cateButton2" class="line" name="gnb121" >
                                 <p>메이크업</p>
                             </li>
-                            <li class="line" name="gnb120"
-                                onclick="top.location.href='/shopping/category_list.asp?disp=120';">
+                            <li id="cateButton3" class="line" name="gnb120" >
                                 <p>헤어케어</p>
                             </li>
-                            <li class="line" name="gnb112"
-                                onclick="top.location.href='/shopping/category_list.asp?disp=112';">
+                            <li id="cateButton4" class="line" name="gnb112" >
                                 <p>건강식품</p>
                             </li>
-                            <li class="line" name="gnb116"
-                                onclick="top.location.href='/shopping/category_list.asp?disp=116';">
+                            <li id="cateButton5" class="line" name="gnb116" >
                                 <p>보행보조용품</p>
                             </li>
-                            <li class="line" name="gnb118"
-                                onclick="top.location.href='/shopping/category_list.asp?disp=118';">
-                                <p>이벤트</p>
+                            <li>
+                                <form>
+                                    <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                                </form>
                             </li>
+                            <script>
+
+                                // 스킨케어
+
+                                document.getElementById("cateButton1").onclick=function(){
+
+                                    location.href='/mainSearch/search?cateCode=4';
+
+                                };
+
+
+                                //메이크업
+
+                                document.getElementById("cateButton2").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=2';
+                                };
+
+                                //
+
+                                document.getElementById("cateButton3").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=5';
+                                };
+
+                                document.getElementById("cateButton4").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=1';
+                                };
+
+                                document.getElementById("cateButton5").onclick = function(){
+
+                                    location.href='/mainSearch/search?cateCode=3';
+                                };
+
+                            </script>
                         </ul>
                     </div>
                 </div>
@@ -398,7 +461,7 @@
                     <ul class="list-menu">
                         <li><a class="brandstory" href="">회사소개</a></li>
                         <li><a class="faqList" href="Notice.html">고객센터</a></li>
-                        <li><a class="employee" href="">직원전용</a></li>
+                        <li><a class="employee" href="/admin/dashboard?">직원전용</a></li>
                     </ul>
                 </div>
             </div>

@@ -15,4 +15,5 @@ public class OrderDTO {
     private Date orderDate; //주문일
     private int orderQuan; //주문 수량
     private String memberId; //주문 아이디
+    private ProductDTO productDTO; //
 }
