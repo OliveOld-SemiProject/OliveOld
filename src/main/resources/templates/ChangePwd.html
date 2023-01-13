@@ -61,13 +61,13 @@
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
                     </form>
                 </li>
-                <li class="util-cart">
-                    <form action="/cartList" method="get">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
-                    </form>
+                <<li class="util-cart">
+                <form action="/cartList" method="get">
+                    <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
+                </form>
                 </li>
                 <li class="util-cs">
-                    <form action="/notice" method="get">
+                    <form action="/notice/list" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
                     </form>
                 </li>
@@ -223,11 +223,11 @@
                     <li id="cateButton5" class="line" name="gnb116" >
                         <p>보행보조용품</p>
                     </li>
-                    <li>
-                        <form>
-                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
-                        </form>
+                    <form>
+                        <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                    </form>
                     </li>
+
                     <script>
 
                         // 스킨케어
@@ -315,8 +315,8 @@
             <div class="conts">
                 <ul class="list-menu">
                     <li><a class="brandstory" href="">회사소개</a></li>
-                    <li><a class="faqList" href="Notice.html">고객센터</a></li>
-                    <li><a class="employee" href="">직원전용</a></li>
+                    <li><a class="faqList" th:href="@{notice/list}">고객센터</a></li>
+                    <li><a class="employee" href="/admin/product?">직원전용</a></li>
                 </ul>
             </div>
         </div>
