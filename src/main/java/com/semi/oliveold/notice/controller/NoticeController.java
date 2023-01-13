@@ -3,7 +3,9 @@ package com.semi.oliveold.notice.controller;
 import com.semi.oliveold.notice.dto.NoticeCriteria;
 import com.semi.oliveold.notice.dto.NoticeDTO;
 import com.semi.oliveold.notice.dto.NoticePagenation;
+import com.semi.oliveold.notice.exception.NoticeModifyException;
 import com.semi.oliveold.notice.exception.NoticeRegistException;
+import com.semi.oliveold.notice.exception.NoticeRemoveException;
 import com.semi.oliveold.notice.service.NoticeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -110,6 +112,42 @@ public class NoticeController {
 
         return "notice/noticeDetail";
     }
+
+    @GetMapping("/update")
+    public String goModifyNotice(HttpServletRequest request, Model model){
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        NoticeDTO notice = noticeService.selectNoticeDetail(no);
+
+        model.addAttribute("notice", notice);
+
+        return "notice/noticeUpdate";
+    }
+
+    @PostMapping("/update")
+    public String modifyNotice(@ModelAttribute NoticeDTO notice, RedirectAttributes rttr) throws NoticeModifyException {
+
+        noticeService.modifyNotice(notice);
+
+        rttr.addFlashAttribute("message", "공지사항에 수정에 성공하셨습니다.");
+
+        return "redirect:/notice/list";
+    }
+
+    @GetMapping("/delete")
+    public String removeNotice(HttpServletRequest request, RedirectAttributes rttr) throws NoticeRemoveException {
+
+        Long no = Long.valueOf(request.getParameter("no"));
+
+        noticeService.removeNotice(no);
+
+        rttr.addFlashAttribute("message", "공지사항 삭제에 성공하셨습니다.");
+
+        return "redirect:/notece/list";
+    }
+
+
 
     //공지사항
     @GetMapping("/rouletteEvent.html")

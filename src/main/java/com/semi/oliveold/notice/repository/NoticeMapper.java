@@ -18,4 +18,10 @@ public interface NoticeMapper {
     int registNotice(NoticeDTO notice);
 
     NoticeDTO selectNoticeDetail(Long no);
+
+    int updateNotice(NoticeDTO notice);
+
+    int removeNotice(Long no);
+
+//    int incrementNoticeCount(Long no);
 }

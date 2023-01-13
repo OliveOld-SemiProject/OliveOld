@@ -63,12 +63,12 @@
                     </form>
                 </li>
                 <li class="util-cart">
-                    <form action="/cartList" method="post">
+                    <form action="/cartList" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
                     </form>
                 </li>
                 <li class="util-cs">
-                    <form action="/notice" method="get">
+                    <form action="/notice/list" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
                     </form>
                 </li>
@@ -124,89 +124,7 @@
         <div class="gnb-wrap">
             <script>var IE8Under = false; var IE7Under = false;</script>
 
-            <script>
-                $(function () {
-                    $('.head-util ul li').mouseover(function () {
-                        $(this).children('.util-layer').show();
-                    });
-                    $('.head-util ul li').mouseleave(function () {
-                        $(this).children('.util-layer').hide();
-                    });
-                    //GNB Control
-                    $('.gnbV18 li').mouseover(function () {
-                        if (IE7Under) return;
 
-                        $('.gnbV18 li').removeClass('on');
-                        $(this).addClass('on');
-                        $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () { $(this).show(); })
-                            .mouseleave(function () { $(this).hide(); });
-                        $('.gnb-sub').hide();
-                        var subGnbId = $(this).attr('name');
-
-                        try {
-                            var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
-                        } catch (e) {
-                            return;
-                        }
-
-                        //추가
-                        if (ictVar != "") {
-                            $(".gnb-sub-wrap").append(ictVar);
-                            eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
-                            // HOT
-                            jsHotCateShow(subGnbId.substring(3, 6));
-
-                            if (IE8Under) {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                    });
-                            } else {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                        $('.gnbV18').children('span').show();
-                                        //if ($(this).children('.subGroupWrapV15').length > 0){
-                                        //	$(this).children('.subGroupWrapV15').show();
-                                        //	$('.gnbBnrV15').children('span').show();
-                                        //} else {
-                                        //	$(this).children('.subGroupWrapV15').hide();
-                                        //	$('.gnbBnrV15').children('span').hide();
-                                        //}
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                        //$(this).children('.subGroupWrapV15').hide();
-                                        $('.gnbV18').children('span').hide();
-                                    });
-                            }
-                        }
-
-                        $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () {
-                                $(this).show();
-                                $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
-                            })
-                            .mouseleave(function () {
-                                $(this).hide();
-                                $('.gnbV18 li').removeClass('on');
-                            });
-                    });
-
-                    $('.gnbV18 li').mouseleave(function () {
-                        if (IE7Under) return;
-
-                        $(this).removeClass('on');
-                        $('.gnb-sub-wrap').hide();
-                    });
-                });
-            </script>
-            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
-            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
                 <ul>
                     <li id="cateButton1" name="gnb101" class="">
@@ -226,7 +144,7 @@
                     </li>
                     <li>
                         <form>
-                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                            <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                         </form>
                     </li>
                     <script>
@@ -265,8 +183,6 @@
                         };
 
                     </script>
-
-
                 </ul>
             </div>
         </div>
@@ -337,8 +253,8 @@
                     </colgroup>
                     <thead>
                     <tr>
-                        <th scope="col"><input type="checkbox"
-                                               onclick="Basket.setCheckBasketList('basket_product_normal_type_supplier', this);">
+                        <th scope="col">
+                         <!--   <input type="checkbox" onclick="Basket.setCheckBasketList('basket_product_normal_type_supplier', this);"> -->
                         </th>
                         <th scope="col">이미지</th>
                         <th scope="col">상품정보</th>
@@ -354,10 +270,10 @@
                     <tfoot>
                     <tr>
                         <td colspan="10">
-                            <strong class="type">[업체기본배송]</strong> 상품구매금액 <strong>709,000 <span
+                            <strong class="type">[업체기본배송]</strong> 상품구매금액 <strong th:text="${totalPrice}"> <span
                                 class="displaynone">()</span></strong><span class="displaynone"> </span>
                             + 배송비 0 (무료)<span class="displaynone"> </span> <span class="displaynone"> -
-                                            상품할인금액 0 </span> = 합계 : <strong class="total"><span>709,000</span>원</strong>
+                                            상품할인금액 0 </span> = 합계 : <strong class="total"><span th:text="${totalPrice}">709,000</span>원</strong>
                             <span class="displaynone"> </span>
                         </td>
                     </tr>
@@ -367,8 +283,9 @@
 
 
                     <tr th:each="item : ${items}">
-                        <td><input type="checkbox" id="basket_chk_id_0"
-                                   name="basket_product_normal_type_supplier">
+                        <td>
+                           <!-- <input type="checkbox" id="basket_chk_id_0"
+                                   name="basket_product_normal_type_supplier"> -->
                         </td>
                         <td class="thumb"><a href="/product/detail.html?product_no=3917&amp;cate_no=24">
                             <img
@@ -382,15 +299,15 @@
                         </td>
                         <td class="price">
                             <div class="">
-                                <a th:text="${item.PRODUCT_PRICE}">
+                                <a th:text="${item.PRODUCT_PRICE} + '원'">
                                     <strong>709,000원</strong>
                                 </a>
                                 <p class="displaynone"></p>
                             </div>
-                            <div class="displaynone">
-                                <strong>709,000원</strong>
-                                <p class="displaynone"></p>
-                            </div>
+<!--                            <div class="displaynone">-->
+<!--                                <strong>709,000원</strong>-->
+<!--                                <p class="displaynone"></p>-->
+<!--                            </div>-->
                         </td>
                         <td>
                                         <span class="quantity">
@@ -405,7 +322,7 @@
                             <p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
                         </td>
                         <td class="total">
-                            <strong>709,000원</strong>
+                            <strong></strong>
                             <div class="displaynone"></div>
                         </td>
                         <td class="button">
@@ -452,11 +369,7 @@
                         class=" "><img
                         src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_order_all.gif"
                         alt="전체상품주문"></a>
-                    <a href="payment.html" onclick="Basket.orderSelectBasket(this)"
-                       link-order="/order/orderform.html?basket_type=all_buy" link-login="/member/login.html"
-                       class=""><img
-                            src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_order_select.gif"
-                            alt="선택상품주문"></a>
+
                     <span class="gRight">
                                 <a href="/"><img
                                         src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_order_ing.gif"

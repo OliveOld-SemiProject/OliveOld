@@ -670,15 +670,12 @@
                     <div class="product-info">
                         <span class="category" th:text="${product.productCategoryName}"></span>
                         <h4 class="title">
-                            <!--                                <a onclick="location.href='/detail/findlist?no=1'"-->
-                            <!--                                   th:text="${product.productName}">-->
-                            <!--                                </a>-->
+
                             <a th:href="|@{/detail/findlist?no=}| + ${product.productNo}"
                                th:text="${product.productName}">
                             </a>
-
-                            <!--                                    <button th:text="${productList[0].productName}" onclick="location.href='/detail/findlist?no=1'">표현식</button>-->
                         </h4>
+
                         <ul class="review">
                             <li><i class="lni lni-star-filled"></i></li>
                             <li><i class="lni lni-star-filled"></i></li>
@@ -734,7 +731,7 @@
             <ul class="list-menu">
                 <li><a class="brandstory" href="">회사소개</a></li>
                 <li><a class="faqList" th:href="@{notice/list}">고객센터</a></li>
-                <li><a class="employee" href="/admin/dashboard?">직원전용</a></li>
+                <li><a class="employee" href="/admin/product?">직원전용</a></li>
             </ul>
         </div>
     </div>

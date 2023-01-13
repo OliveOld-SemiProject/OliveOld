@@ -56,7 +56,7 @@
                     </form>
                 </li>
                 <li class="util-cart">
-                    <form action="/cartList" method="post">
+                    <form action="/cartList" method="get">
                         <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
                     </form>
                 </li>
@@ -117,89 +117,7 @@
         <div class="gnb-wrap">
             <script>var IE8Under = false; var IE7Under = false;</script>
 
-            <script>
-                $(function () {
-                    $('.head-util ul li').mouseover(function () {
-                        $(this).children('.util-layer').show();
-                    });
-                    $('.head-util ul li').mouseleave(function () {
-                        $(this).children('.util-layer').hide();
-                    });
-                    //GNB Control
-                    $('.gnbV18 li').mouseover(function () {
-                        if (IE7Under) return;
 
-                        $('.gnbV18 li').removeClass('on');
-                        $(this).addClass('on');
-                        $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () { $(this).show(); })
-                            .mouseleave(function () { $(this).hide(); });
-                        $('.gnb-sub').hide();
-                        var subGnbId = $(this).attr('name');
-
-                        try {
-                            var ictVar = eval("vCtHtml" + subGnbId.substring(3, 6));
-                        } catch (e) {
-                            return;
-                        }
-
-                        //추가
-                        if (ictVar != "") {
-                            $(".gnb-sub-wrap").append(ictVar);
-                            eval("vCtHtml" + subGnbId.substring(3, 6) + "=''");
-                            // HOT
-                            jsHotCateShow(subGnbId.substring(3, 6));
-
-                            if (IE8Under) {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                    });
-                            } else {
-                                $('.dept-unit-top li').unbind('mouseover').unbind('mouseleave')
-                                    .mouseover(function () {
-                                        $(this).addClass('current');
-                                        $('.gnbV18').children('span').show();
-                                        //if ($(this).children('.subGroupWrapV15').length > 0){
-                                        //	$(this).children('.subGroupWrapV15').show();
-                                        //	$('.gnbBnrV15').children('span').show();
-                                        //} else {
-                                        //	$(this).children('.subGroupWrapV15').hide();
-                                        //	$('.gnbBnrV15').children('span').hide();
-                                        //}
-                                    })
-                                    .mouseleave(function () {
-                                        $(this).removeClass('current');
-                                        //$(this).children('.subGroupWrapV15').hide();
-                                        $('.gnbV18').children('span').hide();
-                                    });
-                            }
-                        }
-
-                        $("div[class|='gnb-sub'][id|='" + subGnbId + "']").show().unbind('mouseover').unbind('mouseleave')
-                            .mouseover(function () {
-                                $(this).show();
-                                $('.gnbV18 li[name="' + subGnbId + '"]').addClass('on');
-                            })
-                            .mouseleave(function () {
-                                $(this).hide();
-                                $('.gnbV18 li').removeClass('on');
-                            });
-                    });
-
-                    $('.gnbV18 li').mouseleave(function () {
-                        if (IE7Under) return;
-
-                        $(this).removeClass('on');
-                        $('.gnb-sub-wrap').hide();
-                    });
-                });
-            </script>
-            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
-            <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
             <div class="gnbV18">
                 <ul>
                     <li id="cateButton1" name="gnb101" class="">
@@ -219,7 +137,7 @@
                     </li>
                     <li>
                         <form>
-                            <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                            <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                         </form>
                     </li>
                     <script>
@@ -258,15 +176,12 @@
                         };
 
                     </script>
-
-
                 </ul>
             </div>
         </div>
     </div><!-- Start Header Bottom -->
     <!-- Start Header Bottom -->
 </header>
-
 
     <!-- 내부 바디 -->
 
@@ -335,7 +250,7 @@
 
                 <div class="xans-element- xans-myshop xans-myshop-asyncbankbook">
                     <ul>
-                        <li class=" ">
+                      <!--  <li class=" ">
                             <strong class="title">가용적립금</strong>
                             <strong class="data use">&nbsp;<span
                                     id="xans_myshop_bankbook_avail_mileage">3,000원</span></strong>
@@ -370,7 +285,7 @@
                             <a href="/myshop/coupon/coupon.html" class="button"><img
                                     src="http://img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_result.gif"
                                     alt="조회"></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 
@@ -427,15 +342,11 @@
 
                 <div id="myshopMain" class="xans-element- xans-myshop xans-myshop-main ">
                     <div class="shopMain order">
-                        <h3><a href="/myshop/order/list.html"><strong>order</strong>주문내역 조회</a></h3>
-                        <p><a href="/myshop/order/list.html">고객님께서 주문하신 상품의 주문내역을 확인하실 수 있습니다.<br>비회원의 경우, 주문서의 주문번호와
+                        <h3><a href="/order/list?"><strong>order</strong>주문내역 조회</a></h3>
+                        <p><a href="/order/list?">고객님께서 주문하신 상품의 주문내역을 확인하실 수 있습니다.<br>비회원의 경우, 주문서의 주문번호와
                                 비밀번호로 주문조회가 가능합니다.</a></p>
                     </div>
-                    <div class="shopMain profile">
-                        <h3><a href="/member/modify.html"><strong>profile</strong>회원 정보</a></h3>
-                        <p><a href="/member/modify.html">회원이신 고객님의 개인정보를 관리하는 공간입니다.<br>개인정보를 최신 정보로 유지하시면 보다 간편히 쇼핑을
-                                즐기실 수 있습니다.</a></p>
-                    </div>
+
                     <div class="shopMain profile">
                         <form action="/member/changePwdView" method="get">
                             <h3><button type="submit" href="/member/changePwd"><strong>패스워드 변경</strong></button></h3>

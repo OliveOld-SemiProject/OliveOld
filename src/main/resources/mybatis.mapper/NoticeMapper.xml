@@ -99,7 +99,18 @@
           WHERE A.NOTICE_NO = #{ no }
     </select>
 
+    <update id="updateNotice" parameterType="NoticeDTO">
+        UPDATE
+               NOTICE A
+           SET A.NOTICE_TITLE = #{ noticeTitle }
+             , A.NOTICE_CONTENT = #{ noticeContent }
+         WHERE A.NOTICE_NO = #{ no }
+    </update>
 
-
+    <delete id="removeNotice">
+        DELETE
+          FROM NOTICE A
+         WHERE A.NOTICE_NO = #{ no }
+    </delete>
 
 </mapper>

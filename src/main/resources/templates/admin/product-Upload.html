@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
   <meta charset="UTF-8" />
@@ -55,11 +55,11 @@
       </form>
       <!--          <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />-->
       <!-- Search form -->
-      <form class="d-none d-md-flex input-group w-auto my-auto">
-        <input autocomplete="off" type="search" class="form-control rounded"
-               placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
-        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-      </form>
+<!--      <form class="d-none d-md-flex input-group w-auto my-auto">-->
+<!--        <input autocomplete="off" type="search" class="form-control rounded"-->
+<!--               placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />-->
+<!--        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>-->
+<!--      </form>-->
 
       <!-- Right links -->
       <ul class="navbar-nav ms-auto d-flex flex-row">
@@ -122,18 +122,18 @@
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">상품등록</h4>
-        <form class="validation-form" novalidate>
+        <form class="validation-form" method="post" action="/admin/upload" enctype="multipart/form-data" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="name">상품명</label>
-              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required>
               <div class="invalid-feedback">
                 상품명을 입력해주세요.
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="price">가격</label>
-              <input type="text" class="form-control" id="price" placeholder="" value="" required>
+              <input type="text" class="form-control" id="price" name="price" placeholder="" value="" required>
               <div class="invalid-feedback">
                 상품 가격을 입력해주세요.
               </div>
@@ -144,9 +144,9 @@
             <div class="row">
               <div class="col-md-8 mb-3">
                 <label for="category">상품카테고리</label>
-                <select class="custom-select d-block w-100" id="category">
+                <select class="custom-select d-block w-100" id="category" name="category">
                   <option th:each="category : ${categoryList}">
-                    <a th:text="${category.name}"></a>
+                    <a th:text="|${category.code}. ${category.name}|"></a>
                   </option>
 
                 </select>
@@ -158,27 +158,27 @@
           </div>
 
           <div class="mb-3">
-            <label for="image1">상품 상단 이미지</label>
-            <input type="text" class="form-control" id="image1" placeholder="" required>
-            <div class="invalid-feedback">
-              상품 상단 이미지를 첨부해주세요.
-            </div>
+            <label for="imgFile">상품 상단 이미지</label>
+            <!--     <input type="text" class="form-control" id="image1" placeholder="" required>
+             <div class="invalid-feedback">
+               상품 상단 이미지를 첨부해주세요.
+             </div>
+ -->
 
+             <div class="mb-3">
+               <input type="file" name="imgFile" id="imgFile"> 첨부 </input>
+             </div>
+           </div>
+
+           <div class="mb-3">
+           <label for="imgFile1">상품 세부 이미지</label>
+             <!--        <input type="text" class="form-control" id="image2" placeholder="" required>
+                   <div class="invalid-feedback">
+                     상품 세부 이미지를 첨부해주세요.
+                   </div> -->
 
             <div class="mb-3">
-              <button> 첨부 </button>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="image2">상품 세부 이미지</label>
-            <input type="text" class="form-control" id="image2" placeholder="" required>
-            <div class="invalid-feedback">
-              상품 세부 이미지를 첨부해주세요.
-            </div>
-
-            <div class="mb-3">
-              <button> 첨부 </button>
+              <input type="file" name="imgFile1" id="imgFile1"> 첨부 </input>
             </div>
           </div>
 

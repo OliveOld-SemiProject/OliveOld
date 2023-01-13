@@ -1,7 +1,7 @@
-<html className="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charSet="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>OLIVE OLD</title>
     <meta name="description" content="">
@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
-    <link rel="stylesheet" href="/assets/css/One-on-one-Inquiry.css "/>
+    <link rel="stylesheet" href="/assets/css/One-on-one-Inquiry.css " />
 
 </head>
 
 <body>
 <header>
     <!-- start header -->
-    <div className="headerTopNew">
-        <div className="inner">
-            <div className="head-util">
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
                 <ul>
                     <li th:if="${#authentication.name.toString().equals('anonymousUser')}" className="util-join">
                         <form action="/member/login" method="get">
@@ -84,13 +84,13 @@
     </div>
 
     <!-- Start Header Area -->
-    <header className="header navbar-area">
+    <header class="header navbar-area">
 
         <!-- Start Header Middle -->
-        <div className="header-middle">
-            <div className="container">
-                <div className="row align-items-center">
-                    <div className="col-lg-3 col-md-3 col-7">
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
                         <!-- Start Header Logo -->
                         <form className="navbar-brand" action="/">
                             <button type="submit">
@@ -99,7 +99,7 @@
                         </form>
                         <!-- End Header Logo -->
                     </div>
-                    <div className="col-lg-5 col-md-7 d-xs-none">
+                    <div class="col-lg-5 col-md-7 d-xs-none">
                         <!-- Start Main Menu Search -->
 
                         <form th:action="@{/mainSearch/search}" method="get">
@@ -125,11 +125,10 @@
             </div>
         </div>
         <!-- End Header Middle -->
-        <div className="header-wrap">
+        <div class="header-wrap">
 
-            <div className="gnb-wrap">
-                <script>var IE8Under = false;
-                var IE7Under = false;</script>
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
 
                 <script>
                     $(function () {
@@ -146,12 +145,8 @@
                             $('.gnbV18 li').removeClass('on');
                             $(this).addClass('on');
                             $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                                .mouseover(function () {
-                                    $(this).show();
-                                })
-                                .mouseleave(function () {
-                                    $(this).hide();
-                                });
+                                .mouseover(function () { $(this).show(); })
+                                .mouseleave(function () { $(this).hide(); });
                             $('.gnb-sub').hide();
                             var subGnbId = $(this).attr('name');
 
@@ -216,24 +211,23 @@
                         });
                     });
                 </script>
-                <script type="text/javascript"
-                        src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
                 <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
-                <div className="gnbV18">
+                <div class="gnbV18">
                     <ul>
-                        <li id="cateButton1" name="gnb101" className="">
+                        <li id="cateButton1" name="gnb101" class="">
                             <p>스킨케어</p>
                         </li>
-                        <li id="cateButton2" className="line" name="gnb121">
+                        <li id="cateButton2" class="line" name="gnb121" >
                             <p>메이크업</p>
                         </li>
-                        <li id="cateButton3" className="line" name="gnb120">
+                        <li id="cateButton3" class="line" name="gnb120" >
                             <p>헤어케어</p>
                         </li>
-                        <li id="cateButton4" className="line" name="gnb112">
+                        <li id="cateButton4" class="line" name="gnb112" >
                             <p>건강식품</p>
                         </li>
-                        <li id="cateButton5" className="line" name="gnb116">
+                        <li id="cateButton5" class="line" name="gnb116" >
                             <p>보행보조용품</p>
                         </li>
                         <li>
@@ -248,35 +242,35 @@
 
                             // 스킨케어
 
-                            document.getElementById("cateButton1").onclick = function () {
+                            document.getElementById("cateButton1").onclick=function(){
 
-                                location.href = '/mainSearch/search?cateCode=4';
+                                location.href='/mainSearch/search?cateCode=4';
 
                             };
 
 
                             //메이크업
 
-                            document.getElementById("cateButton2").onclick = function () {
+                            document.getElementById("cateButton2").onclick = function(){
 
-                                location.href = '/mainSearch/search?cateCode=2';
+                                location.href='/mainSearch/search?cateCode=2';
                             };
 
                             //
 
-                            document.getElementById("cateButton3").onclick = function () {
+                            document.getElementById("cateButton3").onclick = function(){
 
-                                location.href = '/mainSearch/search?cateCode=5';
+                                location.href='/mainSearch/search?cateCode=5';
                             };
 
-                            document.getElementById("cateButton4").onclick = function () {
+                            document.getElementById("cateButton4").onclick = function(){
 
-                                location.href = '/mainSearch/search?cateCode=1';
+                                location.href='/mainSearch/search?cateCode=1';
                             };
 
-                            document.getElementById("cateButton5").onclick = function () {
+                            document.getElementById("cateButton5").onclick = function(){
 
-                                location.href = '/mainSearch/search?cateCode=3';
+                                location.href='/mainSearch/search?cateCode=3';
                             };
 
                         </script>
@@ -295,34 +289,34 @@
 <div id="Container">
     <!-- #Contents -->
     <div id="Contents">
-        <div className="sub_title_area customer">
+        <div class="sub_title_area customer">
             <h1>고객센터 <span>무엇을 도와드릴까요?</span></h1>
-            <button type="button" className="btn_inquiry" id="regForm1on1"
-                    onClick="location.href='/OneOnOneBoard/regist';">1<em>:</em>1
-                문의하기
-            </button>
+            <button type="button" class="btn_inquiry" id="regForm1on1"
+                    onclick="location.href='/OneOnOneBoard/regist';">1<em>:</em>1
+                문의하기</button>
         </div>
 
 
-        <div className="info_area">
+        <div class="info_area">
 
         </div>
 
 
-        <ul className="comm1sTabs threeSet customer">
+
+        <ul class="comm1sTabs threeSet customer">
             <li id="tabFaq"><a href="/faqBoard/list">FAQ</a></li>
-            <li id="tab1on1" className="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
+            <li id="tab1on1" class="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
             <li id="tabNotice"><a href="Notice.html">공지사항</a></li>
         </ul>
 
         <!-- 기간조회 -->
 
-        <fieldset className="search-period mgT30">
+        <fieldset class="search-period mgT30">
             <legend></legend>
             <!-- 2019.10.20 오프라인리뷰관련 추가 -->
 
 
-            <div className="select_con">
+            <div class="select_con">
                 <p>구매기간 검색</p>
                 <ul className="select-month" name="searchCondition">
                     <!--          [3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 -->
@@ -348,30 +342,31 @@
                 <script>
 
 
-                    document.getElementById("button1").onclick = function () {
 
-                        location.href = '/OneOnOneBoard/list?type=-1';
+                    document.getElementById("button1").onclick=function(){
+
+                        location.href='/OneOnOneBoard/list?type=-1';
 
                     };
 
-                    document.getElementById("button2").onclick = function () {
+                    document.getElementById("button2").onclick = function(){
 
-                        location.href = '/OneOnOneBoard/list?type=-3';
+                        location.href='/OneOnOneBoard/list?type=-3';
                     };
 
-                    document.getElementById("button3").onclick = function () {
+                    document.getElementById("button3").onclick = function(){
 
-                        location.href = '/OneOnOneBoard/list?type=-6';
+                        location.href='/OneOnOneBoard/list?type=-6';
                     };
 
-                    document.getElementById("button4").onclick = function () {
+                    document.getElementById("button4").onclick = function(){
 
-                        location.href = '/OneOnOneBoard/list?type=-12';
+                        location.href='/OneOnOneBoard/list?type=-12';
                     };
 
-                    document.getElementById("button5").onclick = function () {
+                    document.getElementById("button5").onclick = function(){
 
-                        location.href = '/OneOnOneBoard/list';
+                        location.href='/OneOnOneBoard/list';
                     };
 
 
@@ -461,6 +456,7 @@
                         document.getElementById("button4").style.color = 'black'
 
                     }
+
 
 
                 </script>
