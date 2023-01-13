@@ -121,7 +121,7 @@
 
             <if test="searchValue != null">
 <!--                C.BOARD_BODY LIKE '%' || #{ searchValue } || '%'-->
-                C.BOARD_BODY LIKE CONCAT('%',#{ searchValue }, '%')
+                C.BOARD_TITLE LIKE CONCAT('%',#{ searchValue }, '%')
             </if>
             AND C.BOARD_STATUS = 'Y'
             AND C.BOARD_TYPE = 1
