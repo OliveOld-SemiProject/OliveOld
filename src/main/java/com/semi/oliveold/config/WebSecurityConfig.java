@@ -55,11 +55,10 @@ public class WebSecurityConfig {
 //                .antMatchers(HttpMethod.GET, "/menu/**").hasRole("MEMBER") // hasRole은 ROLE_를 달아주며 ROLE_MEMBER와 같으며 허용하겠다.
 //                .antMatchers(HttpMethod.POST, "/menu/**").hasRole("ADMIN")
 //                .antMatchers("/order/**").hasRole("MEMBER")
-//                .antMatchers("/admin/**").hasRole("ADMIN")
 //                .anyRequest().permitAll()    // 등록되지 않은 경우로는 누구나 접근 가능
 //                    .and()
                 .authorizeRequests()
-                .antMatchers("/cartList/**", "/order/**").authenticated()
+                .antMatchers("/cartList/**", "/order/**", "/event/**", "/admin/**").authenticated()
                     .anyRequest().permitAll()
                     .and()
                 .formLogin()   // 로그인 form을 따로 이용해 로그인 처리할 것이다.

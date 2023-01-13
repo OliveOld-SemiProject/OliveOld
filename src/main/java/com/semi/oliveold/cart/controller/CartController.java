@@ -30,6 +30,7 @@ public class CartController {
 
         List<CartResultDTO> items = cartService.findProductByMemberID(user.getUsername());
         model.addAttribute("items", items);
+        model.addAttribute("totalPrice", cartService.totalCartPrice(user.getUsername()));
 
         return "shoppingCart";
     }
@@ -43,7 +44,7 @@ public class CartController {
 //        return "shoppingCart";
 //    }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String deleteByCartId(@AuthenticationPrincipal User user, HttpServletRequest request, Model model){
 
         int result = cartService.deleteByCartId(Integer.parseInt(request.getParameter("cart_no")));
@@ -52,6 +53,16 @@ public class CartController {
         List<CartDTO> items = cartService.findById(user.getUsername());
         model.addAttribute("items", items);
 
-        return "shoppingCart";
+        return "redirect:/cartList";
+    }
+
+    @GetMapping("/insert")
+    public String insertInCart(@AuthenticationPrincipal User user, HttpServletRequest request){
+
+//        log.info("********* {} : {} **********",user.getUsername(),request.getParameter("productNo"));
+
+        cartService.insertInCart(user.getUsername(), Integer.parseInt(request.getParameter("productNo")));
+
+        return "redirect:/cartList";
     }
 }

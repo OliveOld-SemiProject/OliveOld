@@ -327,7 +327,7 @@
                         </div>
                         <div class="prd_btn_area new-style type1">
                             <button class="btnBasket  goods_cart"
-                                    onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.cart');"
+                                    th:onclick="'location.href=\'/cartList/insert?productNo=' + @{${findProductListByNo.get(0).productNo}} + '\''"
                                     data-attr="상품상세^주문유형^장바구니">장바구니
                             </button>
 
