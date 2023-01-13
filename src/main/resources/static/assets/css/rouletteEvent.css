@@ -29,7 +29,7 @@ button:active {
 }
  
 div {
-  width: 380px;
+  width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;

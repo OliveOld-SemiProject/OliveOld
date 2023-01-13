@@ -1,83 +1,80 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-<link rel="stylesheet" href="/assets/css/footer.css">
+nk rel="stylesheet" href="/assets/css/footer.css">
     <th:block layout:fragment="content">
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
 
-            <div class="outer outer-notice-detail">
+            <div class="outer outer-notice-update">
                 <br>
-                <h2 align="center">공지 사항 내용</h2>
+                <h2 align="center">공지 사항 수정</h2>
                 <div class="table-area">
-                    <table align="center">
-                        <tr>
-                            <td>제목 </td>
-                            <td colspan="3" align="center"><p th:text="${ noticeDetail.noticeTitle }"></p></td>
-                        </tr>
-                        <tr>
-<!--                            <td>작성자 </td>-->
-<!--                            <td><p th:text="${ notice.writer.nickname }"></p></td>-->
-<!--                            <td>작성일</td>-->
-<!--                            <td><p th:text="${ notice.createdDate }"></p></td>-->
-                        </tr>
-                        <tr>
-                            <td>내용 </td>
-                            <td colspan="3">
-                                <textarea
-                                        style="resize:none; width:150%; height:200px; resize:none;"
-                                        th:text="${ noticeDetail.noticeContent }"
-                                        readonly
-                                ></textarea>
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div align="center">
-                        <button
-                                type="button"
-                                class="btn btn-or"
-                                th:onclick="'location.href=\'' + @{/notice/list} + '\''"
-                        >
-                            돌아가기
-                        </button>
-
-<!--                        <th:block sec:authorize="hasRole('ADMIN')" >
-
-                                    수정 -->
-
-
+                    <form id="noticeUpdateForm" th:action="@{/notice/update}" method="post">
+                        <table>
+                            <input
+                                    type="hidden"
+                                    id="no"
+                                    name="no"
+                                    th:value="${ notice.no }"
+                            >
+                            <tr>
+                                <td>제목 </td>
+                                <td><input type="text" size="50" name="noticeTitle" th:value="${ notice.noticeTitle }"></td>
+                            </tr>
+                            <tr>
+                                <td>작성자 </td>
+                                <td><p th:text="${ notice.noticeWriter }"></p></td>
+                            </tr>
+                            <tr>
+                                <td>내용 </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <textarea
+                                            name="noticeContent"
+                                            cols="60"
+                                            rows="15"
+                                            style="resize:none;"
+                                            th:text="${ notice.noticeContent }"
+                                    ></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <div align="center">
+                           <form>
                             <button
+                                    type="button"
                                     class="btn btn-or"
-                                    th:onclick="'location.href=\'/notice/update?no='+ @{${/notice/update(no=${noticeDetail.no})} + '\''"
+                                    th:onclick="'location.href=\'/notice/detail?no='+ @{${ notice.no }} + '\''"
                             >
-                                수정하기
+                                돌아가기
                             </button>
-                            <button
-                                    class="btn btn-bs"
-                                    th:onclick="'location.href=\'/notice/delete?no='+ @{${/notice/delete(no=${noticeDetail.no})} + '\''"
-                            >
-                                삭제하기
-                            </button>
-                        </th:block>
-
-                    </div>
+                            <button type="reset" class="btn btn-or" style="width: 150px">작성내용 되돌리기</button>
+                            <button type="submit" class="btn btn-bs">수정하기</button>
+                           </form>
+                        </div>
+                    </form>
                 </div>
             </div>
-
 
 
         </div>
     </th:block>
 
+<body>
 <!-- #Footer -->
 <div id="Footer" class="m2105">
     <div class="oneConts">
         <div class="conts">
             <ul class="list-menu">
                 <li><a class="brandstory" href="">회사소개</a></li>
-                <li><a class="faqList" href="/notice/list">고객센터</a></li>
+                <li><a class="faqList" href="Notice.html">고객센터</a></li>
                 <li><a class="employee" href="">직원전용</a></li>
             </ul>
         </div>
@@ -119,6 +116,8 @@
     </div>
 </div>
 <!-- //#Footer -->
+</body>
+
 
 
 
