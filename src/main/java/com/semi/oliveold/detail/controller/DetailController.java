@@ -43,19 +43,16 @@ public class DetailController {
         System.out.println("no ==========>" + no);
 
         List<DetailDTO> findProductListByNo = detailService.findProductListByNo(no);
-        List<DetailDTO> findNewProductListByNo = detailService.findNewProductListByNo(no);
         List<ReviewDTO> findReviewListByProductNo = detailService.findReviewListByProductNo(no);
 
 
         log.info("[DetailController] findProductListByNo : " + findProductListByNo);
-        log.info("[DetailController] findNewProductListByNo : " + findNewProductListByNo);
         log.info("[DetailController] findNewProductListByNo : " + findReviewListByProductNo);
 
 
 //        mv.addObject("productList", productList.get(0));
 
         mv.addObject("findProductListByNo", findProductListByNo);
-        mv.addObject("findNewProductListByNo", findNewProductListByNo);
         mv.addObject("findReviewListByProductNo", findReviewListByProductNo);
 
         mv.setViewName("product_detail");

@@ -33,4 +33,12 @@ public class CartService {
         log.info("**CartService.deleteByCartId**");
         return cartMapper.deleteByCartId(cartNo);
     }
+
+    public int insertInCart(String memberId, int Product_no){
+        return cartMapper.insertInCart(memberId, Product_no);
+    }
+
+    public int totalCartPrice(String memberId){
+        return cartMapper.totalCartPrice(memberId);
+    }
 }

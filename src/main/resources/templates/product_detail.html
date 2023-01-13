@@ -67,10 +67,8 @@
                     </form>
                 </li>
                 <li class="util-cart">
-                    <form action="/cartList" method="post">
-                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">
-                            장바구니
-                        </button>
+                    <form action="/cartList" method="get">
+                        <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
                     </form>
                 </li>
                 <li class="util-cs">
@@ -239,8 +237,7 @@
                     </li>
                     <li>
                         <form>
-                            <a href="rouletteEvent.html"
-                               onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                            <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                         </form>
                     </li>
                     <script>
@@ -296,34 +293,24 @@
                 <div class="left_area">
                     <div class="prd_img">
                         <span class="thumb_flag best">베스트</span>
-                        <img id="mainImg"
-                             th:src="${findProductListByNo.get(0).productImage1}"
-
-                             alt="상품명 이미지" onerror="common.errorImg(this);">
+                        <img id="mainImg" th:src="${findProductListByNo.get(0).productImage1}" alt="상품명 이미지" onerror="common.errorImg(this);">
                         <input type="hidden" id="mainImgSize" value="550">
                     </div>
                     <ul class="prd_thumb_list" id="prd_thumb_list">
-
                     </ul>
                 </div>
                 <div class="right_area">
                     <div class="prd_info">
-                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}">[한정기획] 피지오겔 레드수딩 AI 진정보습
-                            크림 100ml 기획(+50ml 증정)</p>
+                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}"></p>
                         <div class="price">
-                            <!--                                    <span class="price-1">-->
-                            <!--                                        <strike>58,500</strike>-->
-                            <!--                                        <span>원</span>-->
-                            <!--                                    </span>-->
                             <span class="price-2">
-                                        <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}">31,410</strong>
+                                        <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}"></strong>
                                         <span>원</span>
-                                    </span>
+                            </span>
                         </div>
                         <div class="prd_more_info">
                             <div class="row">
-                                <p class="tit">배송정보<a href="javascript:goods.detail.openDlexFullPop('20','1');"
-                                                      class="ico_info" style="margin:5px 0 0 7px">배송정보 레이어 열기</a></p>
+                                <p class="tit">배송정보<a href="javascript:goods.detail.openDlexFullPop('20','1');" class="ico_info" style="margin:5px 0 0 7px">배송정보 레이어 열기</a></p>
                                 <p></p>
                                 <ul class="bl_list">
                                     <li>
@@ -340,16 +327,16 @@
                         </div>
                         <div class="prd_btn_area new-style type1">
                             <button class="btnBasket  goods_cart"
-                                    onclick="javascript:common.popLayer.todayDelivery.openTodayDeliveryNotice('goodsdetail.cart');"
+                                    th:onclick="'location.href=\'/cartList/insert?productNo=' + @{${findProductListByNo.get(0).productNo}} + '\''"
                                     data-attr="상품상세^주문유형^장바구니">장바구니
                             </button>
 
-
-<!--                            <form action="order/list" method="get">-->
+                            <!-- localHost:8080/order/registOrder?productNo={해당상품번호} -->
                             <button class="btnBuy goods_buy" id="cartBtn"
-                                    th:onclick="'location.href=\'/order/registOrder?productNo=' + @{${findProductListByNo.get(0).productNo}} + '\''"
-                                    data-attr="상품상세^주문유형^바로구매">바로구매</button>
-<!--                            </form>-->
+                                    th:onclick="'location.href=\'/order/registOrder?productNo='
+                                    + @{${findProductListByNo.get(0).productNo}} + '\''"
+                                    data-attr="상품상세^주문유형^바로구매">바로구매
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -382,11 +369,11 @@
                             본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.</p>
                     </div>
                 </div>
-
             </div>
-
-
-<!--            <div class="review_cont" >-->
+            <br><br><br>
+            <div class="sub_title_area customer">
+                <h1>리뷰 <span>고객님들이 남겨주신 리뷰</span></h1>
+            </div>
                 <div class="oneOnBoard area">
                     <div th:if="${!#lists.isEmpty(findReviewListByProductNo)}" th:each="review : ${findReviewListByProductNo}">
                         <div class="list-customer">
@@ -398,50 +385,13 @@
                                         </strong>
                                         <th:block th:text="${review.getReviewContents()}"></th:block>
 
-                                        <span class="data">2023-01-10</span>
+                                        <span class="data" th:text="${#dates.format(review.getReviewDate(), 'yyyy-MM-dd')}"></span>
                                     </a>
-
                                 </li>
                             </ul>
                         </div>
                     </div>
-<!--                    <div class="Regist Button" align="right">-->
-<!--                        <button-->
-<!--                                type="button"-->
-<!--                                style="background-color: #37003E; color: white; border-radius: 5px; margin-top: 20px"-->
-
-<!--                                class="btn btn-pk"-->
-<!--                                th:onclick="'location.href=\''+@{/detail/regist}+'\''"-->
-<!--                        >-->
-<!--                            등록하기-->
-<!--                        </button>-->
-<!--                    </div>-->
-
-
-<!--                    <div class="list-customer">-->
-<!--                        <ul>-->
-<!--                            <li id="3979532">-->
-
-<!--                                <a href="/OneOnOneBoard/detail?no=28" role="button" class="stit" title="답변 내용보기">-->
-<!--                                    &lt;!&ndash;                                    <strong th:text="${findProductListByNo.get(0).productCategoryName}">&ndash;&gt;-->
-
-<!--                                    &lt;!&ndash;                                    </strong>&ndash;&gt;-->
-<!--                                    <strong th:text="${findReviewListByProductNo.get(0).reviewContents}">-->
-
-<!--                                    </strong>-->
-<!--                                    <a th:text="${findReviewListByProductNo.get(0).reviewContents}"></a>-->
-<!--                                    <span class="data">2023-01-11</span>-->
-<!--                                </a>-->
-
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-
-
-
-
                 </div>
-<!--            </div>-->
             <div class="tabConts prd_detail_cont">
                 <h3 class="detail_tit">상품정보 제공고시</h3>
                 <div id="kcInfo">

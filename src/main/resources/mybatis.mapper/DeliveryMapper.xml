@@ -27,13 +27,6 @@
         <result property="categoryName" column="CATEGORY_NAME"/>
     </resultMap>
 
-    <!--<resultMap type="PaymentDTO" id="paymentResultMap">
-        <id property="productNo" column="PAYMENT_NO"/>
-        <result property="productName" column="PAYMENT_DATE"/>
-        <result property="productPrice" column="PAYMENT_AMOUNT"/>
-        <result property="productQuan" column="MEMBER_ID"/>
-    </resultMap>-->
-
   <select id="selectDeliveryList" resultMap="OrderResultMap">
       SELECT
                 A.ORDER_DATE

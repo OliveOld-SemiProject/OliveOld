@@ -41,10 +41,12 @@ public class MemberController {
     }
 
     @PostMapping("/changePwd")
-    public String changePwd(@AuthenticationPrincipal User user, HttpServletRequest request) throws MemberJoinException {
+    public String changePwd(@AuthenticationPrincipal User user, HttpServletRequest request)
+            throws MemberJoinException {
 
         log.info("****************changePwd Controller********************************");
-        memberService.changePwd(user.getUsername(), request.getParameter("oldPwd"), request.getParameter("newPwd"));
+        memberService.changePwd(user.getUsername(),
+                request.getParameter("oldPwd"), request.getParameter("newPwd"));
 
         return "redirect:/";
     }

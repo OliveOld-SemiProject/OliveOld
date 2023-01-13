@@ -2,6 +2,8 @@ package com.semi.oliveold.detail.dto;
 
 import lombok.*;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -14,6 +16,7 @@ public class ReviewDTO {
     private String reviewWriter;
     private int reviewReply;
     private int productNo;
+    private Date reviewDate;
 
 
 

@@ -55,7 +55,7 @@
                             </form>
                         </li>
                         <li class="util-cart">
-                            <form action="/cartList" method="post">
+                            <form action="/cartList" method="get">
                                 <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
                             </form>
                         </li>
@@ -136,7 +136,7 @@
                             </li>
                             <li>
                                 <form>
-                                    <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
+                                    <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                                 </form>
                             </li>
                             <script>
@@ -191,29 +191,80 @@
                 <fieldset class="search-period mgT30">
                     <legend></legend>
 
-                   <!-- <div class="select_con">
+                    <div class="select_con">
                         <p>구매기간</p>
                         <ul class="select-month">
                             <li class="on">
-                            <li><button id="button1" class="btn_selectM" onclick="style.backgroundColor = '#560050', style.color = 'white'" type="button" data-month="-1">1개월</button></li>
-                            <li><button id="button2" class="btn_selectM" onclick="style.backgroundColor = '#560050', style.color = 'white'" type="button" data-month="-3">3개월</button></li>
-                            <li><button id="button3" class="btn_selectM" onclick="style.backgroundColor = '#560050', style.color = 'white'" type="button" data-month="-6">6개월</button></li>
-                            <li><button id="button4" class="btn_selectM" onclick="style.backgroundColor = '#560050', style.color = 'white'" type="button" data-month="-12">12개월</button></li>
+                            <li><button id="button1" class="btn_selectM" type="button" data-month="-1">1개월</button></li>
+                            <li><button id="button2" class="btn_selectM" type="button" data-month="-3">3개월</button></li>
+                            <li><button id="button3" class="btn_selectM" type="button" data-month="-6">6개월</button></li>
+                            <li><button id="button4" class="btn_selectM" type="button" data-month="-12">12개월</button></li>
                             <input type="hidden" id="btnSearch">
 
                         </ul>
 
-                        <script type="text/javascript">
+<!--                        <script type="text/javascript">-->
 
-                            const btn = document.getElementsByClassName('btn_selectM')
+<!--                            var button1 = document.querySelector('#button1');-->
+<!--                            var button2 = document.querySelector('#button2');-->
+<!--                            var button3 = document.querySelector('#button3');-->
+<!--                            var button4 = document.querySelector('#button4');-->
 
-                            console.log(btn);
-                            [...btn].forEach((element, index) => {
-                                console.log(index);
-                                console.log(element);
-                            })
+<!--                            var changeColor = function(e){-->
 
-                        </script>
+<!--                                if(e.target === button1) {-->
+<!--                                    button1.style.backgroundColor = "#37003E";-->
+<!--                                    button1.style.color = 'white';-->
+
+<!--                                    button2.style.backgroundColor = "white";-->
+<!--                                    button2.style.color = "black";-->
+<!--                                    button3.style.backgroundColor = "white";-->
+<!--                                    button3.style.color = "black";-->
+<!--                                    button4.style.backgroundColor = "white";-->
+<!--                                    button4.style.color = "black";-->
+<!--                                }-->
+<!--                                if(e.target === button2) {-->
+<!--                                    button2.style.backgroundColor = "#37003E";-->
+<!--                                    button2.style.color = 'white';-->
+
+<!--                                    button1.style.backgroundColor = "white";-->
+<!--                                    button1.style.color = "black";-->
+<!--                                    button3.style.backgroundColor = "white";-->
+<!--                                    button3.style.color = "black";-->
+<!--                                    button4.style.backgroundColor = "white";-->
+<!--                                    button4.style.color = "black";-->
+<!--                                }-->
+<!--                                if(e.target === button3) {-->
+<!--                                    button3.style.backgroundColor = "#37003E";-->
+<!--                                    button3.style.color = 'white';-->
+
+<!--                                    button1.style.backgroundColor = "white";-->
+<!--                                    button1.style.color = "black";-->
+<!--                                    button2.style.backgroundColor = "white";-->
+<!--                                    button2.style.color = "black";-->
+<!--                                    button4.style.backgroundColor = "white";-->
+<!--                                    button4.style.color = "black";-->
+<!--                                }-->
+<!--                                if(e.target === button4) {-->
+<!--                                    button4.style.backgroundColor = "#37003E";-->
+<!--                                    button4.style.color = 'white';-->
+
+<!--                                    button2.style.backgroundColor = "white";-->
+<!--                                    button2.style.color = "black";-->
+<!--                                    button3.style.backgroundColor = "white";-->
+<!--                                    button3.style.color = "black";-->
+<!--                                    button4.style.backgroundColor = "white";-->
+<!--                                    button4.style.color = "black";-->
+<!--                                }-->
+<!--                            }-->
+<!--                        </script>-->
+<!--                            const btn = document.getElementsByClassName('btn_selectM')-->
+
+<!--                            console.log(btn);-->
+<!--                            [...btn].forEach((element, index) => {-->
+<!--                                console.log(index);-->
+<!--                                console.log(element);-->
+<!--                            })-->
 
                         <div class="select-range">
                             <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022" selected="selected">2022</option></select>
@@ -258,9 +309,8 @@
                                 <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13" selected="selected">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
                             <label for="cal-end-day">일</label>
                         </div>
-                    </div>-->
-                      <!-- //오프라인 리뷰 -->
-                      <!-- 2016-12-23 수정 -->
+                    </div>
+
                         <button type="button" class="btnLookup" id="do-search-period">조회</button>
                 </fieldset>
             <script>
@@ -293,7 +343,7 @@
                     <tr
                             th:each="order : ${ order }"
                     >
-                        <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd')}"></td>
+                        <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                         <td><img th:src="${ order.productDTO.productImage1 }"></td>
                         <td th:text="${ order.productDTO.productName }"></td>
                         <td th:text="${ order.orderQuan }"></td>
@@ -320,7 +370,6 @@
         <div class="conts">
             <ul class="list-area">
                 <li>
-                    <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
                     <p class="logo"><a href=""><img src="/assets/images/logo/oliveLogo.png" width="170"
                                                     height="0" alt="OLIVEOLD"></a></p>
                     <h2>올리브올드 주식회사</h2>

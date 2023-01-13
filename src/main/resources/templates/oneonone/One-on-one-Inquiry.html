@@ -1,7 +1,7 @@
-<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<html className="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
+    <meta charSet="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>OLIVE OLD</title>
     <meta name="description" content="">
@@ -13,56 +13,38 @@
     <link rel="stylesheet" href="/assets/css/LineIcons.3.0.css">
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
-    <link rel="stylesheet" href="/assets/css/One-on-one-Inquiry.css " />
+    <link rel="stylesheet" href="/assets/css/One-on-one-Inquiry.css "/>
 
 </head>
 
 <body>
 <header>
     <!-- start header -->
-    <div class="headerTopNew">
-        <div class="inner">
-            <div class="head-util">
+    <div className="headerTopNew">
+        <div className="inner">
+            <div className="head-util">
                 <ul>
-                    <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
-                        <form action="/member/login" method="get">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
-                        </form>
+                    <li className="util-join">
+                        <a href="login.html"
+                           onClick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','login|/event/eventmain.asp');">로그인</a>
+                        / <a href="signup.html"
+                             onClick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','signup|/event/eventmain.asp');">회원가입</a>
                     </li>
 
-                    <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
-                        <form action="/signup" method="get">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
-                        </form>
-                    </li>
 
-                    <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
-                        <form action="/mypage" method="get">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
-                                    th:text="${#authentication.name}">user</button>
-                        </form>
+                    <li className="util-order"><a href="order-delivery.html"
+                                                  onClick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','orer|/event/eventmain.asp');">주문/배송</a>
                     </li>
+                    <li className="util-cart">
+                        <a href="shoppingCart.html"
+                           onClick="TnGotoShoppingBag();fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','basket|/event/eventmain.asp');return false;"><span
+                                className="icoV18"></span> 장바구니 <span id="ibgaCNT" name="ibgaCNT"></span><span
+                                className="arrow-bottom bottom1" id="basketDropIcon"></span></a>
 
-                    <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                        <form action="/member/logout" method="post">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
-                        </form>
+                        <div className="util-layer" id="lyrHdCartList"></div>
                     </li>
-
-                    <li class="util-order">
-                        <form action="/order/list" method="get">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
-                        </form>
-                    </li>
-                    <li class="util-cart">
-                        <form action="/cartList" method="post">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
-                        </form>
-                    </li>
-                    <li class="util-cs">
-                        <form action="/notice" method="get">
-                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
-                        </form>
+                    <li className="util-cs"><a href="Notice.html"
+                                               onClick="fnAmplitudeEventMultiPropertiesAction('click_topmenu','type|landing_url','cs|/event/eventmain.asp');">고객센터</a>
                     </li>
                 </ul>
             </div>
@@ -70,40 +52,34 @@
     </div>
 
     <!-- Start Header Area -->
-    <header class="header navbar-area">
+    <header className="header navbar-area">
 
         <!-- Start Header Middle -->
-        <div class="header-middle">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-3 col-7">
+        <div className="header-middle">
+            <div className="container">
+                <div className="row align-items-center">
+                    <div className="col-lg-3 col-md-3 col-7">
                         <!-- Start Header Logo -->
-                        <form class="navbar-brand" action="/">
-                            <button type="submit">
-                                <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                            </button>
-                        </form>
+                        <a className="navbar-brand" href="index.html">
+                            <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                        </a>
                         <!-- End Header Logo -->
                     </div>
-                    <div class="col-lg-5 col-md-7 d-xs-none">
+                    <div className="col-lg-5 col-md-7 d-xs-none">
                         <!-- Start Main Menu Search -->
+                        <div className="main-menu-search">
+                            <!-- navbar search start -->
+                            <div className="navbar-search search-style-5">
 
-                        <form th:action="@{/mainSearch/search}" method="get">
-                            <div class="main-menu-search">
-                                <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
-
-                                    <div class="search-input">
-                                        <input id="text" type="text" name="searchValue" placeholder="Search">
-                                    </div>
-
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt" type="submit"></i></button>
-                                    </div>
+                                <div className="search-input">
+                                    <input type="text" placeholder="Search">
                                 </div>
-                                <!-- navbar search Ends -->
+                                <div className="search-btn">
+                                    <button><i className="lni lni-search-alt"></i></button>
+                                </div>
                             </div>
-                        </form>
+                            <!-- navbar search Ends -->
+                        </div>
                         <!-- End Main Menu Search -->
                     </div>
 
@@ -111,10 +87,11 @@
             </div>
         </div>
         <!-- End Header Middle -->
-        <div class="header-wrap">
+        <div className="header-wrap">
 
-            <div class="gnb-wrap">
-                <script>var IE8Under = false; var IE7Under = false;</script>
+            <div className="gnb-wrap">
+                <script>var IE8Under = false;
+                var IE7Under = false;</script>
 
                 <script>
                     $(function () {
@@ -131,8 +108,12 @@
                             $('.gnbV18 li').removeClass('on');
                             $(this).addClass('on');
                             $('.gnb-sub-wrap').show().unbind('mouseover').unbind('mouseleave')
-                                .mouseover(function () { $(this).show(); })
-                                .mouseleave(function () { $(this).hide(); });
+                                .mouseover(function () {
+                                    $(this).show();
+                                })
+                                .mouseleave(function () {
+                                    $(this).hide();
+                                });
                             $('.gnb-sub').hide();
                             var subGnbId = $(this).attr('name');
 
@@ -197,75 +178,71 @@
                         });
                     });
                 </script>
-                <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
+                <script type="text/javascript"
+                        src="/chtml/dispcate/html/cate_menu_new_all.js?v=20221209141418"></script>
                 <script type="text/javascript" src="/chtml/dispcate/html/cate_menu_hot.js?v=20221218184503"></script>
-                <div class="gnbV18">
+                <div className="gnbV18">
                     <ul>
-                        <li id="cateButton1" name="gnb101" class="">
+                        <li id="cateButton1" name="gnb101" className="">
                             <p>스킨케어</p>
                         </li>
-                        <li id="cateButton2" class="line" name="gnb121" >
+                        <li id="cateButton2" className="line" name="gnb121">
                             <p>메이크업</p>
                         </li>
-                        <li id="cateButton3" class="line" name="gnb120" >
+                        <li id="cateButton3" className="line" name="gnb120">
                             <p>헤어케어</p>
                         </li>
-                        <li id="cateButton4" class="line" name="gnb112" >
+                        <li id="cateButton4" className="line" name="gnb112">
                             <p>건강식품</p>
                         </li>
-                        <li id="cateButton5" class="line" name="gnb116" >
+                        <li id="cateButton5" className="line" name="gnb116">
                             <p>보행보조용품</p>
                         </li>
-                        <li>
-                            <form>
-                                <a href="rouletteEvent.html" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
-                            </form>
+                        <li className="line" name="gnb118"
+                            onClick="top.location.href='/shopping/category_list.asp?disp=118';">
+                            <p>이벤트</p>
                         </li>
-
 
                         <script>
 
                             // 스킨케어
 
-                            document.getElementById("cateButton1").onclick=function(){
+                            document.getElementById("cateButton1").onclick = function () {
 
-                                location.href='/mainSearch/search?cateCode=4';
+                                location.href = '/mainSearch/search?cateCode=4';
 
                             };
 
 
                             //메이크업
 
-                            document.getElementById("cateButton2").onclick = function(){
+                            document.getElementById("cateButton2").onclick = function () {
 
-                                location.href='/mainSearch/search?cateCode=2';
+                                location.href = '/mainSearch/search?cateCode=2';
                             };
 
                             //
 
-                            document.getElementById("cateButton3").onclick = function(){
+                            document.getElementById("cateButton3").onclick = function () {
 
-                                location.href='/mainSearch/search?cateCode=5';
+                                location.href = '/mainSearch/search?cateCode=5';
                             };
 
-                            document.getElementById("cateButton4").onclick = function(){
+                            document.getElementById("cateButton4").onclick = function () {
 
-                                location.href='/mainSearch/search?cateCode=1';
+                                location.href = '/mainSearch/search?cateCode=1';
                             };
 
-                            document.getElementById("cateButton5").onclick = function(){
+                            document.getElementById("cateButton5").onclick = function () {
 
-                                location.href='/mainSearch/search?cateCode=3';
+                                location.href = '/mainSearch/search?cateCode=3';
                             };
 
                         </script>
-
-
                     </ul>
                 </div>
             </div>
         </div><!-- Start Header Bottom -->
-        <!-- Start Header Bottom -->
         <!-- Start Header Bottom -->
     </header>
 </header>
@@ -274,42 +251,52 @@
 <div id="Container">
     <!-- #Contents -->
     <div id="Contents">
-        <div class="sub_title_area customer">
+        <div className="sub_title_area customer">
             <h1>고객센터 <span>무엇을 도와드릴까요?</span></h1>
-            <button type="button" class="btn_inquiry" id="regForm1on1"
-                    onclick="location.href='/OneOnOneBoard/regist';">1<em>:</em>1
-                문의하기</button>
+            <button type="button" className="btn_inquiry" id="regForm1on1"
+                    onClick="location.href='/OneOnOneBoard/regist';">1<em>:</em>1
+                문의하기
+            </button>
         </div>
 
 
-        <div class="info_area">
+        <div className="info_area">
 
         </div>
 
 
-
-        <ul class="comm1sTabs threeSet customer">
+        <ul className="comm1sTabs threeSet customer">
             <li id="tabFaq"><a href="/faqBoard/list">FAQ</a></li>
-            <li id="tab1on1" class="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
+            <li id="tab1on1" className="on"><a href="javascript:common.link.moveQnaList();" title="선택됨">1:1문의</a></li>
             <li id="tabNotice"><a href="Notice.html">공지사항</a></li>
         </ul>
 
         <!-- 기간조회 -->
 
-        <fieldset class="search-period mgT30">
+        <fieldset className="search-period mgT30">
             <legend></legend>
             <!-- 2019.10.20 오프라인리뷰관련 추가 -->
 
 
-            <div class="select_con">
+            <div className="select_con">
                 <p>구매기간 검색</p>
-                <ul class="select-month" name="searchCondition">
+                <ul className="select-month" name="searchCondition">
                     <!-- 			[3394070] 올영체험단 리뷰 배너 오류 문의 件 요청으로 올영체험단 리뷰는 시작시 12개월로 선택되게 조건 변경 -->
-                    <li><button id="button1" type="button" value="-1">1개월</button></li>
-                    <li><button id="button2" type="button" value="-3">3개월</button></li>
-                    <li><button id="button3" type="button" value="-6">6개월</button></li>
-                    <li><button id="button4" type="button" value="-12">12개월</button></li>
-                    <li><button id="button5" type="button" value="">전체조회</button></li>
+                    <li>
+                        <button id="button1" type="button" value="-1">1개월</button>
+                    </li>
+                    <li>
+                        <button id="button2" type="button" value="-3">3개월</button>
+                    </li>
+                    <li>
+                        <button id="button3" type="button" value="-6">6개월</button>
+                    </li>
+                    <li>
+                        <button id="button4" type="button" value="-12">12개월</button>
+                    </li>
+                    <li>
+                        <button id="button5" type="button" value="">전체조회</button>
+                    </li>
 
 
                 </ul>
@@ -317,122 +304,119 @@
                 <script>
 
 
+                    document.getElementById("button1").onclick = function () {
 
-                    document.getElementById("button1").onclick=function(){
-
-                        location.href='/OneOnOneBoard/list?type=-1';
+                        location.href = '/OneOnOneBoard/list?type=-1';
 
                     };
 
-                    document.getElementById("button2").onclick = function(){
+                    document.getElementById("button2").onclick = function () {
 
-                        location.href='/OneOnOneBoard/list?type=-3';
+                        location.href = '/OneOnOneBoard/list?type=-3';
                     };
 
-                    document.getElementById("button3").onclick = function(){
+                    document.getElementById("button3").onclick = function () {
 
-                        location.href='/OneOnOneBoard/list?type=-6';
+                        location.href = '/OneOnOneBoard/list?type=-6';
                     };
 
-                    document.getElementById("button4").onclick = function(){
+                    document.getElementById("button4").onclick = function () {
 
-                        location.href='/OneOnOneBoard/list?type=-12';
+                        location.href = '/OneOnOneBoard/list?type=-12';
                     };
 
-                    document.getElementById("button5").onclick = function(){
+                    document.getElementById("button5").onclick = function () {
 
-                        location.href='/OneOnOneBoard/list';
+                        location.href = '/OneOnOneBoard/list';
                     };
-
 
 
                     const message = '[[${type}]]';
 
-                    if(message === '-1'){
+                    if (message === '-1') {
 
-                        document.getElementById("button1").style.backgroundColor ="#37003E";
-                        document.getElementById("button1").style.color ='white';
+                        document.getElementById("button1").style.backgroundColor = "#37003E";
+                        document.getElementById("button1").style.color = 'white';
 
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
+                        document.getElementById("button2").style.backgroundColor = "white";
+                        document.getElementById("button2").style.color = 'black'
 
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
+                        document.getElementById("button3").style.backgroundColor = "white";
+                        document.getElementById("button3").style.color = 'black'
 
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
+                        document.getElementById("button4").style.backgroundColor = "white";
+                        document.getElementById("button4").style.color = 'black'
 
-                        document.getElementById("button5").style.backgroundColor ="white";
-                        document.getElementById("button5").style.color='black'
-                    } else if(message === '-3') {
+                        document.getElementById("button5").style.backgroundColor = "white";
+                        document.getElementById("button5").style.color = 'black'
+                    } else if (message === '-3') {
 
-                        document.getElementById("button2").style.backgroundColor ="#37003E";
-                        document.getElementById("button2").style.color ='white';
+                        document.getElementById("button2").style.backgroundColor = "#37003E";
+                        document.getElementById("button2").style.color = 'white';
 
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
+                        document.getElementById("button3").style.backgroundColor = "white";
+                        document.getElementById("button3").style.color = 'black'
 
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
+                        document.getElementById("button4").style.backgroundColor = "white";
+                        document.getElementById("button4").style.color = 'black'
 
-                        document.getElementById("button5").style.backgroundColor ="white";
-                        document.getElementById("button5").style.color='black'
+                        document.getElementById("button5").style.backgroundColor = "white";
+                        document.getElementById("button5").style.color = 'black'
 
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
-                    } else if(message === '-6'){
+                        document.getElementById("button1").style.backgroundColor = "white";
+                        document.getElementById("button1").style.color = 'black'
+                    } else if (message === '-6') {
 
-                        document.getElementById("button3").style.backgroundColor ="#37003E";
-                        document.getElementById("button3").style.color ='white';
+                        document.getElementById("button3").style.backgroundColor = "#37003E";
+                        document.getElementById("button3").style.color = 'white';
 
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
+                        document.getElementById("button4").style.backgroundColor = "white";
+                        document.getElementById("button4").style.color = 'black'
 
-                        document.getElementById("button5").style.backgroundColor ="white";
-                        document.getElementById("button5").style.color='black'
+                        document.getElementById("button5").style.backgroundColor = "white";
+                        document.getElementById("button5").style.color = 'black'
 
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
+                        document.getElementById("button1").style.backgroundColor = "white";
+                        document.getElementById("button1").style.color = 'black'
 
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
+                        document.getElementById("button2").style.backgroundColor = "white";
+                        document.getElementById("button2").style.color = 'black'
 
-                    } else if(message === '-12'){
+                    } else if (message === '-12') {
 
-                        document.getElementById("button4").style.backgroundColor ="#37003E";
-                        document.getElementById("button4").style.color ='white';
+                        document.getElementById("button4").style.backgroundColor = "#37003E";
+                        document.getElementById("button4").style.color = 'white';
 
-                        document.getElementById("button5").style.backgroundColor ="white";
-                        document.getElementById("button5").style.color='black'
+                        document.getElementById("button5").style.backgroundColor = "white";
+                        document.getElementById("button5").style.color = 'black'
 
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
+                        document.getElementById("button1").style.backgroundColor = "white";
+                        document.getElementById("button1").style.color = 'black'
 
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
+                        document.getElementById("button2").style.backgroundColor = "white";
+                        document.getElementById("button2").style.color = 'black'
 
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
+                        document.getElementById("button3").style.backgroundColor = "white";
+                        document.getElementById("button3").style.color = 'black'
 
-                    }else{
+                    } else {
 
-                        document.getElementById("button5").style.backgroundColor ="#37003E";
-                        document.getElementById("button5").style.color ='white';
+                        document.getElementById("button5").style.backgroundColor = "#37003E";
+                        document.getElementById("button5").style.color = 'white';
 
-                        document.getElementById("button1").style.backgroundColor ="white";
-                        document.getElementById("button1").style.color='black'
+                        document.getElementById("button1").style.backgroundColor = "white";
+                        document.getElementById("button1").style.color = 'black'
 
-                        document.getElementById("button2").style.backgroundColor ="white";
-                        document.getElementById("button2").style.color='black'
+                        document.getElementById("button2").style.backgroundColor = "white";
+                        document.getElementById("button2").style.color = 'black'
 
-                        document.getElementById("button3").style.backgroundColor ="white";
-                        document.getElementById("button3").style.color='black'
+                        document.getElementById("button3").style.backgroundColor = "white";
+                        document.getElementById("button3").style.color = 'black'
 
-                        document.getElementById("button4").style.backgroundColor ="white";
-                        document.getElementById("button4").style.color='black'
+                        document.getElementById("button4").style.backgroundColor = "white";
+                        document.getElementById("button4").style.color = 'black'
 
                     }
-
 
 
                 </script>
@@ -518,91 +502,92 @@
 
         <!-- //기간조회 -->
 
-        <div class ="oneOnBoard area">
-        <th:block th:each="oneonone : ${ oneOnOneBoardList }">
-            <div class="list-customer">
-                <ul>
-                    <li id="3979532">
-                        <a th:href="@{/OneOnOneBoard/detail(no=${oneonone.no})}" role="button" class="stit" title="답변 내용보기">
-                            <strong>
-                                <th:block th:text="${oneonone.oneOnOneCategory.oneOnOneName}"></th:block>
-                            </strong><th:block th:text="${oneonone.title}" ></th:block>
-                            <span class="data"><th:block th:text="${oneonone.createdDate}"></th:block></span>
-                        </a>
+        <div className="oneOnBoard area">
+            <th:block th:each="oneonone : ${ oneOnOneBoardList }">
+                <div className="list-customer">
+                    <ul>
+                        <li id="3979532">
+                            <a th:href="@{/OneOnOneBoard/detail(no=${oneonone.no})}" role="button" className="stit"
+                               title="답변 내용보기">
+                                <strong>
+                                    <th:block th:text="${oneonone.oneOnOneCategory.oneOnOneName}"></th:block>
+                                </strong>
+                                <th:block th:text="${oneonone.title}"></th:block>
+                                <span className="data"><th:block th:text="${oneonone.createdDate}"></th:block></span>
+                            </a>
 
-                    </li>
-                </ul>
-            </div>
-
-
-        </th:block>
-
+                        </li>
+                    </ul>
+                </div>
 
 
-        <div class="pagingArea" align="center">
-<!--            &lt;!&ndash; 맨 앞으로 이동 버튼 &ndash;&gt;-->
-<!--            <button-->
-<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.startPage}} + '\''"-->
-<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
-<!--            >-->
-
-<!--            </button>-->
-<!--            &lt;!&ndash; 이전 페이지 버튼 &ndash;&gt;-->
-<!--            <button-->
-<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo - 1}} + '\''"-->
-<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
-<!--            >-->
-
-<!--            </button>-->
-            <!-- 숫자 버튼 -->
-            <th:block th:each="page : ${#numbers.sequence(oneOnOneSelectCriteria.startPage, oneOnOneSelectCriteria.endPage)}">
-                <button
-                        th:text="${ page }"
-                        th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${page}} + '\''"
-                        th:disabled="${ oneOnOneSelectCriteria.pageNo eq page }">
-                </button>
             </th:block>
 
-<!--            &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
-<!--            <button-->
-<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo + 1}} + '\''"-->
-<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
-<!--            >-->
 
-<!--            </button>-->
-<!--            &lt;!&ndash; 마지막 페이지로 이동 버튼 &ndash;&gt;-->
-<!--            <button-->
-<!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.maxPage}} + '\''"-->
-<!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
-<!--            >-->
+            <div className="pagingArea" align="center">
+                <!--            &lt;!&ndash; 맨 앞으로 이동 버튼 &ndash;&gt;-->
+                <!--            <button-->
+                <!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.startPage}} + '\''"-->
+                <!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
+                <!--            >-->
 
-<!--            </button>-->
+                <!--            </button>-->
+                <!--            &lt;!&ndash; 이전 페이지 버튼 &ndash;&gt;-->
+                <!--            <button-->
+                <!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo - 1}} + '\''"-->
+                <!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == 1}"-->
+                <!--            >-->
+
+                <!--            </button>-->
+                <!-- 숫자 버튼 -->
+                <th:block
+                        th:each="page : ${#numbers.sequence(oneOnOneSelectCriteria.startPage, oneOnOneSelectCriteria.endPage)}">
+                    <button
+                            th:text="${ page }"
+                            th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${page}} + '\''"
+                            th:disabled="${ oneOnOneSelectCriteria.pageNo eq page }">
+                    </button>
+                </th:block>
+
+                <!--            &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+                <!--            <button-->
+                <!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.pageNo + 1}} + '\''"-->
+                <!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
+                <!--            >-->
+
+                <!--            </button>-->
+                <!--            &lt;!&ndash; 마지막 페이지로 이동 버튼 &ndash;&gt;-->
+                <!--            <button-->
+                <!--                    th:onclick="'location.href=\'/OneOnOneBoard/list?currentPage='+ @{${oneOnOneSelectCriteria.maxPage}} + '\''"-->
+                <!--                    th:disabled="${oneOnOneSelectCriteria.pageNo == oneOnOneSelectCriteria.maxPage}"-->
+                <!--            >-->
+
+                <!--            </button>-->
+            </div>
+
+        </div>
+
+        <!-- pageing star -->
+
+        <!--    =======================================================================================-->
+
+        <div className="pageing">
+
+
+        </div>
+
+        <!-- //pageing end -->
+
+        <div className="area1sButton pdT30">
+            <a href="/OneOnOneBoard/regist" className="btnGreen" data-attr="고객센터^FAQ^1:1문의">1:1문의하기</a>
         </div>
 
     </div>
-
-    <!-- pageing star -->
-
-    <!--    =======================================================================================-->
-
-    <div class="pageing">
-
-
-
-    </div>
-
-    <!-- //pageing end -->
-
-    <div class="area1sButton pdT30">
-        <a href="/OneOnOneBoard/regist" class="btnGreen" data-attr="고객센터^FAQ^1:1문의">1:1문의하기</a>
-    </div>
-
-</div>
-<!-- //#Contents -->
+    <!-- //#Contents -->
 </div>
 <!-- //#Container -->
 <script src="https://static.oliveyoung.co.kr/pc-static-root/js/counsel/counsel.js?dumm=20221208001"
-        charset="utf-8"></script>
+        charSet="utf-8"></script>
 <script type="text/javascript">
     var _cnslSeq = "";
     $(function () {
@@ -612,54 +597,54 @@
 </script>
 
 
-    <!-- #Footer -->
-    <div id="Footer" class="m2105">
-        <div class="oneConts">
-            <div class="conts">
-                <ul class="list-menu">
-                    <li><a class="brandstory" href="">회사소개</a></li>
-                    <li><a class="faqList" href="Notice.html">고객센터</a></li>
-                    <li><a class="employee" href="">직원전용</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="twoConts">
-            <div class="conts">
-                <ul class="list-area">
-                    <li>
-                        <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
-                        <p class="logo"><a href=""><img src="/assets/images/logo/oliveLogo.png" width="170" height="60"
-                                                        alt="OLIVEOLD"></a></p>
-                        <h2>올리브올드 주식회사</h2>
-                        <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
-                        <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
-                        <p>호스팅사업자 : 올리브올드</p>
-                        <p>통신판매업신고번호 : 2022-서울종로-0000</p>
-                        <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
-                        </p>
-                        <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
-                            정보확인
-                            &gt;</a></p>
-                    </li>
-                    <li>
-                        <ul class="list-link">
-                            <li>
-                                <a href="javascript:common.link.moveTermsPage();">이용약관</a>
-                                <a href="javascript:common.link.moveLegalPage();">법적고지</a>
-                            </li>
-                            <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
-                            <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
-                            <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a>
-                            </li>
-                            <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+<!-- #Footer -->
+<div id="Footer" className="m2105">
+    <div className="oneConts">
+        <div className="conts">
+            <ul className="list-menu">
+                <li><a className="brandstory" href="">회사소개</a></li>
+                <li><a className="faqList" href="Notice.html">고객센터</a></li>
+                <li><a className="employee" href="">직원전용</a></li>
+            </ul>
         </div>
     </div>
-    <!-- //#Footer -->
+
+    <div className="twoConts">
+        <div className="conts">
+            <ul className="list-area">
+                <li>
+                    <!-- <p class="logo"><a href="javascript:common.link.moveMainHome();"><img src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a></p> -->
+                    <p className="logo"><a href=""><img src="/assets/images/logo/oliveLogo.png" width="170" height="60"
+                                                        alt="OLIVEOLD"></a></p>
+                    <h2>올리브올드 주식회사</h2>
+                    <p>대표이사 : 유승제 | 사업자등록번호 : 000-00-00000</p>
+                    <p>주소 : (03163) 서울특별시 종로구 인사동길 12 대일빌딩 7층</p>
+                    <p>호스팅사업자 : 올리브올드</p>
+                    <p>통신판매업신고번호 : 2022-서울종로-0000</p>
+                    <p><a href="mailto:oliveweb@cj.net" className="email_addr">이메일 : oliveold@gmail.com</a>
+                    </p>
+                    <p><a className="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
+                        정보확인
+                        &gt;</a></p>
+                </li>
+                <li>
+                    <ul className="list-link">
+                        <li>
+                            <a href="javascript:common.link.moveTermsPage();">이용약관</a>
+                            <a href="javascript:common.link.moveLegalPage();">법적고지</a>
+                        </li>
+                        <li><a href="javascript:common.link.movePrivacyPage();">개인정보처리방침</a></li>
+                        <li><a href="javascript:common.link.moveYouthProtectionPage();">청소년보호방침</a></li>
+                        <li><a href="javascript:common.link.moveMultimediaPage();">영상정보처리기기 운영/관리 방침</a>
+                        </li>
+                        <li><a href="javascript:common.link.moveDenyEmailPage();">이메일무단수집거부</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //#Footer -->
 
 </body>
 
