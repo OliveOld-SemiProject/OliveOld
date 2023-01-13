@@ -23,24 +23,7 @@ public class MainController {
     public MainController(MainService mainService) {this.mainService = mainService; }
 
 
-//    @GetMapping
-//    public ModelAndView newProductList(HttpServletRequest request, ModelAndView mv){
-//
-//        List<DetailDTO> newProductList = mainService.selectNewProductList();
-//
-//        log.info("[MainController] newProductList : " + newProductList);
-//
-////        mv.addObject("productList", productList.get(0));
-//
-//        mv.addObject("newProductList", newProductList);
-//
-//
-//        mv.setViewName("/index");
-//
-//        return mv;
-//
-//
-//    }
+
 
     @GetMapping
     public ModelAndView productList(HttpServletRequest request, ModelAndView mv){
@@ -79,7 +62,24 @@ public class MainController {
         return mv;
     }
 
-
+//    @GetMapping
+//    public ModelAndView newProductList(HttpServletRequest request, ModelAndView mv){
+//
+//        List<DetailDTO> newProductList = mainService.selectNewProductList();
+//
+//        log.info("[MainController] newProductList : " + newProductList);
+//
+////        mv.addObject("productList", productList.get(0));
+//
+//        mv.addObject("newProductList", newProductList);
+//
+//
+//        mv.setViewName("/index");
+//
+//        return mv;
+//
+//
+//    }
 
 
 

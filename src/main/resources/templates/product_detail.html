@@ -297,18 +297,16 @@
                         <input type="hidden" id="mainImgSize" value="550">
                     </div>
                     <ul class="prd_thumb_list" id="prd_thumb_list">
-
                     </ul>
                 </div>
                 <div class="right_area">
                     <div class="prd_info">
-                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}">[한정기획] 피지오겔 레드수딩 AI 진정보습
-                            크림 100ml 기획(+50ml 증정)</p>
+                        <p class="prd_name" th:text="${findProductListByNo.get(0).productName}"></p>
                         <div class="price">
                             <span class="price-2">
-                                        <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}">31,410</strong>
+                                        <strong data-th-text="${#numbers.formatInteger(findProductListByNo.get(0).productPrice, 3, 'COMMA') + ' '}"></strong>
                                         <span>원</span>
-                                    </span>
+                            </span>
                         </div>
                         <div class="prd_more_info">
                             <div class="row">
@@ -372,7 +370,10 @@
                     </div>
                 </div>
             </div>
-
+            <br><br><br>
+            <div class="sub_title_area customer">
+                <h1>리뷰 <span>고객님들이 남겨주신 리뷰</span></h1>
+            </div>
                 <div class="oneOnBoard area">
                     <div th:if="${!#lists.isEmpty(findReviewListByProductNo)}" th:each="review : ${findReviewListByProductNo}">
                         <div class="list-customer">
@@ -384,7 +385,7 @@
                                         </strong>
                                         <th:block th:text="${review.getReviewContents()}"></th:block>
 
-                                        <span class="data">2023-01-10</span>
+                                        <span class="data" th:text="${#dates.format(review.getReviewDate(), 'yyyy-MM-dd')}"></span>
                                     </a>
                                 </li>
                             </ul>
