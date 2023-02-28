@@ -22,12 +22,12 @@
 
     <select id="findMemberById"  resultMap="MemberResultMap">
         SELECT *
-        From SemiDB.Member A
+        From semiDB.Member A
         Where A.MEMBER_ID = #{memberId}
     </select>
 
     <insert id="insertMember" parameterType="MemberDTO">
-        INSERT into SemiDB.Member
+        INSERT into semiDB.Member
         values (
         #{memberId},
         #{memberPwd},
@@ -46,7 +46,7 @@
     </insert>
 
     <update id="changePwd" parameterType="String">
-        Update SemiDB.`Member` SET MEMBER_PWD = #{newPwd}
+        Update semiDB.`Member` SET MEMBER_PWD = #{newPwd}
         WHERE MEMBER_ID = #{id}
 
     </update>

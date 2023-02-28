@@ -31,12 +31,12 @@
 
     <select id="selectNoticeList" resultMap="NoticeResultMap">
         SELECT
-               NOTICE_NO
-             , NOTICE_TITLE
-             , NOTICE_REGISTDATE
-             , NOTICE_CONTENT
-             , NOTICE_WRITER
-        FROM SemiDB.NOTICE
+        NOTICE_NO
+        , NOTICE_TITLE
+        , NOTICE_REGISTDATE
+        , NOTICE_CONTENT
+        , NOTICE_WRITER
+        FROM semiDB.NOTICE
     </select>
 
     <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
@@ -68,9 +68,9 @@
 
     <insert id="registNotice" parameterType="NoticeDTO">
         INSERT
-          INTO SemiDB.NOTICE
+        INTO semiDB.NOTICE
         (
-          NOTICE_NO
+        NOTICE_NO
         , NOTICE_TITLE
         , NOTICE_REGISTDATE
         , NOTICE_CONTENT
@@ -78,7 +78,7 @@
         )
         VALUES
         (
-          null
+        null
         , #{ noticeTitle }
         , now()
         , #{ noticeContent }
@@ -88,29 +88,29 @@
 
     <select id="selectNoticeDetail" resultMap="NoticeResultMap">
         SELECT
-               A.NOTICE_NO
-             , A.NOTICE_TITLE
-             , A.NOTICE_REGISTDATE
-             , A.NOTICE_CONTENT
-             , A.NOTICE_WRITER
-             , B.MEMBER_NAME
-          FROM NOTICE A
-          JOIN Member B ON (A.NOTICE_WRITER = B.MEMBER_ID)
-          WHERE A.NOTICE_NO = #{ no }
+        A.NOTICE_NO
+        , A.NOTICE_TITLE
+        , A.NOTICE_REGISTDATE
+        , A.NOTICE_CONTENT
+        , A.NOTICE_WRITER
+        , B.MEMBER_NAME
+        FROM NOTICE A
+        JOIN Member B ON (A.NOTICE_WRITER = B.MEMBER_ID)
+        WHERE A.NOTICE_NO = #{ no }
     </select>
 
     <update id="updateNotice" parameterType="NoticeDTO">
         UPDATE
-               NOTICE A
-           SET A.NOTICE_TITLE = #{ noticeTitle }
-             , A.NOTICE_CONTENT = #{ noticeContent }
-         WHERE A.NOTICE_NO = #{ no }
+        NOTICE A
+        SET A.NOTICE_TITLE = #{ noticeTitle }
+        , A.NOTICE_CONTENT = #{ noticeContent }
+        WHERE A.NOTICE_NO = #{ no }
     </update>
 
     <delete id="removeNotice">
         DELETE
-          FROM NOTICE A
-         WHERE A.NOTICE_NO = #{ no }
+        FROM NOTICE A
+        WHERE A.NOTICE_NO = #{ no }
     </delete>
 
 </mapper>

@@ -88,17 +88,17 @@
 
     <select id="selectOneOnOneBoardList" resultMap="OneOnOneBoardResultMap">
         SELECT
-              A.OneOnOne_BOARD_NO
-            , A.OneOnOne_BOARD_NO
-            , A.OneOnOne_CATEGORY_CODE
-            , B.CATEGORY_NAME
-            , A.OneOnOne_BOARD_TITLE
-            , A.OneOnOne_BOARD_BODY
-            , A.OneOnOne_BOARD_WRITER_MEMBER_ID
-            , C.MEMBER_NAME
-            , A.OneOnOne_BOARD_COUNT
-            , A.OneOnOne_CREATED_DATE
-            , A.OneOnOne_BOARD_STATUS
+        A.OneOnOne_BOARD_NO
+        , A.OneOnOne_BOARD_NO
+        , A.OneOnOne_CATEGORY_CODE
+        , B.CATEGORY_NAME
+        , A.OneOnOne_BOARD_TITLE
+        , A.OneOnOne_BOARD_BODY
+        , A.OneOnOne_BOARD_WRITER_MEMBER_ID
+        , C.MEMBER_NAME
+        , A.OneOnOne_BOARD_COUNT
+        , A.OneOnOne_CREATED_DATE
+        , A.OneOnOne_BOARD_STATUS
         FROM TBL_OneOnOne_BOARD A
         JOIN TBL_OneOnOne_CATEGORY B ON(B.CATEGORY_CODE = A.OneOnOne_CATEGORY_CODE)
         JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)
@@ -108,12 +108,12 @@
                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>
             </if>
 
-             <if test="typeValue == -3">
-                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
+            <if test="typeValue == -3">
+                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>
             </if>
 
-             <if test="typeValue == -6">
-                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
+            <if test="typeValue == -6">
+                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>
             </if>
 
             <if test="typeValue == '-12'">
@@ -156,7 +156,7 @@
 
     <select id="selectBoardDetail" resultMap="OneOnOneBoardResultMap">
         SELECT
-          A.OneOnOne_BOARD_NO
+        A.OneOnOne_BOARD_NO
         , A.OneOnOne_BOARD_TITLE
         , A.OneOnOne_BOARD_BODY
         , A.OneOnOne_BOARD_WRITER_MEMBER_ID
@@ -172,7 +172,7 @@
         JOIN TBL_ATTACHMENT D ON ( A.OneOnOne_BOARD_NO = D.REF_BOARD_NO )
         WHERE A.OneOnOne_BOARD_STATUS = 'Y'
         AND A.OneOnOne_BOARD_NO = #{ no }
-<!--        AND D.ATTACHMENT_STATUS = 'Y'-->
+        <!--        AND D.ATTACHMENT_STATUS = 'Y'-->
     </select>
 
     <delete id="removeOneOnOne" parameterType="long">
@@ -194,7 +194,7 @@
         INSERT
         INTO TBL_ATTACHMENT
         (
-          ATTACHMENT_NO
+        ATTACHMENT_NO
         , REF_BOARD_NO
         , ORIGINAL_NAME
         , SAVED_NAME
@@ -205,7 +205,7 @@
         )
         VALUES
         (
-          null
+        null
         , #{ refBoardNo }
         , #{ originalName }
         , #{ savedName }

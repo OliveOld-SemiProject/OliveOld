@@ -40,20 +40,20 @@
         , MEMBER_LEVEL
         , MEMBER_TYPE
         , MEMBER_MILEAGE
-        FROM SemiDB.Member
+        FROM semiDB.Member
     </select>
 
     <select id="findMileageById" resultMap="MemberResultMap">
         SELECT
         MEMBER_MILEAGE
-        FROM SemiDB.Member
+        FROM semiDB.Member
         WHERE MEMBER_MILEAGE = #{ memberId }
     </select>
 
     <select id="selectMileage" resultMap="MemberMileageResultMap">
         SELECT
         MEMBER_MILEAGE
-        FROM SemiDB.Member
+        FROM semiDB.Member
     </select>
 
 

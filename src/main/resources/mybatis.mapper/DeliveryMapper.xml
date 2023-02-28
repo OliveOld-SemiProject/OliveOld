@@ -27,16 +27,16 @@
         <result property="categoryName" column="CATEGORY_NAME"/>
     </resultMap>
 
-  <select id="selectDeliveryList" resultMap="OrderResultMap">
-      SELECT
-                A.ORDER_DATE
-              , B.PRODUCT_IMAGE1
-              , B.PRODUCT_NAME
-              , A.ORDER_QUAN
-              , B.PRODUCT_PRICE
-          FROM  SemiDB.TBL_ORDER A
-          JOIN  SemiDB.PRODUCT B on A.PRODUCT_NO = B.PRODUCT_NO
-         WHERE  A.MEMBER_ID = #{ memberId }
-  </select>
+    <select id="selectDeliveryList" resultMap="OrderResultMap">
+        SELECT
+        A.ORDER_DATE
+        , B.PRODUCT_IMAGE1
+        , B.PRODUCT_NAME
+        , A.ORDER_QUAN
+        , B.PRODUCT_PRICE
+        FROM  semiDB.TBL_ORDER A
+        JOIN  semiDB.PRODUCT B on A.PRODUCT_NO = B.PRODUCT_NO
+        WHERE  A.MEMBER_ID = #{ memberId }
+    </select>
 
 </mapper>

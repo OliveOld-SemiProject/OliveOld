@@ -48,73 +48,73 @@
     </select>
 
 
-<!--    <select id="selectOneOnOneBoardList" resultMap="OneOnOneBoardResultMap">-->
-<!--        SELECT-->
-<!--              A.OneOnOne_BOARD_NO-->
-<!--            , A.OneOnOne_BOARD_NO-->
-<!--            , A.OneOnOne_CATEGORY_CODE-->
-<!--            , B.CATEGORY_NAME-->
-<!--            , A.OneOnOne_BOARD_TITLE-->
-<!--            , A.OneOnOne_BOARD_BODY-->
-<!--            , A.OneOnOne_BOARD_WRITER_MEMBER_ID-->
-<!--            , C.MEMBER_NAME-->
-<!--            , A.OneOnOne_BOARD_COUNT-->
-<!--            , A.OneOnOne_CREATED_DATE-->
-<!--            , A.OneOnOne_BOARD_STATUS-->
-<!--        FROM TBL_OneOnOne_BOARD A-->
-<!--        JOIN TBL_OneOnOne_CATEGORY B ON(B.CATEGORY_CODE = A.OneOnOne_CATEGORY_CODE)-->
-<!--        JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)-->
+    <!--    <select id="selectOneOnOneBoardList" resultMap="OneOnOneBoardResultMap">-->
+    <!--        SELECT-->
+    <!--              A.OneOnOne_BOARD_NO-->
+    <!--            , A.OneOnOne_BOARD_NO-->
+    <!--            , A.OneOnOne_CATEGORY_CODE-->
+    <!--            , B.CATEGORY_NAME-->
+    <!--            , A.OneOnOne_BOARD_TITLE-->
+    <!--            , A.OneOnOne_BOARD_BODY-->
+    <!--            , A.OneOnOne_BOARD_WRITER_MEMBER_ID-->
+    <!--            , C.MEMBER_NAME-->
+    <!--            , A.OneOnOne_BOARD_COUNT-->
+    <!--            , A.OneOnOne_CREATED_DATE-->
+    <!--            , A.OneOnOne_BOARD_STATUS-->
+    <!--        FROM TBL_OneOnOne_BOARD A-->
+    <!--        JOIN TBL_OneOnOne_CATEGORY B ON(B.CATEGORY_CODE = A.OneOnOne_CATEGORY_CODE)-->
+    <!--        JOIN Member C ON(C.MEMBER_ID = A.OneOnOne_BOARD_WRITER_MEMBER_ID)-->
 
-<!--        <where>-->
-<!--            <if test="typeValue == '-1'">-->
-<!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>-->
-<!--            </if>-->
+    <!--        <where>-->
+    <!--            <if test="typeValue == '-1'">-->
+    <!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 30]]>-->
+    <!--            </if>-->
 
-<!--             <if test="typeValue == -3">-->
-<!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>-->
-<!--            </if>-->
+    <!--             <if test="typeValue == -3">-->
+    <!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 90]]>-->
+    <!--            </if>-->
 
-<!--             <if test="typeValue == -6">-->
-<!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>-->
-<!--            </if>-->
+    <!--             <if test="typeValue == -6">-->
+    <!--                 <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 180]]>-->
+    <!--            </if>-->
 
-<!--            <if test="typeValue == '-12'">-->
-<!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>-->
-<!--            </if>-->
+    <!--            <if test="typeValue == '-12'">-->
+    <!--                <![CDATA[DATEDIFF(SYSDATE(),A.OneOnOne_CREATED_DATE) <= 360]]>-->
+    <!--            </if>-->
 
-<!--        </where>-->
+    <!--        </where>-->
 
-<!--    </select>-->
+    <!--    </select>-->
 
 
 
-<!--    <insert id="registOneOnOneBoard" parameterType="OneOnOneBoardDTO">-->
+    <!--    <insert id="registOneOnOneBoard" parameterType="OneOnOneBoardDTO">-->
 
-<!--        INSERT-->
-<!--        INTO TBL_OneOnOne_BOARD-->
-<!--        (-->
-<!--        OneOnOne_BOARD_NO-->
-<!--        ,OneOnOne_CATEGORY_CODE-->
-<!--        ,OneOnOne_BOARD_TITLE-->
-<!--        ,OneOnOne_BOARD_BODY-->
-<!--        ,OneOnOne_BOARD_WRITER_MEMBER_ID-->
-<!--        ,OneOnOne_CREATED_DATE-->
-<!--        )-->
-<!--        VALUES-->
-<!--        (-->
-<!--        NULL-->
-<!--        , #{ categoryCode }-->
-<!--        , #{ title }-->
-<!--        , #{ body }-->
-<!--        , 'user01'    &lt;!&ndash;  테스트용 이거 바꿔야 합니다&ndash;&gt;-->
-<!--        ,  now()-->
-<!--        )-->
+    <!--        INSERT-->
+    <!--        INTO TBL_OneOnOne_BOARD-->
+    <!--        (-->
+    <!--        OneOnOne_BOARD_NO-->
+    <!--        ,OneOnOne_CATEGORY_CODE-->
+    <!--        ,OneOnOne_BOARD_TITLE-->
+    <!--        ,OneOnOne_BOARD_BODY-->
+    <!--        ,OneOnOne_BOARD_WRITER_MEMBER_ID-->
+    <!--        ,OneOnOne_CREATED_DATE-->
+    <!--        )-->
+    <!--        VALUES-->
+    <!--        (-->
+    <!--        NULL-->
+    <!--        , #{ categoryCode }-->
+    <!--        , #{ title }-->
+    <!--        , #{ body }-->
+    <!--        , 'user01'    &lt;!&ndash;  테스트용 이거 바꿔야 합니다&ndash;&gt;-->
+    <!--        ,  now()-->
+    <!--        )-->
 
-<!--    </insert>-->
+    <!--    </insert>-->
 
     <select id="selectSearchProductList" resultMap="SearchProductResultMap">
         SELECT
-          A.PRODUCT_NO
+        A.PRODUCT_NO
         , A.PRODUCT_NAME
         , A.PRODUCT_PRICE
         , A.PRODUCT_QUAN

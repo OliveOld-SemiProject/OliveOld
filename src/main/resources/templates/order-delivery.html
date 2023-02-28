@@ -18,339 +18,339 @@
 </head>
 
 <body>
-    <header>
-        <!-- start header -->
-        <div class="headerTopNew">
-            <div class="inner">
-                <div class="head-util">
-                    <ul>
-                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
-                            <form action="/member/login" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
-                            </form>
-                        </li>
+<header>
+    <!-- start header -->
+    <div class="headerTopNew">
+        <div class="inner">
+            <div class="head-util">
+                <ul>
+                    <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-join">
+                        <form action="/member/login" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >로그인</button>
+                        </form>
+                    </li>
 
-                        <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
-                            <form action="/signup" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
-                            </form>
-                        </li>
+                    <li th:if="${#authentication.name.toString().equals('anonymousUser')}" class="util-signup">
+                        <form action="/signup" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >회원가입</button>
+                        </form>
+                    </li>
 
-                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
-                            <form action="/mypage" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
-                                        th:text="${#authentication.name}">user</button>
-                            </form>
-                        </li>
+                    <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-users">
+                        <form action="/mypage" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset"
+                                    th:text="${#authentication.name}">user</button>
+                        </form>
+                    </li>
 
-                        <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
-                            <form action="/member/logout" method="post">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
-                            </form>
-                        </li>
+                    <li th:if="!(${#authentication.name.toString().equals('anonymousUser')})" class="util-logout">
+                        <form action="/member/logout" method="post">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset">로그아웃</button>
+                        </form>
+                    </li>
 
-                        <li class="util-order">
-                            <form action="/order/list" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
-                            </form>
-                        </li>
-                        <li class="util-cart">
-                            <form action="/cartList" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
-                            </form>
-                        </li>
-                        <li class="util-cs">
-                            <form action="/notice/list" method="get">
-                                <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
-                            </form>
-                        </li>
-                    </ul>
+                    <li class="util-order">
+                        <form action="/order/list" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >주문/배송</button>
+                        </form>
+                    </li>
+                    <li class="util-cart">
+                        <form action="/cartList" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >장바구니</button>
+                        </form>
+                    </li>
+                    <li class="util-cs">
+                        <form action="/notice/list" method="get">
+                            <button type="submit" style="color: #0b060a; background: unset; font-size : 11px; font: unset" >고객센터</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+
+        <!-- Start Header Middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3 col-7">
+                        <!-- Start Header Logo -->
+                        <form class="navbar-brand" action="/">
+                            <button type="submit">
+                                <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
+                            </button>
+                        </form>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-5 col-md-7 d-xs-none">
+                        <!-- Start Main Menu Search -->
+
+                        <form th:action="@{/mainSearch/search}" method="get">
+                            <div class="main-menu-search">
+                                <!-- navbar search start -->
+                                <div class="navbar-search search-style-5">
+
+                                    <div class="search-input">
+                                        <input id="text" type="text" name="searchValue" placeholder="Search">
+                                    </div>
+
+                                    <div class="search-btn">
+                                        <button><i class="lni lni-search-alt" type="submit"></i></button>
+                                    </div>
+                                </div>
+                                <!-- navbar search Ends -->
+                            </div>
+                        </form>
+                        <!-- End Main Menu Search -->
+                    </div>
+
                 </div>
             </div>
         </div>
-    
-        <!-- Start Header Area -->
-        <header class="header navbar-area">
-    
-            <!-- Start Header Middle -->
-            <div class="header-middle">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3 col-md-3 col-7">
-                            <!-- Start Header Logo -->
-                            <form class="navbar-brand" action="/">
-                                <button type="submit">
-                                    <img src="/assets/images/logo/oliveLogo.png" alt="Logo">
-                                </button>
+        <!-- End Header Middle -->
+        <div class="header-wrap">
+
+            <div class="gnb-wrap">
+                <script>var IE8Under = false; var IE7Under = false;</script>
+
+
+                <div class="gnbV18">
+                    <ul>
+                        <li id="cateButton1" name="gnb101" class="">
+                            <p>스킨케어</p>
+                        </li>
+                        <li id="cateButton2" class="line" name="gnb121" >
+                            <p>메이크업</p>
+                        </li>
+                        <li id="cateButton3" class="line" name="gnb120" >
+                            <p>헤어케어</p>
+                        </li>
+                        <li id="cateButton4" class="line" name="gnb112" >
+                            <p>건강식품</p>
+                        </li>
+                        <li id="cateButton5" class="line" name="gnb116" >
+                            <p>보행보조용품</p>
+                        </li>
+                        <li>
+                            <form>
+                                <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
                             </form>
-                            <!-- End Header Logo -->
-                        </div>
-                        <div class="col-lg-5 col-md-7 d-xs-none">
-                            <!-- Start Main Menu Search -->
+                        </li>
+                        <script>
 
-                            <form th:action="@{/mainSearch/search}" method="get">
-                                <div class="main-menu-search">
-                                    <!-- navbar search start -->
-                                    <div class="navbar-search search-style-5">
+                            // 스킨케어
 
-                                        <div class="search-input">
-                                            <input id="text" type="text" name="searchValue" placeholder="Search">
-                                        </div>
+                            document.getElementById("cateButton1").onclick=function(){
 
-                                        <div class="search-btn">
-                                            <button><i class="lni lni-search-alt" type="submit"></i></button>
-                                        </div>
-                                    </div>
-                                    <!-- navbar search Ends -->
-                                </div>
-                            </form>
-                            <!-- End Main Menu Search -->
-                        </div>
+                                location.href='/mainSearch/search?cateCode=4';
 
-                    </div>
+                            };
+
+
+                            //메이크업
+
+                            document.getElementById("cateButton2").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=2';
+                            };
+
+                            //
+
+                            document.getElementById("cateButton3").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=5';
+                            };
+
+                            document.getElementById("cateButton4").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=1';
+                            };
+
+                            document.getElementById("cateButton5").onclick = function(){
+
+                                location.href='/mainSearch/search?cateCode=3';
+                            };
+
+                        </script>
+                    </ul>
                 </div>
             </div>
-            <!-- End Header Middle -->
-            <div class="header-wrap">
+        </div><!-- Start Header Bottom -->
+        <!-- Start Header Bottom -->
+    </header>
 
-                <div class="gnb-wrap">
-                    <script>var IE8Under = false; var IE7Under = false;</script>
+    <div id="Container">
+        <div class="mypage-conts">
+            <div class="title-area2">
+                <h2 class="tit">주문/배송 조회</h2>
+            </div>
 
+            <fieldset class="search-period mgT30">
+                <legend></legend>
 
-                    <div class="gnbV18">
-                        <ul>
-                            <li id="cateButton1" name="gnb101" class="">
-                                <p>스킨케어</p>
-                            </li>
-                            <li id="cateButton2" class="line" name="gnb121" >
-                                <p>메이크업</p>
-                            </li>
-                            <li id="cateButton3" class="line" name="gnb120" >
-                                <p>헤어케어</p>
-                            </li>
-                            <li id="cateButton4" class="line" name="gnb112" >
-                                <p>건강식품</p>
-                            </li>
-                            <li id="cateButton5" class="line" name="gnb116" >
-                                <p>보행보조용품</p>
-                            </li>
-                            <li>
-                                <form>
-                                    <a href="/event/game" onclick="top.location.href='/shopping/category_list.asp?disp=118';"><p>이벤트</p></a>
-                                </form>
-                            </li>
-                            <script>
+                <div class="select_con">
+                    <p>구매기간</p>
+                    <ul class="select-month">
+                        <li class="on">
+                        <li><button id="button1" class="btn_selectM" type="button" data-month="-1">1개월</button></li>
+                        <li><button id="button2" class="btn_selectM" type="button" data-month="-3">3개월</button></li>
+                        <li><button id="button3" class="btn_selectM" type="button" data-month="-6">6개월</button></li>
+                        <li><button id="button4" class="btn_selectM" type="button" data-month="-12">12개월</button></li>
+                        <input type="hidden" id="btnSearch">
 
-                                // 스킨케어
+                    </ul>
 
-                                document.getElementById("cateButton1").onclick=function(){
+                    <!--                        <script type="text/javascript">-->
 
-                                    location.href='/mainSearch/search?cateCode=4';
+                    <!--                            var button1 = document.querySelector('#button1');-->
+                    <!--                            var button2 = document.querySelector('#button2');-->
+                    <!--                            var button3 = document.querySelector('#button3');-->
+                    <!--                            var button4 = document.querySelector('#button4');-->
 
-                                };
+                    <!--                            var changeColor = function(e){-->
 
+                    <!--                                if(e.target === button1) {-->
+                    <!--                                    button1.style.backgroundColor = "#37003E";-->
+                    <!--                                    button1.style.color = 'white';-->
 
-                                //메이크업
+                    <!--                                    button2.style.backgroundColor = "white";-->
+                    <!--                                    button2.style.color = "black";-->
+                    <!--                                    button3.style.backgroundColor = "white";-->
+                    <!--                                    button3.style.color = "black";-->
+                    <!--                                    button4.style.backgroundColor = "white";-->
+                    <!--                                    button4.style.color = "black";-->
+                    <!--                                }-->
+                    <!--                                if(e.target === button2) {-->
+                    <!--                                    button2.style.backgroundColor = "#37003E";-->
+                    <!--                                    button2.style.color = 'white';-->
 
-                                document.getElementById("cateButton2").onclick = function(){
+                    <!--                                    button1.style.backgroundColor = "white";-->
+                    <!--                                    button1.style.color = "black";-->
+                    <!--                                    button3.style.backgroundColor = "white";-->
+                    <!--                                    button3.style.color = "black";-->
+                    <!--                                    button4.style.backgroundColor = "white";-->
+                    <!--                                    button4.style.color = "black";-->
+                    <!--                                }-->
+                    <!--                                if(e.target === button3) {-->
+                    <!--                                    button3.style.backgroundColor = "#37003E";-->
+                    <!--                                    button3.style.color = 'white';-->
 
-                                    location.href='/mainSearch/search?cateCode=2';
-                                };
+                    <!--                                    button1.style.backgroundColor = "white";-->
+                    <!--                                    button1.style.color = "black";-->
+                    <!--                                    button2.style.backgroundColor = "white";-->
+                    <!--                                    button2.style.color = "black";-->
+                    <!--                                    button4.style.backgroundColor = "white";-->
+                    <!--                                    button4.style.color = "black";-->
+                    <!--                                }-->
+                    <!--                                if(e.target === button4) {-->
+                    <!--                                    button4.style.backgroundColor = "#37003E";-->
+                    <!--                                    button4.style.color = 'white';-->
 
-                                //
+                    <!--                                    button2.style.backgroundColor = "white";-->
+                    <!--                                    button2.style.color = "black";-->
+                    <!--                                    button3.style.backgroundColor = "white";-->
+                    <!--                                    button3.style.color = "black";-->
+                    <!--                                    button4.style.backgroundColor = "white";-->
+                    <!--                                    button4.style.color = "black";-->
+                    <!--                                }-->
+                    <!--                            }-->
+                    <!--                        </script>-->
+                    <!--                            const btn = document.getElementsByClassName('btn_selectM')-->
 
-                                document.getElementById("cateButton3").onclick = function(){
+                    <!--                            console.log(btn);-->
+                    <!--                            [...btn].forEach((element, index) => {-->
+                    <!--                                console.log(index);-->
+                    <!--                                console.log(element);-->
+                    <!--                            })-->
 
-                                    location.href='/mainSearch/search?cateCode=5';
-                                };
-
-                                document.getElementById("cateButton4").onclick = function(){
-
-                                    location.href='/mainSearch/search?cateCode=1';
-                                };
-
-                                document.getElementById("cateButton5").onclick = function(){
-
-                                    location.href='/mainSearch/search?cateCode=3';
-                                };
-
-                            </script>
-                        </ul>
+                    <div class="select-range">
+                        <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022" selected="selected">2022</option></select>
+                        <label for="cal-start-year">년</label>
+                        <select id="cal-start-month" title="달월을 선택하세요" style="width:60px;">
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <label for="cal-start-month">월</label>
+                        <select id="cal-start-day" title="날일을 선택하세요" style="width:60px;">
+                            <option value="01" selected="selected">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+                        <label for="cal-start-day">일</label>
+                        <span class="des">~</span>
+                        <select id="cal-end-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023" selected="selected">2023</option></select>
+                        <label for="cal-end-year">년</label>
+                        <select id="cal-end-month" title="달월을 선택하세요" style="width:60px;">
+                            <option value="01" selected="selected">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <label for="cal-end-month">월</label>
+                        <select id="cal-end-day" title="날일을 선택하세요" style="width:60px;">
+                            <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13" selected="selected">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+                        <label for="cal-end-day">일</label>
                     </div>
                 </div>
-            </div><!-- Start Header Bottom -->
-            <!-- Start Header Bottom -->
-        </header>
 
-        <div id="Container">
-            <div class="mypage-conts">
-                <div class="title-area2">
-                    <h2 class="tit">주문/배송 조회</h2>
-                </div>
-
-                <fieldset class="search-period mgT30">
-                    <legend></legend>
-
-                    <div class="select_con">
-                        <p>구매기간</p>
-                        <ul class="select-month">
-                            <li class="on">
-                            <li><button id="button1" class="btn_selectM" type="button" data-month="-1">1개월</button></li>
-                            <li><button id="button2" class="btn_selectM" type="button" data-month="-3">3개월</button></li>
-                            <li><button id="button3" class="btn_selectM" type="button" data-month="-6">6개월</button></li>
-                            <li><button id="button4" class="btn_selectM" type="button" data-month="-12">12개월</button></li>
-                            <input type="hidden" id="btnSearch">
-
-                        </ul>
-
-<!--                        <script type="text/javascript">-->
-
-<!--                            var button1 = document.querySelector('#button1');-->
-<!--                            var button2 = document.querySelector('#button2');-->
-<!--                            var button3 = document.querySelector('#button3');-->
-<!--                            var button4 = document.querySelector('#button4');-->
-
-<!--                            var changeColor = function(e){-->
-
-<!--                                if(e.target === button1) {-->
-<!--                                    button1.style.backgroundColor = "#37003E";-->
-<!--                                    button1.style.color = 'white';-->
-
-<!--                                    button2.style.backgroundColor = "white";-->
-<!--                                    button2.style.color = "black";-->
-<!--                                    button3.style.backgroundColor = "white";-->
-<!--                                    button3.style.color = "black";-->
-<!--                                    button4.style.backgroundColor = "white";-->
-<!--                                    button4.style.color = "black";-->
-<!--                                }-->
-<!--                                if(e.target === button2) {-->
-<!--                                    button2.style.backgroundColor = "#37003E";-->
-<!--                                    button2.style.color = 'white';-->
-
-<!--                                    button1.style.backgroundColor = "white";-->
-<!--                                    button1.style.color = "black";-->
-<!--                                    button3.style.backgroundColor = "white";-->
-<!--                                    button3.style.color = "black";-->
-<!--                                    button4.style.backgroundColor = "white";-->
-<!--                                    button4.style.color = "black";-->
-<!--                                }-->
-<!--                                if(e.target === button3) {-->
-<!--                                    button3.style.backgroundColor = "#37003E";-->
-<!--                                    button3.style.color = 'white';-->
-
-<!--                                    button1.style.backgroundColor = "white";-->
-<!--                                    button1.style.color = "black";-->
-<!--                                    button2.style.backgroundColor = "white";-->
-<!--                                    button2.style.color = "black";-->
-<!--                                    button4.style.backgroundColor = "white";-->
-<!--                                    button4.style.color = "black";-->
-<!--                                }-->
-<!--                                if(e.target === button4) {-->
-<!--                                    button4.style.backgroundColor = "#37003E";-->
-<!--                                    button4.style.color = 'white';-->
-
-<!--                                    button2.style.backgroundColor = "white";-->
-<!--                                    button2.style.color = "black";-->
-<!--                                    button3.style.backgroundColor = "white";-->
-<!--                                    button3.style.color = "black";-->
-<!--                                    button4.style.backgroundColor = "white";-->
-<!--                                    button4.style.color = "black";-->
-<!--                                }-->
-<!--                            }-->
-<!--                        </script>-->
-<!--                            const btn = document.getElementsByClassName('btn_selectM')-->
-
-<!--                            console.log(btn);-->
-<!--                            [...btn].forEach((element, index) => {-->
-<!--                                console.log(index);-->
-<!--                                console.log(element);-->
-<!--                            })-->
-
-                        <div class="select-range">
-                            <select id="cal-start-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022" selected="selected">2022</option></select>
-                            <label for="cal-start-year">년</label>
-                            <select id="cal-start-month" title="달월을 선택하세요" style="width:60px;">
-                                <option value="01">1</option>
-                                <option value="02">2</option>
-                                <option value="03">3</option>
-                                <option value="04">4</option>
-                                <option value="05">5</option>
-                                <option value="06">6</option>
-                                <option value="07">7</option>
-                                <option value="08">8</option>
-                                <option value="09">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                            <label for="cal-start-month">월</label>
-                            <select id="cal-start-day" title="날일을 선택하세요" style="width:60px;">
-                                <option value="01" selected="selected">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-                            <label for="cal-start-day">일</label>
-                            <span class="des">~</span>
-                            <select id="cal-end-year" title="년도를 선택하세요" style="width:76px;"><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023" selected="selected">2023</option></select>
-                            <label for="cal-end-year">년</label>
-                            <select id="cal-end-month" title="달월을 선택하세요" style="width:60px;">
-                                <option value="01" selected="selected">1</option>
-                                <option value="02">2</option>
-                                <option value="03">3</option>
-                                <option value="04">4</option>
-                                <option value="05">5</option>
-                                <option value="06">6</option>
-                                <option value="07">7</option>
-                                <option value="08">8</option>
-                                <option value="09">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                            <label for="cal-end-month">월</label>
-                            <select id="cal-end-day" title="날일을 선택하세요" style="width:60px;">
-                                <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13" selected="selected">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-                            <label for="cal-end-day">일</label>
-                        </div>
-                    </div>
-
-                        <button type="button" class="btnLookup" id="do-search-period">조회</button>
-                </fieldset>
+                <button type="button" class="btnLookup" id="do-search-period">조회</button>
+            </fieldset>
             <script>
 
-            START_DATE   = '';
-            END_DATE     = '';
-            ollyoungYn = '';
+                START_DATE   = '';
+                END_DATE     = '';
+                ollyoungYn = '';
 
             </script>
 
-                <table class="board-list-2s mgT20">
-                    <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
-                    <colgroup>
-                        <col style="width:100px;">
-                        <col style="width:110px;">
-                        <col style="width:110px;">
-                        <col style="width:50px;">
-                        <col style="width:110px;">
-                    </colgroup>
-                    <thead>
-                    <tr style="text-align: center;">
-                        <th scope="col">주문일자</th>
-                        <th scope="col">이미지</th>
-                        <th scope="col">상품명</th>
-                        <th scope="col">수량</th>
-                        <th scope="col">주문금액</th>
-<!--                        <th scope="col">배송상태</th>-->
-                    </tr>
+            <table class="board-list-2s mgT20">
+                <caption>주문일자, 상품, 수량, 주문금액, 상태로 이루어진 주문/배송/내역 목록 표</caption>
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:110px;">
+                    <col style="width:110px;">
+                    <col style="width:50px;">
+                    <col style="width:110px;">
+                </colgroup>
+                <thead>
+                <tr style="text-align: center;">
+                    <th scope="col">주문일자</th>
+                    <th scope="col">이미지</th>
+                    <th scope="col">상품명</th>
+                    <th scope="col">수량</th>
+                    <th scope="col">주문금액</th>
+                    <!--                        <th scope="col">배송상태</th>-->
+                </tr>
 
-                    <tr
-                            th:each="order : ${ order }"
-                    >
-                        <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-                        <td><img th:src="${ order.productDTO.productImage1 }"></td>
-                        <td th:text="${ order.productDTO.productName }"></td>
-                        <td th:text="${ order.orderQuan }"></td>
-                        <td th:text="${ order.productDTO.productPrice }"></td>
-<!--                        <td th:text="${ order.delivery}"></td>-->
-                    </tr>
-                </table>
+                <tr
+                        th:each="order : ${ order }"
+                >
+                    <td th:text="${ #dates.format(order.orderDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td><img th:src="${ order.productDTO.productImage1 }"></td>
+                    <td th:text="${ order.productDTO.productName }"></td>
+                    <td th:text="${ order.orderQuan }"></td>
+                    <td th:text="${ order.productDTO.productPrice }"></td>
+                    <!--                        <td th:text="${ order.delivery}"></td>-->
+                </tr>
+            </table>
         </div>
     </div>
 </body>
@@ -380,8 +380,8 @@
                     <p><a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveold@gmail.com</a>
                     </p>
                     <p><a class="link" href="javascript:common.link.openFtcBizInfo();" title="새창 열림">사업자
-                            정보확인
-                            &gt;</a></p>
+                        정보확인
+                        &gt;</a></p>
                 </li>
                 <li>
                     <ul class="list-link">

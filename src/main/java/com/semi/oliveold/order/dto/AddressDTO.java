@@ -6,4 +6,5 @@ public class AddressDTO {
     private String address; //주소
     private String address_name; //주소 이름
 
+    public String memberId; // 아이디
 }

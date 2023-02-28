@@ -30,27 +30,27 @@
 
     </resultMap>
 
-<!--    <insert id="registReview" parameterType="ReviewResultMap">-->
+    <!--    <insert id="registReview" parameterType="ReviewResultMap">-->
 
-<!--        INSERT-->
-<!--        INTO REVIEW-->
-<!--        (-->
-<!--            REVIEW_NO-->
-<!--           ,REVIEW_CONTENTS-->
-<!--           ,REVIEW_WRITER-->
-<!--           ,REVIEW_REPLY-->
-<!--           ,PRODUCT_NO-->
-<!--        )-->
-<!--        VALUES-->
-<!--        (-->
-<!--            #{ reviewNo }-->
-<!--          , #{ reviewContents }-->
-<!--          , #{ reviewWriter }-->
-<!--          , #{ reviewReply }-->
-<!--          , #{ productNo }-->
-<!--        )-->
+    <!--        INSERT-->
+    <!--        INTO REVIEW-->
+    <!--        (-->
+    <!--            REVIEW_NO-->
+    <!--           ,REVIEW_CONTENTS-->
+    <!--           ,REVIEW_WRITER-->
+    <!--           ,REVIEW_REPLY-->
+    <!--           ,PRODUCT_NO-->
+    <!--        )-->
+    <!--        VALUES-->
+    <!--        (-->
+    <!--            #{ reviewNo }-->
+    <!--          , #{ reviewContents }-->
+    <!--          , #{ reviewWriter }-->
+    <!--          , #{ reviewReply }-->
+    <!--          , #{ productNo }-->
+    <!--        )-->
 
-<!--    </insert>-->
+    <!--    </insert>-->
 
 
 
@@ -67,7 +67,7 @@
         , PRODUCT_IMAGE1
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
     </select>
 
     <select id="findProductListByNo" resultMap="DetailResultMap">
@@ -82,7 +82,7 @@
         , PRODUCT_IMAGE1
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
         WHERE PRODUCT_NO = #{ code }
     </select>
 
@@ -98,7 +98,7 @@
         , PRODUCT_IMAGE1
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
         WHERE PRODUCT_NO = #{ code }
     </select>
 
@@ -113,11 +113,11 @@
         , REVIEW_REPLY
         , PRODUCT_NO
         , REVIEW_DATE
-        FROM SemiDB.REVIEW
+        FROM semiDB.REVIEW
         WHERE PRODUCT_NO = #{ code }
     </select>
 
-<!--  selectProduct  -->
+    <!--  selectProduct  -->
 
     <select id="selectProduct" resultMap="DetailResultMap">
         SELECT
@@ -131,7 +131,7 @@
         , PRODUCT_IMAGE1
         , PRODUCT_IMAGE2
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
     </select>
 
 </mapper>

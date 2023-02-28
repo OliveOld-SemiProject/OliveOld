@@ -71,39 +71,39 @@
         SELECT
         <!--            A.RNUM-->
         A.BOARD_NO
-                ,A.BOARD_TYPE
-                ,A.CATEGORY_CODE
-                ,D.CATEGORY_NAME
-                ,A.BOARD_TITLE
-                ,A.BOARD_BODY
-                ,A.BOARD_WRITER_MEMBER_ID
-                ,E.MEMBER_NAME
-                ,A.BOARD_COUNT
-                ,A.CREATED_DATE
-                ,A.BOARD_STATUS
+        ,A.BOARD_TYPE
+        ,A.CATEGORY_CODE
+        ,D.CATEGORY_NAME
+        ,A.BOARD_TITLE
+        ,A.BOARD_BODY
+        ,A.BOARD_WRITER_MEMBER_ID
+        ,E.MEMBER_NAME
+        ,A.BOARD_COUNT
+        ,A.CREATED_DATE
+        ,A.BOARD_STATUS
         FROM (
         SELECT
         <!--        @ROWNUM:=@ROWNUM+1 AS RNUM-->
         B.BOARD_NO
-                ,B.BOARD_TYPE
-                ,B.CATEGORY_CODE
-                ,B.BOARD_TITLE
-                ,B.BOARD_BODY
-                ,B.BOARD_WRITER_MEMBER_ID
-                ,B.BOARD_COUNT
-                ,B.CREATED_DATE
-                ,B.BOARD_STATUS
+        ,B.BOARD_TYPE
+        ,B.CATEGORY_CODE
+        ,B.BOARD_TITLE
+        ,B.BOARD_BODY
+        ,B.BOARD_WRITER_MEMBER_ID
+        ,B.BOARD_COUNT
+        ,B.CREATED_DATE
+        ,B.BOARD_STATUS
         FROM (
         SELECT
         C.BOARD_NO
-                ,C.BOARD_TYPE
-                ,C.CATEGORY_CODE
-                ,C.BOARD_TITLE
-                ,C.BOARD_BODY
-                ,C.BOARD_WRITER_MEMBER_ID
-                ,C.BOARD_COUNT
-                ,C.CREATED_DATE
-                ,C.BOARD_STATUS
+        ,C.BOARD_TYPE
+        ,C.CATEGORY_CODE
+        ,C.BOARD_TITLE
+        ,C.BOARD_BODY
+        ,C.BOARD_WRITER_MEMBER_ID
+        ,C.BOARD_COUNT
+        ,C.CREATED_DATE
+        ,C.BOARD_STATUS
         FROM TBL_BOARD C
 
         <where>
@@ -120,7 +120,7 @@
             <!--            </if>-->
 
             <if test="searchValue != null">
-<!--                C.BOARD_BODY LIKE '%' || #{ searchValue } || '%'-->
+                <!--                C.BOARD_BODY LIKE '%' || #{ searchValue } || '%'-->
                 C.BOARD_TITLE LIKE CONCAT('%',#{ searchValue }, '%')
             </if>
             AND C.BOARD_STATUS = 'Y'
@@ -140,26 +140,26 @@
 
 
     <insert id="insertFaqBoard" parameterType="BoardDTO">
-            
-       INSERT     
-       INTO TBL_BOARD
-       (
-           BOARD_NO
-          ,CATEGORY_CODE
-          ,BOARD_TITLE
-          ,BOARD_BODY
-          ,BOARD_WRITER_MEMBER_ID
-          ,CREATED_DATE
-       )
-       VALUES
-       (
-            NULL
-            , #{ categoryCode }
-            , #{ title }
-            , #{ body }
-            , 'user01'
-            , NOW()
-       )
+
+        INSERT
+        INTO TBL_BOARD
+        (
+        BOARD_NO
+        ,CATEGORY_CODE
+        ,BOARD_TITLE
+        ,BOARD_BODY
+        ,BOARD_WRITER_MEMBER_ID
+        ,CREATED_DATE
+        )
+        VALUES
+        (
+        NULL
+        , #{ categoryCode }
+        , #{ title }
+        , #{ body }
+        , 'user01'
+        , NOW()
+        )
 
     </insert>
 
@@ -184,7 +184,7 @@
         UPDATE
         TBL_BOARD A
         SET A.BOARD_TITLE = #{ title }
-          , A.BOARD_BODY = #{ body }
+        , A.BOARD_BODY = #{ body }
         WHERE A.BOARD_NO = #{ no }
     </update>
 
