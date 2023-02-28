@@ -22,17 +22,17 @@
 
     <select id="findByAll" resultMap="CartResultMap">
         SELECT *
-        FROM SemiDB.Cart
+        FROM semiDB.Cart
     </select>
 
     <select id="findById" resultMap="CartResultMap">
         SELECT *
-        from SemiDB.Cart c
+        from semiDB.Cart c
         where c.Member_id = #{memberId}
     </select>
 
     <delete id="deleteByCartId">
-        DELETE FROM SemiDB.Cart c
+        DELETE FROM semiDB.Cart c
         WHERE c.Cart_no = #{cartNo};
     </delete>
 
@@ -46,14 +46,14 @@
 
     <select id="totalCartPrice" resultType="_int">
         select sum(PRODUCT_PRICE)
-        FROM SemiDB.Cart c
-        inner join SemiDB.PRODUCT p
+        FROM semiDB.Cart c
+        inner join semiDB.PRODUCT p
         on c.Product_no = p.PRODUCT_NO
         WHERE c.Member_id = #{memberId};
     </select>
 
     <insert id="insertInCart">
-        insert into SemiDB.Cart
+        insert into semiDB.Cart
         (
         Cart_amount,
         Member_id,

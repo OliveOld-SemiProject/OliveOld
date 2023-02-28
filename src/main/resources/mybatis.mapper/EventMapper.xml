@@ -20,20 +20,20 @@
         <result property="mileage" column="MEMBER_MILEAGE"/>
 
     </resultMap>
-    
-<!--    <select id="selectMemberList" resultMap="EventResultMap">-->
-<!--        SELECT-->
-<!--               *-->
-<!--          FROM semiDB.Member-->
-<!--         WHERE MEMBER_MILEAGE = #{ mileage }-->
-<!--    </select>-->
+
+    <!--    <select id="selectMemberList" resultMap="EventResultMap">-->
+    <!--        SELECT-->
+    <!--               *-->
+    <!--          FROM semiDB.Member-->
+    <!--         WHERE MEMBER_MILEAGE = #{ mileage }-->
+    <!--    </select>-->
 
     <update id="UpdateMileage" parameterType="MemberDTO">
         UPDATE
-               MemberDTO
-           SET
-               MEMBER_MILEAGE = #{ mileage }
-         WHERE MEMBER_ID = #{ memberId}
+        MemberDTO
+        SET
+        MEMBER_MILEAGE = #{ mileage }
+        WHERE MEMBER_ID = #{ memberId}
     </update>
 
 
@@ -46,6 +46,6 @@
         <result property="accSavingDate" column="acc_savingDate"/>
     </resultMap>
 
-    
+
 
 </mapper>

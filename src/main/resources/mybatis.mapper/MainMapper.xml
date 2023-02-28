@@ -47,7 +47,7 @@
         , PRODUCT_IMAGE2
         , CATEGORY_CODE
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
         WHERE PRODUCT_NO In(3, 8, 14, 19, 25, 38, 43, 49)
     </select>
 
@@ -63,7 +63,7 @@
         , PRODUCT_IMAGE2
         , CATEGORY_CODE
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
         WHERE PRODUCT_NO In(2, 5, 12, 15, 27, 33, 36, 41)
     </select>
 
@@ -81,7 +81,7 @@
         , PRODUCT_IMAGE2
         , CATEGORY_CODE
         , CATEGORY_NAME
-        FROM SemiDB.PRODUCT
+        FROM semiDB.PRODUCT
     </select>
 
 </mapper>
